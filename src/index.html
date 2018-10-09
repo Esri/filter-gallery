@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="stylesheet" href="https://js.arcgis.com/4.9/esri/css/main.css">
+  <link rel="stylesheet" href="./bundle.css">
+</head>
+
+<body>
+  <div id="viewDiv"></div>
+  <script>
+    var file_path = window.location.pathname;
+    var dist_path = file_path.slice(0, file_path.lastIndexOf("/"));
+
+    dojoConfig = {
+      async: true,
+      packages: [
+        {
+          name: "config",
+          location: dist_path + "/config"
+        },
+        {
+          name: "nls",
+          location: dist_path + "/nls"
+        }
+      ]
+    };
+    if (location.search.match(/locale=([\w-]+)/)) {
+      dojoConfig.locale = RegExp.$1;
+    }
+  </script>
+  <script src="https://js.arcgis.com/4.9/"></script>
+  <script>
+    require([
+      "dojo/text!config/application.json",
+      "index.js"
+    ], function (
+      applicationConfig,
+      entryPoint
+    ) {
+        entryPoint.default(applicationConfig)
+      });
+  </script>
+</body>
+
+</html>
