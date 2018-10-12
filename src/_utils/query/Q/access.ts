@@ -1,4 +1,4 @@
-import { curry } from "../../functional/index";
+import { curry } from "../../functional";
 
 /**
  * (Curried, arity 2) Returns new q including the access query based on a shared filter

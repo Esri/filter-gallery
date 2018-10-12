@@ -1,4 +1,4 @@
-import { curry } from "../../functional/index";
+import { curry } from "../../functional";
 
 /**
  * Returns new q including the group query based on a supplied group

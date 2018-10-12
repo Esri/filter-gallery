@@ -3,7 +3,7 @@ import * as i18n from "dojo/i18n!nls/resources";
 import { applyMiddleware, createStore, createProjector, createEpicMiddleware, H, Store } from "./Component";
 import { rootEpic } from "./_epic";
 import reducer, { initialState, FilterGalleryState } from "./_reducer";
-import RootComponent from "./components";
+import RootComponent from "./components/FilterGallery";
 
 export type FilterGalleryStore = Store<FilterGalleryState>;
 

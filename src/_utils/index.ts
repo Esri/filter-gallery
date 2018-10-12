@@ -3,6 +3,6 @@
  * Only pure functions are allowed in this directory.
  */
 
-export * from "./functional/index";
-export * from "./metadata/index";
-export * from "./query/index";
+export * from "./functional";
+export * from "./metadata";
+export * from "./query";

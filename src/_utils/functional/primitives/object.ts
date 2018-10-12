@@ -1,4 +1,4 @@
-import { curry } from "../higherOrderFunctions/index";
+import { curry } from "../higherOrderFunctions";
 
 /**
  * Returns true if the object in question is empty

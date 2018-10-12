@@ -1,2 +1,2 @@
-export * from "./requests/index";
-export * from "./Q/index";
+export * from "./requests";
+export * from "./Q";

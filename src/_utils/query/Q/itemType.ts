@@ -1,5 +1,5 @@
-import { ItemTypeMap, ItemType, allItemTypes } from "../../metadata/item/index";
-import { curry } from "../../functional/index";
+import { ItemTypeMap, ItemType, allItemTypes } from "../../metadata/item";
+import { curry } from "../../functional";
 
 export interface ItemTypeQOptions {
     allowedItemTypes: ItemType[];

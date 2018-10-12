@@ -1,4 +1,4 @@
-import { compose, scrubObjectProperty } from "../../functional/index";
+import { compose, scrubObjectProperty } from "../../functional";
 import { mixinGroupThumbnail } from "./thumbnail";
 import { Pojo } from "../../../Component";
 

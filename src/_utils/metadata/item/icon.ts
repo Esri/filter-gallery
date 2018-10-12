@@ -1,4 +1,4 @@
-import { curry } from "../../functional/index";
+import { curry } from "../../functional";
 import { Pojo } from "../../../Component";
 
 /**

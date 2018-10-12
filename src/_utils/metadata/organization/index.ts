@@ -1,4 +1,4 @@
-import { compose } from "../../functional/index";
+import { compose } from "../../functional";
 import { mixinOrgBaseUrl } from "./baseUrl";
 import { mixinOrgThumbnail } from "./thumbnail";
 import { mixinOrgUrl } from "./url";

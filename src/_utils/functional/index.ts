@@ -1,3 +1,3 @@
-export * from "./data/index";
-export * from "./higherOrderFunctions/index";
-export * from "./primitives/index";
+export * from "./data";
+export * from "./higherOrderFunctions";
+export * from "./primitives";

@@ -1,4 +1,4 @@
-import { curry } from "../../functional/index";
+import { curry } from "../../functional";
 
 const appendTimeRangeQ = curry((
     type: string,

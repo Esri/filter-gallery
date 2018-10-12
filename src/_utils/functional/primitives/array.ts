@@ -1,4 +1,4 @@
-import { curry } from "../higherOrderFunctions/index";
+import { curry } from "../higherOrderFunctions";
 
 /**
  * removeDups function to use with filter (quadratic, use only in short arrays!)

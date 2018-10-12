@@ -1,4 +1,4 @@
-import { compose } from "../../functional/index";
+import { compose } from "../../functional";
 import { mixinUserThumbnail } from "./thumbnail";
 import { Pojo } from "../../../Component";
 

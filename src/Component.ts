@@ -4,7 +4,7 @@ import {
     ProjectionOptions,
     Projector as OriginalProjector
 } from "maquette";
-import { compose, pickBy, mapObjIndexed } from "./_utils/index";
+import { compose, pickBy, mapObjIndexed } from "./_utils";
 import { merge, Observable, Subject } from "rxjs";
 import { scan, startWith } from "rxjs/operators";
 

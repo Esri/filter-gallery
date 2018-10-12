@@ -1,4 +1,4 @@
-import { compose, scrubObjectProperty } from "../../functional/index";
+import { compose, scrubObjectProperty } from "../../functional";
 import { mixinItemBadges } from "./badge";
 import { mixinItemDisplayName } from "./displayName";
 import { mixinItemIcon } from "./icon";
