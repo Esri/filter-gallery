@@ -8,6 +8,8 @@ import Pager from "../../Navigation/Pager";
 import LoaderBars from "../../Loaders/LoaderBars";
 import MobileWrap from "../../Modals/MobileWrap";
 import Filters from "./Filters";
+import { FilterGalleryStore } from "../../..";
+import { changePage, toggleFilters } from "../../../_actions";
 
 export interface BodyProps extends ComponentProps {
     /**
@@ -20,7 +22,7 @@ export interface BodyProps extends ComponentProps {
      * Visibility of the filters panel.
      * @type {boolean}
      */
-    expandedFiltersActive: boolean;
+    filtersActive: boolean;
 
     /**
      * Current state of the results.
@@ -68,7 +70,7 @@ export interface BodyProps extends ComponentProps {
      * Handler for when the state of the filter panel is changed.
      * @type {function}
      */
-    toggleExpandedFilters: () => void;
+    toggleFilters: () => void;
 }
 
 /**
@@ -84,7 +86,7 @@ class Body extends Component<BodyProps> {
 
     public render(tsx: H) {
         // const expandedFilters = this.stateTree.ui.expanded.filters;
-        const expandedFilters = this.props.expandedFiltersActive;
+        const expandedFilters = this.props.filtersActive;
         const filterClasses = {
             "ib__big-section": true,
             "ib__big-filters": true,
@@ -119,7 +121,7 @@ class Body extends Component<BodyProps> {
                         <MobileWrap
                             key="mobile-filter-wrap"
                             maxHeight={true}
-                            open={this.props.expandedFiltersActive}
+                            open={this.props.filtersActive}
                             onClose={this.handleCloseMobileFilters}
                             title="Filter"
                             footer={
@@ -168,6 +170,37 @@ class Body extends Component<BodyProps> {
     }
 
     private handleCloseMobileFilters() {
-        this.props.toggleExpandedFilters();
+        this.props.toggleFilters();
     }
 }
+
+interface StateProps {
+    filtersActive: boolean;
+    resultStatus: "loading" | "loadingNext" | "failed" | "success" | "empty";
+    paginationStatus: string;
+    pageDisplayItems: Pojo[];
+    currentPage: number;
+    itemTotal: number;
+    resultsPerQuery: number;
+}
+
+interface DispatchProps {
+    changePage: (page: number) => void;
+    toggleFilters: () => void;
+}
+
+export default connect<BodyProps, FilterGalleryStore, StateProps, DispatchProps>(
+    (state) => ({
+        filtersActive: state.ui.filters.filtersOpen,
+        resultStatus: state.ui.resultPanel.status,
+        paginationStatus: state.ui.pagination.status,
+        pageDisplayItems: state.results.displayItems,
+        currentPage: state.ui.pagination.page,
+        itemTotal: state.parameters.nextQuery.total,
+        resultsPerQuery: state.settings.config.resultsPerQuery
+    }),
+    (dispatch) => ({
+        changePage: (page: number) => dispatch(changePage(page)),
+        toggleFilters: () => dispatch(toggleFilters())
+    })
+)(Body);

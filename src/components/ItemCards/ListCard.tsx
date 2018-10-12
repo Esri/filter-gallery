@@ -25,18 +25,6 @@ export interface AnalysisCardProps {
     item: Pojo;
 
     /**
-     * The primary action for the card.
-     * @type {function}
-     */
-    mainAction: ((selectedItems: Pojo[]) => any);
-
-    /**
-     * The title of the primary action.
-     * @type {string}
-     */
-    mainActionTitle: string;
-
-    /**
      * The current user's portal.
      * @type {object}
      */
@@ -78,7 +66,6 @@ export default class AnalysisCard extends Component<AnalysisCardProps, AnalysisC
 
         this.handleActionDropdownToggle = this.handleActionDropdownToggle.bind(this);
         this.handleCustomActionClick = this.handleCustomActionClick.bind(this);
-        this.handleMainActionClick = this.handleMainActionClick.bind(this);
     }
 
     public render(tsx: H) {
@@ -168,12 +155,6 @@ export default class AnalysisCard extends Component<AnalysisCardProps, AnalysisC
                     </div>
                     <div class="card-ac__action-container card-ac__sub-group">
                         <div class="card-ac__no-wrap">
-                            <button
-                                class="card-ac__primary-btn card-ac__btn"
-                                onclick={this.handleMainActionClick}
-                            >
-                                {this.props.mainActionTitle}
-                            </button>
                             {
                                 this.props.customActions && this.props.customActions.length > 0 ? (
                                     <Ago2018Dropdown
@@ -245,10 +226,6 @@ export default class AnalysisCard extends Component<AnalysisCardProps, AnalysisC
         this.setState({
             customActionsOpen: !this.state.customActionsOpen
         });
-    }
-
-    private handleMainActionClick(e: any) {
-        this.props.mainAction([scrubItemInfo(this.props.item)]);
     }
 
     private handleCustomActionClick(e: any) {

@@ -5,17 +5,17 @@ import {
 } from "../../_actions/index";
 import { Action, Pojo } from "../../Component";
 
-export interface SidePanelState {
+export interface DetailsPanelState {
     closing: boolean;
     open: boolean;
     item?: Pojo;
 }
-export const initialState: SidePanelState = {
+export const initialState: DetailsPanelState = {
     closing: false,
     open: false
 };
 
-export default (state: SidePanelState = initialState, action: Action): SidePanelState => {
+export default (state: DetailsPanelState = initialState, action: Action): DetailsPanelState => {
     switch (action.type) {
         case CLOSING_DETAILS_PANE:
             return {

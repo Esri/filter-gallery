@@ -1,5 +1,8 @@
+import * as i18n from "dojo/i18n!../../nls";
+
 import { Pojo, Action } from "../../Component";
 import { allItemTypes, ItemType, ItemTypeFilter } from "../../_utils";
+import { SortField } from "../../components/Dropdowns/SortDropdown";
 
 export type BaseFilters = "itemType" | "modified" | "created" | "shared" | "status" | "tags";
 
@@ -107,7 +110,7 @@ export interface CustomSection {
      * @type {array}
      * @default ["itemType","modified","shared"]
      */
-    filters?: (CategoryFilter | BaseFilters)[];
+    filters: (CategoryFilter | BaseFilters)[];
 }
 
 export interface ConfigState {
@@ -160,6 +163,21 @@ export interface ConfigState {
      * @type {object}
      */
     section: CustomSection;
+
+    /**
+     * Array of sort options available in the gallery.
+     * - options: `relevance`, `title`, `created`, `type`, `owner`, `modified`, `avgrating`, `numcomments`, `numviews`
+     * @type {array}
+     * @default ["relevance","title","owner","created","modified","numviews"]
+     */
+    sortOptions: SortField[];
+
+    /**
+     * Placeholder text for the search input.
+     * @type {string}
+     * @default "Enter search terms"
+     */
+    searchPlaceholderText: string;
 }
 
 export const initialState: ConfigState = {
@@ -212,7 +230,9 @@ export const initialState: ConfigState = {
             "tags"
         ],
         id: "abc12345678"
-    }
+    },
+    sortOptions: [ "relevance", "title", "owner", "created", "modified", "numviews" ],
+    searchPlaceholderText: i18n.defaultPlaceholder
 };
 
 export default (state: ConfigState = initialState, action: Action) => state;

@@ -1,10 +1,10 @@
 import { TOGGLE_SORT, CHANGE_SORT_FIELD, CHANGE_SORT_ORDER } from "../../_actions";
 import { Action } from "../../Component";
 
-export type ExpandedSortState = boolean;
-export const initialState: ExpandedSortState = false;
+export type SortState = boolean;
+export const initialState: SortState = false;
 
-export default (state: ExpandedSortState, action: Action) => {
+export default (state: SortState, action: Action) => {
     switch (action.type) {
         case TOGGLE_SORT:
             return !state;

@@ -1,6 +1,8 @@
 import * as i18n from "dojo/i18n!../../../nls/resources";
 import { Component, H, connect, Pojo } from "../../../../Component";
 import ListCard from "../../../ItemCards/ListCard";
+import { FilterGalleryState } from "../../../../_reducer";
+import { FilterGalleryStore } from "../../../..";
 
 export interface ItemListProps {
     /**
@@ -13,7 +15,7 @@ export interface ItemListProps {
      * State tree of the `ItemBrowser`.
      * @type {object}
      */
-    stateTree: ItemBrowserState;
+    stateTree: FilterGalleryState;
 
     /**
      * The portal being queried.
@@ -25,7 +27,7 @@ export interface ItemListProps {
 /**
  * List of items for the expanded `ItemBrowser`.
  */
-export default class ItemList extends Component<ItemListProps> {
+export class ItemList extends Component<ItemListProps> {
     public render(tsx: H) {
         const items = this.props.stateTree.ui.pagination.displayItems.map((item) => {
 
@@ -40,8 +42,6 @@ export default class ItemList extends Component<ItemListProps> {
                     item={item}
                     organization={organization}
                     portal={this.props.portal}
-                    mainAction={this.props.stateTree.settings.config.onSelect}
-                    mainActionTitle={this.props.stateTree.settings.config.mainActionTitle}
                     customActions={this.props.stateTree.settings.config.customActions}
                     sortField={this.props.stateTree.parameters.sort.field}
                 />
@@ -73,3 +73,16 @@ export default class ItemList extends Component<ItemListProps> {
         );
     }
 }
+
+interface StateProps {
+    stateTree: FilterGalleryState,
+    portal: Pojo;
+}
+
+export default connect<ItemListProps, FilterGalleryStore, StateProps, {}>(
+    (state) => ({
+        stateTree: state,
+        portal: state.settings.utils.portal
+    }),
+    () => ({})
+)(ItemList);

@@ -2,6 +2,7 @@ import * as i18n from "dojo/i18n!../../../../nls/resources";
 import { Component, H, connect, ComponentProps } from "../../../../Component";
 
 import ItemList from "./ItemList";
+import { FilterGalleryStore } from "../../../..";
 
 export interface ResultPanelProps extends ComponentProps {
     /**
@@ -15,14 +16,12 @@ export interface ResultPanelProps extends ComponentProps {
      * @type {string}
      */
     pageStatus: string;
-    sublayers: any | undefined;
-    sublayerSection: boolean;
 }
 
 /**
  * Panel of results for the expanded `ItemBrowser`.
  */
-export default class ResultPanel extends Component<ResultPanelProps> {
+export class ResultPanel extends Component<ResultPanelProps> {
     public render(tsx: H) {
         if (
             (this.props.resultStatus === "success" || this.props.resultStatus === "loading") &&
@@ -44,3 +43,16 @@ export default class ResultPanel extends Component<ResultPanelProps> {
         );
     }
 }
+
+interface StateProps {
+    resultStatus: "loading" | "loadingNext" | "failed" | "success" | "empty";
+    pageStatus: string;
+}
+
+export default connect<ResultPanelProps, FilterGalleryStore, StateProps, {}>(
+    (state) => ({
+        resultStatus: state.ui.resultPanel.status,
+        pageStatus: state.ui.pagination.status
+    }),
+    () => ({})
+)(ResultPanel);

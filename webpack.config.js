@@ -36,6 +36,11 @@ module.exports = {
 
     externals: [
         function (context, request, callback) {
+            // Externalize dojo/i18n requests
+            if (/^dojo\/i18n!/.test(request)) {
+                return callback(null, `amd dojo/i18n!./nls/resources`);
+            }
+
             // Externalize requests to dojo or js api
             if (
                 /^dojo/.test(request) ||

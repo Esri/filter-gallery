@@ -1,9 +1,10 @@
 import * as i18n from "dojo/i18n!../../nls/resources";
-import { Component, H } from "../../../Component";
+import { Component, H, connect } from "../../../Component";
 
+import { FilterGalleryStore } from "../../..";
 import IconButton from "../../Buttons/IconButton";
-
 import SortDropdown, { SortField, SortOrder } from "../../Dropdowns/SortDropdown";
+import { toggleFilters, toggleSort, changeSortField, changeSortOrder, changeSearchString, search } from "../../../_actions";
 
 export interface SearchAreaProps {
     /**
@@ -19,10 +20,10 @@ export interface SearchAreaProps {
     searchPlaceholderText: string | undefined;
 
     /**
-     * The name of the currently active section.
-     * @type {string}
+     * The available sort fields.
+     * @type {array}
      */
-    section: string;
+    sortOptions: SortField[];
 
     /**
      * The current search string.
@@ -58,19 +59,19 @@ export interface SearchAreaProps {
      * The visibility of the filter panel.
      * @type {boolean}
      */
-    expandedFiltersActive: boolean;
+    filtersActive: boolean;
 
     /**
      * Handler for when the filter panel visibility is toggled.
      * @type {function}
      */
-    toggleExpandedFilters: () => void;
+    toggleFilters: () => void;
 
     /**
      * Handler for when the sort dropdown visibility is toggled.
      * @type {function}
      */
-    toggleExpandedSort: () => void;
+    toggleSort: () => void;
 
     /**
      * Handler for when the sort field is changed.
@@ -97,20 +98,10 @@ export interface SearchAreaProps {
     search: (updateCounts?: boolean) => void;
 }
 
-const defaultOptions = ["relevance", "title", "owner", "created", "modified", "numviews"];
-const availableOptionsMap = {
-    myContent: [ "modified", "title" ],
-    myFavorites: [ "relevance", "modified", "title", "numviews", "owner" ],
-    myGroups: [ "relevance", "modified", "title", "numviews", "owner" ],
-    myOrganization: [ "relevance", "modified", "title", "numviews", "owner" ],
-    livingAtlas: [ "relevance", "modified", "title", "numviews", "owner" ],
-    all: [ "relevance", "title", "owner", "modified", "numviews" ]
-};
-
 /**
  * Search area for the expanded `ItemBrowser`.
  */
-export default class SearchArea extends Component<SearchAreaProps> {
+export class SearchArea extends Component<SearchAreaProps> {
     constructor(props: SearchAreaProps) {
         super(props);
 
@@ -127,11 +118,6 @@ export default class SearchArea extends Component<SearchAreaProps> {
             this.props.searchPlaceholderText :
             i18n.searchPlaceholders.generic;
 
-        const section = this.props.section;
-        let availableOptions =
-            availableOptionsMap[section] ?
-            [ ...availableOptionsMap[section] ] :
-            [ ...defaultOptions ];
         return (
             <div class="ib-ex-search-area__container">
                 <svg width="20" height="20" viewBox="0 0 20 20">
@@ -158,14 +144,14 @@ export default class SearchArea extends Component<SearchAreaProps> {
                         key="ib-ex-sort-dropdown"
                         field={this.props.sortField}
                         order={this.props.sortOrder}
-                        availableFields={availableOptions}
+                        availableFields={this.props.sortOptions}
                         onFieldChange={this.handleSortFieldChange}
                         onOrderChange={this.handleSortOrderChange}
                         onClick={this.handleSortClick}
                     />
                     <IconButton
                         key="ib-ex-filter-btn"
-                        active={this.props.expandedFiltersActive}
+                        active={this.props.filtersActive}
                         handleClick={this.handleToggleFilters}
                     >
                         <div class="drp-sort__btn-body">
@@ -185,7 +171,7 @@ export default class SearchArea extends Component<SearchAreaProps> {
     }
 
     private handleToggleFilters() {
-        this.props.toggleExpandedFilters();
+        this.props.toggleFilters();
     }
 
     private handleSearchChange(e: any) {
@@ -212,6 +198,47 @@ export default class SearchArea extends Component<SearchAreaProps> {
     }
 
     private handleSortClick() {
-        this.props.toggleExpandedSort();
+        this.props.toggleSort();
     }
 }
+
+interface StateProps {
+    previousSearchString: string;
+    searchPlaceholderText: string | undefined;
+    searchString: string;
+    sortActive: boolean;
+    sortField: SortField;
+    sortOptions: SortField[];
+    sortOrder: SortOrder;
+    filtersActive: boolean;
+}
+
+interface DispatchProps {
+    toggleFilters: () => void;
+    toggleSort: () => void;
+    changeSortField: (field: SortField) => void;
+    changeSortOrder: (order: SortOrder) => void;
+    changeSearchString: (newString: string) => void;
+    search: (updateCounts?: boolean) => void;
+}
+
+export default connect<SearchAreaProps, FilterGalleryStore, StateProps, DispatchProps>(
+    (state) => ({
+        previousSearchString: state.parameters.searchString.previous,
+        searchPlaceholderText: state.settings.config.searchPlaceholderText,
+        searchString: state.parameters.searchString.current,
+        sortActive: state.ui.sort,
+        sortField: state.parameters.sort.field,
+        sortOrder: state.parameters.sort.order,
+        sortOptions: state.settings.config.sortOptions,
+        filtersActive: state.ui.filters.filtersOpen
+    }),
+    (dispatch) => ({
+        toggleFilters: () => dispatch(toggleFilters()),
+        toggleSort: () => dispatch(toggleSort()),
+        changeSortField: (field: SortField) => dispatch(changeSortField(field)),
+        changeSortOrder: (order: SortOrder) => dispatch(changeSortOrder(order)),
+        changeSearchString: (newString: string) => dispatch(changeSearchString(newString)),
+        search: (updateCounts: boolean) => dispatch(search(updateCounts))
+    })
+)(SearchArea);
