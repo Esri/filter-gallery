@@ -6,13 +6,13 @@ import { Pojo, Action } from "../../Component";
 export interface UtilsState {
     iconDir: string;
     portal: Pojo;
-    request: __esri.request;
+    request: (url: string, options?: Pojo) => dojo.Deferred<any>;
 }
 
 export const initialState: UtilsState = {
     iconDir: window["require"].toUrl("esri/images/portal"),
     portal: {},
-    request: request as any as __esri.request
+    request: request as any as (url: string, options?: Pojo) => dojo.Deferred<any>
 };
 
 export default (state: UtilsState = initialState, action: Action) => {

@@ -196,12 +196,21 @@ export const fetchUserFavorites = (request: Request, portal: Pojo, favGroupId: s
 
 /**
  * Query for groups using the specified query parameters
- * @param request 
- * @param portal 
- * @param queryParams 
+ * @param request - 4x or shimmed request
+ * @param portal - 4x or shimmed portal to query
+ * @param queryParams - additional query parameters
  */
 export const fetchGroups = (request: Request, portal: Pojo, queryParams: Pojo) =>
     requestJSON(request, `${portal.restUrl}/community/groups`, queryParams);
+
+/**
+ * Query for a group by id
+ * @param request - 4x or shimmed request
+ * @param portal - 4x or shimmed portal to query
+ * @param id - id of the group
+ */
+export const fetchGroupById = (request: Request, portal: Pojo, id: string) =>
+    requestJSON(request, `${portal.restUrl}/community/groups/${id}`);
 
 /**
  * Query a portal for JSON

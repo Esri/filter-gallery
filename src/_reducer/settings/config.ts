@@ -46,26 +46,10 @@ export interface CustomAction {
  */
 export interface CategoryFilter {
     /**
-     * The id of the group or org containing the category schema.
-     * @type {string}
-     */
-    id: string;
-
-    /**
      * The name of the filter to display in the UI.
      * @type {string}
      */
     name: string;
-
-    /**
-     * The type of category schema, which can be `org` or `group`.
-     * If this type is set to `group`, the item browser will retrieve the category
-     * schema for the specified group, and use its group-specific search endpoint instead of the standard search
-     * endpoint for the portal. This means that content not contained within the specified group will *never* be
-     * returned in the results.
-     * @type {string}
-     */
-    type: "org" | "group";
 
     /**
      * If set to a group search query, the item browser will determine the id for the group based on the first
@@ -106,6 +90,12 @@ export interface CustomSection {
      * @type {string}
      */
     baseQuery: string;
+
+    /**
+     * ID of the group for this custom section.
+     * @type {string}
+     */
+    id: string;
 
     /**
      * Filters for the custom section.
@@ -211,9 +201,7 @@ export const initialState: ConfigState = {
         baseQuery: "",
         filters: [
             {
-                id: "12345678",
                 name: "Categories",
-                type: "group",
                 path: ["categories"]
             },
             "itemType",
@@ -222,7 +210,8 @@ export const initialState: ConfigState = {
             "shared",
             "status",
             "tags"
-        ]
+        ],
+        id: "abc12345678"
     }
 };
 

@@ -412,3 +412,19 @@ export function createStore<S>(reducer: Reducer<S>, initialState?: S): Store<S> 
     state$.subscribe((newState: S) => { currentState = newState; });
     return { action$, dispatch, getState, state$ } as Store<S>;
 }
+
+export type ThunkDispatch<S> = (action: Action | ThunkAction<S>) => Action | ThunkAction<S> | void;
+export type ThunkAction<S> = (dispatch?: ThunkDispatch<S>, getState?: () => S) => any
+
+/**
+ * Thunk middleware allows for the dispatching of thunks to the store.
+ * Thunks are passed `dispatch` and `getState` from the store, and can be used to coordinate asynchronous processes.
+ */
+export const thunk: Middleware = <S>({ dispatch, getState }: MiddlewareAPI) =>
+    (next: Dispatch) =>
+    (action: Action | ThunkAction<S>) => {
+        if (typeof action === "function") {
+            return action(dispatch, getState);
+        }
+        return next(action);
+    };
