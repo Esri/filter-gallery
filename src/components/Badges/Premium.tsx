@@ -41,9 +41,9 @@ export default ({ size, tooltip, tooltipDirection, user }: PremiumProps, tsx: H)
             textColor="#196FA6"
             key="premium-badge"
             size={size}
-            text={componentI18n.premium}
-            title={componentI18n.tooltips[`premium${tooltipType}`]}
-            tooltip={tooltip ? componentI18n.tooltips[`premium${tooltipType}`] : undefined}
+            text={componentI18n.badges.premium}
+            title={componentI18n.badges.tooltips[`premium${tooltipType}`]}
+            tooltip={tooltip ? componentI18n.badges.tooltips[`premium${tooltipType}`] : undefined}
             tooltipDirection={tooltipDirection}
         >
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">

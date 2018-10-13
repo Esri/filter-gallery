@@ -37,12 +37,13 @@ const attemptSearch = (updateCounts?: boolean) => (dispatch: any, getState: () =
                 () => executeSearch(dispatch, getState(), updateCounts),
                 () => dispatch({ type: LOADING_CONTENT_FAILED, payload: "Couldn't load the section or user info." })
             );
+    } else {
+        dispatch(fetchSectionInfo())
+            .then(
+                () => executeSearch(dispatch, getState(), updateCounts),
+                () => dispatch({ type: LOADING_CONTENT_FAILED, payload: "Couldn't load the section info." })
+            );
     }
-    dispatch(fetchSectionInfo())
-        .then(
-            () => executeSearch(dispatch, getState(), updateCounts),
-            () => dispatch({ type: LOADING_CONTENT_FAILED, payload: "Couldn't load the section info." })
-        );
 };
 
 /**
@@ -64,7 +65,7 @@ function executeSearch(dispatch: any, state: FilterGalleryState, updateCounts?: 
     let countsRequest1; // Need 2 requests for counts because of server-side 3 field limit
     let countsRequest2;
     if (!!updateCounts) {
-        const [countUrl1, countParameters1] = getCountsRequest(state, ["access", "contentstatus", "categories"]);
+        const [countUrl1, countParameters1] = getCountsRequest(state, ["access", "contentstatus", "groupcategories"]);
         countsRequest1 = request(countUrl1, countParameters1);
 
         const [countUrl2, countParameters2] = getTagsRequest(state, state.ui.tagsFilter.filterString);

@@ -1,4 +1,4 @@
-import * as i18n from "dojo/i18n!../nls/resources";
+import * as i18n from "dojo/i18n!../../nls/resources";
 import { Component, H, Pojo } from "../../Component";
 import * as dojoDate from "dojo/date/locale";
 
@@ -73,15 +73,15 @@ export default class AnalysisCard extends Component<AnalysisCardProps, AnalysisC
 
         let infoString: string;
         if (sortField === "numviews") {
-            infoString = `${i18n.viewCount}: ${item.numViews}`;
+            infoString = `${i18n.itemCards.viewCount}: ${item.numViews}`;
         } else if (sortField === "avgrating") {
-            infoString = `${i18n.rating}: ${item.avgRating.toFixed(2)}`;
+            infoString = `${i18n.itemCards.rating}: ${item.avgRating.toFixed(2)}`;
         } else if (sortField === "created") {
-            infoString = `${i18n.created}: ${
+            infoString = `${i18n.itemCards.created}: ${
                 dojoDate.format(new Date(item.created), { selector: "date", formatLength: "short" })
             }`;
         } else {
-            infoString = `${i18n.updated}: ${
+            infoString = `${i18n.itemCards.updated}: ${
                 dojoDate.format(new Date(item.modified), { selector: "date", formatLength: "short" })
             }`;
         }
@@ -111,10 +111,10 @@ export default class AnalysisCard extends Component<AnalysisCardProps, AnalysisC
                                 <span
                                     class="card-ac__author-text"
                                 >
-                                    {`${item.displayName} ${i18n.by}`}
+                                    {`${item.displayName} ${i18n.itemCards.by}`}
                                     <a
                                         class="content-search-selectable card-mc__author-link"
-                                        title={this.props.organization ? i18n.viewOrg : i18n.viewProfile}
+                                        title={this.props.organization ? i18n.itemCards.viewOrg : i18n.itemCards.viewProfile}
                                         href={
                                             this.props.organization ?
                                                 this.props.organization.orgUrl :
@@ -136,7 +136,7 @@ export default class AnalysisCard extends Component<AnalysisCardProps, AnalysisC
                                 href={`${this.props.portal.baseUrl}/home/item.html?id=${item.id}`}
                                 target="_blank"
                             >
-                                {i18n.viewItem}
+                                {i18n.itemCards.viewItem}
                                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
                                     <path d="M10 1v1h3.293l-6.646 6.646 0.707 0.707 6.646-6.646v3.293h1v-5z"></path>
                                     <path d="M14 8v6h-12v-12h6v-1h-7v14h14v-7z"></path>
@@ -162,7 +162,7 @@ export default class AnalysisCard extends Component<AnalysisCardProps, AnalysisC
                                         active={this.state.customActionsOpen}
                                         onToggle={this.handleActionDropdownToggle}
                                     >
-                                        <span class="card-ac__custom-actions card-ac__btn" title={i18n.actions}>
+                                        <span class="card-ac__custom-actions card-ac__btn" title={i18n.itemCards.actions}>
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 width="16"

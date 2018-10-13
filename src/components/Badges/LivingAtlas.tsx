@@ -32,9 +32,9 @@ export default ({ size, tooltip, tooltipDirection }: LivingAtlasProps, tsx: H) =
         textColor="#196FA6"
         key="living-atlas-badge"
         size={size}
-        text={componentI18n.livingAtlas}
-        title={componentI18n.tooltips.livingAtlas}
-        tooltip={tooltip ? componentI18n.tooltips.livingAtlas : undefined}
+        text={componentI18n.badges.livingAtlas}
+        title={componentI18n.badges.tooltips.livingAtlas}
+        tooltip={tooltip ? componentI18n.badges.tooltips.livingAtlas : undefined}
         tooltipDirection={tooltipDirection}
     >
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">

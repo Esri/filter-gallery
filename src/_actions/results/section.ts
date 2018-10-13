@@ -28,7 +28,7 @@ export const fetchSectionInfo = () => (dispatch: any, getState: () => FilterGall
     return requests.then(
         (responses) => dispatch({
             type: UPDATE_SECTION_INFO,
-            payload: { group: responses[0], schema: responses[1] }
+            payload: { group: responses[0], schema: responses[1].categorySchema }
         }),
         handleCustomSectionInfoError
     );

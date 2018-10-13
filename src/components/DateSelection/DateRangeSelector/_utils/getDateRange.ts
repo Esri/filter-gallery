@@ -12,25 +12,25 @@ export default (optionValue: string, customRange?: { start: number, end: number 
             return {
                 start: todayStart,
                 end: now,
-                label: componentI18n.today
+                label: componentI18n.dateSelection.today
             };
         case "yesterday":
             return {
                 start: todayStart - day,
                 end: todayStart,
-                label: componentI18n.yesterday
+                label: componentI18n.dateSelection.yesterday
             };
         case "last7Days":
             return {
                 start: now - (day * 7),
                 end: now,
-                label: componentI18n.last7Days
+                label: componentI18n.dateSelection.last7Days
             };
         case "last30Days":
             return {
                 start: now - (day * 30),
                 end: now,
-                label: componentI18n.last30Days
+                label: componentI18n.dateSelection.last30Days
             };
         case "custom":
             if (!!customRange) {

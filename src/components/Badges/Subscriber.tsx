@@ -41,9 +41,9 @@ export default ({ size, tooltip, tooltipDirection, user }: SubscriberProps, tsx:
             textColor="#196FA6"
             key="subscriber-badge"
             size={size}
-            text={componentI18n.subscriber}
-            title={componentI18n.tooltips[`subscriber${tooltipType}`]}
-            tooltip={tooltip ? componentI18n.tooltips[`subscriber${tooltipType}`] : undefined}
+            text={componentI18n.badges.subscriber}
+            title={componentI18n.badges.tooltips[`subscriber${tooltipType}`]}
+            tooltip={tooltip ? componentI18n.badges.tooltips[`subscriber${tooltipType}`] : undefined}
             tooltipDirection={tooltipDirection}
         >
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">

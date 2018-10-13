@@ -1,4 +1,4 @@
-import * as i18n from "dojo/i18n!../../nls/resources"
+import * as i18n from "dojo/i18n!../../nls/resources";
 
 import { Component, H } from "../../Component";
 import IconButton from "../Buttons/IconButton";
@@ -82,12 +82,12 @@ export default class SortDropdown extends Component<SortDropdownProps> {
     public render(tsx: H) {
         const menuContent = [(
             <div class="drp-sort__menu-section" role="tree">
-                <h3 class="drp-sort__menu-title">{i18n.sortBy}</h3>
+                <h3 class="drp-sort__menu-title">{i18n.dropdowns.sorting.sortBy}</h3>
                 {
                     this.props.availableFields.map((field) => (
                         <Toggle
                             key={field}
-                            name={i18n[field]}
+                            name={i18n.dropdowns.sorting[field]}
                             value={field}
                             onToggleClick={this.handleFieldChange}
                             selectedToggle={this.props.field}
@@ -99,17 +99,17 @@ export default class SortDropdown extends Component<SortDropdownProps> {
             <br />
         ), (
             <div class="drp-sort__menu-section" role="tree">
-                <h3 class="drp-sort__menu-title">{i18n.sortDir}</h3>
+                <h3 class="drp-sort__menu-title">{i18n.dropdowns.sorting.sortDir}</h3>
                 <Toggle
                     key="ascending-toggle"
-                    name={i18n.ascending[this.props.field]}
+                    name={i18n.dropdowns.sorting.ascending[this.props.field]}
                     value="asc"
                     onToggleClick={this.handleOrderChange}
                     selectedToggle={this.props.order}
                 />
                 <Toggle
                     key="descending-toggle"
-                    name={i18n.descending[this.props.field]}
+                    name={i18n.dropdowns.sorting.descending[this.props.field]}
                     value="desc"
                     onToggleClick={this.handleOrderChange}
                     selectedToggle={this.props.order}
@@ -130,13 +130,13 @@ export default class SortDropdown extends Component<SortDropdownProps> {
                                 </g>
                             </g>
                         </svg>
-                        <span class="drp-sort__btn-label">{i18n[this.props.field]}</span>
+                        <span class="drp-sort__btn-label">{i18n.dropdowns.sorting[this.props.field]}</span>
                     </div>
                 </IconButton>
             ), (
                 <MobileWrap
                     key="sort-mobile-wrap"
-                    title={i18n.sort}
+                    title={i18n.dropdowns.sorting.sort}
                     open={this.props.active}
                     onClose={this.handleMobileWrapClose}
                 >
@@ -158,7 +158,7 @@ export default class SortDropdown extends Component<SortDropdownProps> {
                                 </g>
                             </g>
                         </svg>
-                        <span class="drp-sort__btn-label">{i18n[this.props.field]}</span>
+                        <span class="drp-sort__btn-label">{i18n.dropdowns.sorting[this.props.field]}</span>
                     </div>
                 </IconButton>
                 <div class="drp-sort__menu-container">

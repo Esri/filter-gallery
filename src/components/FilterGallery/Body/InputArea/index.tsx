@@ -22,13 +22,13 @@ export interface InputAreaProps {
  */
 export class InputArea extends Component<InputAreaProps> {
     public render(tsx: H) {
-        const resultCount = `${this.props.itemTotal.toLocaleString()} ${i18n.resultCount}`;
+        const resultCount = `${this.props.itemTotal.toLocaleString()} ${i18n.gallery.resultCount}`;
 
         return (
-            <div class="ib-ex-input__container" key="ib-result-count-container">
-                <span class="ib-ex-input-area__result-count">{resultCount}</span>
+            <div class="fb-input__container" key="ib-result-count-container">
+                <span class="fb-input-area__result-count">{resultCount}</span>
                 <ActiveFilters
-                    key="ib-ex__active-filters"
+                    key="fb__active-filters"
                     theme="dark"
                 />
             </div>

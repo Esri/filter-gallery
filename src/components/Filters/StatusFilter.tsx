@@ -59,8 +59,8 @@ export default class StatusFilter extends Component<StatusFilterProps, StatusFil
 
         this.state = {
             options: [
-                { value: "authoritative", displayName: componentI18n.options.authoritative },
-                { value: "deprecated", displayName: componentI18n.options.deprecated }
+                { value: "authoritative", displayName: componentI18n.filters.status.options.authoritative },
+                { value: "deprecated", displayName: componentI18n.filters.status.options.deprecated }
             ]
         };
 
@@ -73,12 +73,12 @@ export default class StatusFilter extends Component<StatusFilterProps, StatusFil
         return (
             <AccordionDropdown
                 key="status-accordion"
-                title={componentI18n.status}
+                title={componentI18n.filters.status.status}
                 clearable={!!this.props.statusFilter}
                 onClear={this.handleClearFilter}
             >
                 <ul
-                    aria-label={componentI18n.status}
+                    aria-label={componentI18n.filters.status.status}
                     class="ftr-status__tree"
                     id={`status-accordion-tree`}
                     role="tree"

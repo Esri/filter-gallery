@@ -428,3 +428,15 @@ export const thunk: Middleware = <S>({ dispatch, getState }: MiddlewareAPI) =>
         }
         return next(action);
     };
+
+/**
+ * Listener middleware allows for using the action and resulting state to perform arbitrary side effects.
+ * @param listener - Listener function to call with action and nextState
+ */
+export function addListener<S>(listener: (action: Action, nextState: S) => any) {
+    return ({ dispatch, getState }: MiddlewareAPI) => (next: Dispatch) => (action: Action) => {
+        let result = next(action);
+        listener(action, getState());
+        return result;
+    };
+}

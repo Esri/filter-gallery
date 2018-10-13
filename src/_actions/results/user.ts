@@ -52,17 +52,24 @@ export const fetchUserInfo = () => (dispatch: any, getState: () => FilterGallery
                 return result;
             }, {});
         })
-    ]);
-};
+    ]).then(
+        (responses) => {
+            dispatch({
+                type: UPDATE_USER_INFO,
+                payload: {
+                    groups: responses[0],
+                    folders: responses[1],
+                    favorites: responses[2]
+                }
+            });
+        },
+        handleUserInfoError
+    );
 
-export const fetchUserGroupCategorySchema = (id: string) => (dispatch: any, getState: () => FilterGalleryState) => {
-    const { request, portal } = getState().settings.utils;
-    return fetchGroupCategorySchema(request, portal, id).then(({ categorySchema }: any) => {
-        dispatch({
-            type: UPDATE_GROUP_CATEGORIES,
-            payload: { id, categorySchema }
-        });
-    });
+    function handleUserInfoError(err: Error) {
+        console.error(err);
+        dispatch({ type: UPDATE_USER_INFO_FAILED });
+    }
 };
 
 export const addToFavorites = (item: Pojo) => (dispatch: any, getState: () => FilterGalleryState) => {

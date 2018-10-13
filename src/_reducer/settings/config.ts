@@ -229,7 +229,7 @@ export const initialState: ConfigState = {
             "status",
             "tags"
         ],
-        id: "abc12345678"
+        id: "fe5656b4b57e4372bbcfdf375d2b2c03"
     },
     sortOptions: [ "relevance", "title", "owner", "created", "modified", "numviews" ],
     searchPlaceholderText: i18n.defaultPlaceholder

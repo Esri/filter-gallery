@@ -13,7 +13,7 @@ module.exports = {
         libraryTarget: "amd"
     },
 
-    devtool: "srouce-map",
+    devtool: "source-map",
 
     resolve: {
         extensions: [".ts", ".tsx", ".js", ".jsx"]
@@ -33,6 +33,10 @@ module.exports = {
             { from: "src/index.html", to: "index.html" }
         ])
     ],
+
+    optimization: {
+        concatenateModules: false
+    },
 
     externals: [
         function (context, request, callback) {

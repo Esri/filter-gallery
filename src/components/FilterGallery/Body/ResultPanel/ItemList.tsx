@@ -66,7 +66,7 @@ export class ItemList extends Component<ItemListProps> {
                             >
                             </path>
                         </svg>
-                        <p class="ib-ex-results__no-items-text">{i18n.results.noItemsFound}</p>
+                        <p class="ib-ex-results__no-items-text">{i18n.gallery.results.noItemsFound}</p>
                     </div>
                 </div>
             </div>

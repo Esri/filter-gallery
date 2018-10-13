@@ -51,7 +51,7 @@ export default class CreatedFilter extends Component<CreatedFilterProps> {
                 onClear={this.handleClearFilter}
             >
                 <ul
-                    aria-label={componentI18n.dateCreated}
+                    aria-label={this.props.title}
                     class="ftr-created__tree"
                     id="created-filter-accordion-tree"
                     role="tree"

@@ -1,0 +1,16 @@
+// ┌──────────┐
+// │ Clearfix │
+// └──────────┘
+//  ↳ http://esri.github.io/calcite-web/documentation/sass/#clearfix
+//  ↳ components → _utility-mixins.md
+@mixin clearfix() {
+    &:after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+}
+
+%clearfix {
+    @include clearfix();
+}

@@ -84,7 +84,7 @@ export default class AccordionDropdown extends Component<AccordionDropdownProps,
                     class="drp-accordion__clear-btn"
                     onclick={this.handleClear}
                 >
-                    {componentI18n.clear}
+                    {componentI18n.dropdowns.clear}
                 </button>
             );
         }

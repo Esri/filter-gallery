@@ -51,7 +51,7 @@ export default class FilterChip extends Component<FilterChipProps> {
                 {
                     !this.props.static ? (
                         <button
-                            aria-label={`${i18n.clear}: ${text}`}
+                            aria-label={`${i18n.buttons.clear}: ${text}`}
                             value={filterId}
                             id={`filter-chip-x-${text}`}
                             class="btn-ftr-chip__remove"

@@ -1,0 +1,205 @@
+@import "../_utils/_calcite/_index";
+
+.card-ac__container {
+    @include trailer(0.5);
+    animation: ib__fade-in 250ms ease-in-out;
+    background-color: white;
+    border: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.card-ac__thumbnail {
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 0;
+    padding-bottom: 66.666666%;
+    width: 100%;
+}
+
+.card-ac__thumb-container {
+    @include padding-leader(0.5);
+    @include gutter-left(0.5);
+    @include gutter-right(0.5);
+    @include padding-trailer(0.5);
+    width: 20%;
+    background-color: white;
+
+    @media screen and (max-width: $small) {
+        display: none;
+    }
+}
+
+.card-ac__details-container {
+    @include padding-leader(0.5);
+    @include gutter-left(0.5);
+    @include gutter-right(0.5);
+    @include padding-trailer(0.5);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    @media screen and (max-width: $small) {
+        padding: 0;
+    }
+}
+
+.card-ac__details {
+    box-sizing: border-box;
+    display: block;
+    flex: 1 1 80%;
+    @include padding-leader(0.5);
+    @include gutter-left(0.5);
+    @include gutter-right(0.5);
+    @include padding-trailer(0.5);
+}
+
+.card-ac__title {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.55rem;
+    @include trailer(0.5);
+}
+
+.card-ac__snippet {
+    @include font-size(-2);
+    margin-bottom: 0;
+}
+
+.card-ac__sub-container {
+    @include padding-leader(0.25);
+    @include padding-trailer(0.25);
+    @include gutter-left(1);
+    @include gutter-right(1);
+    align-items: center;
+    border-top: 1px solid #ddd;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    @media screen and (max-width: $small) {
+        @include gutter-left(0.5);
+        @include gutter-right(0.5);
+    }
+}
+
+.card-ac__sub-group {
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+}
+
+.card-ac__badge-container {
+    flex-wrap: wrap;
+}
+
+.card-ac__badge-container--regular {
+    @media screen and (max-width: $small) {
+        display: none;
+    }
+}
+
+.card-ac__badge-container--small {
+    display: none;
+    flex-wrap: wrap;
+
+    @media screen and (max-width: $small) {
+        display: flex;
+    }
+}
+
+.card-ac__action-container {}
+
+.card-ac__btn {
+    @include btn();
+    &:focus {
+        text-decoration: none;
+        background-color: #005e95;
+        color: #ffffff;
+    }
+
+    @media screen and (max-width: $small) {
+        @include btn-small();
+        @include btn-small();
+    }
+}
+
+.card-ac__primary-btn {
+}
+
+.card-ac__custom-actions {
+    border-left: 1px solid $black;
+    html[dir="rtl"] & {
+        border-left: none;
+        border-right: 1px solid $black;
+    }
+
+    > svg {
+        @include svg-icon();
+    }
+}
+
+.card-ac__custom-action-btn {
+    @include btn-white();
+    @include btn-fill();
+}
+
+.card-ac__side-action {
+    align-items: center;
+    cursor: pointer;
+    display: inline-flex;
+
+    html[dir="rtl"] & {
+        & > svg {
+            padding-left: 0;
+            padding-right: 0.3rem;
+        }
+    }
+
+    & > svg {
+        fill: currentColor;
+        padding-left: 0.3rem;
+    }
+}
+
+.card-ac__info-row {
+    @include trailer(0.5);
+    align-items: center;
+    color: $darker-gray;
+    display: flex;
+    font-size: 13px;
+
+    @media screen and (max-width: $small) {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+.card-ac__icon-title-container {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.card-ac__author-text {
+    padding-left: 0.25rem;
+    html[dir="rtl"] & {
+        padding-left: 0;
+        padding-right: 0.25rem;
+    }
+}
+
+.card-ac__info-string {
+}
+
+.card-ac__info-bullet {
+    color: $light-gray;
+    @include margin-gutter-left(0.5);
+    @include margin-gutter-right(0.5);
+    @media screen and (max-width: $small) {
+        display: none;
+    }
+}
+
+.card-ac__no-wrap {
+    white-space: nowrap;
+}

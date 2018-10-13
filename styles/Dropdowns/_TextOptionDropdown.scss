@@ -1,0 +1,61 @@
+@import "../_utils/_base/_index";
+@import "../_utils/_calcite/_index";
+@import "_BasicDropdown";
+
+.drp-text-option__menu {
+    @include dropdown-menu();
+    top: 100%;
+}
+
+.drp-text-option__menu--left {
+    left: 0;
+
+    html[dir="rtl"] & {
+        left: auto;
+        right: 0;
+    }
+}
+
+.drp-text-option__menu--right {
+    right: 0;
+
+    html[dir="rtl"] & {
+        right: auto;
+        left: 0;
+    }
+}
+
+.drp-text-option__link {
+    @include dropdown-link();
+    border-right: 0;
+    border-bottom: 0;
+    border-left: 0;
+    width: 100%;
+    text-align: left;
+    -webkit-transition: none;
+    -o-transition: none;
+    transition: none;
+    outline: none;
+
+    html[dir="rtl"] & {
+        text-align: right;
+
+        &:focus {
+            border-left: none;
+            border-right: 3px solid #0079c1;
+        }
+    }
+}
+
+.drp-text-option__link--active {
+    text-indent: -3px;
+    border-left: 3px solid #0079c1;
+    background-color: #f8f8f8;
+    text-decoration: none;
+    color: #6e6e6e;
+
+    html[dir="rtl"] & {
+        border-left: none;
+        border-right: 3px solid #0079c1;
+    }
+}

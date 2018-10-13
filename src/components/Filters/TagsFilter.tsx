@@ -70,7 +70,7 @@ export default class TagsFilter extends Component<TagsFilterProps> {
         return (
             <AccordionDropdown
                 key={`${this.props.key}-accordion`}
-                title={this.props.title ? this.props.title : tagsI18n.tags}
+                title={this.props.title ? this.props.title : tagsI18n.filters.tags.tags}
                 clearable={!!this.props.tagsFilter}
                 onClear={this.handleClearFilter}
                 padding={false}
@@ -79,8 +79,8 @@ export default class TagsFilter extends Component<TagsFilterProps> {
                         <input
                             id="filter-tag-filters"
                             type="search"
-                            placeholder={tagsI18n.filterTags}
-                            aria-label={tagsI18n.filterTags}
+                            placeholder={tagsI18n.filters.tags.filterTags}
+                            aria-label={tagsI18n.filters.tags.filterTags}
                             oninput={this.handleFilterStringChange}
                             value={this.props.filterString}
                         />
@@ -89,11 +89,11 @@ export default class TagsFilter extends Component<TagsFilterProps> {
                         class="ftr-tags__tree"
                         id={`${this.props.key}-accordion-tree`}
                         role="tree"
-                        aria-label={tagsI18n.tags}
+                        aria-label={tagsI18n.filters.tags.tags}
                     >
                         {this.props.availableTags.length > 0 ?
                             this.mapTagsToToggles(tsx) :
-                            <p class="ftr-tags__none">{tagsI18n.noTags}</p>
+                            <p class="ftr-tags__none">{tagsI18n.filters.tags.noTags}</p>
                         }
                     </ul>
             </AccordionDropdown>

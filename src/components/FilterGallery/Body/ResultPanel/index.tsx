@@ -27,7 +27,7 @@ export class ResultPanel extends Component<ResultPanelProps> {
             (this.props.resultStatus === "success" || this.props.resultStatus === "loading") &&
             (this.props.pageStatus === "success" || this.props.pageStatus === "loading")
         ) {
-                return <ItemList key="ib-ex-item-list" />;
+                return <ItemList key="fb-item-list" />;
         }
         return (
             <div
@@ -36,7 +36,7 @@ export class ResultPanel extends Component<ResultPanelProps> {
             >
                 <div class="ib-results__message-container">
                     <span class="ib-results__message">
-                        {i18n.results.requestError}
+                        {i18n.gallery.results.requestError}
                     </span>
                 </div>
             </div>

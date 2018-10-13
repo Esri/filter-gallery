@@ -72,11 +72,11 @@ export default class DateRangeSelector extends Component<DateRangeSelectorProps,
             customEnd: props.selectedOption === "custom" && props.range ? new Date(props.range.end) : undefined,
             customRange: props.selectedOption === "custom" && props.range ? props.range : undefined,
             options: [
-                { value: "today", displayName: componentI18n.today },
-                { value: "yesterday", displayName: componentI18n.yesterday },
-                { value: "last7Days", displayName: componentI18n.last7Days },
-                { value: "last30Days", displayName: componentI18n.last30Days },
-                { value: "custom", displayName: componentI18n.custom }
+                { value: "today", displayName: componentI18n.dateSelection.today },
+                { value: "yesterday", displayName: componentI18n.dateSelection.yesterday },
+                { value: "last7Days", displayName: componentI18n.dateSelection.last7Days },
+                { value: "last30Days", displayName: componentI18n.dateSelection.last30Days },
+                { value: "custom", displayName: componentI18n.dateSelection.custom }
             ]
         };
 
@@ -105,7 +105,7 @@ export default class DateRangeSelector extends Component<DateRangeSelectorProps,
                 />
                 <div classes={customSelectClasses}>
                     <label>
-                        {componentI18n.from}
+                        {componentI18n.dateSelection.from}
                         <div class="date-selector__pick-wrapper">
                             <DatePicker
                                 key={`from-picker-${this.state.uid}`}
@@ -116,7 +116,7 @@ export default class DateRangeSelector extends Component<DateRangeSelectorProps,
                         </div>
                     </label>
                     <label>
-                        {componentI18n.to}
+                        {componentI18n.dateSelection.to}
                         <div class="date-selector__pick-wrapper">
                             <DatePicker
                                 key={`to-picker-${this.state.uid}`}

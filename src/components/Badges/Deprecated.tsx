@@ -32,9 +32,9 @@ export default ({ size, tooltip, tooltipDirection }: DeprecatedProps, tsx: H) =>
         textColor="#8C2907"
         key="deprecated-badge"
         size={size}
-        text={componentI18n.deprecated}
-        title={componentI18n.tooltips.deprecated}
-        tooltip={tooltip ? componentI18n.tooltips.deprecated : undefined}
+        text={componentI18n.badges.deprecated}
+        title={componentI18n.badges.tooltips.deprecated}
+        tooltip={tooltip ? componentI18n.badges.tooltips.deprecated : undefined}
         tooltipDirection={tooltipDirection}
     >
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">

@@ -65,10 +65,10 @@ export default class SharedFilters extends Component<SharedFilterProps, SharedFi
 
         this.state = {
             options: [
-                { value: "public", displayName: componentI18n.options.public },
-                { value: "org", displayName: componentI18n.options.org },
-                { value: "shared", displayName: componentI18n.options.shared },
-                { value: "private", displayName: componentI18n.options.private }
+                { value: "public", displayName: componentI18n.filters.shared.options.public },
+                { value: "org", displayName: componentI18n.filters.shared.options.org },
+                { value: "shared", displayName: componentI18n.filters.shared.options.shared },
+                { value: "private", displayName: componentI18n.filters.shared.options.private }
             ]
         };
 
@@ -81,7 +81,7 @@ export default class SharedFilters extends Component<SharedFilterProps, SharedFi
         return (
             <AccordionDropdown
                 key="shared-accordion"
-                title={componentI18n.shared}
+                title={componentI18n.filters.shared.shared}
                 clearable={!!this.props.sharedFilter}
                 onClear={this.handleClearFilter}
             >
@@ -89,7 +89,7 @@ export default class SharedFilters extends Component<SharedFilterProps, SharedFi
                     id="shared-accordion-tree"
                     class="ftr-shared__tree"
                     role="tree"
-                    aria-label={componentI18n.shared}
+                    aria-label={componentI18n.filters.shared.shared}
                 >
                     {this.mapOptionsToToggles(tsx)}
                 </ul>

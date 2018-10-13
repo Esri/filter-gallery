@@ -116,10 +116,10 @@ export class SearchArea extends Component<SearchAreaProps> {
     public render(tsx: H) {
         const placeholder = this.props.searchPlaceholderText ?
             this.props.searchPlaceholderText :
-            i18n.searchPlaceholders.generic;
+            i18n.gallery.searchPlaceholders.generic;
 
         return (
-            <div class="ib-ex-search-area__container">
+            <div class="fg-search-area__container">
                 <svg width="20" height="20" viewBox="0 0 20 20">
                     <path
                         d="M19.205 18.295l-7.036-7.035A6.874 6.874 0 0 0 6.875 0 6.874 6.874 0 0 0 0 6.875a6.874 6.874 0 0 0 11.286 5.27l7.035 7.034.884-.884zM1.25 6.875A5.632 5.632 0 0 1 6.875 1.25 5.632 5.632 0 0 1 12.5 6.875 5.632 5.632 0 0 1 6.875 12.5 5.632 5.632 0 0 1 1.25 6.875z"
@@ -128,20 +128,20 @@ export class SearchArea extends Component<SearchAreaProps> {
                     />
                 </svg>
                 <input
-                    id="ib-ex-search-area__input"
-                    class="ib-ex-search-area__input"
+                    id="fg-search-area__input"
+                    class="fg-search-area__input"
                     type="search"
                     oninput={this.handleSearchChange}
                     onkeydown={this.handleSearchKeyDown}
                     value={this.props.searchString}
                     placeholder={placeholder}
-                    title={i18n.header.search}
-                    aria-label={i18n.header.search}
+                    title={i18n.gallery.header.search}
+                    aria-label={i18n.gallery.header.search}
                 />
-                <div class="ib-ex-search-area__btn-section">
+                <div class="fg-search-area__btn-section">
                     <SortDropdown
                         active={this.props.sortActive}
-                        key="ib-ex-sort-dropdown"
+                        key="fg-sort-dropdown"
                         field={this.props.sortField}
                         order={this.props.sortOrder}
                         availableFields={this.props.sortOptions}
@@ -150,7 +150,7 @@ export class SearchArea extends Component<SearchAreaProps> {
                         onClick={this.handleSortClick}
                     />
                     <IconButton
-                        key="ib-ex-filter-btn"
+                        key="fg-filter-btn"
                         active={this.props.filtersActive}
                         handleClick={this.handleToggleFilters}
                     >
@@ -162,7 +162,7 @@ export class SearchArea extends Component<SearchAreaProps> {
                                     </g>
                                 </g>
                             </svg>
-                            <span class="drp-sort__btn-label">{i18n.filterPane.filter}</span>
+                            <span class="drp-sort__btn-label">{i18n.gallery.filterPane.filter}</span>
                         </div>
                     </IconButton>
                 </div>

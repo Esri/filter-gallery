@@ -102,7 +102,7 @@ export default class Pager extends Component<PagerProps> {
                         <div class="nav-pager__limit-container" key="pagination-limit-container">
                             <div class="nav-pager__limit-inner">
                                 <p class="nav-pager__limit-text">
-                                    {componentI18n.paginationLimit}
+                                    {componentI18n.pager.paginationLimit}
                                 </p>
                             </div>
                         </div>
@@ -111,13 +111,13 @@ export default class Pager extends Component<PagerProps> {
                 <button
                     classes={prevButtonClasses}
                     id="previous"
-                    title={componentI18n.previous}
+                    title={componentI18n.pager.previous}
                     role="link"
                     key="previous-btn"
                     onclick={this.handlePrevious}
                     tabindex={this.props.currentPage <= 1 ? `-1` : `0`}
                 >
-                    {componentI18n.previous}
+                    {componentI18n.pager.previous}
                 </button>
                     <div class="nav-pager__page-btn-container">
                         {pageButtons}
@@ -125,13 +125,13 @@ export default class Pager extends Component<PagerProps> {
                 <button
                     classes={nextButtonClasses}
                     id="next"
-                    title={componentI18n.next}
+                    title={componentI18n.pager.next}
                     role="link"
                     key="next-btn"
                     onclick={this.handleNext}
                     tabindex={this.props.currentPage >= this.props.numPages ? `-1` : `0`}
                 >
-                    {componentI18n.next}
+                    {componentI18n.pager.next}
                 </button>
             </nav>
         );

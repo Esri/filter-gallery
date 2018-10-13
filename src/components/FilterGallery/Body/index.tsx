@@ -88,19 +88,19 @@ class Body extends Component<BodyProps> {
         // const expandedFilters = this.stateTree.ui.expanded.filters;
         const expandedFilters = this.props.filtersActive;
         const filterClasses = {
-            "ib__big-section": true,
-            "ib__big-filters": true,
-            "ib__big-filters--hidden": !expandedFilters,
-            "ib__big-filters--visible": expandedFilters
+            "fg__section": true,
+            "fg__filters": true,
+            "fg__filters--hidden": !expandedFilters,
+            "fg__-filters--visible": expandedFilters
         };
 
         const loading = this.props.resultStatus === "loading" ||
             this.props.paginationStatus === "loading";
 
         const fadedClasses = {
-            "ib__big-wrapper": true,
-            "ib__big-wrapper--faded": loading,
-            "ib__big-wrapper--transparent": loading && this.props.pageDisplayItems.length === 0
+            "fb__wrapper": true,
+            "fb__wrapper--faded": loading,
+            "fb__wrapper--transparent": loading && this.props.pageDisplayItems.length === 0
         };
 
         const numPages = Math.ceil(
@@ -111,13 +111,13 @@ class Body extends Component<BodyProps> {
         );
     
         return (
-            <main class="ib__big-body">
-                <SearchArea key="ib__big-search-area" />
-                <div class="ib__big-row">
+            <main class="fb__body">
+                <SearchArea key="fb__search-area" />
+                <div class="fb__row">
                     <section classes={filterClasses} key="fullscreen-filters">
                         <Filters key="normal-filters" />
                     </section>
-                    <div class="ib__big-overlay-filters">
+                    <div class="fb__overlay-filters">
                         <MobileWrap
                             key="mobile-filter-wrap"
                             maxHeight={true}
@@ -126,17 +126,17 @@ class Body extends Component<BodyProps> {
                             title="Filter"
                             footer={
                                 <button
-                                    class="ib__big-filter-results-btn"
+                                    class="fb__filter-results-btn"
                                     onclick={this.handleCloseMobileFilters}
                                 >
-                                    {i18n.viewResults}
+                                    {i18n.gallery.viewResults}
                                 </button>
                             }
                         >
                             <Filters key="mobile-filters"/>
                         </MobileWrap>
                     </div>
-                    <section class="ib__big-section ib__big-results" key="results-section">
+                    <section class="fb__section fb__results" key="results-section">
                         <div classes={fadedClasses}>
                             <InputArea key="big-browser-input-area" />
                             <ResultPanel key="big-browser-result-panel" />
@@ -154,7 +154,7 @@ class Body extends Component<BodyProps> {
                         </div>
                         {
                             loading ? (
-                                <div class="ib-ex__load-container" key="ib-ex__load-container">
+                                <div class="fg__load-container" key="fg__load-container">
                                     <LoaderBars key="item-ex-loading" />
                                 </div>
                             ) : null

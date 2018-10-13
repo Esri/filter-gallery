@@ -1,4 +1,4 @@
-import * as i18n from "dojo/i18n!../nls/resources";
+import * as i18n from "dojo/i18n!../../../../nls/resources";
 import { Component, H, connect, ComponentProps } from "../../../../Component";
 import {
     CLEAR_ALL_FILTERS,
@@ -65,7 +65,7 @@ export class ActiveFilters extends Component<ActiveFilterProps> {
             activeFilters.push({
                 filterId: "itemType",
                 onRemove: this.handleRemoveGeneralFilter,
-                text: `${i18n.filterChips.type}: ${filter.itemType.text}`
+                text: `${i18n.gallery.filterChips.type}: ${filter.itemType.text}`
             });
         }
 
@@ -73,7 +73,7 @@ export class ActiveFilters extends Component<ActiveFilterProps> {
             activeFilters.push({
                 filterId: "modified",
                 onRemove: this.handleRemoveGeneralFilter,
-                text: `${i18n.filterChips.dateModified}: ${filter.dateModified.label}`
+                text: `${i18n.gallery.filterChips.dateModified}: ${filter.dateModified.label}`
             });
         }
 
@@ -81,7 +81,7 @@ export class ActiveFilters extends Component<ActiveFilterProps> {
             activeFilters.push({
                 filterId: "created",
                 onRemove: this.handleRemoveGeneralFilter,
-                text: `${i18n.filterChips.dateCreated}: ${filter.dateCreated.label}`
+                text: `${i18n.gallery.filterChips.dateCreated}: ${filter.dateCreated.label}`
             });
         }
 
@@ -89,7 +89,7 @@ export class ActiveFilters extends Component<ActiveFilterProps> {
             activeFilters.push({
                 filterId: "shared",
                 onRemove: this.handleRemoveGeneralFilter,
-                text: `${i18n.filterChips.access}: ${filter.shared.text}`
+                text: `${i18n.gallery.filterChips.access}: ${filter.shared.text}`
             });
         }
 
@@ -97,7 +97,7 @@ export class ActiveFilters extends Component<ActiveFilterProps> {
             activeFilters.push({
                 filterId: "status",
                 onRemove: this.handleRemoveGeneralFilter,
-                text: `${i18n.filterChips.status}: ${filter.status.text}`
+                text: `${i18n.gallery.filterChips.status}: ${filter.status.text}`
             });
         }
 
@@ -106,7 +106,7 @@ export class ActiveFilters extends Component<ActiveFilterProps> {
             activeFilters.push({
                 filterId: catFilter.value,
                 onRemove: this.handleRemoveGroupCategoriesFilter,
-                text: `${i18n.filterChips.category}: ${catFilter.text}`
+                text: `${i18n.gallery.filterChips.category}: ${catFilter.text}`
             });
         }
 
@@ -116,7 +116,7 @@ export class ActiveFilters extends Component<ActiveFilterProps> {
                 activeFilters.push({
                     filterId: key,
                     onRemove: this.handleRemoveTagsFilter,
-                    text: `${i18n.filterChips.tagged}: ${key}`
+                    text: `${i18n.gallery.filterChips.tagged}: ${key}`
                 });
             });
         }

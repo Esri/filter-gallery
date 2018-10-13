@@ -1,4 +1,4 @@
-import * as componentI18n from "dojo/i18n!./nls/resources";
+import * as componentI18n from "dojo/i18n!../../../nls/resources";
 
 import { Component, H } from "../../../Component";
 
@@ -66,12 +66,12 @@ export default class ItemTypeFilter extends Component<ItemTypeFilterProps, ItemT
         return (
             <AccordionDropdown
                 key="item-type-accordion"
-                title={componentI18n.itemType}
+                title={componentI18n.filters.itemType.itemType}
                 clearable={!!this.props.itemTypeFilter}
                 onClear={this.handleClearFilter}
             >
                 <ul
-                    aria-label={componentI18n.itemType}
+                    aria-label={componentI18n.filters.itemType.itemType}
                     id="item-type-accordion-tree"
                     class="ftr-item-type__tree"
                     role="tree"

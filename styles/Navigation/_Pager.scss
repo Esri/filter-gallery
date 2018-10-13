@@ -1,0 +1,55 @@
+@import "../_utils/_base/_index";
+@import "../_utils/_calcite/_index";
+
+.nav-pager__btn {
+    @include btn();
+    @include btn-transparent();
+    color: $Calcite_Highlight_Blue_400
+}
+
+.nav-pager__btn--disabled {
+    @include btn-disabled();
+}
+
+.nav-pager__page-btn--inactive {
+    @media screen and (max-width: $small) {
+        display: none;
+    }
+}
+
+.nav-pager__page-btn--active {
+    @include btn();
+}
+
+.nav-pager__dots {
+    @media screen and (max-width: $small) {
+        display: none;
+    }
+}
+
+.nav-pager__container {
+    text-align: center;
+}
+
+.nav-pager__page-btn-container {
+    display: inline-block;
+    @include gutter-right(2);
+    @include gutter-left(2);
+}
+
+.nav-pager__limit-container {
+    @include trailer(1);
+    display: block;
+}
+
+.nav-pager__limit-inner {
+    background-color: #f3edc7;
+    border: 1px solid #e4d154;
+    display: inline-block;
+    max-width: 40em;
+    padding: 0.775rem;
+}
+
+.nav-pager__limit-text {
+    margin-bottom: 0;
+}

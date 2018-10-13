@@ -1,0 +1,35 @@
+@import "../_utils/_base/_index";
+@import "../_utils/_calcite/_index";
+
+.btn-ftr-chip__label {
+    @include label();
+    @include inline-block();
+    @include margin-gutter-right-quarter();
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+
+    html[dir="rtl"] & {
+        margin-right: 0;
+        @include margin-gutter-left-quarter();
+    }
+}
+
+.btn-ftr-chip__label--dark {
+    background-color: #f4f4f4;
+}
+
+.btn-ftr-chip__remove {
+    @include reset-button();
+    @include margin-gutter-left-quarter();
+    @include margin-gutter-right(0);
+    cursor: pointer;
+    color: $gray;
+
+    &:hover {
+        color: $red;
+    }
+}
+
+.btn-ftr-chip__svg {
+    @include svg-icon();
+}

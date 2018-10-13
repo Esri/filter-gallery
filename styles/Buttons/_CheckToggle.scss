@@ -1,0 +1,88 @@
+@import "../_utils/_base/_index";
+@import "../_utils/_calcite/_index";
+
+.btn-check-toggle__item {
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    list-style-type: none;
+    line-height: 1.25rem;
+    position: relative;
+
+    &:before {
+        content: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2213%22%20height%3D%2213%22%20viewBox%3D%220%200%2032%2032%22%20class%3D%22svg-icon%22%3E%3Cpath%20fill%3D%22%23cccccc%22%20d%3D%22M11.927%2022l-6.882-6.883-3%203L11.927%2028%2031.204%208.728l-3.001-3.001z%22%2F%3E%3C%2Fsvg%3E');
+        left: 0;
+        position: absolute;
+        opacity: 0;
+        -webkit-transition: opacity 50ms linear;
+        -o-transition: opacity 50ms linear;
+        transition: opacity 50ms linear;
+        pointer-events: none;
+        margin-top: 1px;
+    }
+
+    &:hover {
+        &:before {
+            opacity: 1;
+        }
+    }
+
+    html[dir="rtl"] & {
+        &:before {
+            left: 100%;
+        }
+    }
+}
+
+.btn-check-toggle__item--active {
+    &:before {
+        opacity: 1;
+        content: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2213%22%20height%3D%2213%22%20viewBox%3D%220%200%2032%2032%22%20class%3D%22svg-icon%22%3E%3Cpath%20fill%3D%22%235a9359%22%20d%3D%22M11.927%2022l-6.882-6.883-3%203L11.927%2028%2031.204%208.728l-3.001-3.001z%22%2F%3E%3C%2Fsvg%3E');
+    }
+}
+
+.btn-check-toggle__button {
+    @include reset-button();
+    @include trailer(0.2);
+    cursor: pointer;
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: #4c4c4c;
+    margin-left: 1rem;
+    display: inline-block;
+    text-align: left;
+    max-width: calc(100% - 2rem);
+
+    &:hover {
+        color: #4c4c4c;
+        > .btn-check-toggle__text {
+            text-decoration: underline;
+        }
+    }
+
+    html[dir="rtl"] & {
+        margin-right: 1rem;
+        margin-left: 0;
+        text-align: right;
+    }
+}
+
+.btn-check-toggle__button--active {
+    font-weight: 600;
+}
+
+.btn-check-toggle__sub-list {
+    @include gutter-left(1);
+    margin-left: 0;
+    margin-bottom: 0;
+}
+
+.btn-check-toggle__text {
+    word-wrap: break-word;
+}
+
+.btn-check-toggle__count {
+    display: inline-block;
+    @include font-size(-3);
+    line-height: inherit;
+}

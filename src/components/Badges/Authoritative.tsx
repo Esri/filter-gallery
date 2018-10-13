@@ -37,9 +37,9 @@ export default ({ size, tooltip, tooltipDirection, altOrg }: AuthoritativeProps,
         textColor="#2B622B"
         key="authoritative-badge"
         size={size}
-        text={i18n.authoritative}
-        title={altOrg ? `${i18n.tooltips.altAuthoritative} ${altOrg}` : i18n.tooltips.authoritative}
-        tooltip={tooltip ? i18n.tooltips.authoritative : undefined}
+        text={i18n.badges.authoritative}
+        title={altOrg ? `${i18n.badges.tooltips.altAuthoritative} ${altOrg}` : i18n.badges.tooltips.authoritative}
+        tooltip={tooltip ? i18n.badges.tooltips.authoritative : undefined}
         tooltipDirection={tooltipDirection}
     >
         <svg

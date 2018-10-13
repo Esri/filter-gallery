@@ -152,7 +152,7 @@ export default class FilterController extends Component<FilterControllerProps, F
                                 class="filter-controller__clear-btn"
                                 onclick={this.props.onClear}
                             >
-                                {componentI18n.clearAll}
+                                {componentI18n.dropdowns.clearAll}
                             </button>
                         </div>
                     </div>
@@ -177,7 +177,7 @@ export default class FilterController extends Component<FilterControllerProps, F
                             class="filter-controller__clear-btn"
                             onclick={this.props.onClear}
                         >
-                            {componentI18n.clearAll}
+                            {componentI18n.dropdowns.clearAll}
                         </button>
                     </div>
                 </div>

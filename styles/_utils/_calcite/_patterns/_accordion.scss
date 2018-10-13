@@ -1,0 +1,35 @@
+// ┌───────────┐
+// │ Accordion │
+// └───────────┘
+//  ↳ http://esri.github.io/calcite-web/documentation/patterns/#accordion
+//  ↳ patterns → _accordion.md
+@mixin accordion() {
+    @include side-nav();
+}
+
+@mixin accordion-section() {
+    &.is-active {
+        .accordion-content {
+            display: block;
+        }
+    }
+}
+
+@mixin accordion-title() {
+    @include side-nav-title();
+    cursor: pointer; // for developers who haven't moved to inline svg icons yet
+    &:focus,
+    &:hover {
+        @include transition(all, $transition);
+        background-color: $Calcite_Gray_150;
+        outline: none;
+    }
+}
+
+@mixin accordion-content() {
+    display: none;
+}
+
+@mixin accordion-icon() {
+    @include transform(rotate(-90deg));
+}
