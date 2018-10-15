@@ -10,6 +10,7 @@ import SubscriberBadge from "../Badges/Subscriber";
 import Ago2018Dropdown from "../Dropdowns/Ago2018Dropdown";
 import { CustomAction } from "../../_reducer/settings/config";
 import { scrubItemInfo } from "../../_utils";
+import { FilterGalleryStore } from "../..";
 
 export interface AnalysisCardProps {
     /**
@@ -46,17 +47,19 @@ export interface AnalysisCardProps {
      * Optional array of custom actions for the item.
      * @type {array}
      */
-    customActions?: CustomAction[];
-}
+    customActions: CustomAction[];
 
-export interface AnalysisCardState {
-    customActionsOpen: boolean;
+    /**
+     * Dispatch function for custom actions.
+     * @type {function}
+     */
+    dispatch: FilterGalleryStore["dispatch"];
 }
 
 /**
  * An item card specifically catered to Analysis workflows.
  */
-export default class AnalysisCard extends Component<AnalysisCardProps, AnalysisCardState> {
+export default class AnalysisCard extends Component<AnalysisCardProps> {
     constructor(props: AnalysisCardProps) {
         super(props);
 
@@ -64,7 +67,6 @@ export default class AnalysisCard extends Component<AnalysisCardProps, AnalysisC
             customActionsOpen: false
         };
 
-        this.handleActionDropdownToggle = this.handleActionDropdownToggle.bind(this);
         this.handleCustomActionClick = this.handleCustomActionClick.bind(this);
     }
 
@@ -85,6 +87,20 @@ export default class AnalysisCard extends Component<AnalysisCardProps, AnalysisC
                 dojoDate.format(new Date(item.modified), { selector: "date", formatLength: "short" })
             }`;
         }
+
+        const actions = this.props.customActions
+            .map((action, index) => (
+                <a
+                    key={action.name}
+                    class="card-ac__side-action"
+                    onclick={this.handleCustomActionClick}
+                    value={index}
+                    title={action.name}
+                >
+                    <span class="card-lc__custom-action-text">{action.name}</span>
+                    <div class="card-lc__custom-icon-container" innerHTML={action.icon} />
+                </a>
+            ));
 
         return (
             <div class="card-ac__container" key={this.props.key}>
@@ -154,41 +170,8 @@ export default class AnalysisCard extends Component<AnalysisCardProps, AnalysisC
                         {this.renderBadges(tsx, true)}
                     </div>
                     <div class="card-ac__action-container card-ac__sub-group">
-                        <div class="card-ac__no-wrap">
-                            {
-                                this.props.customActions && this.props.customActions.length > 0 ? (
-                                    <Ago2018Dropdown
-                                        key={`${item.id}-action-dropdown`}
-                                        active={this.state.customActionsOpen}
-                                        onToggle={this.handleActionDropdownToggle}
-                                    >
-                                        <span class="card-ac__custom-actions card-ac__btn" title={i18n.itemCards.actions}>
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="16"
-                                                height="16"
-                                                viewBox="0 0 32 32"
-                                            >
-                                                <path d="M28 9v5L16 26 4 14V9l12 12L28 9z" />
-                                            </svg>
-                                        </span>
-                                        <div>
-                                            {
-                                                this.props.customActions.map((action, index) => (
-                                                    <button
-                                                        key={action.name}
-                                                        class="card-ac__custom-action-btn card-ac__btn"
-                                                        value={index}
-                                                        onclick={this.handleCustomActionClick}
-                                                    >
-                                                        {action.name}
-                                                    </button>
-                                                ))
-                                            }
-                                        </div>
-                                    </Ago2018Dropdown>
-                                ) : null
-                            }
+                        <div class="card-ac__no-wrap card-lc__custom-actions">
+                            {actions}
                         </div>
                     </div>
                 </div>
@@ -222,18 +205,9 @@ export default class AnalysisCard extends Component<AnalysisCardProps, AnalysisC
         });
     }
 
-    private handleActionDropdownToggle() {
-        this.setState({
-            customActionsOpen: !this.state.customActionsOpen
-        });
-    }
-
     private handleCustomActionClick(e: any) {
-        this.setState({
-            customActionsOpen: !this.state.customActionsOpen
-        });
-        if (this.props.customActions && this.props.customActions[e.target.value]) {
-            this.props.customActions[e.target.value].onAction(scrubItemInfo(this.props.item));
+        if (this.props.customActions[e.target.value]) {
+            this.props.customActions[e.target.value].onAction(scrubItemInfo(this.props.item), this.props.dispatch);
         }
     }
 }

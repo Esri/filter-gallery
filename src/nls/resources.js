@@ -132,6 +132,8 @@ define({
             }
         },
         gallery: {
+            signIn: "Sign In",
+            signOut: "Sign Out",
             header: {
                 browse: "Browse", // arcgisonline.common.browser
                 search: "Search" // arcgisonline.common.search
@@ -221,6 +223,14 @@ define({
             previous: "Previous",
             next: "Next",
             paginationLimit: "There is a limit of 10,000 results that can be retrieved via pagination. Try filtering or changing your search term to lower the number of returned results."
+        },
+        actions: {
+            viewMap: "View Map",
+            viewScene: "View Scene",
+            viewApp: "View App",
+            viewInMap: "View in Map",
+            viewInScene: "View in Scene",
+            download: "Download"
         }
     }),
     "ar": 1,

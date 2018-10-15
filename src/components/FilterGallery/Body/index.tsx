@@ -91,16 +91,16 @@ class Body extends Component<BodyProps> {
             "fg__section": true,
             "fg__filters": true,
             "fg__filters--hidden": !expandedFilters,
-            "fg__-filters--visible": expandedFilters
+            "fg__filters--visible": expandedFilters
         };
 
         const loading = this.props.resultStatus === "loading" ||
             this.props.paginationStatus === "loading";
 
         const fadedClasses = {
-            "fb__wrapper": true,
-            "fb__wrapper--faded": loading,
-            "fb__wrapper--transparent": loading && this.props.pageDisplayItems.length === 0
+            "fg__wrapper": true,
+            "fg__wrapper--faded": loading,
+            "fg__wrapper--transparent": loading && this.props.pageDisplayItems.length === 0
         };
 
         const numPages = Math.ceil(
@@ -111,13 +111,16 @@ class Body extends Component<BodyProps> {
         );
     
         return (
-            <main class="fb__body">
-                <SearchArea key="fb__search-area" />
-                <div class="fb__row">
+            <main class="fg__body">
+                <SearchArea key="fg__search-area" />
+                <div class="fg__row">
                     <section classes={filterClasses} key="fullscreen-filters">
+                        <div class="fg-input__container">
+                            <span class="fg__filter-label">{i18n.gallery.filterPane.filter}</span>
+                        </div>
                         <Filters key="normal-filters" />
                     </section>
-                    <div class="fb__overlay-filters">
+                    <div class="fg__overlay-filters">
                         <MobileWrap
                             key="mobile-filter-wrap"
                             maxHeight={true}
@@ -126,7 +129,7 @@ class Body extends Component<BodyProps> {
                             title="Filter"
                             footer={
                                 <button
-                                    class="fb__filter-results-btn"
+                                    class="fg__filter-results-btn"
                                     onclick={this.handleCloseMobileFilters}
                                 >
                                     {i18n.gallery.viewResults}
@@ -136,7 +139,7 @@ class Body extends Component<BodyProps> {
                             <Filters key="mobile-filters"/>
                         </MobileWrap>
                     </div>
-                    <section class="fb__section fb__results" key="results-section">
+                    <section class="fg__section fg__results" key="results-section">
                         <div classes={fadedClasses}>
                             <InputArea key="big-browser-input-area" />
                             <ResultPanel key="big-browser-result-panel" />

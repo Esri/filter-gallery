@@ -25,10 +25,10 @@ export class InputArea extends Component<InputAreaProps> {
         const resultCount = `${this.props.itemTotal.toLocaleString()} ${i18n.gallery.resultCount}`;
 
         return (
-            <div class="fb-input__container" key="ib-result-count-container">
-                <span class="fb-input-area__result-count">{resultCount}</span>
+            <div class="fg-input__container" key="ib-result-count-container">
+                <span class="fg-input-area__result-count">{resultCount}</span>
                 <ActiveFilters
-                    key="fb__active-filters"
+                    key="fg__active-filters"
                     theme="dark"
                 />
             </div>

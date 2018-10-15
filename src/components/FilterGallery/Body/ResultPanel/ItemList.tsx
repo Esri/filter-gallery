@@ -22,6 +22,12 @@ export interface ItemListProps {
      * @type {object}
      */
     portal: Pojo;
+
+    /**
+     * Dispatch function for custom actions.
+     * @type {function}
+     */
+    dispatch: FilterGalleryStore["dispatch"];
 }
 
 /**
@@ -42,23 +48,27 @@ export class ItemList extends Component<ItemListProps> {
                     item={item}
                     organization={organization}
                     portal={this.props.portal}
-                    customActions={this.props.stateTree.settings.config.customActions}
+                    customActions={
+                        this.props.stateTree.settings.config.customActions
+                            .filter((action) => action.allowed(item))
+                    }
                     sortField={this.props.stateTree.parameters.sort.field}
+                    dispatch={this.props.dispatch}
                 />
             );
         });
 
         if (items.length > 0) {
             return (
-                <div key={this.props.key} class="ib-ex-results__item-list">
+                <div key={this.props.key} class="fg-results__item-list">
                     {items}
                 </div>
             );
         }
         return (
-            <div key={this.props.key} class="ib-ex-results__item-list">
-                <div class="ib-ex-results__no-items-container">
-                    <div class="ib-ex-results__no-items-centered">
+            <div key={this.props.key} class="fg-results__item-list">
+                <div class="fg-results__no-items-container">
+                    <div class="fg-results__no-items-centered">
                         <svg viewBox="0 0 256 256" width="256">
                             <path
                                 fill="#ccc"
@@ -66,7 +76,7 @@ export class ItemList extends Component<ItemListProps> {
                             >
                             </path>
                         </svg>
-                        <p class="ib-ex-results__no-items-text">{i18n.gallery.results.noItemsFound}</p>
+                        <p class="fg-results__no-items-text">{i18n.gallery.results.noItemsFound}</p>
                     </div>
                 </div>
             </div>
@@ -79,10 +89,14 @@ interface StateProps {
     portal: Pojo;
 }
 
-export default connect<ItemListProps, FilterGalleryStore, StateProps, {}>(
+interface DispatchProps {
+    dispatch: FilterGalleryStore["dispatch"];
+}
+
+export default connect<ItemListProps, FilterGalleryStore, StateProps, DispatchProps>(
     (state) => ({
         stateTree: state,
         portal: state.settings.utils.portal
     }),
-    () => ({})
+    (dispatch) => ({ dispatch })
 )(ItemList);

@@ -76,6 +76,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    min-height: 35px;
     @media screen and (max-width: $small) {
         @include gutter-left(0.5);
         @include gutter-right(0.5);
@@ -93,7 +94,7 @@
 }
 
 .card-ac__badge-container--regular {
-    @media screen and (max-width: $small) {
+    @media screen and (max-width: $medium) {
         display: none;
     }
 }
@@ -102,7 +103,7 @@
     display: none;
     flex-wrap: wrap;
 
-    @media screen and (max-width: $small) {
+    @media screen and (max-width: $medium) {
         display: flex;
     }
 }
@@ -202,4 +203,36 @@
 
 .card-ac__no-wrap {
     white-space: nowrap;
+}
+
+.card-lc__custom-icon-container {
+    > svg {
+        fill: currentColor;
+        height: 16px;
+        width: 16px;
+        padding-top: 7px;
+        padding-left: 5px;
+
+        html[dir="rtl"] & {
+            padding-left: 0;
+            padding-right: 5px;
+        }
+    }
+}
+
+.card-lc__custom-actions {
+    @include font-size(-2);
+    > :not(:first-child) {
+        @include gutter-left(0.75);
+        html[dir="rtl"] & {
+            padding-left: 0;
+            @include gutter-right(0.75);
+        }
+    }
+}
+
+.card-lc__custom-action-text {
+    @media screen and (max-width: $small) {
+        display: none;
+    }
 }

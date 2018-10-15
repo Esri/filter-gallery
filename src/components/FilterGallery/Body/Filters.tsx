@@ -53,6 +53,7 @@ export class FilterPane extends Component<FilterPaneProps> {
         this.handleTagsFilterChange = this.handleTagsFilterChange.bind(this);
         this.handleClearGroupCategories = this.handleClearGroupCategories.bind(this);
         this.handleTagsFilterStringChange = this.handleTagsFilterStringChange.bind(this);
+        this.handleCategorySelect = this.handleCategorySelect.bind(this);
     }
 
     public render(tsx: H) {
@@ -168,7 +169,7 @@ export class FilterPane extends Component<FilterPaneProps> {
         });
 
         return (
-            <div key="filter-accordion" class="ib-filter-pane__accordion">
+            <div key="filter-accordion" class="fg-filter-pane__accordion">
                 {sectionFilters}
             </div>
         );

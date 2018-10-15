@@ -1,5 +1,10 @@
 @import "_utils/_calcite/index";
 @include type-styles();
+@include form();
+
+table {
+    @include table();
+}
 
 @import "Badges/_Authoritative";
 @import "Badges/_Badge";
@@ -20,6 +25,7 @@
 @import "Dropdowns/FilterController";
 @import "Dropdowns/SortDropdown";
 @import "Dropdowns/TextOptionDropdown";
+@import "FilterGallery/_index";
 @import "Filters/CategoriesFilter";
 @import "Filters/CreatedFilter";
 @import "Filters/ItemTypeFilter";

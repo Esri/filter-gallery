@@ -1,10 +1,10 @@
 import * as i18n from "dojo/i18n!../../nls/resources";
-import { Component, H, connect } from "../../../Component";
+import { Component, H, connect, Pojo } from "../../../Component";
 
 import { FilterGalleryStore } from "../../..";
 import IconButton from "../../Buttons/IconButton";
 import SortDropdown, { SortField, SortOrder } from "../../Dropdowns/SortDropdown";
-import { toggleFilters, toggleSort, changeSortField, changeSortOrder, changeSearchString, search } from "../../../_actions";
+import { toggleFilters, toggleSort, changeSortField, changeSortOrder, changeSearchString, search, signIn, signOut } from "../../../_actions";
 
 export interface SearchAreaProps {
     /**
@@ -62,6 +62,12 @@ export interface SearchAreaProps {
     filtersActive: boolean;
 
     /**
+     * The current user.
+     * @type {boolean}
+     */
+    user?: Pojo;
+
+    /**
      * Handler for when the filter panel visibility is toggled.
      * @type {function}
      */
@@ -96,6 +102,18 @@ export interface SearchAreaProps {
      * @type {function}
      */
     search: (updateCounts?: boolean) => void;
+
+    /**
+     * Handler for when the user signs in.
+     * @type {function}
+     */
+    signIn: () => void;
+
+    /**
+     * Handler for when the user signs out.
+     * @type {function}
+     */
+    signOut: () => void;
 }
 
 /**
@@ -111,6 +129,7 @@ export class SearchArea extends Component<SearchAreaProps> {
         this.handleSortFieldChange = this.handleSortFieldChange.bind(this);
         this.handleSortOrderChange = this.handleSortOrderChange.bind(this);
         this.handleSortClick = this.handleSortClick.bind(this);
+        this.handleSignClick = this.handleSignClick.bind(this);
     }
 
     public render(tsx: H) {
@@ -165,6 +184,28 @@ export class SearchArea extends Component<SearchAreaProps> {
                             <span class="drp-sort__btn-label">{i18n.gallery.filterPane.filter}</span>
                         </div>
                     </IconButton>
+                    {
+                        !this.props.user ? (
+                            <IconButton
+                                key="fg-filter-btn"
+                                active={false}
+                                handleClick={this.handleSignClick}
+                            >
+                                <div class="drp-sort__btn-body">
+                                    <svg
+                                        width="16"
+                                        height="16"
+                                        viewBox="0 0 32 32"
+                                    >
+                                        <path d="M16.005 15.871a5.872 5.872 0 0 0 0-11.742 5.87 5.87 0 1 0 0 11.742zm11.567 7.188C27.27 19.036 20.023 18 16 18c-4.012 0-11.271 1.039-11.573 5.059C4.203 26.11 4.068 28.18 4.02 30h23.96c-.047-1.82-.184-3.891-.407-6.941z" />
+                                    </svg>
+                                    <span class="drp-sort__btn-label">
+                                        {i18n.gallery.signIn}
+                                    </span>
+                                </div>
+                            </IconButton>
+                        ) : null
+                    }
                 </div>
             </div>
         );
@@ -200,6 +241,14 @@ export class SearchArea extends Component<SearchAreaProps> {
     private handleSortClick() {
         this.props.toggleSort();
     }
+
+    private handleSignClick() {
+        if (this.props.user) {
+            this.props.signOut();
+        } else {
+            this.props.signIn();
+        }
+    }
 }
 
 interface StateProps {
@@ -211,6 +260,7 @@ interface StateProps {
     sortOptions: SortField[];
     sortOrder: SortOrder;
     filtersActive: boolean;
+    user: Pojo;
 }
 
 interface DispatchProps {
@@ -220,6 +270,8 @@ interface DispatchProps {
     changeSortOrder: (order: SortOrder) => void;
     changeSearchString: (newString: string) => void;
     search: (updateCounts?: boolean) => void;
+    signIn: () => void;
+    signOut: () => void;
 }
 
 export default connect<SearchAreaProps, FilterGalleryStore, StateProps, DispatchProps>(
@@ -231,7 +283,8 @@ export default connect<SearchAreaProps, FilterGalleryStore, StateProps, Dispatch
         sortField: state.parameters.sort.field,
         sortOrder: state.parameters.sort.order,
         sortOptions: state.settings.config.sortOptions,
-        filtersActive: state.ui.filters.filtersOpen
+        filtersActive: state.ui.filters.filtersOpen,
+        user: state.settings.utils.portal.user
     }),
     (dispatch) => ({
         toggleFilters: () => dispatch(toggleFilters()),
@@ -239,6 +292,8 @@ export default connect<SearchAreaProps, FilterGalleryStore, StateProps, Dispatch
         changeSortField: (field: SortField) => dispatch(changeSortField(field)),
         changeSortOrder: (order: SortOrder) => dispatch(changeSortOrder(order)),
         changeSearchString: (newString: string) => dispatch(changeSearchString(newString)),
-        search: (updateCounts: boolean) => dispatch(search(updateCounts))
+        search: (updateCounts: boolean) => dispatch(search(updateCounts)),
+        signIn: () => dispatch(signIn()),
+        signOut: () => dispatch(signOut())
     })
 )(SearchArea);

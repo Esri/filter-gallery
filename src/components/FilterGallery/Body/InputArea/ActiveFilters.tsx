@@ -123,7 +123,7 @@ export class ActiveFilters extends Component<ActiveFilterProps> {
 
         if (activeFilters.length > 0) {
             return (
-                <div key="active-filter-area" class="ib__active-filters">
+                <div key="active-filter-area" class="fg__active-filters">
                     <FilterController
                         key="item-browser-filter-controller"
                         filters={activeFilters.sort((a: any, b: any) => a.text.localeCompare(b.text))}

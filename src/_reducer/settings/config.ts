@@ -3,6 +3,8 @@ import * as i18n from "dojo/i18n!../../nls";
 import { Pojo, Action } from "../../Component";
 import { allItemTypes, ItemType, ItemTypeFilter } from "../../_utils";
 import { SortField } from "../../components/Dropdowns/SortDropdown";
+import { FilterGalleryStore } from "../..";
+import defaultActions from "./_utils/defaultActions";
 
 export type BaseFilters = "itemType" | "modified" | "created" | "shared" | "status" | "tags";
 
@@ -28,7 +30,7 @@ export interface CustomAction {
      * @type {function}
      * @default no-op
      */
-    onAction: (item: Pojo) => any;
+    onAction: (item?: Pojo, dispatch?: FilterGalleryStore["dispatch"]) => any;
     /**
      * Unique name for the custom action.
      * @type {string}
@@ -182,7 +184,7 @@ export interface ConfigState {
 
 export const initialState: ConfigState = {
     dialogTitle: "Filter Gallery",
-    resultsPerQuery: 10,
+    resultsPerQuery: 9,
     allowedItemTypes: allItemTypes,
     availableItemTypeFilters: [
         "maps",
@@ -213,7 +215,7 @@ export const initialState: ConfigState = {
         "pdfs",
         "notebooks"
     ],
-    customActions: [],
+    customActions: defaultActions,
     section: {
         name: "Living Atlas",
         baseQuery: "",
@@ -229,7 +231,7 @@ export const initialState: ConfigState = {
             "status",
             "tags"
         ],
-        id: "fe5656b4b57e4372bbcfdf375d2b2c03"
+        id: "c755678be14e4a0984af36a15f5b643e"
     },
     sortOptions: [ "relevance", "title", "owner", "created", "modified", "numviews" ],
     searchPlaceholderText: i18n.defaultPlaceholder

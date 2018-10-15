@@ -21,8 +21,7 @@ export type FilterGalleryStore = Store<FilterGalleryState> & { dispatch: ThunkDi
 
 export default (config: any) => {
     const node = document.getElementById("viewDiv") as HTMLElement;
-    var portal = new Portal({ url: "https://devext.arcgis.com" });
-    portal.authMode = "immediate";
+    var portal = new Portal({ url: "https://arcgis.com" });
     portal.load().then(function(result) {
         const store: FilterGalleryStore = applyMiddleware(
             createEpicMiddleware(rootEpic),
