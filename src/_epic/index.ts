@@ -4,7 +4,6 @@ import { sectionEpic } from "./results/section";
 import signInOutEpic from "./signInOut";
 import tagsFilterEpic from "./results/tagsFilter";
 import { paginationEpic } from "./ui/pagination";
-import { loggerEpic } from "./logger";
 import { userEpic } from "./results/user";
 
 export const rootEpic = combineEpics(
@@ -14,5 +13,4 @@ export const rootEpic = combineEpics(
     signInOutEpic,
     tagsFilterEpic,
     paginationEpic,
-    loggerEpic
 );

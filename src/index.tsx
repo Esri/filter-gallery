@@ -6,7 +6,8 @@ import {
     createProjector,
     createEpicMiddleware,
     H,
-    Store
+    Store,
+    addListener
 } from "./Component";
 import { rootEpic } from "./_epic";
 import reducer, { initialState, FilterGalleryState } from "./_reducer";
@@ -20,7 +21,8 @@ export default (config: any) => {
     var portal = new Portal({ url: "https://arcgis.com" });
     portal.load().then(function(result) {
         const store: FilterGalleryStore = applyMiddleware(
-            createEpicMiddleware(rootEpic)
+            createEpicMiddleware(rootEpic),
+            addListener((action, state) => console.log(action, state))
         )(createStore)(reducer, {
             ...initialState,
             settings: {

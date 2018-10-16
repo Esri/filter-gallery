@@ -33,7 +33,8 @@ table {
 @import "Filters/SharedFilter";
 @import "Filters/StatusFilter";
 @import "Filters/TagsFilter";
-@import "ItemCards/_ListCard.scss";
+@import "ItemCards/ListCard";
 @import "Loaders/LoaderBars";
-@import "Modals/_MobileWrap.scss";
-@import "Navigation/_Pager.scss";
+@import "Modals/MobileWrap";
+@import "Modals/Overlay";
+@import "Navigation/Pager";

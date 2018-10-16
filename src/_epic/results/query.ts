@@ -32,7 +32,6 @@ export const loadingContentEpic = (action$: Subject<Action>, state$: Observable<
     withLatestFrom(state$),
     switchMap(([action, state]: [Action, FilterGalleryState]) => {
         const updateCounts = action.payload;
-
         const user = state.settings.utils.portal.user;
         const loggedIn = !!user;
 

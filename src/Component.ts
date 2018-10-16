@@ -6,7 +6,7 @@ import {
 } from "maquette";
 import { compose, pickBy, mapObjIndexed } from "./_utils";
 import { merge, Observable, Subject, MonoTypeOperatorFunction } from "rxjs";
-import { scan, startWith, filter } from "rxjs/operators";
+import { scan, startWith, filter, withLatestFrom, map, delay } from "rxjs/operators";
 
 /**
  * Plain Ol' JavaScript Object
@@ -350,14 +350,17 @@ export function applyMiddleware(...middlewares: Array<Middleware>): StoreEnhance
     };
 }
 
-type Epic<T> = (action$: Subject<Action>, state$: Observable<T>) => Observable<Action>;
+type Epic<T> = (action$: Observable<Action>, state$: Observable<T>) => Observable<Action>;
 /**
  * Creates middleware for handling asynchrony and side effects with observable streams
  * @param epic - The root epic for the application
  */
 export function createEpicMiddleware<T>(epic: Epic<T>): Middleware<T> {
     return ({ action$, dispatch, state$ }) => {
-        epic(action$, state$).subscribe(dispatch);
+        epic(
+            action$.pipe(delay(1)), // Epics must be after reducers!
+            state$
+        ).subscribe(dispatch);
         return (next) => (action) => next(action);
     };
 }
@@ -418,3 +421,15 @@ export function createStore<S>(reducer: Reducer<S>, initialState?: S): Store<S> 
  * @param types - The type(s) of actions for filter for.
  */
 export const ofType = (...types: string[]) => filter<Action>(({ type }) => types.indexOf(type) > -1);
+
+/**
+ * Listener middleware allows for using the action and resulting state to perform arbitrary side effects.
+ * @param listener - Listener function to call with action and nextState
+ */
+export function addListener<S>(listener: (action: Action, nextState: S) => any) {
+    return ({ dispatch, getState }: MiddlewareAPI) => (next: Dispatch) => (action: Action) => {
+        let result = next(action);
+        listener(action, getState());
+        return result;
+    };
+}
