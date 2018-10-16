@@ -50,10 +50,11 @@ export class ItemList extends Component<ItemListProps> {
                     portal={this.props.portal}
                     customActions={
                         this.props.stateTree.settings.config.customActions
-                            .filter((action) => action.allowed(item))
+                            .filter((action) => action.allowed(item, this.props.stateTree))
                     }
                     sortField={this.props.stateTree.parameters.sort.field}
                     dispatch={this.props.dispatch}
+                    stateTree={this.props.stateTree}
                 />
             );
         });

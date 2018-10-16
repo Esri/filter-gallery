@@ -7,7 +7,13 @@
     border: 1px solid #ddd;
     display: flex;
     flex-direction: column;
+    position: relative;
+    transition: opacity 200ms ease-in-out;
     width: 100%;
+}
+
+.card-ac__container--loading {
+    opacity: 0.5;
 }
 
 .card-ac__thumbnail {
@@ -159,6 +165,10 @@
     & > svg {
         fill: currentColor;
         padding-left: 0.3rem;
+    }
+
+    & * {
+        pointer-events: none;
     }
 }
 

@@ -5,8 +5,8 @@ import {
     Projector as OriginalProjector
 } from "maquette";
 import { compose, pickBy, mapObjIndexed } from "./_utils";
-import { merge, Observable, Subject } from "rxjs";
-import { scan, startWith } from "rxjs/operators";
+import { merge, Observable, Subject, MonoTypeOperatorFunction } from "rxjs";
+import { scan, startWith, filter } from "rxjs/operators";
 
 /**
  * Plain Ol' JavaScript Object
@@ -413,30 +413,8 @@ export function createStore<S>(reducer: Reducer<S>, initialState?: S): Store<S> 
     return { action$, dispatch, getState, state$ } as Store<S>;
 }
 
-export type ThunkDispatch<S> = (action: Action | ThunkAction<S>) => Action | ThunkAction<S> | void;
-export type ThunkAction<S> = (dispatch?: ThunkDispatch<S>, getState?: () => S) => any
-
 /**
- * Thunk middleware allows for the dispatching of thunks to the store.
- * Thunks are passed `dispatch` and `getState` from the store, and can be used to coordinate asynchronous processes.
+ * `ofType` returns an observable with only emits for actions of the specified type.
+ * @param types - The type(s) of actions for filter for.
  */
-export const thunk: Middleware = <S>({ dispatch, getState }: MiddlewareAPI) =>
-    (next: Dispatch) =>
-    (action: Action | ThunkAction<S>) => {
-        if (typeof action === "function") {
-            return action(dispatch, getState);
-        }
-        return next(action);
-    };
-
-/**
- * Listener middleware allows for using the action and resulting state to perform arbitrary side effects.
- * @param listener - Listener function to call with action and nextState
- */
-export function addListener<S>(listener: (action: Action, nextState: S) => any) {
-    return ({ dispatch, getState }: MiddlewareAPI) => (next: Dispatch) => (action: Action) => {
-        let result = next(action);
-        listener(action, getState());
-        return result;
-    };
-}
+export const ofType = (...types: string[]) => filter<Action>(({ type }) => types.indexOf(type) > -1);

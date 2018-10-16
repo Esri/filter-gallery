@@ -3,7 +3,8 @@ import {
     LOADING_USER_INFO,
     REMOVE_FROM_FAVORITES_SUCCESS,
     UPDATE_USER_INFO,
-    UPDATE_USER_INFO_FAILED
+    UPDATE_USER_INFO_FAILED,
+    UPDATE_USER_INFO_SUCCESS
 } from "../../_actions";
 
 import { Action } from "../../Component";
@@ -26,7 +27,7 @@ export default (state: UserState = initialState, action: Action): UserState => {
                 ...state,
                 status: "loading"
             };
-        case UPDATE_USER_INFO:
+        case UPDATE_USER_INFO_SUCCESS:
             return {
                 ...state,
                 favorites: action.payload.favorites,

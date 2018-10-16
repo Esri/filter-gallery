@@ -1,4 +1,4 @@
-import { CHANGE_SORT_ORDER, CHANGE_SORT_FIELD, UPDATE_SECTION_INFO } from "../../_actions";
+import { CHANGE_SORT_ORDER, CHANGE_SORT_FIELD, UPDATE_SECTION_INFO_SUCCESS } from "../../_actions";
 import { Action } from "../../Component";
 
 export interface SortState {
@@ -42,7 +42,7 @@ export default (state: SortState = initialState, action: Action): SortState => {
                 field,
                 order: defaultSortDirection[field] ? defaultSortDirection[field] : state.order
             };
-        case UPDATE_SECTION_INFO:
+        case UPDATE_SECTION_INFO_SUCCESS:
             return {
                 field: action.payload.sortField ? action.payload.sortField : "relevance",
                 order: action.payload.sortOrder ? action.payload.sortOrder : "desc"

@@ -1,6 +1,9 @@
 import * as i18n from "dojo/i18n!../../../nls/resources";
 import { CustomAction } from "../config";
 import { Pojo } from "../../../Component";
+import { FilterGalleryState } from "../..";
+import { FilterGalleryStore } from "../../..";
+import { addToFavorites, removeFromFavorites } from "../../../_actions";
 
 const defaultActions: CustomAction[] = [
     {
@@ -70,6 +73,32 @@ const defaultActions: CustomAction[] = [
             console.log("User wants to download!");
         },
         icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M16 7.621A3.3 3.3 0 0 1 13.063 11H13v-1h.063A2.337 2.337 0 0 0 15 7.621a2.508 2.508 0 0 0-1.705-2.396l-.592-.196-.085-.618A3.808 3.808 0 0 0 8.988 1a3.652 3.652 0 0 0-3.205 2.039l-.37.714-.778-.21a1.592 1.592 0 0 0-.42-.067A1.34 1.34 0 0 0 2.86 4.75l-.04.56-.498.257A2.419 2.419 0 0 0 1 7.72 2.24 2.24 0 0 0 3 10h1v1H3a3.225 3.225 0 0 1-3-3.28 3.428 3.428 0 0 1 1.863-3.041 2.331 2.331 0 0 1 2.353-2.203 2.588 2.588 0 0 1 .68.101A4.64 4.64 0 0 1 8.988 0a4.788 4.788 0 0 1 4.622 4.275A3.515 3.515 0 0 1 16 7.621zm-7 5.656V6H8v7.277l-1.602-1.602-.707.707 2.809 2.81 2.81-2.81-.708-.707z"/></svg>'
+    },
+    {
+        name: i18n.actions.addFavorite,
+        allowed: (item: Pojo, state: FilterGalleryState) => {
+            return !!state.settings.utils.portal.user &&
+                !!state.results.user.favorites &&
+                !state.results.user.favorites[item.id];
+        },
+        asynchronous: false,
+        onAction: (item: Pojo, state: FilterGalleryState, dispatch: FilterGalleryStore["dispatch"]) => {
+            dispatch(addToFavorites(item));
+        },
+        icon: '<svg width="16" height="16" viewBox="0 0 32 32"><path d="M16.043.367L19.813 12H32l-9.859 7.172 3.789 11.625-9.887-7.193-9.889 7.193 3.787-11.625L0 12h12.271z"/></svg>'
+    },
+    {
+        name: i18n.actions.removeFavorite,
+        allowed: (item: Pojo, state: FilterGalleryState) => {
+            return !!state.settings.utils.portal.user &&
+                !!state.results.user.favorites &&
+                !!state.results.user.favorites[item.id];
+        },
+        asynchronous: false,
+        onAction: (item: Pojo, state: FilterGalleryState, dispatch: FilterGalleryStore["dispatch"]) => {
+            dispatch(removeFromFavorites(item));
+        },
+        icon: '<svg width="16" height="16" viewBox="0 0 32 32"><path fill="#fad817" d="M16.043.367L19.813 12H32l-9.859 7.172 3.789 11.625-9.887-7.193-9.889 7.193 3.787-11.625L0 12h12.271z" /></svg>'
     }
 ];
 

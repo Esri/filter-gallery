@@ -7,10 +7,11 @@ import DeprecatedBadge from "../Badges/Deprecated";
 import LivingAtlasBadge from "../Badges/LivingAtlas";
 import PremiumBadge from "../Badges/Premium";
 import SubscriberBadge from "../Badges/Subscriber";
-import Ago2018Dropdown from "../Dropdowns/Ago2018Dropdown";
 import { CustomAction } from "../../_reducer/settings/config";
 import { scrubItemInfo } from "../../_utils";
 import { FilterGalleryStore } from "../..";
+import { FilterGalleryState } from "../../_reducer";
+import LoaderBars from "../Loaders/LoaderBars";
 
 export interface AnalysisCardProps {
     /**
@@ -54,6 +55,12 @@ export interface AnalysisCardProps {
      * @type {function}
      */
     dispatch: FilterGalleryStore["dispatch"];
+
+    /**
+     * State tree for custom actions.
+     * @type {object}
+     */
+    stateTree: FilterGalleryState;
 }
 
 /**
@@ -88,22 +95,30 @@ export default class AnalysisCard extends Component<AnalysisCardProps> {
             }`;
         }
 
+        const loading = !!this.props.stateTree.results.loadingItems[this.props.item.id];
+
         const actions = this.props.customActions
             .map((action, index) => (
                 <a
                     key={action.name}
                     class="card-ac__side-action"
                     onclick={this.handleCustomActionClick}
-                    value={index}
                     title={action.name}
+                    value={index}
                 >
-                    <span class="card-lc__custom-action-text">{action.name}</span>
-                    <div class="card-lc__custom-icon-container" innerHTML={action.icon} />
+                    <span class="card-lc__custom-action-text" value={index}>{action.name}</span>
+                    <div class="card-lc__custom-icon-container" innerHTML={action.icon} value={index} />
                 </a>
             ));
 
+        const containerClasses = {
+            "card-ac__container": true,
+            "card-ac__container--loading": loading
+        };
+
         return (
-            <div class="card-ac__container" key={this.props.key}>
+            <div classes={containerClasses} key={this.props.key}>
+                {loading ? <LoaderBars key="item-loading" /> : null}
                 <div class="card-ac__details-container">
                     <div class="card-ac__thumb-container">
                         <img
@@ -207,7 +222,11 @@ export default class AnalysisCard extends Component<AnalysisCardProps> {
 
     private handleCustomActionClick(e: any) {
         if (this.props.customActions[e.target.value]) {
-            this.props.customActions[e.target.value].onAction(scrubItemInfo(this.props.item), this.props.dispatch);
+            this.props.customActions[e.target.value].onAction(
+                scrubItemInfo(this.props.item),
+                this.props.stateTree,
+                this.props.dispatch
+            );
         }
     }
 }

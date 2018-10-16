@@ -5,6 +5,7 @@ import { allItemTypes, ItemType, ItemTypeFilter } from "../../_utils";
 import { SortField } from "../../components/Dropdowns/SortDropdown";
 import { FilterGalleryStore } from "../..";
 import defaultActions from "./_utils/defaultActions";
+import { FilterGalleryState } from "..";
 
 export type BaseFilters = "itemType" | "modified" | "created" | "shared" | "status" | "tags";
 
@@ -17,7 +18,7 @@ export interface CustomAction {
      * - e.g. `(item) => item.type === "Map Package"`
      * @type {function}
      */
-    allowed: (item: Pojo) => boolean;
+    allowed: (item: Pojo, state?: FilterGalleryState) => boolean;
     /**
      * If set to true, item will be in a loading state until a promise returned to callback is resolved or rejected.
      * - If this option is set to true, `onAction` must return a dojo deferred.
@@ -30,7 +31,7 @@ export interface CustomAction {
      * @type {function}
      * @default no-op
      */
-    onAction: (item?: Pojo, dispatch?: FilterGalleryStore["dispatch"]) => any;
+    onAction: (item?: Pojo, state?: FilterGalleryState, dispatch?: FilterGalleryStore["dispatch"]) => any;
     /**
      * Unique name for the custom action.
      * @type {string}

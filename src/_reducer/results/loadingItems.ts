@@ -1,6 +1,4 @@
 import {
-    START_CUSTOM_ACTION,
-    END_CUSTOM_ACTION,
     ADD_TO_FAVORITES,
     ADD_TO_FAVORITES_SUCCESS,
     ADD_TO_FAVORITES_FAIL,
@@ -17,16 +15,6 @@ export const initialState: LoadingItemsState = {};
 
 export default (state: LoadingItemsState = {}, action: Action) => {
     switch (action.type) {
-        case START_CUSTOM_ACTION:
-            return {
-                ...state,
-                [action.payload.id]: action.payload
-            };
-        case END_CUSTOM_ACTION:
-            return {
-                ...state,
-                [action.payload.id]: undefined
-            };
         case ADD_TO_FAVORITES:
             return {
                 ...state,

@@ -1,8 +1,8 @@
 import {
     LOADING_CONTENT_SUCCESS,
     LOADING_SECTION_INFO,
-    UPDATE_SECTION_INFO,
-    UPDATE_SECTION_INFO_FAILED
+    UPDATE_SECTION_INFO_FAILED,
+    UPDATE_SECTION_INFO_SUCCESS
 } from "../../_actions";
 
 import { clearCountsRecursive, formatRecursive, mapCountsToSchema } from "./_utils/categories";
@@ -31,7 +31,7 @@ export default (state: SectionState = initialState, action: Action) => {
                 ...state,
                 status: "loading" as SectionState["status"]
             };
-        case UPDATE_SECTION_INFO:
+        case UPDATE_SECTION_INFO_SUCCESS:
             return {
                 ...state,
                 group: action.payload.group,

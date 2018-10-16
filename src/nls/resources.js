@@ -230,7 +230,9 @@ define({
             viewApp: "View App",
             viewInMap: "View in Map",
             viewInScene: "View in Scene",
-            download: "Download"
+            download: "Download",
+            addFavorite: "Add to Favorites",
+            removeFavorite: "Remove from Favorites"
         }
     }),
     "ar": 1,
