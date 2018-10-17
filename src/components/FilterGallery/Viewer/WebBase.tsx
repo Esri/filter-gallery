@@ -20,7 +20,6 @@ interface WebBaseState {
     loadText: string;
 }
 
-type Widget = "compassWidget" | "homeWidget" | "legendWidget" | "locateWidget" | "searchWidget";
 const widgetKey = {
     compassWidget: "esri/widgets/Compass",
     homeWidget: "esri/widgets/Home",

@@ -4,7 +4,8 @@ import IconButton from "../../Buttons/IconButton";
 import { FilterGalleryStore } from "../../..";
 import { closeViewer } from "../../../_actions";
 import { FilterGalleryState } from "../../../_reducer";
-import { MapView } from "./MapView";
+import MapView from "./MapView";
+import SceneView from "./SceneView";
 
 interface ViewerProps {
     key: string;
@@ -18,7 +19,9 @@ export class Viewer extends Component<ViewerProps> {
     public render(tsx: H) {
         let view;
         if (this.props.type === "map") {
-            view = <MapView key="map-view" item={this.props.item} closing={this.props.closing} />;
+            view = <MapView key="map-view" item={this.props.item} />;
+        } else if (this.props.type === "scene") {
+            view = <SceneView key="scene-view" item={this.props.item} />;
         }
 
         return (
