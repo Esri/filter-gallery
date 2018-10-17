@@ -6,6 +6,7 @@ import filters, { FiltersState, initialState as filtersInitial } from "./filters
 import tagsFilter, { TagsFilterState, initialState as tagsFilterInitial } from "./tagsFilter";
 import pagination, { PaginationState, initialState as paginationInitial } from "./pagination";
 import sort, { SortState, initialState as sortInitial } from "./sort";
+import viewer, { ViewerState, initialState as viewerInitial } from "./viewer";
 
 export interface UIState {
     detailsPanel: DetailsPanelState;
@@ -14,6 +15,7 @@ export interface UIState {
     tagsFilter: TagsFilterState;
     pagination: PaginationState;
     sort: SortState;
+    viewer: ViewerState;
 }
 export const initialState: UIState = {
     detailsPanel: detailsPanelInitial,
@@ -21,7 +23,8 @@ export const initialState: UIState = {
     filters: filtersInitial,
     tagsFilter: tagsFilterInitial,
     pagination: paginationInitial,
-    sort: sortInitial
+    sort: sortInitial,
+    viewer: viewerInitial
 };
 
 export default combineReducers<UIState>({
@@ -30,5 +33,6 @@ export default combineReducers<UIState>({
     filters,
     tagsFilter,
     pagination,
-    sort
+    sort,
+    viewer
 });

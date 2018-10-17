@@ -1,0 +1,25 @@
+.fg-viewer__container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+
+.fg-viewer__header {
+    background-color: white;
+    display: block;
+    @include gutter-left(1);
+    @include gutter-right(1);
+    @include padding-leader(0.5);
+    @include padding-trailer(0.5);
+}
+
+.fg-viewer__view {
+    flex: 1;
+    width: 100%;
+}
+
+.fg-viewer__center {
+    @include center();
+}

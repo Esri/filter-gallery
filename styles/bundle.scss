@@ -2,6 +2,10 @@
 @include type-styles();
 @include form();
 
+body {
+    overflow-y: scroll;
+}
+
 table {
     @include table();
 }

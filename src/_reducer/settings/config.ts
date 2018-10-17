@@ -31,7 +31,7 @@ export interface CustomAction {
      * @type {function}
      * @default no-op
      */
-    onAction: (item?: Pojo, state?: FilterGalleryState, dispatch?: FilterGalleryStore["dispatch"]) => any;
+    onAction: (item: Pojo, state: FilterGalleryState, dispatch: FilterGalleryStore["dispatch"]) => any;
     /**
      * Unique name for the custom action.
      * @type {string}

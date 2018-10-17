@@ -6,7 +6,7 @@ import { CHANGING_PAGE, mixinOrganizationInfo, CHANGE_PAGE_SUCCESS, CHANGE_PAGE_
 import { getSearchRequest } from "../../_actions/results/_utils/requestHelpers";
 import { fromDeferred, mixinItemInfo } from "../../_utils";
 
-export const paginationEpic = (action$: Subject<Action>, state$: Observable<FilterGalleryState>) => action$.pipe(
+export default (action$: Subject<Action>, state$: Observable<FilterGalleryState>) => action$.pipe(
     ofType(CHANGING_PAGE),
     withLatestFrom(state$),
     switchMap(([ { payload }, state ]) => {

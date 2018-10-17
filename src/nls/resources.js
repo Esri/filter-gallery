@@ -233,6 +233,19 @@ define({
             download: "Download",
             addFavorite: "Add to Favorites",
             removeFavorite: "Remove from Favorites"
+        },
+        viewer: {
+            back: "Return to Gallery",
+            viewLoading: {
+                "scripts": "Fetching scripts..",
+                "map": "Preparing the map..",
+                "basemap": "Loading the basemap..",
+                "layers": "Processing layers..",
+                "view": "Initializing the view..",
+                "widgets": "Adding Widgets..",
+                "failed": "The item failed to load.",
+                "sorry": "Sorry, something went wrong loading the requested item."
+            }
         }
     }),
     "ar": 1,

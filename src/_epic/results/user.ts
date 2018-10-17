@@ -96,7 +96,7 @@ const removeFavoriteEpic = (action$: Subject<Action>, state$: Observable<FilterG
     })
 );
 
-export const userEpic = combineEpics(
+export default combineEpics(
     userInfoEpic,
     addFavoriteEpic,
     removeFavoriteEpic

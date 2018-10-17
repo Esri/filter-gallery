@@ -7,7 +7,7 @@ import { FilterGalleryState } from "../../_reducer";
 import * as all from "dojo/promise/all";
 import { fetchGroupById, fetchGroupCategorySchema, fromDeferred } from "../../_utils";
 
-export const sectionEpic = (action$: Subject<Action>, state$: Observable<FilterGalleryState>) => action$.pipe(
+export default (action$: Subject<Action>, state$: Observable<FilterGalleryState>) => action$.pipe(
     ofType(LOADING_SECTION_INFO),
     withLatestFrom(state$),
     switchMap(([, state ]) => {
