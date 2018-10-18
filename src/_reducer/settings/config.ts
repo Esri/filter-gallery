@@ -208,6 +208,24 @@ export interface ConfigState {
         searchWidget: string;
         basemapGalleryWidget: string;
     };
+
+    /**
+     * Url for the portal which contains the group being queried.
+     * @type {string}
+     */
+    url: string;
+
+    /**
+     * HTML to inject into the header.
+     * @type {string}
+     */
+    headHTML?: string;
+
+    /**
+     * CSS to inject onto the page.
+     * @type {string}
+     */
+    customCSS?: string;
 }
 
 export const initialState: ConfigState = {
@@ -270,7 +288,29 @@ export const initialState: ConfigState = {
         locateWidget: "top-left",
         searchWidget: "top-right",
         basemapGalleryWidget: "bottom-left"
-    }
+    },
+    url: "https://arcgis.com",
+    headHTML: `
+        <div class="my-custom-header">
+        <h3>Custom Header</h3>
+        <h5><em>The app configurer can provide the HTML for the header portion until the search bar, so they can do whatever they want here. The entire area with the red border has been provided through the app config, as an example of how a user could customize the gallery.</em></h5>
+        <p>They can make use of the hash "#gallery" to have a link which goes directly to the gallery like <a href="#gallery">this one.</a> Alternatively, <a href="#search">"#search"</a> will bring focus directly to the search bar. This allows them to make splash pages etc.</p>
+        <p>Or they can link to other resources like <a href="https://jsapi.maps.arcgis.com" target="_blank">their organization's home page</a></p>
+        <p>They can include images here too, or anything else you can do with <em>sanitized</em> HTML:</p>
+        <img src="https://jsapi.maps.arcgis.com/sharing/rest/portals/self/resources/thumbnail.png" />
+        <p>Both the gallery and viewer are styled using CSS with the BEM naming convention. Users can provide their own stylesheets to override the default styles, and customize the look and feel of the gallery. The lovely red border on this header comes from a custom stylesheet provided through the app config.</p>
+        </div>
+    `,
+    customCSS: `
+        .my-custom-header {
+            border: 8px solid red;
+            padding: 2rem;
+        }
+
+        .fg__header {
+            padding: 0;
+        }
+    `
 };
 
 export default (state: ConfigState = initialState, action: Action) => state;

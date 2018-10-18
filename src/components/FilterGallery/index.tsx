@@ -9,6 +9,7 @@ export interface RootComponentProps {
     key: string;
     viewerOpen: boolean;
     viewerClosing: boolean;
+    headHTML?: string;
 }
 
 export class RootComponent extends Component<RootComponentProps> {
@@ -32,7 +33,11 @@ export class RootComponent extends Component<RootComponentProps> {
                         </Overlay>
                     ) : null
                 }
-                <Header key="header" dialogTitle="Filter Gallery" />
+                <Header
+                    key="header"
+                    dialogTitle="Filter Gallery"
+                    injectedHTML={this.props.headHTML ? this.props.headHTML : undefined}
+                />
                 <Body key="body" />
             </main>
         );
@@ -42,12 +47,14 @@ export class RootComponent extends Component<RootComponentProps> {
 interface StateProps {
     viewerOpen: boolean;
     viewerClosing: boolean;
+    headHTML?: string;
 }
 
 export default connect<RootComponentProps, FilterGalleryStore, StateProps, {}>(
     (state) => ({
         viewerOpen: state.ui.viewer.open,
-        viewerClosing: state.ui.viewer.closing
+        viewerClosing: state.ui.viewer.closing,
+        headHTML: state.settings.config.headHTML
     }),
     () => ({})
 )(RootComponent);

@@ -18,18 +18,29 @@ import { startHistoryListener, router } from "./router";
 
 export type FilterGalleryStore = Store<FilterGalleryState>;
 
-export default (config: any) => {
+export default (config: { [propName: string]: any }) => {
+    // Inject custom stylesheet if provided
+    if (initialState.settings.config.customCSS) {
+        const customStyle = document.createElement("style");
+        customStyle.innerHTML = initialState.settings.config.customCSS;
+        document.body.appendChild(customStyle);
+    }
+
     const node = document.getElementById("viewDiv") as HTMLElement;
-    const portal = new Portal({ url: "https://arcgis.com" });
+    const portal = new Portal({ url: config.baseUrl ? config.baseUrl : initialState.settings.config.url });
     portal["baseUrl"] = getOrgBaseUrl(portal);
     const store: FilterGalleryStore = applyMiddleware(
         createEpicMiddleware(rootEpic),
         router,
-        addListener((action, state) => console.log(action, state))
+        // addListener((action, state) => console.log(action, state))
     )(createStore)(reducer, {
         ...initialState,
         settings: {
             ...initialState.settings,
+            config: {
+                ...initialState.settings.config,
+                ...config
+            },
             utils: {
                 ...initialState.settings.utils,
                 portal

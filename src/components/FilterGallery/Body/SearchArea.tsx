@@ -147,7 +147,7 @@ export class SearchArea extends Component<SearchAreaProps> {
                     />
                 </svg>
                 <input
-                    id="fg-search-area__input"
+                    id="search"
                     class="fg-search-area__input"
                     type="search"
                     oninput={this.handleSearchChange}

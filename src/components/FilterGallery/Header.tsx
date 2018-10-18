@@ -13,12 +13,18 @@ export interface HeaderProps {
      * @type {string}
      */
     dialogTitle: string;
+
+    /**
+     * HTML to inject into the header instead of the default.
+     * @type {string}
+     */
+    injectedHTML?: string;
 }
 
 export default class Header extends Component<HeaderProps> {
     public render(tsx: H) {
         return (
-            <header class="fg__header">
+            <header class="fg__header" innerHTML={this.props.injectedHTML ? this.props.injectedHTML : undefined}>
                 <div class="fg__header-title-section">
                     <h4 class="fg__header-title">{this.props.dialogTitle}</h4>
                 </div>

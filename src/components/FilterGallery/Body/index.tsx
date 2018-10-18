@@ -113,7 +113,7 @@ class Body extends Component<BodyProps> {
         return (
             <main class="fg__body">
                 <SearchArea key="fg__search-area" />
-                <div class="fg__row">
+                <div class="fg__row" id="gallery">
                     <section classes={filterClasses} key="fullscreen-filters">
                         <div class="fg-input__container">
                             <span class="fg__filter-label">{i18n.gallery.filterPane.filter}</span>
