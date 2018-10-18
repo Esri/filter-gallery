@@ -1,6 +1,7 @@
 export * from "./parameters/index";
 export * from "./results/index";
 export * from "./ui/index";
+export * from "./router";
 
 export const SIGNED_IN = "SIGNED_IN";
 export const SIGN_IN = "SIGN_IN";

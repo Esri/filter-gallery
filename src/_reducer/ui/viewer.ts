@@ -1,4 +1,4 @@
-import { Pojo, Action } from "../../Component";
+import { Action, Pojo } from "../../Component";
 import { VIEW_MAP, VIEW_SCENE, VIEW_IN_MAP, VIEW_IN_SCENE, CLOSE_VIEWER, CLOSE_VIEWER_IMMEDIATE } from "../../_actions";
 
 export interface ViewerState {
@@ -8,7 +8,7 @@ export interface ViewerState {
     type: "map" | "scene" | "mapLayer" | "sceneLayer";
 }
 
-export const initialState = {
+export const initialState: ViewerState = {
     closing: false,
     open: false,
     item: {},

@@ -14,6 +14,7 @@ import reducer, { initialState, FilterGalleryState } from "./_reducer";
 import RootComponent from "./components/FilterGallery";
 import { loadPortal } from "./_actions";
 import { getOrgBaseUrl } from "./_utils";
+import { startHistoryListener, router } from "./router";
 
 export type FilterGalleryStore = Store<FilterGalleryState>;
 
@@ -23,6 +24,7 @@ export default (config: any) => {
     portal["baseUrl"] = getOrgBaseUrl(portal);
     const store: FilterGalleryStore = applyMiddleware(
         createEpicMiddleware(rootEpic),
+        router,
         addListener((action, state) => console.log(action, state))
     )(createStore)(reducer, {
         ...initialState,
@@ -35,6 +37,7 @@ export default (config: any) => {
         }
     });
     store.dispatch(loadPortal());
+    startHistoryListener(store);
     createProjector(
         store,
         (tsx: H) => (<RootComponent key="root" />),

@@ -1,8 +1,10 @@
 import * as i18n from "dojo/i18n!../../../nls/resources";
+import * as ioQuery from "dojo/io-query";
+
 import { Component, H, Pojo, connect } from "../../../Component";
 import IconButton from "../../Buttons/IconButton";
 import { FilterGalleryStore } from "../../..";
-import { closeViewer } from "../../../_actions";
+import { closeViewer, push } from "../../../_actions";
 import { FilterGalleryState } from "../../../_reducer";
 import MapView from "./MapView";
 import SceneView from "./SceneView";
@@ -84,6 +86,6 @@ export default connect<ViewerProps, FilterGalleryStore, StateProps, DispatchProp
         closing: state.ui.viewer.closing
     }),
     (dispatch) => ({
-        exit: () => dispatch(closeViewer())
+        exit: () => dispatch(push(""))
     })
 )(Viewer);
