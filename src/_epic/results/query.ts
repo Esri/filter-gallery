@@ -1,7 +1,7 @@
 import { Subject, Observable, of } from "rxjs";
 import { Action, combineEpics, ofType, Pojo } from "../../Component";
 import { FilterGalleryState } from "../../_reducer";
-import { withLatestFrom, switchMap, take, startWith, map, catchError, filter } from "rxjs/operators";
+import { withLatestFrom, switchMap, take, startWith, map, catchError, filter, tap } from "rxjs/operators";
 import {
     SEARCH,
     SIGNED_IN,
@@ -13,25 +13,32 @@ import {
     LOADING_SECTION_INFO,
     LOADING_CONTENT,
     UPDATE_USER_INFO_SUCCESS,
-    LOADING_USER_INFO
+    LOADING_USER_INFO,
+    LOAD_PORTAL_SUCCESS
 } from "../../_actions";
 import { getSearchRequest, getCountsRequest, getTagsRequest } from "../../_actions/results/_utils/requestHelpers";
 import * as all from "dojo/promise/all";
 import { fromDeferred, mixinItemInfo } from "../../_utils";
 
 export const searchEpic = (action$: Subject<Action>) => action$.pipe(
-    ofType(SEARCH, SIGNED_IN, SIGNED_OUT),
+    ofType(SEARCH, SIGNED_IN, SIGNED_OUT, LOAD_PORTAL_SUCCESS),
     map(({ type, payload }) => ({
         type: LOADING_CONTENT,
-        payload: (type === SEARCH && payload === true) || type === SIGNED_IN || type === SIGNED_OUT
+        payload:
+            (type === SEARCH && payload === true) ||
+            type === SIGNED_IN ||
+            type === SIGNED_OUT ||
+            type === LOAD_PORTAL_SUCCESS
     }))
 );
 
 export const loadingContentEpic = (action$: Subject<Action>, state$: Observable<FilterGalleryState>) => action$.pipe(
     ofType(LOADING_CONTENT),
     withLatestFrom(state$),
+    filter(([, state]) => state.settings.utils.portal.loadStatus === "loaded"),
     switchMap(([action, state]: [Action, FilterGalleryState]) => {
         const updateCounts = action.payload;
+        const portal: __esri.Portal = state.settings.utils.portal as any;
         const user = state.settings.utils.portal.user;
         const loggedIn = !!user;
 
@@ -53,8 +60,8 @@ export const loadingContentEpic = (action$: Subject<Action>, state$: Observable<
             // Need to fetch the section information prior to searching.
             return action$.pipe(
                 ofType(UPDATE_SECTION_INFO_SUCCESS),
-                take(1),
                 withLatestFrom(state$),
+                take(1),
                 switchMap(([, newState]) => executeSearch(newState, updateCounts)),
                 startWith({
                     type: LOADING_SECTION_INFO

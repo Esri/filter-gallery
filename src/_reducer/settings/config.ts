@@ -181,6 +181,21 @@ export interface ConfigState {
      * @default "Enter search terms"
      */
     searchPlaceholderText: string;
+
+    /**
+     * Widgets to add to the map or scene. To hide the widget set to an empty string.
+     * To show the widget, set the property for the widget to
+     * `top-left`, `top-right`, `bottom-left`, or `bottom-right`. 
+     * @type {object}
+     */
+    widgets: {
+        compassWidget: string;
+        homeWidget: string;
+        legendWidget: string;
+        locateWidget: string;
+        searchWidget: string;
+        basemapGalleryWidget: string;
+    };
 }
 
 export const initialState: ConfigState = {
@@ -235,7 +250,15 @@ export const initialState: ConfigState = {
         id: "c755678be14e4a0984af36a15f5b643e"
     },
     sortOptions: [ "relevance", "title", "owner", "created", "modified", "numviews" ],
-    searchPlaceholderText: i18n.defaultPlaceholder
+    searchPlaceholderText: i18n.defaultPlaceholder,
+    widgets: {
+        compassWidget: "",
+        homeWidget: "top-left",
+        legendWidget: "bottom-right",
+        locateWidget: "top-left",
+        searchWidget: "top-right",
+        basemapGalleryWidget: "bottom-left"
+    }
 };
 
 export default (state: ConfigState = initialState, action: Action) => state;

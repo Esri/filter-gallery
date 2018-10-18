@@ -4,6 +4,7 @@ import WebBase from "./WebBase";
 export interface MapViewProps {
     key: string;
     item: Pojo;
+    closing: boolean;
 }
 
 export default class MapView extends Component<MapViewProps> {
@@ -11,11 +12,11 @@ export default class MapView extends Component<MapViewProps> {
         return (
             <WebBase
                 key={`map-view-${this.props.item.id}`}
-                widgets={{}}
                 viewModule="esri/views/MapView"
                 webModule="esri/WebMap"
                 containerId="fg-map-view"
                 itemId={this.props.item.id}
+                closing={this.props.closing}
             />
         );
     }

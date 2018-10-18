@@ -1,33 +1,34 @@
 import * as i18n from "dojo/i18n!../../../nls/resources";
 import { Component, H, connect } from "../../../Component";
 
-import * as all from "dojo/promise/all";
 import * as promiseUtils from "esri/core/promiseUtils";
 import * as requireUtils from "esri/core/requireUtils";
 import LoaderBars from "../../Loaders/LoaderBars";
 import { FilterGalleryStore } from "../../..";
 import widgetMapping from "./_utils/widgetMapping";
 
-interface WebBaseProps {
+interface LayerBaseProps {
     key: string;
-    webModule: string;
+    mapModule: string;
     viewModule: string;
+    layerModule: string;
     widgets: { [propName: string]: string };
-    itemId: string;
+    layerUrl: string;
     containerId: string;
     closing: boolean;
 }
 
-interface WebBaseState {
+interface LayerBaseState {
     status: string;
     loadText: string;
 }
 
-export class WebBase extends Component<WebBaseProps, WebBaseState> {
-    private map: __esri.WebMap | __esri.WebScene;
+export class LayerBase extends Component<LayerBaseProps, LayerBaseState> {
+    private map: __esri.Map;
     private view: __esri.View;
+    private layer: __esri.Layer;
 
-    constructor(props: WebBaseProps) {
+    constructor(props: LayerBaseProps) {
         super(props);
 
         this.state = {
@@ -40,7 +41,7 @@ export class WebBase extends Component<WebBaseProps, WebBaseState> {
         this.loadWidgets = this.loadWidgets.bind(this);
     }
 
-    public componentWillReceiveProps(nextProps: WebBaseProps) {
+    public componentWillReceiveProps(nextProps: LayerBaseProps) {
         if (!this.props.closing && nextProps.closing && this.view && this.view.container) {
             this.view.container = null as any;
         }
@@ -71,11 +72,11 @@ export class WebBase extends Component<WebBaseProps, WebBaseState> {
     }
 
     private loadScripts() {
-        requireUtils.when(window["require"], [this.props.webModule, this.props.viewModule])
+        requireUtils.when(window["require"], [this.props.mapModule, this.props.viewModule, this.props.layerModule])
             .then(
-                ([WebConstructor, ViewConstructor]) => {
+                ([MapConstructor, ViewConstructor, LayerConstructor]) => {
                     this.setState({ loadText: "map" });
-                    this.loadMap(WebConstructor, ViewConstructor);
+                    this.loadMap(MapConstructor, ViewConstructor, LayerConstructor);
                 },
                 (err) => {
                     this.setState({ status: "failed" });
@@ -84,35 +85,39 @@ export class WebBase extends Component<WebBaseProps, WebBaseState> {
     }
 
     private loadMap(
-        WebConstructor: __esri.WebMapConstructor,
-        ViewConstructor: __esri.MapViewConstructor
+        MapConstructor: __esri.MapConstructor,
+        ViewConstructor: __esri.MapViewConstructor,
+        LayerConstructor: __esri.LayerConstructor
     ) {
-        this.map = new WebConstructor({
-            portalItem: {
-                id: this.props.itemId
+        this.layer = new LayerConstructor({ url: this.props.layerUrl } as __esri.LayerProperties);
+        this.map = new MapConstructor({
+            basemap: "streets-vector",
+            layers: [this.layer]
+        });
+        this.setState({ loadText: "layers" });
+        this.layer.load().then(
+            () => {
+                this.setState({ loadText: "widgets" });
+                this.view = new ViewConstructor({
+                    container: this.props.containerId,
+                    map: this.map
+                });
+                this.view.when(() => {
+                    this.loadWidgets(this.view as any).then(
+                        () => {
+                            this.view.container = this.props.containerId as any;
+                            this.setState({ status: "loaded" });
+                        },
+                        (err) => {
+                            this.setState({ status: "failed" });
+                        }
+                    );
+                });
+            },
+            (err) => {
+                this.setState({ status: "failed" });
             }
-        });
-        this.map.load().then(() => {
-            this.setState({ loadText: "basemap" });
-            return this.map.basemap.load();
-        }).then(() => {
-            this.setState({ loadText: "layers" });
-            const allLayers = this.map.allLayers;
-            const promises = allLayers.map((layer) => layer.load());
-            return all(promises.toArray() as any) as any;
-        }).then((layers: any) => {
-            this.setState({ loadText: "widgets" });
-            this.view = new ViewConstructor({
-                container: this.props.containerId,
-                map: this.map
-            });
-            return this.loadWidgets(this.view as any);
-        }).then(() => {
-            this.view.container = this.props.containerId as any;
-            this.setState({ status: "loaded" });
-        }).otherwise((err) => {
-            this.setState({ status: "failed" });
-        });
+        );
     }
 
     private loadWidgets(view: __esri.MapView) {
@@ -154,9 +159,9 @@ interface StateProps {
     };
 }
 
-export default connect<WebBaseProps, FilterGalleryStore, StateProps, {}>(
+export default connect<LayerBaseProps, FilterGalleryStore, StateProps, {}>(
     (state) => ({
         widgets: state.settings.config.widgets
     }),
     () => ({})
-)(WebBase);
+)(LayerBase);

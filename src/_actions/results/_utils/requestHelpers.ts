@@ -136,10 +136,7 @@ const mixinRequestUrl = curry((state: FilterGalleryState, [ foo, parameters ]: R
     const { filter } = state.parameters;
     const portal = state.settings.utils.portal;
     const section = state.settings.config.section;
-
-    let url = `${portal.restUrl}/search`;
-
-    url = `${portal.restUrl}/content/groups/${section.id}/search`;
+    let url = `${portal.restUrl}/content/groups/${section.id}/search`;
     if (!!filter.categories) {
         url = url + `?categories=${encodeURIComponent(JSON.stringify([filter.categories.value]))}`;
     }

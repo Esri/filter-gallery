@@ -7,12 +7,31 @@
 }
 
 .fg-viewer__header {
+    align-items: center;
     background-color: white;
-    display: block;
+    display: flex;
+    overflow: hidden;
     @include gutter-left(1);
     @include gutter-right(1);
-    @include padding-leader(0.5);
-    @include padding-trailer(0.5);
+    @include padding-leader(0.25);
+    @include padding-trailer(0.25);
+
+    @media screen and (max-width: $small) {
+    }
+}
+
+.fg-viewer__head-box {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.fg-viewer__head-box:first-child > button {
+    margin-right: auto;
+}
+
+.fg-viewer__head-box:last-child > div {
+    margin-left: auto;
 }
 
 .fg-viewer__view {
@@ -22,4 +41,10 @@
 
 .fg-viewer__center {
     @include center();
+}
+
+.fg-viewer__title {
+    margin: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }

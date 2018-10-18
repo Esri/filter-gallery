@@ -12,32 +12,32 @@ import {
 import { rootEpic } from "./_epic";
 import reducer, { initialState, FilterGalleryState } from "./_reducer";
 import RootComponent from "./components/FilterGallery";
-import { search } from "./_actions";
+import { loadPortal } from "./_actions";
+import { getOrgBaseUrl } from "./_utils";
 
 export type FilterGalleryStore = Store<FilterGalleryState>;
 
 export default (config: any) => {
     const node = document.getElementById("viewDiv") as HTMLElement;
-    var portal = new Portal({ url: "https://arcgis.com" });
-    portal.load().then(function(result) {
-        const store: FilterGalleryStore = applyMiddleware(
-            createEpicMiddleware(rootEpic),
-            addListener((action, state) => console.log(action, state))
-        )(createStore)(reducer, {
-            ...initialState,
-            settings: {
-                ...initialState.settings,
-                utils: {
-                    ...initialState.settings.utils,
-                    portal
-                }
+    const portal = new Portal({ url: "https://arcgis.com" });
+    portal["baseUrl"] = getOrgBaseUrl(portal);
+    const store: FilterGalleryStore = applyMiddleware(
+        createEpicMiddleware(rootEpic),
+        addListener((action, state) => console.log(action, state))
+    )(createStore)(reducer, {
+        ...initialState,
+        settings: {
+            ...initialState.settings,
+            utils: {
+                ...initialState.settings.utils,
+                portal
             }
-        });
-        store.dispatch(search(true));
-        createProjector(
-            store,
-            (tsx: H) => (<RootComponent key="root" />),
-            node
-        );
+        }
     });
+    store.dispatch(loadPortal());
+    createProjector(
+        store,
+        (tsx: H) => (<RootComponent key="root" />),
+        node
+    );
 };

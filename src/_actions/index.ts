@@ -9,3 +9,8 @@ export const signIn = () => ({ type: SIGN_IN });
 export const SIGNED_OUT = "SIGNED_OUT";
 export const SIGN_OUT = "SIGN_OUT";
 export const signOut = () => ({ type: SIGN_OUT });
+
+export const LOAD_PORTAL = "LOAD_PORTAL";
+export const LOAD_PORTAL_SUCCESS = "LOAD_PORTAL_SUCCESS";
+export const LOAD_PORTAL_FAILED = "LOAD_PORTAL_FAILED";
+export const loadPortal = () => ({ type: LOAD_PORTAL });
