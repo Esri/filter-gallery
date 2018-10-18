@@ -9,9 +9,11 @@
     "build": "run-s build:*",
     "build:bundles": "webpack -p",
     "build:sass": "node-sass styles --importer node_modules/node-sass-import-once -o dist -r",
+    "build:serviceworker": "webpack -p --config sw.config.js",
     "watch": "run-p watch:* start",
     "watch:bundles": "webpack --watch --mode none",
     "watch:sass": "npm run build:sass && node-sass styles -o dist -r -w",
+    "watch:serviceworker": "webpack --watch --config sw.config.js -p",
     "test": "nyc mocha"
   },
   "author": "",

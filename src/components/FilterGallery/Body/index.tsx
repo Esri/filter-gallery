@@ -96,6 +96,9 @@ class Body extends Component<BodyProps> {
 
         const loading = this.props.resultStatus === "loading" ||
             this.props.paginationStatus === "loading";
+        
+        const failed = this.props.resultStatus === "failed" ||
+            this.props.paginationStatus === "failed";
 
         const fadedClasses = {
             "fg__wrapper": true,
@@ -141,7 +144,9 @@ class Body extends Component<BodyProps> {
                     </div>
                     <section class="fg__section fg__results" key="results-section">
                         <div classes={fadedClasses}>
-                            <InputArea key="big-browser-input-area" />
+                            {
+                                failed ? null : <InputArea key="big-browser-input-area" />
+                            }
                             <ResultPanel key="big-browser-result-panel" />
                             {
                                 numPages > 1 ?

@@ -53,12 +53,18 @@ export default (state: SectionState = initialState, action: Action) => {
             };
         case LOADING_CONTENT_SUCCESS:
             if (action.payload.aggregations && state.schema) {
+                const fieldName = action.payload.aggregations.counts.reduce((acc: string, c: { fieldName: string }) => {
+                    if (c.fieldName === "categories") {
+                        return c.fieldName;
+                    }
+                    return acc;
+                }, "groupCategories");
                 return {
                     ...state,
                     schema: mapCountsToSchema(
                         action.payload.aggregations,
                         clearCountsRecursive(state.schema),
-                        "groupCategories"
+                        fieldName
                     )
                 };
             }

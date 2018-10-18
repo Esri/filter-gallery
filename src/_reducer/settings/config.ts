@@ -19,12 +19,14 @@ export interface CustomAction {
      * @type {function}
      */
     allowed: (item: Pojo, state?: FilterGalleryState) => boolean;
+
     /**
      * If set to true, item will be in a loading state until a promise returned to callback is resolved or rejected.
      * - If this option is set to true, `onAction` must return a dojo deferred.
      * @type {boolean}
      */
     asynchronous: boolean;
+
     /**
      * Callback executed when this action is performed on an item.
      * - If `asynchronous` is set to true, this must return a dojo deferred.
@@ -32,11 +34,13 @@ export interface CustomAction {
      * @default no-op
      */
     onAction: (item: Pojo, state: FilterGalleryState, dispatch: FilterGalleryStore["dispatch"]) => any;
+
     /**
      * Unique name for the custom action.
      * @type {string}
      */
     name: string;
+
     /**
      * Inline SVG to use as icon for this action.
      * - Note: Markup supplied here is injected directly into the DOM. Exposing control of this option to
@@ -216,6 +220,13 @@ export interface ConfigState {
     url: string;
 
     /**
+     * If enabled, will use the categories for the configuring organization rather than the group.
+     * @type {boolean}
+     * @default false
+     */
+    useOrgCategories: boolean;
+
+    /**
      * HTML to inject into the header.
      * @type {string}
      */
@@ -277,9 +288,9 @@ export const initialState: ConfigState = {
             "status",
             "tags"
         ],
-        id: "c755678be14e4a0984af36a15f5b643e"
+        id: "a09a1595fd944f17a47a244e67d804f9"
     },
-    sortOptions: [ "relevance", "title", "owner", "created", "modified", "numviews" ],
+    sortOptions: ["relevance", "title", "owner", "created", "modified", "numviews"],
     searchPlaceholderText: i18n.defaultPlaceholder,
     widgets: {
         compassWidget: "",
@@ -290,20 +301,22 @@ export const initialState: ConfigState = {
         basemapGalleryWidget: "bottom-left"
     },
     url: "https://arcgis.com",
+    useOrgCategories: false,
     headHTML: `
         <div class="my-custom-header">
         <h3>Custom Header</h3>
-        <h5><em>The app configurer can provide the HTML for the header portion until the search bar, so they can do whatever they want here. The entire area with the red border has been provided through the app config, as an example of how a user could customize the gallery.</em></h5>
+        <h5><em>The app configurer can provide the HTML for the header portion until the search bar, so they can do whatever they want here. The entire area with the green border has been provided through the app config, as an example of how a user could customize the gallery.</em></h5>
         <p>They can make use of the hash "#gallery" to have a link which goes directly to the gallery like <a href="#gallery">this one.</a> Alternatively, <a href="#search">"#search"</a> will bring focus directly to the search bar. This allows them to make splash pages etc.</p>
         <p>Or they can link to other resources like <a href="https://jsapi.maps.arcgis.com" target="_blank">their organization's home page</a></p>
         <p>They can include images here too, or anything else you can do with <em>sanitized</em> HTML:</p>
         <img src="https://jsapi.maps.arcgis.com/sharing/rest/portals/self/resources/thumbnail.png" />
-        <p>Both the gallery and viewer are styled using CSS with the BEM naming convention. Users can provide their own stylesheets to override the default styles, and customize the look and feel of the gallery. The lovely red border on this header comes from a custom stylesheet provided through the app config.</p>
+        <p>Both the gallery and viewer are styled using CSS with the BEM naming convention. Users can provide their own stylesheets to override the default styles, and customize the look and feel of the gallery. The green border on this header comes from a custom stylesheet provided through the app config.</p>
+        <p>The filter gallery is a "Progressive Web App," meaning that it is mobile-friendly, has no blocking page transitions, registers a service worker which can cache application assets, and can be saved to a user's home-screen on compatible devices. For the time being it is configured to only cache static resources like html, js, and css. This does however include all JavaScipt API scripts, so it should improve performance somewhat.</p>
         </div>
     `,
     customCSS: `
         .my-custom-header {
-            border: 8px solid red;
+            border: 8px solid #7bb974;
             padding: 2rem;
         }
 

@@ -137,6 +137,9 @@ const mixinRequestUrl = curry((state: FilterGalleryState, [ foo, parameters ]: R
     const portal = state.settings.utils.portal;
     const section = state.settings.config.section;
     let url = `${portal.restUrl}/content/groups/${section.id}/search`;
+    if (state.settings.config.useOrgCategories && !!state.settings.utils.portal.id) {
+        url = `${portal.restUrl}/search`;
+    }
     if (!!filter.categories) {
         url = url + `?categories=${encodeURIComponent(JSON.stringify([filter.categories.value]))}`;
     }

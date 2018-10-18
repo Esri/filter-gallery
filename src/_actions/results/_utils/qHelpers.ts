@@ -9,6 +9,7 @@ import {
     curry,
     compose,
     filterEmptyStrings,
+    appendGroupQ,
 } from "../../../_utils/index";
 import { itemTypeMap } from "../../../_utils/index";
 import { FilterGalleryState } from "../../../_reducer/index";
@@ -46,7 +47,8 @@ const appendQs = (state: FilterGalleryState) => compose(
     compose(
         filterEmptyStrings,
         appendStatusQ(state.parameters.filter.status, state.settings.utils.portal.user),
-        appendSectionQ(state)
+        appendSectionQ(state),
+        appendGroupQ(orgValid(state))
     ),
     compose(
         appendAccessQ(state.parameters.filter.shared),
@@ -70,6 +72,7 @@ const appendCountsQs = (state: FilterGalleryState) => compose(
     appendItemTypeQ(itemTypeMap, {
         allowedItemTypes: state.settings.config.allowedItemTypes
     }),
+    appendGroupQ(orgValid(state))
 );
 
 /**
@@ -83,7 +86,8 @@ const appendTagsQs = (state: FilterGalleryState, tagName: string) => compose(
     appendItemTypeQ(itemTypeMap, {
         allowedItemTypes: state.settings.config.allowedItemTypes
     }),
-    appendTagQ(tagName)
+    appendTagQ(tagName),
+    appendGroupQ(orgValid(state))
 );
 
 /**
@@ -94,3 +98,9 @@ const appendTagsQs = (state: FilterGalleryState, tagName: string) => compose(
 const appendSectionQ = curry((state: FilterGalleryState, q: string[]): string[] => {
     return [ ...q, state.settings.config.section.baseQuery];
 });
+
+function orgValid(state: FilterGalleryState) {
+    return state.settings.config.useOrgCategories && !!state.settings.utils.portal.id ?
+        { id: state.settings.config.section.id } :
+        undefined;
+}

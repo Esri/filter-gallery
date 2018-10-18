@@ -4,10 +4,12 @@ export * from "./ui/index";
 export * from "./router";
 
 export const SIGNED_IN = "SIGNED_IN";
+export const SIGN_IN_FAILED = "SIGN_IN_FAILED";
 export const SIGN_IN = "SIGN_IN";
 export const signIn = () => ({ type: SIGN_IN });
 
 export const SIGNED_OUT = "SIGNED_OUT";
+export const SIGN_OUT_FAILED = "SIGN_OUT_FAILED";
 export const SIGN_OUT = "SIGN_OUT";
 export const signOut = () => ({ type: SIGN_OUT });
 

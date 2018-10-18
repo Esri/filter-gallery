@@ -44,7 +44,7 @@ export const fetchGroupCategorySchema = (request: Request, portal: Pojo, groupId
  * @param portal - 4x or shimmed portal to query
  * @param id - optional id of portal to query
  */
-export const fetchOrgCategorySchema = (request: Request, portal: Pojo, id?: string) =>
+export const fetchOrgCategorySchema = (request: Request, portal: Pojo, id?: string) => 
     requestJSON(request, `${portal.restUrl}/portals/${id ? id : portal.id}/categorySchema`);
 
 /**

@@ -1,3 +1,4 @@
+@import "_utils/_base/index";
 @import "_utils/_calcite/index";
 @include type-styles();
 @include form();
@@ -9,6 +10,21 @@ body {
 
 table {
     @include table();
+}
+
+.fg__no-js {
+    box-sizing: border-box;
+    height: 95vh;
+    margin: 0;
+    padding: 2rem;
+    position: relative;
+    width: 100%;
+}
+
+.fg__no-js-text {
+    @include center();
+    max-width: 600px;
+    text-align: center;
 }
 
 @import "Badges/_Authoritative";

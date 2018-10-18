@@ -26,7 +26,7 @@ export default class Header extends Component<HeaderProps> {
         return (
             <header class="fg__header" innerHTML={this.props.injectedHTML ? this.props.injectedHTML : undefined}>
                 <div class="fg__header-title-section">
-                    <h4 class="fg__header-title">{this.props.dialogTitle}</h4>
+                    <title class="fg__header-title">{this.props.dialogTitle}</title>
                 </div>
             </header>
         );
