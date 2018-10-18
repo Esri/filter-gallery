@@ -1,13 +1,18 @@
 import * as ioQuery from "dojo/io-query";
 
 import { Action, ofType, combineEpics } from "../Component";
-import { Subject, Observable } from "rxjs";
+import { Subject, Observable, of } from "rxjs";
 import { FilterGalleryState } from "../_reducer";
-import { HASH_CHANGE, CLOSE_VIEWER, closeViewer } from "../_actions";
-import { switchMap, withLatestFrom, filter, map } from "rxjs/operators";
+import { HASH_CHANGE, closeViewer, LOADED_ITEM, LOAD_ITEM_FAILED, loadedItem } from "../_actions";
+import { switchMap, withLatestFrom, filter, map, catchError } from "rxjs/operators";
 
-import { fromDeferred } from "../_utils";
+import { fromDeferred, fetchItemById } from "../_utils";
 
+/**
+ * When the hash change corresponds with viewing an item which has already been loaded, open the viewer.
+ * @param action$ - The action stream.
+ * @param state$ - The state stream.
+ */
 export const viewItemEpic = (action$: Subject<Action>, state$: Observable<FilterGalleryState>) => action$.pipe(
     ofType(HASH_CHANGE),
     withLatestFrom(state$),
@@ -21,6 +26,11 @@ export const viewItemEpic = (action$: Subject<Action>, state$: Observable<Filter
     })
 );
 
+/**
+ * When the hash change corresponds with closing the viewer (and it's not already closing), close the viewer.
+ * @param action$ - The action stream.
+ * @param state$ - The state stream.
+ */
 export const closeViewerEpic = (action$: Subject<Action>, state$: Observable<FilterGalleryState>) => action$.pipe(
     ofType(HASH_CHANGE),
     withLatestFrom(state$),
@@ -28,18 +38,47 @@ export const closeViewerEpic = (action$: Subject<Action>, state$: Observable<Fil
         const query = ioQuery.queryToObject(action.payload);
         return !query.viewType && !!state.ui.viewer.open && !state.ui.viewer.closing;
     }),
-    map(([]) => ({ type: CLOSE_VIEWER }))
+    map(([]) => closeViewer())
 );
 
-// export const loadItemEpic = (action$: Subject<Action>, state$: Observable<FilterGalleryState>) => action$.pipe(
-//     ofType(HASH_CHANGE),
-//     withLatestFrom(state$),
-//     switchMap(([, state]) => {
-//     })
-// );
+/**
+ * When the hash change corresponds with viewing an item, but it has not already been loaded, load the item.
+ * @param action$ - The action stream.
+ * @param state$ - The state stream.
+ */
+export const loadItemEpic = (action$: Subject<Action>, state$: Observable<FilterGalleryState>) => action$.pipe(
+    ofType(HASH_CHANGE),
+    withLatestFrom(state$),
+    filter(([action, state]) => {
+        const query = ioQuery.queryToObject(action.payload);
+        return !!query.viewType && !state.ui.viewer.open && !state.results.loadedItems[query.viewId];
+    }),
+    switchMap(([action, state]) => {
+        const { request, portal } = state.settings.utils;
+        const query = ioQuery.queryToObject(action.payload);
+        return fromDeferred(fetchItemById(request, portal, query.viewId) as any).pipe(
+            map(response => (loadedItem(response, query.viewType))),
+            catchError(err => of({
+                type: LOAD_ITEM_FAILED,
+                payload: err
+            }))
+        );
+    })
+);
+
+/**
+ * When an item intended to be viewed is loaded, open it in the viewer.
+ * @param action$ - The action stream.
+ * @param state$ - The state stream.
+ */
+export const loadedItemEpic = (action$: Subject<Action>, state$: Observable<FilterGalleryState>) => action$.pipe(
+    ofType(LOADED_ITEM),
+    map(({ payload }) => ({ type: payload.viewType, payload: payload.item }))
+);
 
 export default combineEpics(
     viewItemEpic,
-    closeViewerEpic
-    // loadItemEpic
+    closeViewerEpic,
+    loadItemEpic,
+    loadedItemEpic
 );

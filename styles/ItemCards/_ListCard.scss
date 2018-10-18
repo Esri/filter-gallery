@@ -1,6 +1,6 @@
 @import "../_utils/_calcite/_index";
 
-.card-ac__container {
+.card-lc__container {
     @include trailer(0.5);
     animation: ib__fade-in 250ms ease-in-out;
     background-color: white;
@@ -12,11 +12,11 @@
     width: 100%;
 }
 
-.card-ac__container--loading {
+.card-lc__container--loading {
     opacity: 0.5;
 }
 
-.card-ac__thumbnail {
+.card-lc__thumbnail {
     background-repeat: no-repeat;
     background-size: cover;
     height: 0;
@@ -24,7 +24,7 @@
     width: 100%;
 }
 
-.card-ac__thumb-container {
+.card-lc__thumb-container {
     @include padding-leader(0.5);
     @include gutter-left(0.5);
     @include gutter-right(0.5);
@@ -37,7 +37,7 @@
     }
 }
 
-.card-ac__details-container {
+.card-lc__details-container {
     @include padding-leader(0.5);
     @include gutter-left(0.5);
     @include gutter-right(0.5);
@@ -50,7 +50,7 @@
     }
 }
 
-.card-ac__details {
+.card-lc__details {
     box-sizing: border-box;
     display: block;
     flex: 1 1 80%;
@@ -60,19 +60,19 @@
     @include padding-trailer(0.5);
 }
 
-.card-ac__title {
+.card-lc__title {
     font-size: 20px;
     font-weight: 600;
     line-height: 1.55rem;
     @include trailer(0.5);
 }
 
-.card-ac__snippet {
+.card-lc__snippet {
     @include font-size(-2);
     margin-bottom: 0;
 }
 
-.card-ac__sub-container {
+.card-lc__sub-container {
     @include padding-leader(0.25);
     @include padding-trailer(0.25);
     @include gutter-left(1);
@@ -89,23 +89,23 @@
     }
 }
 
-.card-ac__sub-group {
+.card-lc__sub-group {
     align-items: center;
     box-sizing: border-box;
     display: flex;
 }
 
-.card-ac__badge-container {
+.card-lc__badge-container {
     flex-wrap: wrap;
 }
 
-.card-ac__badge-container--regular {
+.card-lc__badge-container--regular {
     @media screen and (max-width: $medium) {
         display: none;
     }
 }
 
-.card-ac__badge-container--small {
+.card-lc__badge-container--small {
     display: none;
     flex-wrap: wrap;
 
@@ -114,9 +114,9 @@
     }
 }
 
-.card-ac__action-container {}
+.card-lc__action-container {}
 
-.card-ac__btn {
+.card-lc__btn {
     @include btn();
     &:focus {
         text-decoration: none;
@@ -130,27 +130,24 @@
     }
 }
 
-.card-ac__primary-btn {
+.card-lc__primary-btn {
 }
 
-.card-ac__custom-actions {
-    border-left: 1px solid $black;
-    html[dir="rtl"] & {
-        border-left: none;
-        border-right: 1px solid $black;
-    }
-
-    > svg {
-        @include svg-icon();
-    }
-}
-
-.card-ac__custom-action-btn {
+.card-lc__custom-action-btn {
     @include btn-white();
     @include btn-fill();
 }
 
-.card-ac__side-action {
+.card-lc__side-action-btn {
+    @include reset-button();
+    color: $Calcite_Highlight_Blue_350;
+    &:hover {
+        color: $Calcite_Highlight_Blue_400;
+        text-decoration: underline;
+    }
+}
+
+.card-lc__side-action {
     align-items: center;
     cursor: pointer;
     display: inline-flex;
@@ -172,7 +169,7 @@
     }
 }
 
-.card-ac__info-row {
+.card-lc__info-row {
     @include trailer(0.5);
     align-items: center;
     color: $darker-gray;
@@ -185,13 +182,13 @@
     }
 }
 
-.card-ac__icon-title-container {
+.card-lc__icon-title-container {
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
 }
 
-.card-ac__author-text {
+.card-lc__author-text {
     padding-left: 0.25rem;
     html[dir="rtl"] & {
         padding-left: 0;
@@ -199,10 +196,10 @@
     }
 }
 
-.card-ac__info-string {
+.card-lc__info-string {
 }
 
-.card-ac__info-bullet {
+.card-lc__info-bullet {
     color: $light-gray;
     @include margin-gutter-left(0.5);
     @include margin-gutter-right(0.5);
@@ -211,7 +208,7 @@
     }
 }
 
-.card-ac__no-wrap {
+.card-lc__no-wrap {
     white-space: nowrap;
 }
 
@@ -233,10 +230,10 @@
 .card-lc__custom-actions {
     @include font-size(-2);
     > :not(:first-child) {
-        @include gutter-left(0.75);
+        @include margin-gutter-left(0.75);
         html[dir="rtl"] & {
-            padding-left: 0;
-            @include gutter-right(0.75);
+            margin-left: 0;
+            @include margin-gutter-right(0.75);
         }
     }
 }

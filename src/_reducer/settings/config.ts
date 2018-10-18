@@ -45,6 +45,18 @@ export interface CustomAction {
      * @default undefined
      */
     icon?: string;
+    /**
+     * If set, will render a link with the appropriate href rather than firing the `onAction` callback.
+     * @type {function}
+     * @default undefined
+     */
+    href?: (item: Pojo, state: FilterGalleryState) => string;
+    /**
+     * Optional target for the action's rendered link.
+     * @type {string}
+     * @default undefined
+     */
+    target?: string;
 }
 
 /**

@@ -1,4 +1,4 @@
-import { LOADING_CONTENT_SUCCESS, CHANGE_PAGE_SUCCESS } from "../../_actions";
+import { LOADING_CONTENT_SUCCESS, CHANGE_PAGE_SUCCESS, LOADED_ITEM } from "../../_actions";
 import { Pojo, Action } from "../../Component";
 
 export type LoadedItemsState = {
@@ -24,6 +24,11 @@ export default (state: LoadedItemsState = initialState, action: Action): LoadedI
                 },
                 state
             );
+        case LOADED_ITEM:
+            return {
+                ...state,
+                [action.payload.item.id]: action.payload.item
+            };
         default:
             return state;
     }

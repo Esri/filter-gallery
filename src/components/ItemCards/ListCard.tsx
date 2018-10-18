@@ -88,59 +88,72 @@ export default class AnalysisCard extends Component<AnalysisCardProps> {
         } else if (sortField === "created") {
             infoString = `${i18n.itemCards.created}: ${
                 dojoDate.format(new Date(item.created), { selector: "date", formatLength: "short" })
-            }`;
+                }`;
         } else {
             infoString = `${i18n.itemCards.updated}: ${
                 dojoDate.format(new Date(item.modified), { selector: "date", formatLength: "short" })
-            }`;
+                }`;
         }
 
         const loading = !!this.props.stateTree.results.loadingItems[this.props.item.id];
 
         const actions = this.props.customActions
-            .map((action, index) => (
+            .map((action, index) => action.href ? (
                 <a
                     key={action.name}
-                    class="card-ac__side-action"
-                    onclick={this.handleCustomActionClick}
+                    class="card-lc__side-action"
+                    onclick={action.href ? undefined : this.handleCustomActionClick}
                     title={action.name}
                     value={index}
+                    href={action.href ? action.href(this.props.item, this.props.stateTree) : undefined}
+                    target={action.target ? action.target : undefined}
                 >
                     <span class="card-lc__custom-action-text" value={index}>{action.name}</span>
                     <div class="card-lc__custom-icon-container" innerHTML={action.icon} value={index} />
                 </a>
-            ));
+            ) : (
+                    <button
+                        key={action.name}
+                        class="card-lc__side-action-btn card-lc__side-action"
+                        onclick={action.href ? undefined : this.handleCustomActionClick}
+                        title={action.name}
+                        value={index}
+                    >
+                        <span class="card-lc__custom-action-text" value={index}>{action.name}</span>
+                        <div class="card-lc__custom-icon-container" innerHTML={action.icon} value={index} />
+                    </button>
+                ));
 
         const containerClasses = {
-            "card-ac__container": true,
-            "card-ac__container--loading": loading
+            "card-lc__container": true,
+            "card-lc__container--loading": loading
         };
 
         return (
             <div classes={containerClasses} key={this.props.key}>
                 {loading ? <LoaderBars key="item-loading" /> : null}
-                <div class="card-ac__details-container">
-                    <div class="card-ac__thumb-container">
+                <div class="card-lc__details-container">
+                    <div class="card-lc__thumb-container">
                         <img
                             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
                             alt=""
-                            class="card-ac__thumbnail"
+                            class="card-lc__thumbnail"
                             style={`
                                 background-image: url(${item.thumbURI});
                             `}
                         />
                     </div>
-                    <div class="card-ac__details">
-                        <h3 class="card-ac__title">{item.title}</h3>
-                        <div class="card-ac__info-row">
-                            <div class="card-ac__icon-title-container">
+                    <div class="card-lc__details">
+                        <h3 class="card-lc__title">{item.title}</h3>
+                        <div class="card-lc__info-row">
+                            <div class="card-lc__icon-title-container">
                                 <img
                                     src={item.iconURI}
                                     class="content-search-item-icon"
                                     title={item.displayName}
                                 />
                                 <span
-                                    class="card-ac__author-text"
+                                    class="card-lc__author-text"
                                 >
                                     {`${item.displayName} ${i18n.itemCards.by}`}
                                     <a
@@ -157,13 +170,13 @@ export default class AnalysisCard extends Component<AnalysisCardProps> {
                                     </a>
                                 </span>
                             </div>
-                            <span class="card-ac__info-bullet">•</span>
-                            <span class="card-ac__info-string">{infoString}</span>
+                            <span class="card-lc__info-bullet">•</span>
+                            <span class="card-lc__info-string">{infoString}</span>
                         </div>
-                        <p class="card-ac__snippet">
-                            <span class="card-ac__snippet-text">{item.snippet}{` `}</span>
+                        <p class="card-lc__snippet">
+                            <span class="card-lc__snippet-text">{item.snippet}{` `}</span>
                             <a
-                                class="card-ac__side-action card-ac__no-wrap"
+                                class="card-lc__side-action card-lc__no-wrap"
                                 href={`${this.props.portal.baseUrl}/home/item.html?id=${item.id}`}
                                 target="_blank"
                             >
@@ -177,15 +190,15 @@ export default class AnalysisCard extends Component<AnalysisCardProps> {
                         </p>
                     </div>
                 </div>
-                <div class="card-ac__sub-container">
-                    <div class="card-ac__badge-container card-ac__badge-container--regular card-ac__sub-group">
+                <div class="card-lc__sub-container">
+                    <div class="card-lc__badge-container card-lc__badge-container--regular card-lc__sub-group">
                         {this.renderBadges(tsx)}
                     </div>
-                    <div class="card-ac__badge-container card-ac__badge-container--small card-ac__sub-group">
+                    <div class="card-lc__badge-container card-lc__badge-container--small card-lc__sub-group">
                         {this.renderBadges(tsx, true)}
                     </div>
-                    <div class="card-ac__action-container card-ac__sub-group">
-                        <div class="card-ac__no-wrap card-lc__custom-actions">
+                    <div class="card-lc__action-container card-lc__sub-group">
+                        <div class="card-lc__no-wrap card-lc__custom-actions">
                             {actions}
                         </div>
                     </div>

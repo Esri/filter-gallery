@@ -213,6 +213,15 @@ export const fetchGroupById = (request: Request, portal: Pojo, id: string) =>
     requestJSON(request, `${portal.restUrl}/community/groups/${id}`);
 
 /**
+ * Fetch an item by id
+ * @param request - 4x or shimmed request
+ * @param portal - 4x or shimmed portal to query
+ * @param id - id of the item
+ */
+export const fetchItemById = (request: Request, portal: Pojo, id: string) =>
+    requestJSON(request, `${portal.restUrl}/content/items/${id}`);
+
+/**
  * Query a portal for JSON
  * @param request - 4x or shimmed request
  * @param url - url to query 
