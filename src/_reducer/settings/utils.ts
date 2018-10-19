@@ -19,16 +19,19 @@ export const initialState: UtilsState = {
 export default (state: UtilsState = initialState, action: Action) => {
     switch (action.type) {
         case SIGNED_IN:
+            action.payload["baseUrl"] = getOrgBaseUrl(action.payload);
             return {
                 ...state,
                 portal: action.payload
             };
         case SIGNED_OUT:
+            action.payload["baseUrl"] = getOrgBaseUrl(action.payload);
             return {
                 ...state,
                 portal: action.payload
             };
         case LOAD_PORTAL_SUCCESS:
+            action.payload["baseUrl"] = getOrgBaseUrl(action.payload);
             return {
                 ...state,
                 portal: action.payload

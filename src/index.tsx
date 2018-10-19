@@ -28,7 +28,6 @@ export default (config: { [propName: string]: any }) => {
 
     const node = document.getElementById("viewDiv") as HTMLElement;
     const portal = new Portal({ url: config.baseUrl ? config.baseUrl : initialState.settings.config.url });
-    portal["baseUrl"] = getOrgBaseUrl(portal);
     const store: FilterGalleryStore = applyMiddleware(
         createEpicMiddleware(rootEpic),
         router,
