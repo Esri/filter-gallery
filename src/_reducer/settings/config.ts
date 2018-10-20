@@ -288,7 +288,7 @@ export const initialState: ConfigState = {
             "status",
             "tags"
         ],
-        id: "a09a1595fd944f17a47a244e67d804f9"
+        id: "8de7d7e7162549f3960f3094754dbe37"
     },
     sortOptions: ["relevance", "title", "owner", "created", "modified", "numviews"],
     searchPlaceholderText: i18n.defaultPlaceholder,
@@ -304,25 +304,60 @@ export const initialState: ConfigState = {
     useOrgCategories: false,
     headHTML: `
         <div class="my-custom-header">
-        <h3>Custom Header</h3>
-        <h5><em>The app configurer can provide the HTML for the header portion until the search bar, so they can do whatever they want here. The entire area with the green border has been provided through the app config, as an example of how a user could customize the gallery.</em></h5>
-        <p>They can make use of the hash "#gallery" to have a link which goes directly to the gallery like <a href="#gallery">this one.</a> Alternatively, <a href="#search">"#search"</a> will bring focus directly to the search bar. This allows them to make splash pages etc.</p>
-        <p>Or they can link to other resources like <a href="https://jsapi.maps.arcgis.com" target="_blank">their organization's home page</a></p>
-        <p>They can include images here too, or anything else you can do with <em>sanitized</em> HTML:</p>
-        <img src="https://jsapi.maps.arcgis.com/sharing/rest/portals/self/resources/thumbnail.png" />
-        <p>Both the gallery and viewer are styled using CSS with the BEM naming convention. Users can provide their own stylesheets to override the default styles, and customize the look and feel of the gallery. The green border on this header comes from a custom stylesheet provided through the app config.</p>
-        <p>The filter gallery is a "Progressive Web App," meaning that it is mobile-friendly, has no blocking page transitions, registers a service worker which can cache application assets, and can be saved to a user's home-screen on compatible devices. For the time being it is configured to only cache static resources like html, js, and css. This does however include all JavaScipt API scripts, so it should improve performance somewhat.</p>
+            <h1 class="head-title">
+                <span class="title-la">Living Atlas</span>
+                <span class="title-of">of</span>
+                <span class="title-africa">Africa</span>
+            </h1>
         </div>
     `,
     customCSS: `
         .my-custom-header {
-            border: 8px solid #7bb974;
-            padding: 2rem;
+            background-image: url("https://devtopia.esri.com/storage/user/1607/files/2f42a81c-d3ac-11e8-9b7a-23267ebe0979");
+            background-position: bottom;
+            background-size: cover;
+            box-sizing: border-box;
+            height: 100vh;
+            padding: 1.5rem;
+        }
+
+        .head-title {
+            display: inline-block;
+        }
+
+        .title-la {
+            font-size: 2.4rem;
+            font-weight: 600;
+        }
+
+        .title-of {
+            font-size: 1.8rem;
+            margin-right: 2rem;
+        }
+
+        .title-africa {
+            display: block;
+            font-size: 3.4rem;
+            font-weight: 600;
+            text-align: right;
+        }
+
+        html[dir="rtl"] {
+            .title-africa {
+                margin-left: 0;
+                margin-right: 2rem;
+            }
         }
 
         .fg__header {
             padding: 0;
         }
+
+        .arr-container {
+            margin-top: 1rem;
+            text-align: center;
+            width: 100%;
+        } 
     `
 };
 
