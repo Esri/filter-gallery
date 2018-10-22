@@ -13,7 +13,7 @@ import { FilterGalleryStore } from "../..";
 import { FilterGalleryState } from "../../_reducer";
 import LoaderBars from "../Loaders/LoaderBars";
 
-export interface ListCardProps {
+export interface GridCardProps {
     /**
      * Unique key for the component.
      * @type {string}
@@ -66,8 +66,8 @@ export interface ListCardProps {
 /**
  * An item card specifically catered to Analysis workflows.
  */
-export default class AnalysisCard extends Component<ListCardProps> {
-    constructor(props: ListCardProps) {
+export default class GridCard extends Component<GridCardProps> {
+    constructor(props: GridCardProps) {
         super(props);
 
         this.state = {
@@ -101,59 +101,89 @@ export default class AnalysisCard extends Component<ListCardProps> {
             .map((action, index) => action.href ? (
                 <a
                     key={action.name}
-                    class="card-lc__side-action"
+                    class="card-gc__side-action"
                     onclick={action.href ? undefined : this.handleCustomActionClick}
                     title={action.name}
                     value={index}
                     href={action.href ? action.href(this.props.item, this.props.stateTree) : undefined}
                     target={action.target ? action.target : undefined}
                 >
-                    <span class="card-lc__custom-action-text" value={index}>{action.name}</span>
-                    <div class="card-lc__custom-icon-container" innerHTML={action.icon} value={index} />
+                    <span class="card-gc__custom-action-text" value={index}>{action.name}</span>
+                    <div class="card-gc__custom-icon-container" innerHTML={action.icon} value={index} />
                 </a>
             ) : (
                     <button
                         key={action.name}
-                        class="card-lc__side-action-btn card-lc__side-action"
+                        class="card-gc__side-action-btn card-gc__side-action"
                         onclick={action.href ? undefined : this.handleCustomActionClick}
                         title={action.name}
                         value={index}
                     >
-                        <span class="card-lc__custom-action-text" value={index}>{action.name}</span>
-                        <div class="card-lc__custom-icon-container" innerHTML={action.icon} value={index} />
+                        <span class="card-gc__custom-action-text" value={index}>{action.name}</span>
+                        <div class="card-gc__custom-icon-container" innerHTML={action.icon} value={index} />
                     </button>
                 ));
 
         const containerClasses = {
-            "card-lc__container": true,
-            "card-lc__container--loading": loading
+            "card-gc__container": true,
+            "card-gc__container--loading": loading
         };
+
+        const primaryAction = this.props.customActions[0] && this.props.customActions[0].href ?
+            this.props.customActions[0] :
+            undefined;
+        const thumbnailClasses = {
+            "card-gc__thumbnail": true,
+            "card-gc__thumbnail--actionable": !!primaryAction
+        };
+        const thumbnail = (
+            <img
+                aria-label={primaryAction ? primaryAction.name : undefined}
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                alt=""
+                classes={thumbnailClasses}
+                style={`
+                    background-image: url(${item.thumbURI});
+                `}
+            />
+        );
 
         return (
             <div classes={containerClasses} key={this.props.key}>
                 {loading ? <LoaderBars key="item-loading" /> : null}
-                <div class="card-lc__details-container">
-                    <div class="card-lc__thumb-container">
-                        <img
-                            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                            alt=""
-                            class="card-lc__thumbnail"
-                            style={`
-                                background-image: url(${item.thumbURI});
-                            `}
-                        />
+                <div class="card-gc__details-container">
+                    <div class="card-gc__thumb-container">
+                        {
+                            !!primaryAction && !!primaryAction.href ? ([
+                                (
+                                    <span class="card-gc__thumb-overlay">
+                                        <span>{primaryAction.name}</span>
+                                        <div class="card-gc__custom-icon-container" innerHTML={primaryAction.icon} />
+                                    </span>
+                                ),
+                                (
+                                    <a
+                                        class="card-gc__thumb-link"
+                                        href={primaryAction.href(this.props.item, this.props.stateTree)}
+                                        target={primaryAction.target ? primaryAction.target : undefined}
+                                    >
+                                        {thumbnail}
+                                    </a>
+                                )
+                            ]) : thumbnail
+                        }
                     </div>
-                    <div class="card-lc__details">
-                        <h3 class="card-lc__title">{item.title}</h3>
-                        <div class="card-lc__info-row">
-                            <div class="card-lc__icon-title-container">
+                    <div class="card-gc__details">
+                        <h3 class="card-gc__title">{item.title}</h3>
+                        <div class="card-gc__info-row">
+                            <div class="card-gc__icon-title-container">
                                 <img
                                     src={item.iconURI}
-                                    class="content-search-item-icon"
+                                    class="card-gc__item-icon"
                                     title={item.displayName}
                                 />
                                 <span
-                                    class="card-lc__author-text"
+                                    class="card-gc__author-text"
                                 >
                                     {`${item.displayName} ${i18n.itemCards.by}`}
                                     <a
@@ -170,35 +200,33 @@ export default class AnalysisCard extends Component<ListCardProps> {
                                     </a>
                                 </span>
                             </div>
-                            <span class="card-lc__info-bullet">•</span>
-                            <span class="card-lc__info-string">{infoString}</span>
+                            <span class="card-gc__info-bullet">•</span>
+                            <span class="card-gc__info-string">{infoString}</span>
                         </div>
-                        <p class="card-lc__snippet">
-                            <span class="card-lc__snippet-text">{item.snippet}{` `}</span>
-                            <a
-                                class="card-lc__side-action card-lc__no-wrap"
-                                href={`${this.props.portal.baseUrl}/home/item.html?id=${item.id}`}
-                                target="_blank"
-                            >
-                                {i18n.itemCards.viewItem}
-                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-                                    <path d="M10 1v1h3.293l-6.646 6.646 0.707 0.707 6.646-6.646v3.293h1v-5z"></path>
-                                    <path d="M14 8v6h-12v-12h6v-1h-7v14h14v-7z"></path>
-                                </svg>
+                        <span class="card-gc__snippet">{item.snippet}{` `}</span>
+                        <a
+                            class="card-gc__side-action card-gc__no-wrap card-gc__details-link"
+                            href={`${this.props.portal.baseUrl}/home/item.html?id=${item.id}`}
+                            target="_blank"
+                        >
+                            {i18n.itemCards.viewItem}
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                                <path d="M10 1v1h3.293l-6.646 6.646 0.707 0.707 6.646-6.646v3.293h1v-5z"></path>
+                                <path d="M14 8v6h-12v-12h6v-1h-7v14h14v-7z"></path>
+                            </svg>
 
-                            </a>
-                        </p>
+                        </a>
                     </div>
                 </div>
-                <div class="card-lc__sub-container">
-                    <div class="card-lc__badge-container card-lc__badge-container--regular card-lc__sub-group">
+                <div class="card-gc__sub-container">
+                    <div class="card-gc__badge-container card-gc__badge-container--regular card-gc__sub-group">
                         {this.renderBadges(tsx)}
                     </div>
-                    <div class="card-lc__badge-container card-lc__badge-container--small card-lc__sub-group">
+                    <div class="card-gc__badge-container card-gc__badge-container--small card-gc__sub-group">
                         {this.renderBadges(tsx, true)}
                     </div>
-                    <div class="card-lc__action-container card-lc__sub-group">
-                        <div class="card-lc__no-wrap card-lc__custom-actions">
+                    <div class="card-gc__action-container card-gc__sub-group">
+                        <div class="card-gc__no-wrap card-gc__custom-actions">
                             {actions}
                         </div>
                     </div>

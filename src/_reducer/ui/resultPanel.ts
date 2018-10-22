@@ -3,17 +3,21 @@ import {
     LOADING_CONTENT_FAILED,
     LOADING_CONTENT_SUCCESS,
     CHANGE_RESULT_DISPLAY,
-    SHOW_EMPTY_RESULTS
+    SHOW_EMPTY_RESULTS,
+    TOGGLE_VIEW_DROPDOWN
 } from "../../_actions";
 import { Action } from "../../Component";
+import { ContentView } from "../../components/Dropdowns/ViewDropdown";
 
 export interface ResultPanelState {
-    display: "list" | "table";
+    display: ContentView;
     status: "loading" | "loadingNext" | "failed" | "success" | "empty";
+    viewDropdownActive: boolean;
 }
 export const initialState: ResultPanelState = {
     display: "list",
-    status: "empty"
+    status: "empty",
+    viewDropdownActive: false
 };
 
 export default (state: ResultPanelState = initialState, action: Action): ResultPanelState => {
@@ -36,12 +40,18 @@ export default (state: ResultPanelState = initialState, action: Action): ResultP
         case CHANGE_RESULT_DISPLAY:
             return {
                 ...state,
-                display: state.display === "table" ? "list" : "table"
+                display: action.payload,
+                viewDropdownActive: false
             };
         case SHOW_EMPTY_RESULTS:
             return {
                 ...state,
                 status: "empty"
+            };
+        case TOGGLE_VIEW_DROPDOWN:
+            return {
+                ...state,
+                viewDropdownActive: !state.viewDropdownActive
             };
         default:
             return state;

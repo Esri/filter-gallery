@@ -4,7 +4,8 @@ import { Component, H, connect, Pojo } from "../../../Component";
 import { FilterGalleryStore } from "../../..";
 import IconButton from "../../Buttons/IconButton";
 import SortDropdown, { SortField, SortOrder } from "../../Dropdowns/SortDropdown";
-import { toggleFilters, toggleSort, changeSortField, changeSortOrder, changeSearchString, search, signIn, signOut } from "../../../_actions";
+import { toggleFilters, toggleSort, changeSortField, changeSortOrder, changeSearchString, search, signIn, signOut, CHANGE_RESULT_DISPLAY, TOGGLE_VIEW_DROPDOWN } from "../../../_actions";
+import ViewDropdown, { ContentView } from "../../Dropdowns/ViewDropdown";
 
 export interface SearchAreaProps {
     /**
@@ -62,6 +63,18 @@ export interface SearchAreaProps {
     filtersActive: boolean;
 
     /**
+     * The type of content view.
+     * @type {string}
+     */
+    view: ContentView;
+
+    /**
+     * The visibility of the view dropdown.
+     * @type {boolean}
+     */
+    viewActive: boolean;
+
+    /**
      * The current user.
      * @type {boolean}
      */
@@ -114,6 +127,18 @@ export interface SearchAreaProps {
      * @type {function}
      */
     signOut: () => void;
+
+    /**
+     * Handler for when the user changes the content view.
+     * @type {function}
+     */
+    changeContentView: (newView: ContentView) => void;
+
+    /**
+     * Handler for when the view visibility is toggled.
+     * @type {function}
+     */
+    toggleView: () => void;
 }
 
 /**
@@ -130,6 +155,7 @@ export class SearchArea extends Component<SearchAreaProps> {
         this.handleSortOrderChange = this.handleSortOrderChange.bind(this);
         this.handleSortClick = this.handleSortClick.bind(this);
         this.handleSignClick = this.handleSignClick.bind(this);
+        this.handleViewClick = this.handleViewClick.bind(this);
     }
 
     public render(tsx: H) {
@@ -158,6 +184,14 @@ export class SearchArea extends Component<SearchAreaProps> {
                     aria-label={i18n.gallery.header.search}
                 />
                 <div class="fg-search-area__btn-section">
+                    <ViewDropdown
+                        active={this.props.viewActive}
+                        key="fg-view-dropdown"
+                        view={this.props.view}
+                        availableViews={["grid", "list"]}
+                        onViewChange={this.props.changeContentView}
+                        onClick={this.handleViewClick}
+                    />
                     <SortDropdown
                         active={this.props.sortActive}
                         key="fg-sort-dropdown"
@@ -242,6 +276,10 @@ export class SearchArea extends Component<SearchAreaProps> {
         this.props.toggleSort();
     }
 
+    private handleViewClick() {
+        this.props.toggleView();
+    }
+
     private handleSignClick() {
         if (this.props.user) {
             this.props.signOut();
@@ -261,6 +299,8 @@ interface StateProps {
     sortOrder: SortOrder;
     filtersActive: boolean;
     user: Pojo;
+    view: ContentView;
+    viewActive: boolean;
 }
 
 interface DispatchProps {
@@ -272,6 +312,8 @@ interface DispatchProps {
     search: (updateCounts?: boolean) => void;
     signIn: () => void;
     signOut: () => void;
+    changeContentView: (newView: ContentView) => void;
+    toggleView: () => void;
 }
 
 export default connect<SearchAreaProps, FilterGalleryStore, StateProps, DispatchProps>(
@@ -284,7 +326,9 @@ export default connect<SearchAreaProps, FilterGalleryStore, StateProps, Dispatch
         sortOrder: state.parameters.sort.order,
         sortOptions: state.settings.config.sortOptions,
         filtersActive: state.ui.filters.filtersOpen,
-        user: state.settings.utils.portal.user
+        user: state.settings.utils.portal.user,
+        view: state.ui.resultPanel.display,
+        viewActive: state.ui.resultPanel.viewDropdownActive
     }),
     (dispatch) => ({
         toggleFilters: () => dispatch(toggleFilters()),
@@ -294,6 +338,8 @@ export default connect<SearchAreaProps, FilterGalleryStore, StateProps, Dispatch
         changeSearchString: (newString: string) => dispatch(changeSearchString(newString)),
         search: (updateCounts: boolean) => dispatch(search(updateCounts)),
         signIn: () => dispatch(signIn()),
-        signOut: () => dispatch(signOut())
+        signOut: () => dispatch(signOut()),
+        changeContentView: (newView: ContentView) => dispatch({ type: CHANGE_RESULT_DISPLAY, payload: newView }),
+        toggleView: () => dispatch({ type: TOGGLE_VIEW_DROPDOWN })
     })
 )(SearchArea);

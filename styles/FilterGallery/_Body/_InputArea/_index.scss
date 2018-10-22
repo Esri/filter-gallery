@@ -5,6 +5,7 @@
     align-items: top;
 
     @include padding-leader(0.25);
+    @include padding-trailer(0.25);
     > .fg__active-filters {
         background-color: transparent;
         padding: 0;

@@ -13,7 +13,6 @@ import { rootEpic } from "./_epic";
 import reducer, { initialState, FilterGalleryState } from "./_reducer";
 import RootComponent from "./components/FilterGallery";
 import { loadPortal } from "./_actions";
-import { getOrgBaseUrl } from "./_utils";
 import { startHistoryListener, router } from "./router";
 
 export type FilterGalleryStore = Store<FilterGalleryState>;

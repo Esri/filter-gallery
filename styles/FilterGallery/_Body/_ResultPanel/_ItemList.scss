@@ -1,13 +1,12 @@
 @import "../../../ItemCards/_ListCard";
 
 .fg-results__item-list {
-    & > :first-child {
-        @include leader(0.25);
-    }
 
-    & > :last-child {
-        @include trailer(2);
-    }
+}
+
+.fg-results__item-grid {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .fg-results__no-items-container {

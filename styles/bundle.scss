@@ -46,6 +46,7 @@ table {
 @import "Dropdowns/FilterController";
 @import "Dropdowns/SortDropdown";
 @import "Dropdowns/TextOptionDropdown";
+@import "Dropdowns/ViewDropdown";
 @import "FilterGallery/_index";
 @import "Filters/CategoriesFilter";
 @import "Filters/CreatedFilter";
@@ -55,6 +56,7 @@ table {
 @import "Filters/StatusFilter";
 @import "Filters/TagsFilter";
 @import "ItemCards/ListCard";
+@import "ItemCards/GridCard";
 @import "Loaders/LoaderBars";
 @import "Modals/MobileWrap";
 @import "Modals/Overlay";

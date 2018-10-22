@@ -112,7 +112,11 @@ export default class Toggle extends Component<ToggleProps> {
                     title={this.props.tooltip}
                     tabindex="0"
                 >
-                    <span class="btn-toggle__text" key="text">{name}</span>
+                    {
+                        this.props.children && this.props.children.length > 0 ?
+                            this.props.children :
+                            <span class="btn-toggle__text" key="text">{name}</span>
+                    }
                     {
                         this.props.count ?
                         <span class="btn-toggle__count" key="count">&nbsp;{`(${this.props.count})`}</span> : null

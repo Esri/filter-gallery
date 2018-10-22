@@ -3,6 +3,7 @@ import { Component, H, connect, Pojo } from "../../../../Component";
 import ListCard from "../../../ItemCards/ListCard";
 import { FilterGalleryState } from "../../../../_reducer";
 import { FilterGalleryStore } from "../../../..";
+import GridCard from "../../../ItemCards/GridCard";
 
 export interface ItemListProps {
     /**
@@ -42,9 +43,23 @@ export class ItemList extends Component<ItemListProps> {
                 this.props.stateTree.results.allOrganizations[item.orgId]
             ) ? this.props.stateTree.results.allOrganizations[item.orgId] : undefined;
 
-            return (
+            return this.props.stateTree.ui.resultPanel.display === "list" ? (
                 <ListCard
-                    key={item.id}
+                    key={`${item.id}-list-card`}
+                    item={item}
+                    organization={organization}
+                    portal={this.props.portal}
+                    customActions={
+                        this.props.stateTree.settings.config.customActions
+                            .filter((action) => action.allowed(item, this.props.stateTree))
+                    }
+                    sortField={this.props.stateTree.parameters.sort.field}
+                    dispatch={this.props.dispatch}
+                    stateTree={this.props.stateTree}
+                />
+            ) : (
+                <GridCard
+                    key={`${item.id}-grid-card`}
                     item={item}
                     organization={organization}
                     portal={this.props.portal}
@@ -59,15 +74,20 @@ export class ItemList extends Component<ItemListProps> {
             );
         });
 
+        const containerClasses = {
+            "fg-results__item-list": this.props.stateTree.ui.resultPanel.display === "list",
+            "fg-results__item-grid": this.props.stateTree.ui.resultPanel.display === "grid"
+        };
+
         if (items.length > 0) {
             return (
-                <div key={this.props.key} class="fg-results__item-list">
+                <div key={this.props.key} classes={containerClasses}>
                     {items}
                 </div>
             );
         }
         return (
-            <div key={this.props.key} class="fg-results__item-list">
+            <div key={`${this.props.key}-no-items`} class="fg-results__item-list">
                 <div class="fg-results__no-items-container">
                     <div class="fg-results__no-items-centered">
                         <svg viewBox="0 0 256 256" width="256">

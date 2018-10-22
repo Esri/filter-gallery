@@ -79,6 +79,7 @@ export default class BasicDropdown extends Component<BasicDropdownProps, BasicDr
         return (
             <div
                 class="drp-basic__container"
+                key={this.props.key}
                 onclick={this.handleDropdownClick}
             >
                 {renderHook}

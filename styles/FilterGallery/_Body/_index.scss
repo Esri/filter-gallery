@@ -76,6 +76,10 @@
 .fg__wrapper {
     opacity: 1;
     transition: opacity 200ms;
+
+    > .nav-pager__container {
+        @include leader(2);
+    }
 }
 
 .fg__wrapper--faded {

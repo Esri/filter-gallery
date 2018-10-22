@@ -39,6 +39,12 @@ define({
         dropdowns: {
             clear: "Clear",
             clearAll: "Clear All",
+            contentViews: {
+                "grid": "Grid",
+                "list": "List",
+                "table": "Table",
+                "view": "View"
+            },
             sorting: {
                 sort: "Sort",
                 sortBy: "Sort by",

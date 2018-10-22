@@ -241,7 +241,7 @@ export interface ConfigState {
 
 export const initialState: ConfigState = {
     dialogTitle: "Filter Gallery",
-    resultsPerQuery: 9,
+    resultsPerQuery: 16,
     allowedItemTypes: allItemTypes,
     availableItemTypeFilters: [
         "maps",
@@ -288,17 +288,20 @@ export const initialState: ConfigState = {
             "status",
             "tags"
         ],
-        id: "8de7d7e7162549f3960f3094754dbe37"
+        // Africa
+        id: "8de7d7e7162549f3960f3094754dbe37",
+        // Great Maps
+        // id: "a09a1595fd944f17a47a244e67d804f9",
     },
     sortOptions: ["relevance", "title", "owner", "created", "modified", "numviews"],
     searchPlaceholderText: i18n.defaultPlaceholder,
     widgets: {
         compassWidget: "",
-        homeWidget: "top-left",
-        legendWidget: "bottom-right",
+        homeWidget: "",
+        legendWidget: "",
         locateWidget: "top-left",
         searchWidget: "top-right",
-        basemapGalleryWidget: "bottom-left"
+        basemapGalleryWidget: ""
     },
     url: "https://arcgis.com",
     useOrgCategories: false,
@@ -352,12 +355,6 @@ export const initialState: ConfigState = {
         .fg__header {
             padding: 0;
         }
-
-        .arr-container {
-            margin-top: 1rem;
-            text-align: center;
-            width: 100%;
-        } 
     `
 };
 

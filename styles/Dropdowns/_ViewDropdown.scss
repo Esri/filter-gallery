@@ -1,0 +1,12 @@
+.drp-view__option {
+    display: flex;
+    align-items: center;
+}
+
+.drp-view__option-text {
+    @include gutter-left(0.25);
+    html[dir="rtl"] & {
+        padding-left: 0;
+        @include gutter-right(0.25);
+    }
+}
