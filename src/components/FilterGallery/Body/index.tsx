@@ -37,6 +37,12 @@ export interface BodyProps extends ComponentProps {
     paginationStatus: string;
 
     /**
+     * Current state of the portal.
+     * @type {string}
+     */
+    portalStatus: string;
+
+    /**
      * Array of items displayed on the current page.
      * @type {array}
      */
@@ -95,15 +101,17 @@ class Body extends Component<BodyProps> {
         };
 
         const loading = this.props.resultStatus === "loading" ||
-            this.props.paginationStatus === "loading";
+            this.props.paginationStatus === "loading" ||
+            this.props.portalStatus === "loading";
         
         const failed = this.props.resultStatus === "failed" ||
-            this.props.paginationStatus === "failed";
+            this.props.paginationStatus === "failed" ||
+            this.props.portalStatus === "failed";
 
         const fadedClasses = {
             "fg__wrapper": true,
-            "fg__wrapper--faded": loading,
-            "fg__wrapper--transparent": loading && this.props.pageDisplayItems.length === 0
+            "fg__wrapper--faded": loading && !failed,
+            "fg__wrapper--transparent": loading && this.props.pageDisplayItems.length === 0 && !failed
         };
 
         const numPages = Math.ceil(
@@ -161,7 +169,7 @@ class Body extends Component<BodyProps> {
                             }
                         </div>
                         {
-                            loading ? (
+                            loading && !failed ? (
                                 <div class="fg__load-container" key="fg__load-container">
                                     <LoaderBars key="item-ex-loading" />
                                 </div>
@@ -190,6 +198,7 @@ interface StateProps {
     currentPage: number;
     itemTotal: number;
     resultsPerQuery: number;
+    portalStatus: string;
 }
 
 interface DispatchProps {
@@ -205,7 +214,8 @@ export default connect<BodyProps, FilterGalleryStore, StateProps, DispatchProps>
         pageDisplayItems: state.results.displayItems,
         currentPage: state.ui.pagination.page,
         itemTotal: state.parameters.nextQuery.total,
-        resultsPerQuery: state.settings.config.resultsPerQuery
+        resultsPerQuery: state.settings.config.resultsPerQuery,
+        portalStatus: state.settings.utils.portalStatus
     }),
     (dispatch) => ({
         changePage: (page: number) => dispatch(changePage(page)),

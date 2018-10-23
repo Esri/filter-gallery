@@ -5,8 +5,8 @@ import {
     Projector as OriginalProjector
 } from "maquette";
 import { compose, pickBy, mapObjIndexed } from "./_utils";
-import { merge, Observable, Subject, MonoTypeOperatorFunction } from "rxjs";
-import { scan, startWith, filter, withLatestFrom, map, delay } from "rxjs/operators";
+import { merge, Observable, Subject } from "rxjs";
+import { scan, startWith, filter, delay } from "rxjs/operators";
 
 /**
  * Plain Ol' JavaScript Object
@@ -350,16 +350,16 @@ export function applyMiddleware(...middlewares: Array<Middleware>): StoreEnhance
     };
 }
 
-type Epic<T> = (action$: Observable<Action>, state$: Observable<T>) => Observable<Action>;
+type Epic<T> = (action$: Observable<Action>, getState: () => T) => Observable<Action>;
 /**
  * Creates middleware for handling asynchrony and side effects with observable streams
  * @param epic - The root epic for the application
  */
 export function createEpicMiddleware<T>(epic: Epic<T>): Middleware<T> {
-    return ({ action$, dispatch, state$ }) => {
+    return ({ action$, dispatch, getState }) => {
         epic(
             action$.pipe(delay(1)), // Epics must be after reducers!
-            state$
+            getState
         ).subscribe(dispatch);
         return (next) => (action) => next(action);
     };

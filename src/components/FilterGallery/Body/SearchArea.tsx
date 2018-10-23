@@ -75,6 +75,12 @@ export interface SearchAreaProps {
     viewActive: boolean;
 
     /**
+     * Represents whether one or more filters has been configured for the app.
+     * @type {boolean}
+     */
+    filtersAvailable: boolean;
+
+    /**
      * The current user.
      * @type {boolean}
      */
@@ -202,22 +208,26 @@ export class SearchArea extends Component<SearchAreaProps> {
                         onOrderChange={this.handleSortOrderChange}
                         onClick={this.handleSortClick}
                     />
-                    <IconButton
-                        key="fg-filter-btn"
-                        active={this.props.filtersActive}
-                        handleClick={this.handleToggleFilters}
-                    >
-                        <div class="drp-sort__btn-body">
-                            <svg width="16px" height="16px" viewBox="0 0 16 16">
-                                <g stroke="none" stroke-width="1">
-                                    <g id="filter-sliders-1px-16">
-                                        <path d="M7,13 L0,13 L0,12 L7,12 L7,10 L8,10 L8,15 L7,15 L7,13 Z M12,8 L0,8 L0,7 L12,7 L12,5 L13,5 L13,10 L12,10 L12,8 Z M2,3 L0,3 L0,2 L2,2 L2,0 L3,0 L3,5 L2,5 L2,3 Z M4,2 L16,2 L16,3 L4,3 L4,2 Z M14,7 L16,7 L16,8 L14,8 L14,7 Z M9,12 L16,12 L16,13 L9,13 L9,12 Z" />
-                                    </g>
-                                </g>
-                            </svg>
-                            <span class="drp-sort__btn-label">{i18n.gallery.filterPane.filter}</span>
-                        </div>
-                    </IconButton>
+                    {
+                        this.props.filtersAvailable ? (
+                            <IconButton
+                                key="fg-filter-btn"
+                                active={this.props.filtersActive}
+                                handleClick={this.handleToggleFilters}
+                            >
+                                <div class="drp-sort__btn-body">
+                                    <svg width="16px" height="16px" viewBox="0 0 16 16">
+                                        <g stroke="none" stroke-width="1">
+                                            <g id="filter-sliders-1px-16">
+                                                <path d="M7,13 L0,13 L0,12 L7,12 L7,10 L8,10 L8,15 L7,15 L7,13 Z M12,8 L0,8 L0,7 L12,7 L12,5 L13,5 L13,10 L12,10 L12,8 Z M2,3 L0,3 L0,2 L2,2 L2,0 L3,0 L3,5 L2,5 L2,3 Z M4,2 L16,2 L16,3 L4,3 L4,2 Z M14,7 L16,7 L16,8 L14,8 L14,7 Z M9,12 L16,12 L16,13 L9,13 L9,12 Z" />
+                                            </g>
+                                        </g>
+                                    </svg>
+                                    <span class="drp-sort__btn-label">{i18n.gallery.filterPane.filter}</span>
+                                </div>
+                            </IconButton>
+                        ) : null
+                    }
                     {
                         !this.props.user ? (
                             <IconButton
@@ -301,6 +311,7 @@ interface StateProps {
     user: Pojo;
     view: ContentView;
     viewActive: boolean;
+    filtersAvailable: boolean;
 }
 
 interface DispatchProps {
@@ -328,7 +339,8 @@ export default connect<SearchAreaProps, FilterGalleryStore, StateProps, Dispatch
         filtersActive: state.ui.filters.filtersOpen,
         user: state.settings.utils.portal.user,
         view: state.ui.resultPanel.display,
-        viewActive: state.ui.resultPanel.viewDropdownActive
+        viewActive: state.ui.resultPanel.viewDropdownActive,
+        filtersAvailable: state.settings.config.section.filters.length > 0
     }),
     (dispatch) => ({
         toggleFilters: () => dispatch(toggleFilters()),

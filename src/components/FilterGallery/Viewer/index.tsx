@@ -37,7 +37,7 @@ export class Viewer extends Component<ViewerProps> {
                 <header class="fg-viewer__header">
                     <div class="fg-viewer__head-box">
                         <IconButton
-                            key="fg-filter-btn"
+                            key="fg-back-btn"
                             active={false}
                             handleClick={this.props.exit}
                         >

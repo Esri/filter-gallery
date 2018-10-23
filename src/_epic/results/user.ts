@@ -1,4 +1,4 @@
-import { withLatestFrom, switchMap, map, catchError, mergeMap } from "rxjs/operators";
+import { switchMap, map, catchError, mergeMap } from "rxjs/operators";
 import { LOADING_USER_INFO, UPDATE_USER_INFO_FAILED, UPDATE_USER_INFO_SUCCESS, ADD_TO_FAVORITES, ADD_TO_FAVORITES_SUCCESS, ADD_TO_FAVORITES_FAIL, REMOVE_FROM_FAVORITES, REMOVE_FROM_FAVORITES_SUCCESS, REMOVE_FROM_FAVORITES_FAIL } from "../../_actions";
 import { Subject, Observable, of } from "rxjs";
 import { Action, ofType, Pojo, combineEpics } from "../../Component";
@@ -7,10 +7,10 @@ import { FilterGalleryState } from "../../_reducer";
 import * as all from "dojo/promise/all";
 import { fetchGroupById, fetchGroupCategorySchema, fromDeferred, fetchUser, fetchUserContent, fetchUserFavorites, requestJSON } from "../../_utils";
 
-const userInfoEpic = (action$: Subject<Action>, state$: Observable<FilterGalleryState>) => action$.pipe(
+const userInfoEpic = (action$: Subject<Action>, getState: () => FilterGalleryState) => action$.pipe(
     ofType(LOADING_USER_INFO),
-    withLatestFrom(state$),
-    switchMap(([, state]) => {
+    switchMap(() => {
+        const state = getState();
         const { request, portal } = state.settings.utils;
 
         const requests = all([
@@ -43,15 +43,15 @@ const userInfoEpic = (action$: Subject<Action>, state$: Observable<FilterGallery
                     favorites: responses[2]
                 }
             })),
-            catchError((err) => of({ type: UPDATE_USER_INFO_FAILED }))
+            catchError((err) => of({ type: UPDATE_USER_INFO_FAILED, payload: err }))
         );
     })
 );
 
-const addFavoriteEpic = (action$: Subject<Action>, state$: Observable<FilterGalleryState>) => action$.pipe(
+const addFavoriteEpic = (action$: Subject<Action>, getState: () => FilterGalleryState) => action$.pipe(
     ofType(ADD_TO_FAVORITES),
-    withLatestFrom(state$),
-    mergeMap(([{ payload }, state]) => {
+    mergeMap(({ payload }) => {
+        const state = getState();
         const item = payload;
         const { portal, request } = state.settings.utils;
         const favGroupId = portal.user.favGroupId;
@@ -74,10 +74,10 @@ const addFavoriteEpic = (action$: Subject<Action>, state$: Observable<FilterGall
     })
 );
 
-const removeFavoriteEpic = (action$: Subject<Action>, state$: Observable<FilterGalleryState>) => action$.pipe(
+const removeFavoriteEpic = (action$: Subject<Action>, getState: () => FilterGalleryState) => action$.pipe(
     ofType(REMOVE_FROM_FAVORITES),
-    withLatestFrom(state$),
-    mergeMap(([{ payload }, state]) => {
+    mergeMap(({ payload }) => {
+        const state = getState();
         const item = payload;
         const { portal, request } = state.settings.utils;
         const favGroupId = portal.user.favGroupId;

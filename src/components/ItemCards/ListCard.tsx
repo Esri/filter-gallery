@@ -101,6 +101,7 @@ export default class AnalysisCard extends Component<ListCardProps> {
             .map((action, index) => action.href ? (
                 <a
                     key={action.name}
+                    id={action.id ? `${action.id}-${item.id}` : undefined}
                     class="card-lc__side-action"
                     onclick={action.href ? undefined : this.handleCustomActionClick}
                     title={action.name}
@@ -114,6 +115,7 @@ export default class AnalysisCard extends Component<ListCardProps> {
             ) : (
                     <button
                         key={action.name}
+                        id={action.id ? `${action.id}-${item.id}` : undefined}
                         class="card-lc__side-action-btn card-lc__side-action"
                         onclick={action.href ? undefined : this.handleCustomActionClick}
                         title={action.name}
@@ -130,7 +132,7 @@ export default class AnalysisCard extends Component<ListCardProps> {
         };
 
         return (
-            <div classes={containerClasses} key={this.props.key}>
+            <div classes={containerClasses} key={this.props.key} id={this.props.item.id}>
                 {loading ? <LoaderBars key="item-loading" /> : null}
                 <div class="card-lc__details-container">
                     <div class="card-lc__thumb-container">

@@ -1,4 +1,5 @@
 import * as Portal from "esri/portal/Portal";
+import * as Base from "./_applicationBase/ApplicationBase";
 
 import {
     applyMiddleware,
@@ -7,7 +8,8 @@ import {
     createEpicMiddleware,
     H,
     Store,
-    addListener
+    addListener,
+    Pojo
 } from "./Component";
 import { rootEpic } from "./_epic";
 import reducer, { initialState, FilterGalleryState } from "./_reducer";
@@ -17,7 +19,7 @@ import { startHistoryListener, router } from "./router";
 
 export type FilterGalleryStore = Store<FilterGalleryState>;
 
-export default (config: { [propName: string]: any }) => {
+export default (config: Pojo, settings: Pojo) => {
     // Inject custom stylesheet if provided
     if (initialState.settings.config.customCSS) {
         const customStyle = document.createElement("style");
@@ -25,12 +27,14 @@ export default (config: { [propName: string]: any }) => {
         document.body.appendChild(customStyle);
     }
 
+    // Load the application base
+    const base = new Base({ config, settings });
+
     const node = document.getElementById("viewDiv") as HTMLElement;
-    const portal = new Portal({ url: config.baseUrl ? config.baseUrl : initialState.settings.config.url });
     const store: FilterGalleryStore = applyMiddleware(
         createEpicMiddleware(rootEpic),
         router,
-        // addListener((action, state) => console.log(action, state))
+        // addListener(console.log)
     )(createStore)(reducer, {
         ...initialState,
         settings: {
@@ -41,7 +45,7 @@ export default (config: { [propName: string]: any }) => {
             },
             utils: {
                 ...initialState.settings.utils,
-                portal
+                base
             }
         }
     });

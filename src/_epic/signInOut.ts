@@ -1,16 +1,16 @@
 import { combineEpics, Action } from "../Component";
-import { Subject, Observable, of } from "rxjs";
+import { Subject, of } from "rxjs";
 import { FilterGalleryState } from "../_reducer";
 import { SIGN_IN, SIGNED_IN, SIGN_OUT, SIGNED_OUT, SIGN_IN_FAILED, SIGN_OUT_FAILED } from "../_actions";
-import { filter, switchMap, map, withLatestFrom, catchError } from "rxjs/operators";
+import { filter, switchMap, map, catchError } from "rxjs/operators";
 
 import * as Portal from "esri/portal/Portal";
 import { fromDeferred, getOrgBaseUrl } from "../_utils";
 
-export const signInEpic = (action$: Subject<Action>, state$: Observable<FilterGalleryState>) => action$.pipe(
+export const signInEpic = (action$: Subject<Action>, getState: () => FilterGalleryState) => action$.pipe(
     filter(({ type }) => type === SIGN_IN),
-    withLatestFrom(state$),
-    switchMap(([, state]) => {
+    switchMap(() => {
+        const state = getState();
         const portal = new Portal({ url: state.settings.config.url });
         portal.authMode = "immediate";
         portal["baseUrl"] = getOrgBaseUrl(portal);
@@ -21,10 +21,10 @@ export const signInEpic = (action$: Subject<Action>, state$: Observable<FilterGa
     })
 );
 
-export const signOutEpic = (action$: Subject<Action>, state$: Observable<FilterGalleryState>) => action$.pipe(
+export const signOutEpic = (action$: Subject<Action>, getState: () => FilterGalleryState) => action$.pipe(
     filter(({ type }) => type === SIGN_OUT),
-    withLatestFrom(state$),
-    switchMap(([, state]) => {
+    switchMap(() => {
+        const state = getState();
         const portal = new Portal({ url: state.settings.config.url });
         portal.authMode = "anonymous";
         portal["baseUrl"] = getOrgBaseUrl(portal);

@@ -101,6 +101,7 @@ export default class GridCard extends Component<GridCardProps> {
             .map((action, index) => action.href ? (
                 <a
                     key={action.name}
+                    id={action.id ? `${action.id}-${item.id}` : undefined}
                     class="card-gc__side-action"
                     onclick={action.href ? undefined : this.handleCustomActionClick}
                     title={action.name}
@@ -114,6 +115,7 @@ export default class GridCard extends Component<GridCardProps> {
             ) : (
                     <button
                         key={action.name}
+                        id={action.id ? `${action.id}-${item.id}` : undefined}
                         class="card-gc__side-action-btn card-gc__side-action"
                         onclick={action.href ? undefined : this.handleCustomActionClick}
                         title={action.name}
@@ -149,7 +151,7 @@ export default class GridCard extends Component<GridCardProps> {
         );
 
         return (
-            <div classes={containerClasses} key={this.props.key}>
+            <div classes={containerClasses} key={this.props.key} id={this.props.item.id}>
                 {loading ? <LoaderBars key="item-loading" /> : null}
                 <div class="card-gc__details-container">
                     <div class="card-gc__thumb-container">

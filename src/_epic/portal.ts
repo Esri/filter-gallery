@@ -1,18 +1,29 @@
-import { Action, ofType } from "../Component";
-import { Subject, Observable } from "rxjs";
+import { Action, ofType, combineEpics } from "../Component";
+import { Subject, of } from "rxjs";
 import { FilterGalleryState } from "../_reducer";
-import { LOAD_PORTAL, LOAD_PORTAL_SUCCESS } from "../_actions";
-import { switchMap, map, withLatestFrom } from "rxjs/operators";
+import { LOAD_PORTAL, LOAD_PORTAL_SUCCESS, LOAD_PORTAL_FAILED } from "../_actions";
+import { switchMap, map, catchError, tap } from "rxjs/operators";
 
 import { fromDeferred } from "../_utils";
 
-export default (action$: Subject<Action>, state$: Observable<FilterGalleryState>) => action$.pipe(
+export const baseEpic = (action$: Subject<Action>, getState: () => FilterGalleryState) => action$.pipe(
     ofType(LOAD_PORTAL),
-    withLatestFrom(state$),
-    switchMap(([, state]) => {
-        const portal = state.settings.utils.portal;
-        return fromDeferred(portal.load() as any).pipe(
-            map(() => ({ type: LOAD_PORTAL_SUCCESS, payload: portal }))
+    switchMap(() => {
+        const base = getState().settings.utils.base;
+        return fromDeferred(base.load() as any).pipe(
+            switchMap(() => fromDeferred(base.portal.load()).pipe(
+                map(() => ({ type: LOAD_PORTAL_SUCCESS, payload: base.portal })),
+                catchError((err) => {
+                    return of({ type: LOAD_PORTAL_FAILED, payload: err });
+                })
+            )),
+            catchError((err) => {
+                return of({ type: LOAD_PORTAL_FAILED, payload: err });
+            })
         );
     })
+);
+
+export default combineEpics(
+    baseEpic
 );

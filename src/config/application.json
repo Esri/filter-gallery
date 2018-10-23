@@ -1,1 +1,27 @@
-{}
+{
+    "appid": "529509e1e067488c806c54cfee928efa",
+    "group": "",
+    "title": "",
+    "webmap": "default",
+    "webscene": "",
+    "portalUrl": "https://devext.arcgis.com",
+    "oauthappid": "arcgisWebApps",
+    "proxyUrl": "",
+    "units": "",
+    "helperServices": {
+        "geometry": {
+            "url": null
+        },
+        "printTask": {
+            "url": null
+        },
+        "elevationSync": {
+            "url": null
+        },
+        "geocode": [
+            {
+                "url": null
+            }
+        ]
+    }
+}

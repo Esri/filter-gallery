@@ -4,7 +4,7 @@ import { Action, ofType, combineEpics } from "../Component";
 import { Subject, Observable, of } from "rxjs";
 import { FilterGalleryState } from "../_reducer";
 import { HASH_CHANGE, closeViewer, LOADED_ITEM, LOAD_ITEM_FAILED, loadedItem } from "../_actions";
-import { switchMap, withLatestFrom, filter, map, catchError } from "rxjs/operators";
+import { switchMap, filter, map, catchError, tap } from "rxjs/operators";
 
 import { fromDeferred, fetchItemById } from "../_utils";
 
@@ -13,17 +13,26 @@ import { fromDeferred, fetchItemById } from "../_utils";
  * @param action$ - The action stream.
  * @param state$ - The state stream.
  */
-export const viewItemEpic = (action$: Subject<Action>, state$: Observable<FilterGalleryState>) => action$.pipe(
+export const viewItemEpic = (action$: Subject<Action>, getState: () => FilterGalleryState) => action$.pipe(
     ofType(HASH_CHANGE),
-    withLatestFrom(state$),
-    filter(([action, state]) => {
+    filter((action) => {
+        const state = getState();
         const query = ioQuery.queryToObject(action.payload);
         return !!query.viewType && !state.ui.viewer.open && !!state.results.loadedItems[query.viewId];
     }),
-    map(([action, state]) => {
+    tap(() => {
+        setTimeout(() => {
+            const backBtn = document.getElementById("fg-back-btn");
+            if (backBtn) {
+                backBtn.focus();
+            }
+        }, 100);
+    }),
+    map((action) => {
+        const state = getState();
         const query = ioQuery.queryToObject(action.payload);
         return { type: query.viewType, payload: state.results.loadedItems[query.viewId] };
-    })
+    }),
 );
 
 /**
@@ -31,12 +40,23 @@ export const viewItemEpic = (action$: Subject<Action>, state$: Observable<Filter
  * @param action$ - The action stream.
  * @param state$ - The state stream.
  */
-export const closeViewerEpic = (action$: Subject<Action>, state$: Observable<FilterGalleryState>) => action$.pipe(
+export const closeViewerEpic = (action$: Subject<Action>, getState: () => FilterGalleryState) => action$.pipe(
     ofType(HASH_CHANGE),
-    withLatestFrom(state$),
-    filter(([action, state]) => {
+    filter((action) => {
+        const state = getState();
         const query = ioQuery.queryToObject(action.payload);
         return !query.viewType && !!state.ui.viewer.open && !state.ui.viewer.closing;
+    }),
+    tap((action) => {
+        const state = getState();
+        const el = document.getElementById(state.ui.viewer.item.id);
+        if (el) {
+            el.scrollIntoView();
+            const btn = el.querySelector(`#${state.ui.viewer.type}-${state.ui.viewer.item.id}`) as HTMLElement;
+            if (btn) {
+                btn.focus();
+            }
+        }
     }),
     map(([]) => closeViewer())
 );
@@ -46,14 +66,15 @@ export const closeViewerEpic = (action$: Subject<Action>, state$: Observable<Fil
  * @param action$ - The action stream.
  * @param state$ - The state stream.
  */
-export const loadItemEpic = (action$: Subject<Action>, state$: Observable<FilterGalleryState>) => action$.pipe(
+export const loadItemEpic = (action$: Subject<Action>, getState: () => FilterGalleryState) => action$.pipe(
     ofType(HASH_CHANGE),
-    withLatestFrom(state$),
-    filter(([action, state]) => {
+    filter((action) => {
+        const state = getState();
         const query = ioQuery.queryToObject(action.payload);
         return !!query.viewType && !state.ui.viewer.open && !state.results.loadedItems[query.viewId];
     }),
-    switchMap(([action, state]) => {
+    switchMap((action) => {
+        const state = getState();
         const { request, portal } = state.settings.utils;
         const query = ioQuery.queryToObject(action.payload);
         return fromDeferred(fetchItemById(request, portal, query.viewId) as any).pipe(
@@ -71,7 +92,7 @@ export const loadItemEpic = (action$: Subject<Action>, state$: Observable<Filter
  * @param action$ - The action stream.
  * @param state$ - The state stream.
  */
-export const loadedItemEpic = (action$: Subject<Action>, state$: Observable<FilterGalleryState>) => action$.pipe(
+export const loadedItemEpic = (action$: Subject<Action>) => action$.pipe(
     ofType(LOADED_ITEM),
     map(({ payload }) => ({ type: payload.viewType, payload: payload.item }))
 );

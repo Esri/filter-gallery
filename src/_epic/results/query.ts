@@ -1,7 +1,7 @@
-import { Subject, Observable, of } from "rxjs";
+import { Subject, of } from "rxjs";
 import { Action, combineEpics, ofType, Pojo } from "../../Component";
 import { FilterGalleryState } from "../../_reducer";
-import { withLatestFrom, switchMap, take, startWith, map, catchError, filter, tap } from "rxjs/operators";
+import { switchMap, take, startWith, map, catchError, filter, tap } from "rxjs/operators";
 import {
     SEARCH,
     SIGNED_IN,
@@ -32,13 +32,12 @@ export const searchEpic = (action$: Subject<Action>) => action$.pipe(
     }))
 );
 
-export const loadingContentEpic = (action$: Subject<Action>, state$: Observable<FilterGalleryState>) => action$.pipe(
+export const loadingContentEpic = (action$: Subject<Action>, getState: () => FilterGalleryState) => action$.pipe(
     ofType(LOADING_CONTENT),
-    withLatestFrom(state$),
-    filter(([, state]) => state.settings.utils.portal.loadStatus === "loaded"),
-    switchMap(([action, state]: [Action, FilterGalleryState]) => {
+    filter(() => getState().settings.utils.portal.loadStatus === "loaded"),
+    switchMap((action: Action) => {
+        const state = getState();
         const updateCounts = action.payload;
-        const portal: __esri.Portal = state.settings.utils.portal as any;
         const user = state.settings.utils.portal.user;
         const loggedIn = !!user;
 
@@ -47,12 +46,14 @@ export const loadingContentEpic = (action$: Subject<Action>, state$: Observable<
             // Need to fetch the section and user information prior to searching.
             return action$.pipe(
                 ofType(UPDATE_SECTION_INFO_SUCCESS, UPDATE_USER_INFO_SUCCESS),
-                withLatestFrom(state$),
                 filter(
-                    ([, { results }]) => results.user.status === "loaded" && results.section.status === "loaded"
+                    () => {
+                        const s = getState();
+                        return s.results.user.status === "loaded" && s.results.section.status === "loaded";
+                    }
                 ),
                 take(1),
-                switchMap(([, newState]) => executeSearch(newState, updateCounts)),
+                switchMap(() => executeSearch(getState(), updateCounts)),
                 startWith({ type: LOADING_SECTION_INFO }, { type: LOADING_USER_INFO })
             );
         } else if (state.results.section.status === "initial") {
@@ -60,9 +61,8 @@ export const loadingContentEpic = (action$: Subject<Action>, state$: Observable<
             // Need to fetch the section information prior to searching.
             return action$.pipe(
                 ofType(UPDATE_SECTION_INFO_SUCCESS),
-                withLatestFrom(state$),
                 take(1),
-                switchMap(([, newState]) => executeSearch(newState, updateCounts)),
+                switchMap(() => executeSearch(getState(), updateCounts)),
                 startWith({
                     type: LOADING_SECTION_INFO
                 })

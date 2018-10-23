@@ -1,15 +1,15 @@
 import { Subject, Observable, of } from "rxjs";
 import { Action, Pojo, ofType } from "../../Component";
 import { FilterGalleryState } from "../../_reducer";
-import { withLatestFrom, map, catchError, switchMap } from "rxjs/operators";
+import { map, catchError, switchMap } from "rxjs/operators";
 import { CHANGING_PAGE, mixinOrganizationInfo, CHANGE_PAGE_SUCCESS, CHANGE_PAGE_FAIL } from "../../_actions";
 import { getSearchRequest } from "../../_actions/results/_utils/requestHelpers";
 import { fromDeferred, mixinItemInfo } from "../../_utils";
 
-export default (action$: Subject<Action>, state$: Observable<FilterGalleryState>) => action$.pipe(
+export default (action$: Subject<Action>, getState: () => FilterGalleryState) => action$.pipe(
     ofType(CHANGING_PAGE),
-    withLatestFrom(state$),
-    switchMap(([ { payload }, state ]) => {
+    switchMap(({ payload }) => {
+        const state = getState();
         const { portal, iconDir } = state.settings.utils;
         const request = state.settings.utils.request;
         const perPage = state.settings.config.resultsPerQuery;
