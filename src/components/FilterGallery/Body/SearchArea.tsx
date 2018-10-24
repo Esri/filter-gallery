@@ -198,16 +198,21 @@ export class SearchArea extends Component<SearchAreaProps> {
                         onViewChange={this.props.changeContentView}
                         onClick={this.handleViewClick}
                     />
-                    <SortDropdown
-                        active={this.props.sortActive}
-                        key="fg-sort-dropdown"
-                        field={this.props.sortField}
-                        order={this.props.sortOrder}
-                        availableFields={this.props.sortOptions}
-                        onFieldChange={this.handleSortFieldChange}
-                        onOrderChange={this.handleSortOrderChange}
-                        onClick={this.handleSortClick}
-                    />
+                    {
+                        this.props.sortOptions.length > 1 ?
+                            (
+                                <SortDropdown
+                                    active={this.props.sortActive}
+                                    key="fg-sort-dropdown"
+                                    field={this.props.sortField}
+                                    order={this.props.sortOrder}
+                                    availableFields={this.props.sortOptions}
+                                    onFieldChange={this.handleSortFieldChange}
+                                    onOrderChange={this.handleSortOrderChange}
+                                    onClick={this.handleSortClick}
+                                />
+                            ): null
+                    }
                     {
                         this.props.filtersAvailable ? (
                             <IconButton

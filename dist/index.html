@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="theme-color" content="#FFFFFF">
+  <link rel="stylesheet" href="https://jsdev.arcgis.com/4.10/esri/css/main.css">
+  <link rel="stylesheet" href="./bundle.css">
+  <link rel="manifest" href="./webapp.manifest">
+</head>
+
+<body>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('./sw.js');
+      });
+    }
+  </script>
+  <div id="viewDiv"></div>
+  <noscript>
+    <div class="fg__no-js">
+      <h3 class="fg__no-js-text">Sorry, viewing this application requires JavaScript. Please enable JavaScript in your
+        browser and try again.</h3>
+    </div>
+  </noscript>
+  <script>
+    var file_path = window.location.pathname;
+    var dist_path = file_path.slice(0, file_path.lastIndexOf("/"));
+
+    dojoConfig = {
+      async: true,
+      packages: [
+        {
+          name: "config",
+          location: dist_path + "/config"
+        },
+        {
+          name: "nls",
+          location: dist_path + "/nls"
+        }
+      ]
+    };
+    if (location.search.match(/locale=([\w-]+)/)) {
+      dojoConfig.locale = RegExp.$1;
+    }
+  </script>
+  <script src="https://jsdev.arcgis.com/4.10/"></script>
+  <script>
+    require([
+      "dojo/text!config/application.json",
+      "dojo/text!config/applicationBase.json",
+      "index.js"
+    ], function (
+      config,
+      settings,
+      entryPoint
+    ) {
+        entryPoint.default(config, settings)
+      });
+  </script>
+</body>
+
+</html>
