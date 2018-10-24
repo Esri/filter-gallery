@@ -28,7 +28,8 @@ module.exports = {
         new CopyWebpackPlugin([
             { from: "src/nls", to: "nls" },
             { from: "src/config", to: "config" },
-            { from: "src/index.html", to: "index.html" }
+            { from: "src/index.html", to: "index.html" },
+            { from: "src/oauth-callback.html", to: "oauth-callback.html" }
         ])
     ],
 

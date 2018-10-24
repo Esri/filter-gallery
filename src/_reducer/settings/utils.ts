@@ -2,13 +2,13 @@ import * as request from "esri/request";
 
 import { getOrgBaseUrl } from "../../_utils";
 import { Pojo, Action } from "../../Component";
-import { SIGNED_IN, SIGNED_OUT, LOAD_PORTAL_SUCCESS, LOAD_PORTAL_FAILED } from "../../_actions";
+import { SIGNED_IN, SIGNED_OUT, LOAD_PORTAL_SUCCESS, LOAD_PORTAL_FAILED, AUTHENTICATION_FAILED } from "../../_actions";
 
 export interface UtilsState {
     base: Pojo;
     iconDir: string;
     portal: Pojo;
-    portalStatus: "loading" | "success" | "failed";
+    portalStatus: "loading" | "success" | "failed" | "noauth";
     request: (url: string, options?: Pojo) => dojo.Deferred<any>;
 }
 
@@ -45,6 +45,11 @@ export default (state: UtilsState = initialState, action: Action) => {
             return {
                 ...state,
                 portalStatus: "failed" as UtilsState["portalStatus"]
+            };
+        case AUTHENTICATION_FAILED:
+            return {
+                ...state,
+                portalStatus: "noauth" as UtilsState["portalStatus"]
             };
         default:
             return state;

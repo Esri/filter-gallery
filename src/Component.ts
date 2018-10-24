@@ -8,6 +8,22 @@ import { compose, pickBy, mapObjIndexed } from "./_utils";
 import { merge, Observable, Subject } from "rxjs";
 import { scan, startWith, filter, delay } from "rxjs/operators";
 
+export declare namespace JSX {
+    interface ElementAttributesProperty {
+        props: { [propName: string]: any };
+    }
+
+    interface AnyElement {
+        [element: string]: any;
+    }
+
+    interface IntrinsicElements extends AnyElement {
+    }
+
+    interface Element {
+    }
+}
+
 /**
  * Plain Ol' JavaScript Object
  */
@@ -99,7 +115,7 @@ export type RenderCTX = (dispatch?: Store<any>["dispatch"], getState?: Store<any
 export abstract class Component<
     Props extends ComponentProps,
     State extends Pojo = {}
-> {
+    > {
     /**
      * Array of child components rendered by this component.
      */
@@ -133,12 +149,12 @@ export abstract class Component<
     /**
      * Lifecycle method called when a component is successfully connected to its parent's store. 
      */
-    public componentDidConnect() {}
+    public componentDidConnect() { }
 
     /**
      * Lifecycle method called prior to the component's props updating.
      */
-    public componentWillReceiveProps(nextProps: Props) {}
+    public componentWillReceiveProps(nextProps: Props) { }
 
     /**
      * Update's the component's class level state.
@@ -204,7 +220,7 @@ export class RootComponent extends Component<{ key: string }> {
         this.renderRoot = renderRoot;
     }
 
-    public render(tsx: H) { return tsx(({}, t: H) => this.renderRoot(t)); }
+    public render(tsx: H) { return tsx(({ }, t: H) => this.renderRoot(t)); }
 }
 
 /**
@@ -224,16 +240,16 @@ export function connect<
     ComponentStore extends Store<any> = Store<any>,
     StateProps = {},
     DispatchProps = {}
->(
-    mapStateToProps: (
-        state: ReturnType<ComponentStore["getState"]>,
-        ownProps: Pick<WrappedProps, Exclude<keyof WrappedProps, keyof StateProps | keyof DispatchProps>>
-    ) => StateProps,
-    mapDispatchToProps: (
-        dispatch: ComponentStore["dispatch"],
-        ownProps: Pick<WrappedProps, Exclude<keyof WrappedProps, keyof StateProps | keyof DispatchProps>>
-    ) => DispatchProps
-) {
+    >(
+        mapStateToProps: (
+            state: ReturnType<ComponentStore["getState"]>,
+            ownProps: Pick<WrappedProps, Exclude<keyof WrappedProps, keyof StateProps | keyof DispatchProps>>
+        ) => StateProps,
+        mapDispatchToProps: (
+            dispatch: ComponentStore["dispatch"],
+            ownProps: Pick<WrappedProps, Exclude<keyof WrappedProps, keyof StateProps | keyof DispatchProps>>
+        ) => DispatchProps
+    ) {
     return (WrappedComponent: ComponentConstructor) => (
         ownProps: Pick<WrappedProps, Exclude<keyof WrappedProps, keyof StateProps | keyof DispatchProps>>,
         hy: H
@@ -241,12 +257,12 @@ export function connect<
         dispatch: ComponentStore["dispatch"],
         getState: () => ReturnType<ComponentStore["getState"]>
     ) => (
-        hy(WrappedComponent, {
-            ...ownProps as any,
-            ...mapStateToProps(getState(), ownProps) as any,
-            ...mapDispatchToProps(dispatch, ownProps) as any
-        })
-    );
+                hy(WrappedComponent, {
+                    ...ownProps as any,
+                    ...mapStateToProps(getState(), ownProps) as any,
+                    ...mapDispatchToProps(dispatch, ownProps) as any
+                })
+            );
 }
 
 /**
@@ -262,12 +278,12 @@ function isConstructor(f: Function) {
  */
 if (Function.prototype["name"] === undefined && Object.defineProperty !== undefined) {
     Object.defineProperty(Function.prototype, "name", {
-        get: function() {
+        get: function () {
             var funcNameRegex = /function\s([^(]{1,})\(/;
             var results = (funcNameRegex).exec((this).toString());
             return (results && results.length > 1) ? results[1].trim() : "";
         },
-        set: function(value) {}
+        set: function (value) { }
     });
 }
 
@@ -312,26 +328,26 @@ export function applyMiddleware<Ext1, Ext2, Ext3, Ext4, Ext5, S>(
     middleware3: Middleware<Ext3, S, any>,
     middleware4: Middleware<Ext4, S, any>,
     middleware5: Middleware<Ext5, S, any>
-): StoreEnhancer<{dispatch: Ext1 & Ext2 & Ext3 & Ext4 & Ext5}>;
-export function applyMiddleware<Ext1, Ext2, Ext3, Ext4, S> (
+): StoreEnhancer<{ dispatch: Ext1 & Ext2 & Ext3 & Ext4 & Ext5 }>;
+export function applyMiddleware<Ext1, Ext2, Ext3, Ext4, S>(
     middleware1: Middleware<Ext1, S, any>,
     middleware2: Middleware<Ext2, S, any>,
     middleware3: Middleware<Ext3, S, any>,
     middleware4: Middleware<Ext4, S, any>
-): StoreEnhancer<{dispatch: Ext1 & Ext2 & Ext3 & Ext4}>;
-export function applyMiddleware<Ext1, Ext2, Ext3, S> (
+): StoreEnhancer<{ dispatch: Ext1 & Ext2 & Ext3 & Ext4 }>;
+export function applyMiddleware<Ext1, Ext2, Ext3, S>(
     middleware1: Middleware<Ext1, S, any>,
     middleware2: Middleware<Ext2, S, any>,
     middleware3: Middleware<Ext3, S, any>
-): StoreEnhancer<{dispatch: Ext1 & Ext2 & Ext3}>;
+): StoreEnhancer<{ dispatch: Ext1 & Ext2 & Ext3 }>;
 export function applyMiddleware<Ext1, Ext2, S>(
     middleware1: Middleware<Ext1, S, any>,
     middleware2: Middleware<Ext2, S, any>
-): StoreEnhancer<{dispatch: Ext1 & Ext2}>;
-export function applyMiddleware<Ext1, S>(middleware1: Middleware<Ext1, S, any>): StoreEnhancer<{dispatch: Ext1}>;
+): StoreEnhancer<{ dispatch: Ext1 & Ext2 }>;
+export function applyMiddleware<Ext1, S>(middleware1: Middleware<Ext1, S, any>): StoreEnhancer<{ dispatch: Ext1 }>;
 export function applyMiddleware<Ext, S = any>(
     ...middlewares: Middleware<any, S, any>[]
-): StoreEnhancer<{dispatch: Ext}>;
+): StoreEnhancer<{ dispatch: Ext }>;
 export function applyMiddleware(...middlewares: Array<Middleware>): StoreEnhancer {
     return (next: StoreEnhancerStoreCreator) => (reducer: Reducer<any>, initialState: any) => {
         const store = next(reducer, initialState);

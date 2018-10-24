@@ -1,5 +1,8 @@
 define({
     root: ({
+        appInit: "Initializing application...",
+        appFailed: "Failed to load the app.",
+        noAuth: "Your account is not licensed to use Configurable Apps that are not public. Please ask your organization administrator to assign you a user type that includes Essential Apps or an add-on Essential Apps license.",
         badges: {
             authoritative: "Authoritative", // arcgisonline.filters.authoritative
             deleted: "Deleted",

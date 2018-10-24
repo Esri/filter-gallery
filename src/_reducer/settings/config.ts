@@ -279,7 +279,7 @@ export const initialState: ConfigState = {
     ],
     customActions: defaultActions,
     section: {
-        name: "Living Atlas",
+        name: "doesnt matter",
         baseQuery: "",
         filters: [
             {
@@ -293,12 +293,7 @@ export const initialState: ConfigState = {
             "status",
             "tags"
         ],
-        // Africa
-        // id: "8de7d7e7162549f3960f3094754dbe37",
-        // Great Maps
-        // id: "a09a1595fd944f17a47a244e67d804f9",
-        // Devext
-        id: "dbc385ac1b7d4231b24b97750f0e633c"
+        id: "8de7d7e7162549f3960f3094754dbe37"
     },
     sortOptions: ["relevance", "title", "owner", "created", "modified", "numviews"],
     searchPlaceholderText: i18n.defaultPlaceholder,
@@ -311,58 +306,7 @@ export const initialState: ConfigState = {
         basemapGalleryWidget: ""
     },
     url: "https://devext.arcgis.com",
-    useOrgCategories: false,
-    // headHTML: `
-    //     <div class="my-custom-header">
-    //         <h1 class="head-title">
-    //             <span class="title-la">Living Atlas</span>
-    //             <span class="title-of">of</span>
-    //             <span class="title-africa">Africa</span>
-    //         </h1>
-    //     </div>
-    // `,
-    // customCSS: `
-    //     .my-custom-header {
-    //         background-image: url("https://devtopia.esri.com/storage/user/1607/files/2f42a81c-d3ac-11e8-9b7a-23267ebe0979");
-    //         background-position: bottom;
-    //         background-size: cover;
-    //         box-sizing: border-box;
-    //         height: 100vh;
-    //         padding: 1.5rem;
-    //     }
-
-    //     .head-title {
-    //         display: inline-block;
-    //     }
-
-    //     .title-la {
-    //         font-size: 2.4rem;
-    //         font-weight: 600;
-    //     }
-
-    //     .title-of {
-    //         font-size: 1.8rem;
-    //         margin-right: 2rem;
-    //     }
-
-    //     .title-africa {
-    //         display: block;
-    //         font-size: 3.4rem;
-    //         font-weight: 600;
-    //         text-align: right;
-    //     }
-
-    //     html[dir="rtl"] {
-    //         .title-africa {
-    //             margin-left: 0;
-    //             margin-right: 2rem;
-    //         }
-    //     }
-
-    //     .fg__header {
-    //         padding: 0;
-    //     }
-    // `
+    useOrgCategories: false
 };
 
 export default (state: ConfigState = initialState, action: Action) => state;

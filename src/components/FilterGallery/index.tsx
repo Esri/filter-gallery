@@ -1,12 +1,16 @@
+import * as i18n from "dojo/i18n!../../nls/resources";
+
 import { Component, H, connect } from "../../Component";
 import Header from "./Header";
 import Body from "./Body";
 import { FilterGalleryStore } from "../..";
 import Overlay from "../Modals/Overlay";
 import Viewer from "./Viewer";
+import LoaderBars from "../Loaders/LoaderBars";
 
 export interface RootComponentProps {
     key: string;
+    portalStatus: string;
     viewerOpen: boolean;
     viewerClosing: boolean;
     headHTML?: string;
@@ -20,6 +24,26 @@ export class RootComponent extends Component<RootComponentProps> {
     }
 
     public render(tsx: H) {
+        if (this.props.portalStatus === "loading") {
+            return (
+                <main class="fg__container">
+                    <LoaderBars key="loading-app" text={i18n.appInit} />
+                </main>
+            );
+        } else if (this.props.portalStatus === "failed") {
+            return (
+                <main class="fg__container">
+                    <h3 class="fg__no-js-text">{i18n.appFailed}</h3>
+                </main>
+            );
+        } else if (this.props.portalStatus === "noauth") {
+            return (
+                <main class="fg__container">
+                    <h3 class="fg__no-js-text">{i18n.noAuth}</h3>
+                </main>
+            );
+        }
+
         return (
             <main class="fg__container">
                 {
@@ -45,6 +69,7 @@ export class RootComponent extends Component<RootComponentProps> {
 }
 
 interface StateProps {
+    portalStatus: string;
     viewerOpen: boolean;
     viewerClosing: boolean;
     headHTML?: string;
@@ -52,6 +77,7 @@ interface StateProps {
 
 export default connect<RootComponentProps, FilterGalleryStore, StateProps, {}>(
     (state) => ({
+        portalStatus: state.settings.utils.portalStatus,
         viewerOpen: state.ui.viewer.open,
         viewerClosing: state.ui.viewer.closing,
         headHTML: state.settings.config.headHTML
