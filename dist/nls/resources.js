@@ -226,7 +226,7 @@ define({
             created: "Created",
             updated: "Updated",
             viewCount: "View Count",
-            rating: "Rating"   
+            rating: "Rating"
         },
         pager: {
             previous: "Previous",

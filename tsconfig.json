@@ -22,7 +22,6 @@
         "./src/**/*"
     ],
     "files": [
-        "./namespace.d.ts",
         "./node_modules/dojo-typings/dojo/1.11/loader.d.ts",
         "./node_modules/dojo-typings/dojo/1.11/index.d.ts",
         "./node_modules/dojo-typings/dojo/1.11/modules.d.ts",
