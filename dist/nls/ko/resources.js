@@ -2,6 +2,7 @@ define({
   "appInit": "한_Initializing application____________________________빠...",
   "appFailed": "한_Failed to load the app________________________빠.",
   "noAuth": "한_Your account is not licensed to use Configurable Apps that are not public. Please ask your organization administrator to assign you a user type that includes Essential Apps or an add-on Essential Apps license__________________________________________________________________________________________________________빠.",
+  "notLicensed": "한_Not Licensed_____________빠",
   "badges": {
     "authoritative": "한_Authoritative______________빠",
     "deleted": "한_Deleted_______________빠",

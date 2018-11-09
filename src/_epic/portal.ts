@@ -18,7 +18,7 @@ export const baseEpic = (action$: Subject<Action>, getState: () => FilterGallery
                 })
             )),
             catchError((err) => {
-                if (err.name === "identity-manager:authentication-failed") {
+                if (err.name === "identity-manager:not-authorized" || err.name === "identity-manager:authentication-failed") {
                     return of({ type: AUTHENTICATION_FAILED, payload: err })
                 }
                 return of({ type: LOAD_PORTAL_FAILED, payload: err });

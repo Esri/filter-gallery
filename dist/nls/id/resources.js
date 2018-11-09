@@ -2,6 +2,7 @@ define({
   "appInit": "ng_Initializing application____________________________ny...",
   "appFailed": "ng_Failed to load the app________________________ny.",
   "noAuth": "ng_Your account is not licensed to use Configurable Apps that are not public. Please ask your organization administrator to assign you a user type that includes Essential Apps or an add-on Essential Apps license__________________________________________________________________________________________________________ny.",
+  "notLicensed": "ng_Not Licensed_____________ny",
   "badges": {
     "authoritative": "ng_Authoritative______________ny",
     "deleted": "ng_Deleted_______________ny",

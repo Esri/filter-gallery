@@ -2,6 +2,7 @@ define({
   "appInit": "试_Initializing application____________________________验...",
   "appFailed": "试_Failed to load the app________________________验.",
   "noAuth": "试_Your account is not licensed to use Configurable Apps that are not public. Please ask your organization administrator to assign you a user type that includes Essential Apps or an add-on Essential Apps license__________________________________________________________________________________________________________验.",
+  "notLicensed": "试_Not Licensed_____________验",
   "badges": {
     "authoritative": "试_Authoritative______________验",
     "deleted": "试_Deleted_______________验",

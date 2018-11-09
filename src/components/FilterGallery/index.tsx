@@ -39,7 +39,10 @@ export class RootComponent extends Component<RootComponentProps> {
         } else if (this.props.portalStatus === "noauth") {
             return (
                 <main class="fg__container">
-                    <h3 class="fg__no-js-text">{i18n.noAuth}</h3>
+                    <div key="no-auth-container" class="fg__no-js-text">
+                        <h3>{i18n.notLicensed}</h3>
+                        <p>{i18n.noAuth}</p>
+                    </div>
                 </main>
             );
         }
