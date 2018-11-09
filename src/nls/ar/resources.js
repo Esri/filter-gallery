@@ -2,6 +2,7 @@ define({
   "appInit": "بيت_Initializing application____________________________لاحقة...",
   "appFailed": "بيت_Failed to load the app________________________لاحقة.",
   "noAuth": "بيت_Your account is not licensed to use Configurable Apps that are not public. Please ask your organization administrator to assign you a user type that includes Essential Apps or an add-on Essential Apps license__________________________________________________________________________________________________________لاحقة.",
+  "notLicensed": "بيت_Not Licensed_____________لاحقة",
   "badges": {
     "authoritative": "بيت_Authoritative______________لاحقة",
     "deleted": "بيت_Deleted_______________لاحقة",

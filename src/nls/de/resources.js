@@ -2,6 +2,7 @@ define({
   "appInit": "ä_Initializing application____________________________Ü...",
   "appFailed": "ä_Failed to load the app________________________Ü.",
   "noAuth": "ä_Your account is not licensed to use Configurable Apps that are not public. Please ask your organization administrator to assign you a user type that includes Essential Apps or an add-on Essential Apps license__________________________________________________________________________________________________________Ü.",
+  "notLicensed": "ä_Not Licensed_____________Ü",
   "badges": {
     "authoritative": "ä_Authoritative______________Ü",
     "deleted": "ä_Deleted_______________Ü",

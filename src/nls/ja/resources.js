@@ -2,6 +2,7 @@ define({
   "appInit": "須_Initializing application____________________________鷗...",
   "appFailed": "須_Failed to load the app________________________鷗.",
   "noAuth": "須_Your account is not licensed to use Configurable Apps that are not public. Please ask your organization administrator to assign you a user type that includes Essential Apps or an add-on Essential Apps license__________________________________________________________________________________________________________鷗.",
+  "notLicensed": "須_Not Licensed_____________鷗",
   "badges": {
     "authoritative": "須_Authoritative______________鷗",
     "deleted": "須_Deleted_______________鷗",
