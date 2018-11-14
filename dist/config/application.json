@@ -1,9 +1,9 @@
 {
-    "appid": "574faf9a9a6d411c9d8f5679fab0c84e",
+    "appid": "",
     "oauthappid": "arcgisWebApps",
     "group": "dbc385ac1b7d4231b24b97750f0e633c",
-    "portalUrl": "https://devext.arcgis.com",
-    "title": "Filter Gallery",
+    "portalUrl": "https://www.arcgis.com",
+    "title": "Category Gallery",
     "allowedItemTypes": [
         "Web Map",
         "CityEngine Web Scene",
