@@ -35,10 +35,10 @@ export default (state: UtilsState = initialState, action: Action) => {
                 portal: action.payload
             };
         case LOAD_PORTAL_SUCCESS:
-            action.payload["baseUrl"] = getOrgBaseUrl(action.payload);
+            action.payload.portal["baseUrl"] = getOrgBaseUrl(action.payload.portal);
             return {
                 ...state,
-                portal: action.payload,
+                portal: action.payload.portal,
                 portalStatus: "loaded" as UtilsState["portalStatus"]
             };
         case LOAD_PORTAL_FAILED:

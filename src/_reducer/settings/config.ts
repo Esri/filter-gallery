@@ -6,6 +6,7 @@ import { SortField } from "../../components/Dropdowns/SortDropdown";
 import { FilterGalleryStore } from "../..";
 import defaultActions from "./_utils/defaultActions";
 import { FilterGalleryState } from "..";
+import { LOAD_PORTAL_SUCCESS } from "../../_actions";
 
 export type BaseFilters = "itemType" | "modified" | "created" | "shared" | "status" | "tags";
 
@@ -309,4 +310,51 @@ export const initialState: ConfigState = {
     useOrgCategories: false
 };
 
-export default (state: ConfigState = initialState, action: Action) => state;
+export default (state: ConfigState = initialState, action: Action) => {
+    switch (action.type) {
+        case LOAD_PORTAL_SUCCESS:
+            const { config } = action.payload;
+
+            // Inject custom stylesheet if provided
+            if (config.customCSS && config.customCSS.length > 0) {
+                const customStyle = document.createElement("style");
+                customStyle.innerHTML = config.customCSS;
+                document.body.appendChild(customStyle);
+            }
+
+            return {
+                ...state,
+                url: config.portalUrl,
+                dialogTitle: config.title,
+                resultsPerQuery: config.resultsPerQuery,
+                allowedItemTypes: config.allowedItemTypes,
+                widgets: {
+                    "compassWidget": config.compassWidget,
+                    "homeWidget": config.homeWidget,
+                    "legendWidget": config.legendWidget,
+                    "locateWidget": config.locateWidget,
+                    "searchWidget": config.searchWidget,
+                    "basemapGalleryWidget": config.basemapGalleryWidget,
+                },
+                useOrgCategories: config.useOrgCategories,
+                sortOptions: config.sortOptions,
+                availableItemTypeFilters: config.availableItemTypeFilters,
+                headHTML: config.headHTML.length > 0 ? config.headHTML : undefined,
+                section: {
+                    name: "doesn't matter!",
+                    baseQuery: "",
+                    filters: config.filters.map(
+                        (filter: string) =>
+                            filter === "categories" ? ({
+                                name: "Categories",
+                                path: ["categories"]
+                            }) : filter
+                    ),
+                    id: config.group
+                },
+                group: config.group
+            };
+        default:
+            return state;
+    }
+};
