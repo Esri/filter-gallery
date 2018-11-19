@@ -179,7 +179,8 @@ define(["require", "exports", "dojo/_base/kernel", "esri/config", "esri/core/pro
                         //identity-manager:not-authorized, identity-manager:not-authenticated, identity-manager:invalid-request
                         return promiseUtils.reject(appAccess.name);
                     }
-                } else if (applicationItemResponse.error) {
+                }
+                else if (applicationItemResponse.error) {
                     return promiseUtils.reject(applicationItemResponse.error);
                 }
                 _this.results.localStorage = localStorage;
