@@ -20,7 +20,28 @@
     "portal": {
         "fetch": true
     },
-    "urlParams": [],
+    "urlParams": [
+        "appid",
+        "basemapUrl",
+        "basemapReferenceUrl",
+        "center",
+        "components",
+        "embed",
+        "extent",
+        "filter",
+        "find",
+        "group",
+        "itemId",
+        "level",
+        "marker",
+        "oauthappid",
+        "portalUrl",
+        "showAuthor",
+        "type",
+        "viewpoint",
+        "webmap",
+        "webscene"
+    ],
     "webMap": {
         "default": "",
         "fetch": false
