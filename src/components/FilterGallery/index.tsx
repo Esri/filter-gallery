@@ -13,6 +13,7 @@ export interface RootComponentProps {
     portalStatus: string;
     viewerOpen: boolean;
     viewerClosing: boolean;
+    title: string;
     headHTML?: string;
 }
 
@@ -62,7 +63,7 @@ export class RootComponent extends Component<RootComponentProps> {
                 }
                 <Header
                     key="header"
-                    dialogTitle="Filter Gallery"
+                    title={this.props.title}
                     injectedHTML={this.props.headHTML ? this.props.headHTML : undefined}
                 />
                 <Body key="body" />
@@ -75,6 +76,7 @@ interface StateProps {
     portalStatus: string;
     viewerOpen: boolean;
     viewerClosing: boolean;
+    title: string;
     headHTML?: string;
 }
 
@@ -83,7 +85,8 @@ export default connect<RootComponentProps, FilterGalleryStore, StateProps, {}>(
         portalStatus: state.settings.utils.portalStatus,
         viewerOpen: state.ui.viewer.open,
         viewerClosing: state.ui.viewer.closing,
-        headHTML: state.settings.config.headHTML
+        headHTML: state.settings.config.headHTML,
+        title: state.settings.config.dialogTitle
     }),
     () => ({})
 )(RootComponent);

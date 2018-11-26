@@ -12,7 +12,7 @@ export interface HeaderProps {
      * Title for the browser.
      * @type {string}
      */
-    dialogTitle: string;
+    title: string;
 
     /**
      * HTML to inject into the header instead of the default.
@@ -26,7 +26,7 @@ export default class Header extends Component<HeaderProps> {
         return (
             <header class="fg__header" innerHTML={this.props.injectedHTML ? this.props.injectedHTML : undefined}>
                 <div class="fg__header-title-section">
-                    <title class="fg__header-title">{this.props.dialogTitle}</title>
+                    <title class="fg__header-title">{this.props.title}</title>
                 </div>
             </header>
         );
