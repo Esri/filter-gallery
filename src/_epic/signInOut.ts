@@ -5,6 +5,7 @@ import { SIGN_IN, SIGNED_IN, SIGN_OUT, SIGNED_OUT, SIGN_IN_FAILED, SIGN_OUT_FAIL
 import { filter, switchMap, map, catchError } from "rxjs/operators";
 
 import * as Portal from "esri/portal/Portal";
+import * as IdentityManager from "esri/identity/IdentityManager";
 import { fromDeferred, getOrgBaseUrl } from "../_utils";
 
 export const signInEpic = (action$: Subject<Action>, getState: () => FilterGalleryState) => action$.pipe(
@@ -25,6 +26,7 @@ export const signOutEpic = (action$: Subject<Action>, getState: () => FilterGall
     filter(({ type }) => type === SIGN_OUT),
     switchMap(() => {
         const state = getState();
+        IdentityManager.destroyCredentials();
         const portal = new Portal({ url: state.settings.config.url });
         portal.authMode = "anonymous";
         portal["baseUrl"] = getOrgBaseUrl(portal);
