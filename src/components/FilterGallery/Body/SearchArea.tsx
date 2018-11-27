@@ -233,28 +233,24 @@ export class SearchArea extends Component<SearchAreaProps> {
                             </IconButton>
                         ) : null
                     }
-                    {
-                        !this.props.user ? (
-                            <IconButton
-                                key="fg-filter-btn"
-                                active={false}
-                                handleClick={this.handleSignClick}
+                    <IconButton
+                        key="fg-filter-btn"
+                        active={!!this.props.user}
+                        handleClick={this.handleSignClick}
+                    >
+                        <div class="drp-sort__btn-body">
+                            <svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 32 32"
                             >
-                                <div class="drp-sort__btn-body">
-                                    <svg
-                                        width="16"
-                                        height="16"
-                                        viewBox="0 0 32 32"
-                                    >
-                                        <path d="M16.005 15.871a5.872 5.872 0 0 0 0-11.742 5.87 5.87 0 1 0 0 11.742zm11.567 7.188C27.27 19.036 20.023 18 16 18c-4.012 0-11.271 1.039-11.573 5.059C4.203 26.11 4.068 28.18 4.02 30h23.96c-.047-1.82-.184-3.891-.407-6.941z" />
-                                    </svg>
-                                    <span class="drp-sort__btn-label">
-                                        {i18n.gallery.signIn}
-                                    </span>
-                                </div>
-                            </IconButton>
-                        ) : null
-                    }
+                                <path d="M16.005 15.871a5.872 5.872 0 0 0 0-11.742 5.87 5.87 0 1 0 0 11.742zm11.567 7.188C27.27 19.036 20.023 18 16 18c-4.012 0-11.271 1.039-11.573 5.059C4.203 26.11 4.068 28.18 4.02 30h23.96c-.047-1.82-.184-3.891-.407-6.941z" />
+                            </svg>
+                            <span class="drp-sort__btn-label">
+                                {this.props.user ? `${i18n.gallery.signOut} (${this.props.user.username})` : i18n.gallery.signIn}
+                            </span>
+                        </div>
+                    </IconButton>
                 </div>
             </div>
         );
