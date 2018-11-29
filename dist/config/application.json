@@ -3,7 +3,7 @@
     "oauthappid": "arcgisWebApps",
     "group": "dbc385ac1b7d4231b24b97750f0e633c",
     "portalUrl": "https://devext.arcgis.com",
-    "title": "Filter Gallery",
+    "title": "Category Gallery",
     "allowedItemTypes": [
         "Web Map",
         "CityEngine Web Scene",

@@ -144,7 +144,7 @@ export interface ConfigState {
      * Note: This is not visible in the default side panel view of the item browser unless the
      * `replaceSectionDropdownWithTitle` option is enabled. It is visible if `layoutMode` is set to `fullscreen`
      * @type {string}
-     * @default "Item Browser"
+     * @default "Category Gallery"
      */
     dialogTitle: string;
 
