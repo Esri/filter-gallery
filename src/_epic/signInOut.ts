@@ -6,6 +6,7 @@ import { filter, switchMap, map, catchError } from "rxjs/operators";
 
 import * as Portal from "esri/portal/Portal";
 import * as IdentityManager from "esri/identity/IdentityManager";
+import * as cookie from "dojo/cookie";
 import { fromDeferred, getOrgBaseUrl } from "../_utils";
 
 export const signInEpic = (action$: Subject<Action>, getState: () => FilterGalleryState) => action$.pipe(
@@ -27,6 +28,18 @@ export const signOutEpic = (action$: Subject<Action>, getState: () => FilterGall
     switchMap(() => {
         const state = getState();
         IdentityManager.destroyCredentials();
+
+        cookie("esri_auth", undefined, {
+            path: "/",
+            domain: ".arcgis.com",
+            expires: -1
+        });
+        cookie("esri_auth", undefined, {
+            path: "/",
+            domain: `.${document.domain}`,
+            expires: -1
+        });
+
         const portal = new Portal({ url: state.settings.config.url });
         portal.authMode = "anonymous";
         portal["baseUrl"] = getOrgBaseUrl(portal);
