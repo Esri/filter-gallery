@@ -1,0 +1,189 @@
+{
+	"configurationSettings": [{
+		"category": "<b>General</b>",
+		"fields": [{
+			"type": "group",
+			"label": "Select a group",
+			"tooltip": "Group displayed in the application"
+		}, {
+			"type": "string",
+			"fieldName": "title",
+			"tooltip": "Use this to introduce the subject of your gallery.",
+			"label": "Title of your application"
+		}]
+	}, {
+		"category": "<b>Theme</b>",
+		"fields": [{
+			"type": "paragraph",
+			"value": "These are advanced settings that work best in together.  Define the structure of the header via the html editor and then style it via the CSS input.  For more information on the HTML that can be used, see this topic <a href='https://doc.arcgis.com/en/arcgis-online/reference/supported-html.htm' target='_blank' rel='noopener'>format help</a> for more information."
+		}, {
+			"label": "Header HTML",
+			"tooltip": "use this to create a customized header for your gallery.",
+			"type": "string",
+			"fieldName": "headHTML",
+			"stringFieldOption": "richtext"
+		}, {
+			"label": "Custom CSS",
+			"tooltip": "use this to style different elements of the gallery app",
+			"type": "string",
+			"fieldName": "customCSS"
+		}]
+	}, {
+		"category": "<b>Options</b>",
+		"fields": [{
+			"type": "subcategory",
+			"label": "Map settings"
+		}, {
+			"label": "Compass placement",
+			"fieldName": "compassWidget",
+			"type": "options",
+			"options": [{
+				"label": "Top Left",
+				"value": "top-left"
+			}, {
+				"label": "Top Right",
+				"value": "top-right"
+			}, {
+				"label": "Bottom Right",
+				"value": "bottom-right"
+			}, {
+				"label": "Bottom Left",
+				"value": "bottom-left"
+			}, {
+				"label": "Hide",
+				"value": ""
+			}],
+			"tooltip": "When enable, this will provide users the ability to view the orientation of the map and reorient toward the north."
+		}, {
+			"label": "Basemap Gallery",
+			"fieldName": "basemapGalleryWidget",
+			"type": "options",
+			"options": [{
+				"label": "Top Left",
+				"value": "top-left"
+			}, {
+				"label": "Top Right",
+				"value": "top-right"
+			}, {
+				"label": "Bottom Right",
+				"value": "bottom-right"
+			}, {
+				"label": "Bottom Left",
+				"value": "bottom-left"
+			}, {
+				"label": "Hide",
+				"value": ""
+			}],
+			"tooltip": "When enable, this will provide users the ability to change the background of the map or scene."
+		}, {
+			"fieldName": "searchWidget",
+			"label": "Enable Seach capabilities",
+			"type": "options",
+			"options": [{
+				"label": "Top Left",
+				"value": "top-left"
+			}, {
+				"label": "Top Right",
+				"value": "top-right"
+			}, {
+				"label": "Bottom Right",
+				"value": "bottom-right"
+			}, {
+				"label": "Bottom Left",
+				"value": "bottom-left"
+			}, {
+				"label": "Hide",
+				"value": ""
+			}],
+			"tooltip": "When enable, this will provide users the ability to search for places."
+		}, {
+			"fieldName": "locateWidget",
+			"label": "Enable Geolocation button on the map",
+			"type": "options",
+			"options": [{
+				"label": "Top Left",
+				"value": "top-left"
+			}, {
+				"label": "Top Right",
+				"value": "top-right"
+			}, {
+				"label": "Bottom Right",
+				"value": "bottom-right"
+			}, {
+				"label": "Bottom Left",
+				"value": "bottom-left"
+			}, {
+				"label": "Hide",
+				"value": ""
+			}],
+			"tooltip": "When enable, this will provide users to find their location on the map or scene."
+		}, {
+			"fieldName": "legendWidget",
+			"label": "Include a Legend on the map",
+			"type": "options",
+			"options": [{
+				"label": "Top Left",
+				"value": "top-left"
+			}, {
+				"label": "Top Right",
+				"value": "top-right"
+			}, {
+				"label": "Bottom Right",
+				"value": "bottom-right"
+			}, {
+				"label": "Bottom Left",
+				"value": "bottom-left"
+			}, {
+				"label": "Hide",
+				"value": ""
+			}],
+			"tooltip": "When enable, this will add a legend to the map allowing users to interpret the symbology used."
+		}, {
+			"fieldName": "homeWidget",
+			"label": "Enable Home button on the map",
+			"type": "options",
+			"options": [{
+				"label": "Top Left",
+				"value": "top-left"
+			}, {
+				"label": "Top Right",
+				"value": "top-right"
+			}, {
+				"label": "Bottom Right",
+				"value": "bottom-right"
+			}, {
+				"label": "Bottom Left",
+				"value": "bottom-left"
+			}, {
+				"label": "Hide",
+				"value": ""
+			}],
+			"tooltip": "When enable, this will provide users the ability to navigate to the default extent of a map or scene."
+		}, {
+			"type": "subcategory",
+			"label": "Gallery Filter settings"
+		}, {
+			"type": "boolean",
+			"fieldName": "useOrgCategories",
+			"label": "Filter by organization categories instead of group",
+			"tooltip": "If enabled, will use the organization's categories instead of those associated with the group. Note that organization categories are only available for signed-in organizational users. They will not be visible for public users."
+		}, {
+			"fieldName": "resultsPerQuery",
+			"label": "Items shown per page",
+			"type": "string",
+			"tooltip": "Control the ways items filters presented to users in the gallery.Controls how many results are returned per query to the portal Search API. This is equivalent to how many items are shown per page."
+		}]
+	}],
+	"values": {
+		"compassWidget": "",
+		"homeWidget": "",
+		"legendWidget": "",
+		"locateWidget": "top-left",
+		"searchWidget": "top-right",
+		"basemapGalleryWidget": "",
+		"resultsPerQuery": 16,
+		"useOrgCategories": false,
+		"headHTML": "",
+		"customCSS": ""
+	}
+}
