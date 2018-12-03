@@ -72,8 +72,8 @@ define({
         "relevance": "No nozīmīgāka uz mazāk nozīmīgu",
         "title": "Apgrieztā alfabētiskā secībā",
         "owner": "Apgrieztā alfabētiskā secībā",
-        "created": "Nesenākais",
-        "modified": "Nesenākais",
+        "created": "Jaunākais",
+        "modified": "Jaunākais",
         "numviews": "No lielākā uz mazāko",
         "avgrating": "No augstāk novērtētā uz zemāk novērtēto"
       }
