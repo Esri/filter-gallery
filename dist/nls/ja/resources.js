@@ -46,7 +46,7 @@ define({
       "grid": "グリッド",
       "list": "リスト",
       "table": "テーブル",
-      "view": "ビュー"
+      "view": "表示"
     },
     "sorting": {
       "sort": "レコードの並べ替え",
