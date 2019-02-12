@@ -160,6 +160,18 @@
 			}],
 			"tooltip": "When enable, this will provide users the ability to navigate to the default extent of a map or scene."
 		}, {
+			"label": "Default Content View",
+			"fieldName": "displayDefault",
+			"type": "options",
+			"options": [{
+				"label": "Grid",
+				"value": "grid"
+			}, {
+				"label": "List",
+				"value": "list"
+			}],
+			"tooltip": "Control the way items are presesnted to users in the gallery."
+		}, {
 			"type": "subcategory",
 			"label": "Gallery Filter settings"
 		}, {
@@ -181,6 +193,7 @@
 		"locateWidget": "top-left",
 		"searchWidget": "top-right",
 		"basemapGalleryWidget": "",
+		"displayDefault": "grid",
 		"resultsPerQuery": 16,
 		"useOrgCategories": false,
 		"headHTML": "",
