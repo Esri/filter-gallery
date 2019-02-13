@@ -1,5 +1,6 @@
-import { CHANGE_SEARCH_STRING, LOADING_CONTENT } from "../../_actions";
+import { CHANGE_SEARCH_STRING, LOADING_CONTENT, HASH_CHANGE } from "../../_actions";
 import { Action } from "../../Component";
+import * as ioQuery from "dojo/io-query";
 
 export interface SearchStringState {
     current: string;
@@ -15,6 +16,12 @@ export default (
     action: Action
 ): SearchStringState => {
     switch (action.type) {
+        case HASH_CHANGE:
+            const hashParams = ioQuery.queryToObject(action.payload);
+            return {
+                ...state,
+                current: (hashParams.query ? hashParams.query : "")
+            }
         case LOADING_CONTENT:
             return {
                 ...state,
