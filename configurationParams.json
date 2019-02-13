@@ -170,7 +170,7 @@
 				"label": "List",
 				"value": "list"
 			}],
-			"tooltip": "Control the way items are presesnted to users in the gallery."
+			"tooltip": "Control the way items are presented to users in the gallery."
 		}, {
 			"type": "subcategory",
 			"label": "Gallery Filter settings"
