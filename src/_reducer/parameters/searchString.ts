@@ -38,7 +38,7 @@ export default (
 };
 
 function parseParms(str:string):Pojo {
-    var pieces = str.split("&"), data = {}, i, parts;
+    var separators = ['&', '?'], pieces = str.split(new RegExp('[' + separators.join('') + "]")), data = {}, i, parts;
     for (i = 0; i < pieces.length; i++) {
         parts = pieces[i].split("=");
         if (parts.length < 2) {
