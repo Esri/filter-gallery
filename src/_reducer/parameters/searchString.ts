@@ -1,6 +1,6 @@
 import { CHANGE_SEARCH_STRING, LOADING_CONTENT, HASH_CHANGE } from "../../_actions";
 import { Action } from "../../Component";
-import * as ioQuery from "dojo/io-query";
+import { Pojo } from "../../Component";
 
 export interface SearchStringState {
     current: string;
@@ -17,7 +17,7 @@ export default (
 ): SearchStringState => {
     switch (action.type) {
         case HASH_CHANGE:
-            const hashParams = ioQuery.queryToObject(action.payload);
+            const hashParams = parseParms(action.payload);
             return {
                 ...state,
                 current: (hashParams.query ? hashParams.query : "")
@@ -36,3 +36,15 @@ export default (
             return state;
     }
 };
+
+function parseParms(str:string):Pojo {
+    var pieces = str.split("&"), data = {}, i, parts;
+    for (i = 0; i < pieces.length; i++) {
+        parts = pieces[i].split("=");
+        if (parts.length < 2) {
+            parts.push("");
+        }
+        data[decodeURIComponent(parts[0])] = decodeURIComponent(parts[1]);
+    }
+    return data;
+}
