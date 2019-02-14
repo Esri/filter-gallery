@@ -6,7 +6,8 @@ import * as promiseUtils from "esri/core/promiseUtils";
 import * as requireUtils from "esri/core/requireUtils";
 import LoaderBars from "../../Loaders/LoaderBars";
 import { FilterGalleryStore } from "../../..";
-import widgetMapping from "./_utils/widgetMapping";
+import widgetMapping from "./_utils/widgetMapping"; //Widget 2 of 2
+import * as Expand from "esri/widgets/Expand";
 
 interface WebBaseProps {
     key: string;
@@ -135,6 +136,25 @@ export class WebBase extends Component<WebBaseProps, WebBaseState> {
             .then((constructors) => {
                 constructors.forEach((Constructor: any, i: number) => {
                     const widget = new Constructor({ view });
+                    //only collapse if BasemapGallery or Legend
+                    if( (modules[i]["module"]==="esri/widgets/Legend") || (modules[i]["module"]==="esri/widgets/BasemapGallery") ) {
+                        let tooltip = widget.label;
+                        let group = ( (modules[i]["position"] as string).indexOf('left') < 0 ) ? "right" : "left";
+                        const widgetExpand = new Expand({
+                            expandTooltip: tooltip,
+                            view: view,
+                            content: widget,
+                            group: group
+                        });
+                        if (widget.activeLayerInfos) {
+                            widget.watch("activeLayerInfos.length", () => {
+                                view.ui.add(widgetExpand, modules[i]["position"]);
+                            });
+                            return;
+                        }
+                        view.ui.add(widgetExpand, modules[i]["position"]);
+                        return;
+                    }
                     if (widget.activeLayerInfos) {
                         widget.watch("activeLayerInfos.length", () => {
                             view.ui.add(widget, modules[i]["position"]);
