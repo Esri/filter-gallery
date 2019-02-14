@@ -18,7 +18,6 @@ export default (
     switch (action.type) {
         case HASH_CHANGE:
             const hashParams = parseParms(action.payload);
-            console.log(hashParams)
             return {
                 ...state,
                 current: (hashParams.query ? hashParams.query : "")
