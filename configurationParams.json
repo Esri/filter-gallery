@@ -32,6 +32,113 @@
 		"category": "<b>Options</b>",
 		"fields": [{
 			"type": "subcategory",
+			"label": "Gallery Settings"
+		}, {
+			"label": "Default Content View",
+			"fieldName": "displayDefault",
+			"type": "options",
+			"options": [{
+				"label": "Grid",
+				"value": "grid"
+			}, {
+				"label": "List",
+				"value": "list"
+			}],
+			"tooltip": "Control the way items are presented to users in the gallery."
+		}, {
+			"type": "multiselect",
+			"fieldName": "filters",
+			"label": "Select the filters you want to include in the gallery",
+			"values": [{
+				"value": "categories",
+				"label": "Categories"
+			}, {
+				"value": "itemType",
+				"label": "Item Type"
+			}, {
+				"value": "created",
+				"label": "Date Created"
+			}, {
+				"value": "modified",
+				"label": "Date Modified"
+			}, {
+				"value": "shared",
+				"label": "Sharing Status"
+			}, {
+				"value": "status",
+				"label": "Status"
+			}, {
+				"value": "tags",
+				"label": "Tags"
+			}]
+		}, {
+			"type": "multiselect",
+			"fieldName": "availableItemTypeFilters",
+			"label": "Select the item types filters you want to include in the gallery",
+			"values": [{
+				"value": "maps",
+				"label": "Maps"
+			}, {
+				"value": "layers",
+				"label": "Layers"
+			}, {
+				"value": "scenes",
+				"label": "Scenes"
+			}, {
+				"value": "apps",
+				"label": "Apps"
+			}, {
+				"value": "tools",
+				"label": "Tools"
+			}, {
+				"value": "files",
+				"label": "Files"
+			}, {
+				"value": "notebooks",
+				"label": "Notebooks"
+			}]
+		}, {
+			"fieldName": "allowedItemTypes",
+			"tooltip": "Only display items of this type",
+			"label": "Only display items of this type *",
+			"type": "options",
+			"options": [{
+				"label": "All",
+				"value": ["Web Map", "CityEngine Web Scene", "Web Scene", "360 VR Experience", "Pro Map", "Feature Service", "Map Service", "Image Service", "KML", "KML Collection", "WFS", "WMTS", "Feature Collection", "Feature Collection Template", "Vector Tile Service", "Scene Service", "Relational Database Connection", "Web Mapping Application", "Mobile Application", "Code Attachment", "Operations Dashboard Add In", "Native Application", "Native Application Template", "Native Application Installer", "Workforce Project", "Form", "Insights Workbook", "Insights Model", "Insights Page", "Dashboard", "Hub Initiative", "Hub Site Application", "Hub Page", "AppBuilder Widget Package", "Symbol Set", "Color Set", "Shapefile", "File Geodatabase", "CSV", "CAD Drawing", "Service Definition", "Microsoft Word", "Microsoft Powerpoint", "Microsoft Excel", "PDF", "Image", "Visio Document", "iWork Keynote", "iWork Pages", "iWork Numbers", "Report Template", "Statistical Data Collection", "Map Document", "Map Package", "Mobile Basemap Package", "Mobile Map Package", "Tile Package", "Vector Tile Package", "Project Package", "Task File", "ArcPad Package", "Explorer Map", "Globe Document", "Scene Document", "Published Map", "Map Template", "Windows Mobile Package", "Pro Map", "Layout", "Project Template", "Layer", "Layer Package", "Explorer Layer", "Scene Package", "Image Collection", "Desktop Style", "Geoprocessing Package", "Geoprocessing Package (Pro version)", "Geoprocessing Sample", "Locator Package", "Rule Package", "Raster function template", "ArcGIS Pro Configuration", "Workflow Manager Package", "Desktop Application", "Desktop Application Template", "Code Sample", "Desktop Add In", "Explorer Add In", "ArcGIS Pro Add In", "Geometry Service", "Geocoding Service", "Network Analysis Service", "Geoprocessing Service", "Workflow Manager Service"]
+			}, {
+				"label": "Apps",
+				"value": ["Web Mapping Application", "Mobile Application", "Code Attachment", "Operations Dashboard Add In", "Operation View", "Operations Dashboard Extension", "Native Application", "Native Application Template", "Native Application Installer", "Workforce Project", "Form", "Insights Workbook", "Insights Model", "Insights Page", "Dashboard", "Hub Initiative", "Hub Site Application", "Hub Page", "AppBuilder Widget Package"]
+			}, {
+				"label": "Data Files",
+				"value": ["Symbol Set", "Color Set", "Shapefile", "File Geodatabase", "CSV", "CAD Drawing", "Service Definition", "Document Link", "Microsoft Word", "Microsoft Powerpoint", "Microsoft Excel", "PDF", "Image", "Visio Document", "iWork Keynote", "iWork Pages", "iWork Numbers", "Report Template", "Statistical Data Collection", "SQLite Geodatabase", "Content Category Set"]
+			}, {
+				"label": "Desktop Content",
+				"value": ["Map Document", "Map Package", "Mobile Basemap Package", "Mobile Map Package", "Tile Package", "Vector Tile Package", "Project Package", "Task File", "ArcPad Package", "Explorer Map", "Globe Document", "Scene Document", "Published Map", "Map Template", "Windows Mobile Package", "Pro Map", "Layout", "Project Template", "Layer", "Layer Package", "Explorer Layer", "Scene Package", "Image Collection", "Desktop Style", "Geoprocessing Package", "Geoprocessing Package (Pro version)", "Geoprocessing Sample", "Locator Package", "Rule Package", "Raster function template", "ArcGIS Pro Configuration", "Workflow Manager Package", "Desktop Application", "Desktop Application Template", "Code Sample", "Desktop Add In", "Explorer Add In", "ArcGIS Pro Add In"]
+			}, {
+				"label": "Layers",
+				"value": ["Feature Service", "Map Service", "Image Service", "KML", "KML Collection", "WMS", "WFS", "WMTS", "Feature Collection", "Feature Collection Template", "Geodata Service", "Globe Service", "Vector Tile Service", "Scene Service", "Relational Database Connection"]
+			}, {
+				"label": "Maps",
+				"value": ["Web Map", "Web Scene", "CityEngine Web Scene", "360 VR Experience", "Pro Map", "Map Area"]
+			}, {
+				"label": "Tools",
+				"value": ["Geometry Service", "Geocoding Service", "Network Analysis Service", "Geoprocessing Service", "Workflow Manager Service"]
+			}]
+		}, {
+			"type": "paragraph",
+			"value": "* Groups can contain items that are not always informative to your audience, for example you may want to just show apps without presenting the layers and web maps they are built on.  This gallery can be configured to show items of a certain classification and hide others.  For more information on the types see this help topic on <a href='https://developers.arcgis.com/rest/users-groups-and-items/items-and-item-types.htm' target='_blank'>Items and item types</a>. "
+		}, {
+			"type": "boolean",
+			"fieldName": "useOrgCategories",
+			"label": "Filter by organization categories instead of group",
+			"tooltip": "If enabled, will use the organization's categories instead of those associated with the group. Note that organization categories are only available for signed-in organizational users. They will not be visible for public users."
+		}, {
+			"fieldName": "resultsPerQuery",
+			"label": "Items shown per page",
+			"type": "string",
+			"tooltip": "Control the ways items filters presented to users in the gallery.Controls how many results are returned per query to the portal Search API. This is equivalent to how many items are shown per page."
+		}, {
+			"type": "subcategory",
 			"label": "Map settings"
 		}, {
 			"label": "Compass placement",
@@ -159,157 +266,6 @@
 				"value": ""
 			}],
 			"tooltip": "When enable, this will provide users the ability to navigate to the default extent of a map or scene."
-		}, {
-			"label": "Default Content View",
-			"fieldName": "displayDefault",
-			"type": "options",
-			"options": [{
-				"label": "Grid",
-				"value": "grid"
-			}, {
-				"label": "List",
-				"value": "list"
-			}],
-			"tooltip": "Control the way items are presented to users in the gallery."
-		}, {
-			"fieldName": "allowedItemTypes",
-			"tooltip": "Only display items of this type",
-			"label": "Only display items of this type *",
-			"type": "options",
-			"options": [{
-				"label": "All",
-				"value": [
-					"Web Map",
-					"CityEngine Web Scene",
-					"Web Scene",
-					"360 VR Experience",
-					"Pro Map",
-					"Feature Service",
-					"Map Service",
-					"Image Service",
-					"KML",
-					"KML Collection",
-					"WFS",
-					"WMTS",
-					"Feature Collection",
-					"Feature Collection Template",
-					"Vector Tile Service",
-					"Scene Service",
-					"Relational Database Connection",
-					"Web Mapping Application",
-					"Mobile Application",
-					"Code Attachment",
-					"Operations Dashboard Add In",
-					"Native Application",
-					"Native Application Template",
-					"Native Application Installer",
-					"Workforce Project",
-					"Form",
-					"Insights Workbook",
-					"Insights Model",
-					"Insights Page",
-					"Dashboard",
-					"Hub Initiative",
-					"Hub Site Application",
-					"Hub Page",
-					"AppBuilder Widget Package",
-					"Symbol Set",
-					"Color Set",
-					"Shapefile",
-					"File Geodatabase",
-					"CSV",
-					"CAD Drawing",
-					"Service Definition",
-					"Microsoft Word",
-					"Microsoft Powerpoint",
-					"Microsoft Excel",
-					"PDF",
-					"Image",
-					"Visio Document",
-					"iWork Keynote",
-					"iWork Pages",
-					"iWork Numbers",
-					"Report Template",
-					"Statistical Data Collection",
-					"Map Document",
-					"Map Package",
-					"Mobile Basemap Package",
-					"Mobile Map Package",
-					"Tile Package",
-					"Vector Tile Package",
-					"Project Package",
-					"Task File",
-					"ArcPad Package",
-					"Explorer Map",
-					"Globe Document",
-					"Scene Document",
-					"Published Map",
-					"Map Template",
-					"Windows Mobile Package",
-					"Pro Map",
-					"Layout",
-					"Project Template",
-					"Layer",
-					"Layer Package",
-					"Explorer Layer",
-					"Scene Package",
-					"Image Collection",
-					"Desktop Style",
-					"Geoprocessing Package",
-					"Geoprocessing Package (Pro version)",
-					"Geoprocessing Sample",
-					"Locator Package",
-					"Rule Package",
-					"Raster function template",
-					"ArcGIS Pro Configuration",
-					"Workflow Manager Package",
-					"Desktop Application",
-					"Desktop Application Template",
-					"Code Sample",
-					"Desktop Add In",
-					"Explorer Add In",
-					"ArcGIS Pro Add In",
-					"Geometry Service",
-					"Geocoding Service",
-					"Network Analysis Service",
-					"Geoprocessing Service",
-					"Workflow Manager Service"
-				]
-			}, {
-				"label": "Apps",
-				"value": ["Web Mapping Application", "Mobile Application", "Code Attachment", "Operations Dashboard Add In", "Operation View","Operations Dashboard Extension","Native Application", "Native Application Template", "Native Application Installer", "Workforce Project", "Form", "Insights Workbook", "Insights Model", "Insights Page", "Dashboard", "Hub Initiative", "Hub Site Application", "Hub Page", "AppBuilder Widget Package"]
-					}, {
-				"label": "Data Files",
-				"value": ["Symbol Set", "Color Set", "Shapefile", "File Geodatabase", "CSV", "CAD Drawing", "Service Definition", "Document Link", "Microsoft Word", "Microsoft Powerpoint", "Microsoft Excel", "PDF", "Image", "Visio Document", "iWork Keynote", "iWork Pages", "iWork Numbers", "Report Template", "Statistical Data Collection", "SQLite Geodatabase", "Content Category Set"]
-			}, {
-				"label": "Desktop Content",
-				"value": ["Map Document", "Map Package", "Mobile Basemap Package", "Mobile Map Package", "Tile Package", "Vector Tile Package", "Project Package", "Task File", "ArcPad Package", "Explorer Map", "Globe Document", "Scene Document", "Published Map", "Map Template", "Windows Mobile Package", "Pro Map", "Layout", "Project Template", "Layer", "Layer Package","Explorer Layer", "Scene Package","Image Collection", "Desktop Style", "Geoprocessing Package", "Geoprocessing Package (Pro version)", "Geoprocessing Sample", "Locator Package", "Rule Package", "Raster function template", "ArcGIS Pro Configuration", "Workflow Manager Package", "Desktop Application", "Desktop Application Template", "Code Sample", "Desktop Add In", "Explorer Add In", "ArcGIS Pro Add In"]
-			}, {
-				"label": "Layers",
-				"value": ["Feature Service", "Map Service", "Image Service", "KML", "KML Collection", "WMS", "WFS", "WMTS", "Feature Collection", "Feature Collection Template", "Geodata Service", "Globe Service", "Vector Tile Service", "Scene Service", "Relational Database Connection"]
-			}, {
-				"label": "Maps",
-				"value": ["Web Map", "Web Scene", "CityEngine Web Scene", "360 VR Experience", "Pro Map", "Map Area"]
-			}, {
-				"label": "Tools",
-				"value": ["Geometry Service", "Geocoding Service", "Network Analysis Service", "Geoprocessing Service", "Workflow Manager Service"]
-			}]
-		}, {
-			"type": "paragraph",
-			"value": "* Groups can contain items that are not always informative to your audience, for example you may want to just show apps without presenting the layers and web maps they are built on.  This gallery can be configured to show items of a certain classification and hide others.  For more information on the types see this help topic on <a href='https://developers.arcgis.com/rest/users-groups-and-items/items-and-item-types.htm' target='_blank'>Items and item types</a>. "
-		}, {
-			"type": "subcategory",
-			"label": "Gallery Filter settings"
-		}, {
-			"type": "boolean",
-			"fieldName": "useOrgCategories",
-			"label": "Filter by organization categories instead of group",
-			"tooltip": "If enabled, will use the organization's categories instead of those associated with the group. Note that organization categories are only available for signed-in organizational users. They will not be visible for public users."
-		}, {
-			"fieldName": "resultsPerQuery",
-			"label": "Items shown per page",
-			"type": "string",
-			"tooltip": "Control the ways items filters presented to users in the gallery.Controls how many results are returned per query to the portal Search API. This is equivalent to how many items are shown per page."
 		}]
 	}],
 	"values": {
@@ -319,11 +275,13 @@
 		"locateWidget": "top-left",
 		"searchWidget": "top-right",
 		"basemapGalleryWidget": "",
-		"displayDefault": "grid",
+		"displayDefault": "list",
 		"allowedItemTypes": ["Web Map", "CityEngine Web Scene", "Web Scene", "360 VR Experience", "Pro Map", "Feature Service", "Map Service", "Image Service", "KML", "KML Collection", "WFS", "WMTS", "Feature Collection", "Feature Collection Template", "Vector Tile Service", "Scene Service", "Relational Database Connection", "Web Mapping Application", "Mobile Application", "Code Attachment", "Operations Dashboard Add In", "Native Application", "Native Application Template", "Native Application Installer", "Workforce Project", "Form", "Insights Workbook", "Insights Model", "Insights Page", "Dashboard", "Hub Initiative", "Hub Site Application", "Hub Page", "AppBuilder Widget Package", "Symbol Set", "Color Set", "Shapefile", "File Geodatabase", "CSV", "CAD Drawing", "Service Definition", "Microsoft Word", "Microsoft Powerpoint", "Microsoft Excel", "PDF", "Image", "Visio Document", "iWork Keynote", "iWork Pages", "iWork Numbers", "Report Template", "Statistical Data Collection", "Map Document", "Map Package", "Mobile Basemap Package", "Mobile Map Package", "Tile Package", "Vector Tile Package", "Project Package", "Task File", "ArcPad Package", "Explorer Map", "Globe Document", "Scene Document", "Published Map", "Map Template", "Windows Mobile Package", "Pro Map", "Layout", "Project Template", "Layer", "Layer Package", "Explorer Layer", "Scene Package", "Image Collection", "Desktop Style", "Geoprocessing Package", "Geoprocessing Package (Pro version)", "Geoprocessing Sample", "Locator Package", "Rule Package", "Raster function template", "ArcGIS Pro Configuration", "Workflow Manager Package", "Desktop Application", "Desktop Application Template", "Code Sample", "Desktop Add In", "Explorer Add In", "ArcGIS Pro Add In", "Geometry Service", "Geocoding Service", "Network Analysis Service", "Geoprocessing Service", "Workflow Manager Service"],
 		"resultsPerQuery": 16,
 		"useOrgCategories": false,
 		"headHTML": "",
-		"customCSS": ""
+		"customCSS": "",
+		"availableItemTypeFilters": ["maps", "layers", "scenes", "apps", "files"],
+		"filters": ["categories", "itemType", "tags"]
 	}
 }
