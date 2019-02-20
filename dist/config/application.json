@@ -109,6 +109,7 @@
     "basemapGalleryWidget": "",
     "resultsPerQuery": 16,
     "useOrgCategories": false,
+    "displayDefault": "list",
     "filters": [
         "categories",
         "itemType",
