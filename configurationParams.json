@@ -48,7 +48,7 @@
 		}, {
 			"type": "multiselect",
 			"fieldName": "filters",
-			"label": "Select the filters you want to include in the gallery",
+			"label": "Select the ways you want to allow users to filters content in your gallery",
 			"values": [{
 				"value": "categories",
 				"label": "Categories"
@@ -74,7 +74,7 @@
 		}, {
 			"type": "multiselect",
 			"fieldName": "availableItemTypeFilters",
-			"label": "Select the item types filters you want to include in the gallery",
+			"label": "Select the item type classes user will be able to filter by in your gallery.",
 			"values": [{
 				"value": "maps",
 				"label": "Maps"
@@ -130,7 +130,7 @@
 		}, {
 			"type": "boolean",
 			"fieldName": "useOrgCategories",
-			"label": "Filter by organization categories instead of group",
+			"label": "Filter by organization categories instead of group categories",
 			"tooltip": "If enabled, will use the organization's categories instead of those associated with the group. Note that organization categories are only available for signed-in organizational users. They will not be visible for public users."
 		}, {
 			"fieldName": "resultsPerQuery",
@@ -265,7 +265,7 @@
 				"label": "Hide",
 				"value": ""
 			}],
-			"tooltip": "When enable, this will provide users the ability to navigate to the default extent of a map or scene."
+			"tooltip": "When enabled, this will provide users the ability to navigate to the default extent of a map or scene."
 		}]
 	}],
 	"values": {
