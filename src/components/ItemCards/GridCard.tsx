@@ -87,11 +87,11 @@ export default class GridCard extends Component<GridCardProps> {
             infoString = `${i18n.itemCards.rating}: ${item.avgRating.toFixed(2)}`;
         } else if (sortField === "created") {
             infoString = `${i18n.itemCards.created}: ${
-                dojoDate.format(new Date(item.created), { selector: "date", formatLength: "short" })
+                dojoDate.format(new Date(item.created), { selector: "date", formatLength: "medium" })
                 }`;
         } else {
             infoString = `${i18n.itemCards.updated}: ${
-                dojoDate.format(new Date(item.modified), { selector: "date", formatLength: "short" })
+                dojoDate.format(new Date(item.modified), { selector: "date", formatLength: "medium" })
                 }`;
         }
 

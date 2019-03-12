@@ -17505,7 +17505,7 @@ var initialState = {
                 customStyle.innerHTML = config.customCSS;
                 document.body.appendChild(customStyle);
             }
-            //Set locale & direction
+            //add lang and dir attr to <html>
             document.documentElement.lang = action.payload.locale;
             var dirNode = document.getElementsByTagName("html")[0];
             dirNode.setAttribute("dir", action.payload.direction);
@@ -19609,10 +19609,10 @@ var GridCard = /** @class */ (function (_super) {
             infoString = dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["itemCards"].rating + ": " + item.avgRating.toFixed(2);
         }
         else if (sortField === "created") {
-            infoString = dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["itemCards"].created + ": " + dojo_date_locale__WEBPACK_IMPORTED_MODULE_3__["format"](new Date(item.created), { selector: "date", formatLength: "short" });
+            infoString = dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["itemCards"].created + ": " + dojo_date_locale__WEBPACK_IMPORTED_MODULE_3__["format"](new Date(item.created), { selector: "date", formatLength: "medium" });
         }
         else {
-            infoString = dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["itemCards"].updated + ": " + dojo_date_locale__WEBPACK_IMPORTED_MODULE_3__["format"](new Date(item.modified), { selector: "date", formatLength: "short" });
+            infoString = dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["itemCards"].updated + ": " + dojo_date_locale__WEBPACK_IMPORTED_MODULE_3__["format"](new Date(item.modified), { selector: "date", formatLength: "medium" });
         }
         var loading = !!this.props.stateTree.results.loadingItems[this.props.item.id];
         var actions = this.props.customActions
