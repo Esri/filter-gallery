@@ -1,4 +1,4 @@
-define(["dojo/_base/kernel","esri/config","esri/core/promiseUtils","esri/identity/IdentityManager","esri/identity/OAuthInfo","esri/portal/Portal","esri/portal/PortalItem","esri/portal/PortalQueryParams","dojo/_base/declare","dojo/promise/all","dojo/Deferred","dojo/cookie","dojo/io-query","dojo/i18n!./nls/resources","esri/request","dojo/date/locale","dijit/form/DateTextBox","esri/core/requireUtils","esri/widgets/Expand"], function(__WEBPACK_EXTERNAL_MODULE__3__, __WEBPACK_EXTERNAL_MODULE__4__, __WEBPACK_EXTERNAL_MODULE__5__, __WEBPACK_EXTERNAL_MODULE__6__, __WEBPACK_EXTERNAL_MODULE__7__, __WEBPACK_EXTERNAL_MODULE__8__, __WEBPACK_EXTERNAL_MODULE__9__, __WEBPACK_EXTERNAL_MODULE__10__, __WEBPACK_EXTERNAL_MODULE__12__, __WEBPACK_EXTERNAL_MODULE__46__, __WEBPACK_EXTERNAL_MODULE__48__, __WEBPACK_EXTERNAL_MODULE__283__, __WEBPACK_EXTERNAL_MODULE__288__, __WEBPACK_EXTERNAL_MODULE__292__, __WEBPACK_EXTERNAL_MODULE__295__, __WEBPACK_EXTERNAL_MODULE__331__, __WEBPACK_EXTERNAL_MODULE__358__, __WEBPACK_EXTERNAL_MODULE__372__, __WEBPACK_EXTERNAL_MODULE__380__) { return /******/ (function(modules) { // webpackBootstrap
+define(["dojo/_base/kernel","esri/config","esri/core/promiseUtils","esri/identity/IdentityManager","esri/identity/OAuthInfo","esri/portal/Portal","esri/portal/PortalItem","esri/portal/PortalQueryParams","dojo/_base/declare","dojo/promise/all","dojo/Deferred","dojo/cookie","dojo/io-query","dojo/i18n!./nls/resources","esri/request","dojo/date/locale","dijit/form/DateTextBox","esri/core/requireUtils","esri/widgets/Expand"], function(__WEBPACK_EXTERNAL_MODULE__3__, __WEBPACK_EXTERNAL_MODULE__4__, __WEBPACK_EXTERNAL_MODULE__5__, __WEBPACK_EXTERNAL_MODULE__6__, __WEBPACK_EXTERNAL_MODULE__7__, __WEBPACK_EXTERNAL_MODULE__8__, __WEBPACK_EXTERNAL_MODULE__9__, __WEBPACK_EXTERNAL_MODULE__10__, __WEBPACK_EXTERNAL_MODULE__12__, __WEBPACK_EXTERNAL_MODULE__46__, __WEBPACK_EXTERNAL_MODULE__48__, __WEBPACK_EXTERNAL_MODULE__283__, __WEBPACK_EXTERNAL_MODULE__288__, __WEBPACK_EXTERNAL_MODULE__292__, __WEBPACK_EXTERNAL_MODULE__295__, __WEBPACK_EXTERNAL_MODULE__331__, __WEBPACK_EXTERNAL_MODULE__358__, __WEBPACK_EXTERNAL_MODULE__372__, __WEBPACK_EXTERNAL_MODULE__374__) { return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 /******/
@@ -98,7 +98,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _reducer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(289);
 /* harmony import */ var _components_FilterGallery__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(321);
 /* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(256);
-/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(379);
+/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(380);
 
 
 
@@ -19651,7 +19651,7 @@ var GridCard = /** @class */ (function (_super) {
                         tsx("span", { class: "card-gc__info-string" }, infoString)),
                     tsx("span", { class: "card-gc__snippet" },
                         item.snippet, " "),
-                    tsx("a", { class: "card-gc__side-action card-gc__no-wrap card-gc__details-link", href: this.props.portal.baseUrl + "/home/item.html?id=" + item.id, target: "_blank" },
+                    tsx("a", { class: "card-gc__side-action card-gc__details-link", href: this.props.portal.baseUrl + "/home/item.html?id=" + item.id, target: "_blank" },
                         dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["itemCards"].viewItem,
                         tsx("svg", { version: "1.1", xmlns: "http://www.w3.org/2000/svg", width: "16", height: "16", viewBox: "0 0 16 16" },
                             tsx("path", { d: "M10 1v1h3.293l-6.646 6.646 0.707 0.707 6.646-6.646v3.293h1v-5z" }),
@@ -21557,9 +21557,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Buttons_IconButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(341);
 /* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(256);
 /* harmony import */ var _MapView__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(370);
-/* harmony import */ var _SceneView__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(374);
-/* harmony import */ var _MapLayerView__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(375);
-/* harmony import */ var _SceneLayerView__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(378);
+/* harmony import */ var _SceneView__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(375);
+/* harmony import */ var _MapLayerView__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(376);
+/* harmony import */ var _SceneLayerView__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(379);
 
 
 
@@ -21658,7 +21658,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var esri_core_requireUtils__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(esri_core_requireUtils__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _Loaders_LoaderBars__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(338);
 /* harmony import */ var _utils_widgetMapping__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(373);
-/* harmony import */ var esri_widgets_Expand__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(380);
+/* harmony import */ var esri_widgets_Expand__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(374);
 /* harmony import */ var esri_widgets_Expand__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(esri_widgets_Expand__WEBPACK_IMPORTED_MODULE_8__);
 
 
@@ -21824,6 +21824,12 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 /* 374 */
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE__374__;
+
+/***/ }),
+/* 375 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -21848,15 +21854,15 @@ var SceneView = /** @class */ (function (_super) {
 
 
 /***/ }),
-/* 375 */
+/* 376 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 /* harmony import */ var _Component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(13);
-/* harmony import */ var _LayerBase__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(376);
-/* harmony import */ var _utils_layerMapping__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(377);
+/* harmony import */ var _LayerBase__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(377);
+/* harmony import */ var _utils_layerMapping__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(378);
 
 
 
@@ -21875,7 +21881,7 @@ var MapLayerView = /** @class */ (function (_super) {
 
 
 /***/ }),
-/* 376 */
+/* 377 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -21891,7 +21897,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var esri_core_requireUtils__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(esri_core_requireUtils__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _Loaders_LoaderBars__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(338);
 /* harmony import */ var _utils_widgetMapping__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(373);
-/* harmony import */ var esri_widgets_Expand__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(380);
+/* harmony import */ var esri_widgets_Expand__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(374);
 /* harmony import */ var esri_widgets_Expand__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(esri_widgets_Expand__WEBPACK_IMPORTED_MODULE_7__);
 
 
@@ -22030,7 +22036,7 @@ var LayerBase = /** @class */ (function (_super) {
 
 
 /***/ }),
-/* 377 */
+/* 378 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -22045,15 +22051,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /***/ }),
-/* 378 */
+/* 379 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 /* harmony import */ var _Component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(13);
-/* harmony import */ var _LayerBase__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(376);
-/* harmony import */ var _utils_layerMapping__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(377);
+/* harmony import */ var _LayerBase__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(377);
+/* harmony import */ var _utils_layerMapping__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(378);
 
 
 
@@ -22072,7 +22078,7 @@ var SceneLayerView = /** @class */ (function (_super) {
 
 
 /***/ }),
-/* 379 */
+/* 380 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -22097,12 +22103,6 @@ function startHistoryListener(store) {
     };
 }
 
-
-/***/ }),
-/* 380 */
-/***/ (function(module, exports) {
-
-module.exports = __WEBPACK_EXTERNAL_MODULE__380__;
 
 /***/ })
 /******/ ])});;

@@ -207,7 +207,7 @@ export default class GridCard extends Component<GridCardProps> {
                         </div>
                         <span class="card-gc__snippet">{item.snippet}{` `}</span>
                         <a
-                            class="card-gc__side-action card-gc__no-wrap card-gc__details-link"
+                            class="card-gc__side-action card-gc__details-link"
                             href={`${this.props.portal.baseUrl}/home/item.html?id=${item.id}`}
                             target="_blank"
                         >
