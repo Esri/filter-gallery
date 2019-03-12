@@ -17505,6 +17505,10 @@ var initialState = {
                 customStyle.innerHTML = config.customCSS;
                 document.body.appendChild(customStyle);
             }
+            //Set locale & direction
+            document.documentElement.lang = action.payload.locale;
+            var dirNode = document.getElementsByTagName("html")[0];
+            dirNode.setAttribute("dir", action.payload.direction);
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"]({}, state, { url: config.portalUrl, dialogTitle: config.title, resultsPerQuery: config.resultsPerQuery, allowedItemTypes: config.allowedItemTypes, widgets: {
                     "compassWidget": config.compassWidget,
                     "homeWidget": config.homeWidget,
