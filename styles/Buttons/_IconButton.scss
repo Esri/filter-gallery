@@ -13,10 +13,6 @@
         fill: currentColor;
     }
 
-    html[dir="rtl"] & {
-        transform: scaleX(-1);
-    }
-
     &:hover {
         background-color: $lightest-gray;
     }
