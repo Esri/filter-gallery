@@ -158,7 +158,7 @@
 				"value": "bottom-left"
 			}, {
 				"label": "Hide",
-				"value": ""
+				"value": " "
 			}],
 			"tooltip": "When enable, this will provide users the ability to view the orientation of the map and reorient toward the north."
 		}, {
@@ -179,7 +179,7 @@
 				"value": "bottom-left"
 			}, {
 				"label": "Hide",
-				"value": ""
+				"value": " "
 			}],
 			"tooltip": "When enable, this will provide users the ability to change the background of the map or scene."
 		}, {
@@ -200,7 +200,7 @@
 				"value": "bottom-left"
 			}, {
 				"label": "Hide",
-				"value": ""
+				"value": " "
 			}],
 			"tooltip": "When enable, this will provide users the ability to search for places."
 		}, {
@@ -221,7 +221,7 @@
 				"value": "bottom-left"
 			}, {
 				"label": "Hide",
-				"value": ""
+				"value": " "
 			}],
 			"tooltip": "When enable, this will provide users to find their location on the map or scene."
 		}, {
@@ -242,7 +242,7 @@
 				"value": "bottom-left"
 			}, {
 				"label": "Hide",
-				"value": ""
+				"value": " "
 			}],
 			"tooltip": "When enable, this will add a legend to the map allowing users to interpret the symbology used."
 		}, {
@@ -263,18 +263,18 @@
 				"value": "bottom-left"
 			}, {
 				"label": "Hide",
-				"value": ""
+				"value": " "
 			}],
 			"tooltip": "When enabled, this will provide users the ability to navigate to the default extent of a map or scene."
 		}]
 	}],
 	"values": {
-		"compassWidget": "",
-		"homeWidget": "",
-		"legendWidget": "",
+		"compassWidget": " ",
+		"homeWidget": " ",
+		"legendWidget": " ",
 		"locateWidget": "top-left",
 		"searchWidget": "top-right",
-		"basemapGalleryWidget": "",
+		"basemapGalleryWidget": " ",
 		"displayDefault": "list",
 		"allowedItemTypes": ["Web Map", "CityEngine Web Scene", "Web Scene", "360 VR Experience", "Pro Map", "Feature Service", "Map Service", "Image Service", "KML", "KML Collection", "WFS", "WMTS", "Feature Collection", "Feature Collection Template", "Vector Tile Service", "Scene Service", "Relational Database Connection", "Web Mapping Application", "Mobile Application", "Code Attachment", "Operations Dashboard Add In", "Native Application", "Native Application Template", "Native Application Installer", "Workforce Project", "Form", "Insights Workbook", "Insights Model", "Insights Page", "Dashboard", "Hub Initiative", "Hub Site Application", "Hub Page", "AppBuilder Widget Package", "Symbol Set", "Color Set", "Shapefile", "File Geodatabase", "CSV", "CAD Drawing", "Service Definition", "Microsoft Word", "Microsoft Powerpoint", "Microsoft Excel", "PDF", "Image", "Visio Document", "iWork Keynote", "iWork Pages", "iWork Numbers", "Report Template", "Statistical Data Collection", "Map Document", "Map Package", "Mobile Basemap Package", "Mobile Map Package", "Tile Package", "Vector Tile Package", "Project Package", "Task File", "ArcPad Package", "Explorer Map", "Globe Document", "Scene Document", "Published Map", "Map Template", "Windows Mobile Package", "Pro Map", "Layout", "Project Template", "Layer", "Layer Package", "Explorer Layer", "Scene Package", "Image Collection", "Desktop Style", "Geoprocessing Package", "Geoprocessing Package (Pro version)", "Geoprocessing Sample", "Locator Package", "Rule Package", "Raster function template", "ArcGIS Pro Configuration", "Workflow Manager Package", "Desktop Application", "Desktop Application Template", "Code Sample", "Desktop Add In", "Explorer Add In", "ArcGIS Pro Add In", "Geometry Service", "Geocoding Service", "Network Analysis Service", "Geoprocessing Service", "Workflow Manager Service"],
 		"resultsPerQuery": 16,
