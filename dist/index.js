@@ -17505,7 +17505,7 @@ var initialState = {
                 customStyle.innerHTML = config.customCSS;
                 document.body.appendChild(customStyle);
             }
-            //add lang and dir attr to <html>
+            //Set locale & direction
             document.documentElement.lang = action.payload.locale;
             var dirNode = document.getElementsByTagName("html")[0];
             dirNode.setAttribute("dir", action.payload.direction);
@@ -21966,7 +21966,8 @@ var LayerBase = /** @class */ (function (_super) {
             _this.setState({ loadText: "widgets" });
             _this.view = new ViewConstructor({
                 container: _this.props.containerId,
-                map: _this.map
+                map: _this.map,
+                extent: _this.layer.fullExtent
             });
             _this.view.when(function () {
                 _this.loadWidgets(_this.view).then(function () {
