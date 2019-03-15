@@ -103,6 +103,7 @@ export class LayerBase extends Component<LayerBaseProps, LayerBaseState> {
                     container: this.props.containerId,
                     map: this.map
                 });
+                this.view.popup.defaultPopupTemplateEnabled = true;
                 this.view.when(() => {
                     this.loadWidgets(this.view as any).then(
                         () => {

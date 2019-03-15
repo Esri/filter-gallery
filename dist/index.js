@@ -17505,7 +17505,7 @@ var initialState = {
                 customStyle.innerHTML = config.customCSS;
                 document.body.appendChild(customStyle);
             }
-            //add lang and dir attr to <html>
+            //Set locale & direction
             document.documentElement.lang = action.payload.locale;
             var dirNode = document.getElementsByTagName("html")[0];
             dirNode.setAttribute("dir", action.payload.direction);
@@ -21968,6 +21968,7 @@ var LayerBase = /** @class */ (function (_super) {
                 container: _this.props.containerId,
                 map: _this.map
             });
+            _this.view.popup.defaultPopupTemplateEnabled = true;
             _this.view.when(function () {
                 _this.loadWidgets(_this.view).then(function () {
                     _this.view.container = _this.props.containerId;
