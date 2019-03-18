@@ -21966,7 +21966,8 @@ var LayerBase = /** @class */ (function (_super) {
             _this.setState({ loadText: "widgets" });
             _this.view = new ViewConstructor({
                 container: _this.props.containerId,
-                map: _this.map
+                map: _this.map,
+                extent: _this.layer.fullExtent
             });
             _this.view.popup.defaultPopupTemplateEnabled = true;
             _this.view.when(function () {

@@ -101,7 +101,8 @@ export class LayerBase extends Component<LayerBaseProps, LayerBaseState> {
                 this.setState({ loadText: "widgets" });
                 this.view = new ViewConstructor({
                     container: this.props.containerId,
-                    map: this.map
+                    map: this.map, 
+                    extent: this.layer.fullExtent
                 });
                 this.view.popup.defaultPopupTemplateEnabled = true;
                 this.view.when(() => {
