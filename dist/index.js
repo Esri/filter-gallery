@@ -3441,6 +3441,7 @@ var allItemTypes = [
     "Vector Tile Service",
     "Scene Service",
     "Relational Database Connection",
+    "Application",
     "Web Mapping Application",
     "Mobile Application",
     "Code Attachment",
