@@ -87,11 +87,11 @@ export default class GridCard extends Component<GridCardProps> {
             infoString = `${i18n.itemCards.rating}: ${item.avgRating.toFixed(2)}`;
         } else if (sortField === "created") {
             infoString = `${i18n.itemCards.created}: ${
-                dojoDate.format(new Date(item.created), { selector: "date", formatLength: "short" })
+                dojoDate.format(new Date(item.created), { selector: "date", formatLength: "medium" })
                 }`;
         } else {
             infoString = `${i18n.itemCards.updated}: ${
-                dojoDate.format(new Date(item.modified), { selector: "date", formatLength: "short" })
+                dojoDate.format(new Date(item.modified), { selector: "date", formatLength: "medium" })
                 }`;
         }
 
@@ -207,7 +207,7 @@ export default class GridCard extends Component<GridCardProps> {
                         </div>
                         <span class="card-gc__snippet">{item.snippet}{` `}</span>
                         <a
-                            class="card-gc__side-action card-gc__no-wrap card-gc__details-link"
+                            class="card-gc__side-action card-gc__details-link"
                             href={`${this.props.portal.baseUrl}/home/item.html?id=${item.id}`}
                             target="_blank"
                         >

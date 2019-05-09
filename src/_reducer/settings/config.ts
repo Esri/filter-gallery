@@ -322,6 +322,11 @@ export default (state: ConfigState = initialState, action: Action) => {
                 document.body.appendChild(customStyle);
             }
 
+            //Set locale & direction
+            document.documentElement.lang = action.payload.locale;
+            var dirNode = document.getElementsByTagName("html")[0];
+            dirNode.setAttribute("dir", action.payload.direction);
+
             return {
                 ...state,
                 url: config.portalUrl,
