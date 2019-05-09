@@ -94,7 +94,7 @@ h3 {
       font-size: 1.50357rem; } }
   @media screen and (max-width: 479px) {
     h3 {
-      font-size: 1.32813rem; } }
+      font-size: 1.32812rem; } }
 
 h4 {
   font-size: 1.414rem;
@@ -924,8 +924,6 @@ table {
   flex-direction: row; }
   .btn-icon__button > svg {
     fill: currentColor; }
-  html[dir="rtl"] .btn-icon__button {
-    transform: scaleX(-1); }
   .btn-icon__button:hover {
     background-color: #efefef; }
 
@@ -1059,8 +1057,6 @@ table {
   .btn-svg__button > svg {
     vertical-align: middle;
     fill: currentColor; }
-  html[dir="rtl"] .btn-svg__button {
-    transform: scaleX(-1); }
 
 .btn-svg__button--tooltip {
   position: relative;
@@ -2919,7 +2915,9 @@ input.dijitArrowButtonInner {
   font-size: 20px;
   font-weight: 600;
   line-height: 1.55rem;
-  margin-bottom: 0.5rem; }
+  margin-bottom: 0.5rem;
+  text-overflow: ellipsis;
+  overflow: hidden; }
 
 .card-gc__snippet {
   font-size: 0.875rem;

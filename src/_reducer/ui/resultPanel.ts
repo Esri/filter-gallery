@@ -1,4 +1,5 @@
 import {
+    LOAD_PORTAL_SUCCESS,
     LOADING_CONTENT,
     LOADING_CONTENT_FAILED,
     LOADING_CONTENT_SUCCESS,
@@ -8,12 +9,13 @@ import {
 } from "../../_actions";
 import { Action } from "../../Component";
 import { ContentView } from "../../components/Dropdowns/ViewDropdown";
+import { FilterGalleryStore } from "../..";
 
 export interface ResultPanelState {
     display: ContentView;
     status: "loading" | "loadingNext" | "failed" | "success" | "empty";
     viewDropdownActive: boolean;
-}
+};
 export const initialState: ResultPanelState = {
     display: "list",
     status: "empty",
@@ -22,6 +24,11 @@ export const initialState: ResultPanelState = {
 
 export default (state: ResultPanelState = initialState, action: Action): ResultPanelState => {
     switch (action.type) {
+        case LOAD_PORTAL_SUCCESS:
+            return {
+                ...state,
+                display: action.payload.config.displayDefault
+            };
         case LOADING_CONTENT_FAILED:
             return {
                 ...state,

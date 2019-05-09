@@ -98,6 +98,8 @@
     font-weight: 600;
     line-height: 1.55rem;
     margin-bottom: 0.5rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .card-gc__snippet {
