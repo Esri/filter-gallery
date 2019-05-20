@@ -60,22 +60,22 @@ define({
       "numviews": "조회 수",
       "avgrating": "평점",
       "ascending": {
-        "relevance": "가장 관련성이 낮은 순",
+        "relevance": "낮은 관련성순",
         "title": "알파벳순",
         "owner": "알파벳순",
-        "created": "오래된 순",
-        "modified": "오래된 순",
-        "numviews": "최소에서 최대",
-        "avgrating": "가장 평점이 낮은 순"
+        "created": "오래된순",
+        "modified": "오래된순",
+        "numviews": "오름차순",
+        "avgrating": "낮은 평점순"
       },
       "descending": {
-        "relevance": "가장 관련성이 높은 순",
+        "relevance": "높은 관련성순",
         "title": "알파벳 역순",
         "owner": "알파벳 역순",
         "created": "최신순",
         "modified": "최신순",
-        "numviews": "최대에서 최소",
-        "avgrating": "가장 평점이 높은 항목 순"
+        "numviews": "내림차순",
+        "avgrating": "높은 평점순"
       }
     }
   },
@@ -101,7 +101,7 @@ define({
         "desktopApps": "데스크톱 앱",
         "tools": "도구",
         "locators": "로케이터",
-        "geodatabaseAccess": "지오데이터베이스 액세스",
+        "geodatabaseAccess": "지오데이터베이스 접근",
         "geometricOperations": "지오메트릭 작업",
         "geoprocessingTasks": "지오프로세싱 작업",
         "networkAnalysis": "네트워크 분석",

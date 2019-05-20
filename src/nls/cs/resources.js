@@ -49,7 +49,7 @@ define({
       "view": "Zobrazit"
     },
     "sorting": {
-      "sort": "Seřadit (Sort)",
+      "sort": "Seřadit",
       "sortBy": "Seřadit podle",
       "sortDir": "Směr řazení",
       "relevance": "Relevance",
@@ -135,7 +135,7 @@ define({
       }
     },
     "tags": {
-      "tags": "Tagy",
+      "tags": "Klíčová slova",
       "filterTags": "Filtrovat klíčová slova",
       "noTags": "Nebyla nalezena žádná klíčová slova odpovídající vašemu vyhledávání."
     }
@@ -182,7 +182,7 @@ define({
       "sharedWith": "Sdíleno s",
       "shared": {
         "public": "Kdokoli (veřejně)",
-        "org": "Organizační",
+        "org": "Organizace",
         "shared": "Tato položka není sdílena.",
         "private": "Tato položka není sdílena."
       },

@@ -46,7 +46,7 @@ define({
       "grid": "Režģis",
       "list": "Saraksts",
       "table": "Tabula",
-      "view": "Skatījums"
+      "view": "Skatīt"
     },
     "sorting": {
       "sort": "Kārtot",
@@ -173,9 +173,9 @@ define({
       "noSnippet": "Īss kopsavilkums par vienību nav pieejams.",
       "details": "Apraksts",
       "termsOfUse": "Lietošanas noteikumi",
-      "attribution": "Pateicības",
+      "attribution": "Atsauces",
       "noTermsOfUse": "Nav norādīti nekādi īpaši ierobežojumi par vienības satura izmantošanu.",
-      "noAttribution": "Bez apliecinājumiem.",
+      "noAttribution": "Bez atsaucēm.",
       "noDescription": "Paplašināts apraksts par vienību nav pieejams.",
       "views": "Skatījumi",
       "created": "Izveidots",
@@ -215,7 +215,7 @@ define({
     "viewResults": "Skatīt rezultātus"
   },
   "itemCards": {
-    "remove": "Izņemt",
+    "remove": "Noņemt",
     "add": "Pievienot",
     "by": "autors:",
     "actions": "Darbības",
@@ -229,7 +229,7 @@ define({
     "rating": "Novērtējums"
   },
   "pager": {
-    "previous": "Iepriekšējā",
+    "previous": "Iepriekšējais",
     "next": "Nākošais",
     "paginationLimit": "Izmantojot lappušu numerāciju, var izgūt ne vairāk kā 10 000 rezultātu. Lai samazinātu atgriezto rezultātu skaitu, pamēģiniet filtrēt vai mainīt meklēšanas kritēriju."
   },
