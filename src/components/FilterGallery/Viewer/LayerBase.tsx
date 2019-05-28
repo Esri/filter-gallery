@@ -14,6 +14,7 @@ interface LayerBaseProps {
     viewModule: string;
     layerModule: string;
     widgets: { [propName: string]: string };
+    defaultBasemap: string;
     layerUrl: string;
     containerId: string;
     closing: boolean;
@@ -91,8 +92,9 @@ export class LayerBase extends Component<LayerBaseProps, LayerBaseState> {
         LayerConstructor: __esri.LayerConstructor
     ) {
         this.layer = new LayerConstructor({ url: this.props.layerUrl } as __esri.LayerProperties);
+        console.log(this);
         this.map = new MapConstructor({
-            basemap: "streets-vector",
+            basemap: this.props.defaultBasemap, 
             layers: [this.layer]
         });
         this.setState({ loadText: "layers" });
@@ -179,11 +181,13 @@ interface StateProps {
     widgets: {
         [propName: string]: string;
     };
+    defaultBasemap: string;
 }
 
 export default connect<LayerBaseProps, FilterGalleryStore, StateProps, {}>(
     (state) => ({
-        widgets: state.settings.config.widgets
+        widgets: state.settings.config.widgets,
+        defaultBasemap: state.settings.config.defaultBasemap
     }),
     () => ({})
 )(LayerBase);

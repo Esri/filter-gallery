@@ -220,6 +220,13 @@ export interface ConfigState {
     };
 
     /**
+     * Basemap to use for layer viewer
+     * @type {string}
+     * @default streets-vector
+     */
+    defaultBasemap: string;
+
+    /**
      * Url for the portal which contains the group being queried.
      * @type {string}
      */
@@ -279,6 +286,7 @@ export const initialState: ConfigState = {
         "notebooks"
     ],
     customActions: defaultActions,
+    defaultBasemap: "streets-vector",
     section: {
         name: "doesnt matter",
         baseQuery: "",
@@ -333,6 +341,7 @@ export default (state: ConfigState = initialState, action: Action) => {
                 dialogTitle: config.title,
                 resultsPerQuery: config.resultsPerQuery,
                 allowedItemTypes: config.allowedItemTypes,
+                defaultBasemap: config.defaultBasemap,
                 widgets: {
                     "compassWidget": config.compassWidget,
                     "homeWidget": config.homeWidget,
