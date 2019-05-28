@@ -148,7 +148,7 @@ define({
                 browse: "Browse", // arcgisonline.common.browser
                 search: "Search" // arcgisonline.common.search
             },
-            resultCount: "items",
+            resultCount: "Items:", //items 
             searchPlaceholders: {
                 generic: "Enter search terms" // arcgisonline.browseItemsDlg.placeholder
             },

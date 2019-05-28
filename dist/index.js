@@ -18867,7 +18867,7 @@ var InputArea = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     InputArea.prototype.render = function (tsx) {
-        var resultCount = this.props.itemTotal.toLocaleString() + " " + dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["gallery"].resultCount;
+        var resultCount = dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["gallery"].resultCount + " " + this.props.itemTotal.toLocaleString();
         return (tsx("div", { class: "fg-input__container", key: "ib-result-count-container" },
             tsx("span", { class: "fg-input-area__result-count" }, resultCount),
             tsx(_ActiveFilters__WEBPACK_IMPORTED_MODULE_3__["default"], { key: "fg__active-filters", theme: "dark" })));
