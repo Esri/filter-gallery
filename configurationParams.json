@@ -15,7 +15,7 @@
     "category": "<b>Theme</b>",
     "fields": [{
       "type": "paragraph",
-      "value": "These are advanced settings that work best in together.  Define the structure of the header via the html editor and then style it via the CSS input.  For more information on the HTML that can be used, see this topic <a href='https://doc.arcgis.com/en/arcgis-online/reference/supported-html.htm' target='_blank' rel='noopener'>format help</a> for more information."
+      "value": "These are advanced settings that work best when used together.  Define the structure of the header via the html editor and then style it via the CSS input.  For more information on the HTML that can be used, see this topic <a href='https://doc.arcgis.com/en/arcgis-online/reference/supported-html.htm' target='_blank' rel='noopener'>format help</a> for more information."
     }, {
       "label": "Header HTML",
       "tooltip": "use this to create a customized header for your gallery.",
@@ -181,7 +181,7 @@
       "tooltip": "When enable, this will provide users the ability to change the background of the map or scene."
     }, {
       "fieldName": "searchWidget",
-      "label": "Enable Seach capabilities",
+      "label": "Enable Search capabilities",
       "type": "options",
       "options": [{
         "label": "Top Left",
@@ -220,7 +220,7 @@
         "label": "Hide",
         "value": " "
       }],
-      "tooltip": "When enable, this will provide users to find their location on the map or scene."
+      "tooltip": "When enabled, this will provide users to find their location on the map or scene."
     }, {
       "fieldName": "legendWidget",
       "label": "Include a Legend on the map",
