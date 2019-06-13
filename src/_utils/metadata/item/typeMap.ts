@@ -47,8 +47,8 @@ export const itemTypeMap: ItemTypeMap = {
   tables: `(typekeywords:Table)`,
   layerFiles: `(type:("Layer" OR "Explorer Layer" OR "Tile Package" OR "Vector Tile Package" OR "Scene Package" OR "Layer Package" OR "CSV" OR "Shapefile" OR "GeoJson" OR "Service Definition" OR "File Geodatabase" OR "CAD Drawing" OR "Microsoft Excel") -type:("Explorer Maps" OR "Map Documents"))`,
   scenes: `(-type:"CityEngine Web Scene" type:"Web Scene")`,
-  apps: `(type:("Code Sample" OR "Web Mapping Application" OR "Mobile Application" OR "Application" OR "Desktop Application Template" OR "Desktop Application" OR "Operation View" OR "Dashboard" OR "Operations Dashboard Extension" OR "Workforce Project" OR "Insights Workbook" OR "Insights Page" OR "Insights Model" OR "Hub Page" OR "Hub Initiative" OR "Hub Site Application"))`,
-  webApps: `(type:("Web Mapping Application" OR "Dashboard"))`,
+  apps: `(type:("Code Sample" OR "Web Mapping Application" OR "Mobile Application" OR "Application" OR "Desktop Application Template" OR "Desktop Application" OR "Operation View" OR "Dashboard" OR "StoryMap" OR "Operations Dashboard Extension" OR "Workforce Project" OR "Insights Workbook" OR "Insights Page" OR "Insights Model" OR "Hub Page" OR "Hub Initiative" OR "Hub Site Application"))`,
+  webApps: `(type:("Web Mapping Application" OR "Dashboard" OR "StoryMap"))`,
   mobileApps: `(type:"Mobile Application")`,
   desktopApps: `(type:"Desktop Application" -type:"Desktop Application Template")`,
   tools: `((typekeywords:"tool" OR type:"Raster function template" OR type:"Geodata Service" OR type:"Workflow Manager Package" OR type:"Rule Package" OR type:"Operations Dashboard Add In" OR type:"Workflow Manager Service" OR type:"ArcGIS Pro Configuration") -type:"KML")`,
@@ -73,7 +73,7 @@ export type ItemType =
   "WMS" | "Web Map" | "CityEngine Web Scene" | "Web Scene" | "360 VR Experience" | "Pro Map" | "Feature Service" |
   "Map Service" | "Image Service" | "KML" | "KML Collection" | "WFS" | "WMTS" | "Feature Collection" |
   "Feature Collection Template" | "Vector Tile Service" | "Scene Service" | "Relational Database Connection" |
-  "Application" | "Web Mapping Application" | "Mobile Application" | "Code Attachment" | "Operations Dashboard Add In" |
+  "Application" | "Web Mapping Application" | "StoryMap" | "Mobile Application" | "Code Attachment" | "Operations Dashboard Add In" |
   "Native Application" | "Native Application Template" | "Native Application Installer" | "Workforce Project" |
   "Form" | "Insights Workbook" | "Insights Model" | "Insights Page" | "Dashboard" | "Hub Initiative" |
   "Hub Site Application" | "Hub Page" | "AppBuilder Widget Package" | "Symbol Set" | "Color Set" | "Shapefile" |
@@ -113,6 +113,7 @@ export const allItemTypes: ItemType[] = [
   "Relational Database Connection",
   "Application",
   "Web Mapping Application",
+  "StoryMap",
   "Mobile Application",
   "Code Attachment",
   "Operations Dashboard Add In",
