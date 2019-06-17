@@ -17469,6 +17469,7 @@ var initialState = {
         "notebooks"
     ],
     customActions: _utils_defaultActions__WEBPACK_IMPORTED_MODULE_3__["default"],
+    defaultBasemap: "streets-vector",
     section: {
         name: "doesnt matter",
         baseQuery: "",
@@ -17514,7 +17515,7 @@ var initialState = {
             document.documentElement.lang = action.payload.locale;
             var dirNode = document.getElementsByTagName("html")[0];
             dirNode.setAttribute("dir", action.payload.direction);
-            return tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"]({}, state, { url: config.portalUrl, dialogTitle: config.title, resultsPerQuery: config.resultsPerQuery, allowedItemTypes: config.allowedItemTypes, widgets: {
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"]({}, state, { url: config.portalUrl, dialogTitle: config.title, resultsPerQuery: config.resultsPerQuery, allowedItemTypes: config.allowedItemTypes, defaultBasemap: config.defaultBasemap, widgets: {
                     "compassWidget": config.compassWidget,
                     "homeWidget": config.homeWidget,
                     "legendWidget": config.legendWidget,
@@ -18871,7 +18872,7 @@ var InputArea = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     InputArea.prototype.render = function (tsx) {
-        var resultCount = this.props.itemTotal.toLocaleString() + " " + dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["gallery"].resultCount;
+        var resultCount = dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["gallery"].resultCount + " " + this.props.itemTotal.toLocaleString();
         return (tsx("div", { class: "fg-input__container", key: "ib-result-count-container" },
             tsx("span", { class: "fg-input-area__result-count" }, resultCount),
             tsx(_ActiveFilters__WEBPACK_IMPORTED_MODULE_3__["default"], { key: "fg__active-filters", theme: "dark" })));
@@ -21962,8 +21963,9 @@ var LayerBase = /** @class */ (function (_super) {
     LayerBase.prototype.loadMap = function (MapConstructor, ViewConstructor, LayerConstructor) {
         var _this = this;
         this.layer = new LayerConstructor({ url: this.props.layerUrl });
+        console.log(this);
         this.map = new MapConstructor({
-            basemap: "streets-vector",
+            basemap: this.props.defaultBasemap,
             layers: [this.layer]
         });
         this.setState({ loadText: "layers" });
@@ -22042,7 +22044,8 @@ var LayerBase = /** @class */ (function (_super) {
 }(_Component__WEBPACK_IMPORTED_MODULE_2__["Component"]));
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(_Component__WEBPACK_IMPORTED_MODULE_2__["connect"])(function (state) { return ({
-    widgets: state.settings.config.widgets
+    widgets: state.settings.config.widgets,
+    defaultBasemap: state.settings.config.defaultBasemap
 }); }, function () { return ({}); })(LayerBase));
 
 

@@ -138,6 +138,64 @@
       "type": "subcategory",
       "label": "Map settings"
     }, {
+      "label": "Default layer basemap",
+      "fieldName": "defaultBasemap",
+      "type": "options",
+      "options": [{
+        "label": "topo",
+        "value": "topo"
+      }, {
+        "label": "streets",
+        "value": "streets"
+      }, {
+        "label": "satellite",
+        "value": "satellite"
+      }, {
+        "label": "hybrid",
+        "value": "hybrid"
+      }, {
+        "label": "dark-gray",
+        "value": "dark-gray"
+      }, {
+        "label": "gray",
+        "value": "gray"
+      }, {
+        "label": "national-geographic",
+        "value": "national-geographic"
+      }, {
+        "label": "oceans",
+        "value": "oceans"
+      }, {
+        "label": "osm",
+        "value": "osm"
+      }, {
+        "label": "terrain",
+        "value": "terrain"
+      }, {
+        "label": "dark-gray-vector",
+        "value": "dark-gray-vector"
+      }, {
+        "label": "gray-vector",
+        "value": "gray-vector"
+      }, {
+        "label": "streets-vector",
+        "value": "streets-vector"
+      }, {
+        "label": "streets-night-vector",
+        "value": "streets-night-vector"
+      }, {
+        "label": "streets-navigation-vector",
+        "value": "streets-navigation-vector"
+      }, {
+        "label": "topo-vector",
+        "value": "topo-vector"
+      }, {
+        "label": "streets-relief-vector",
+        "value": "streets-relief-vector"
+      }],
+      "tooltip": "Select a basemap to use when viewing layers in the application."
+    },
+    {
       "label": "Compass placement",
       "fieldName": "compassWidget",
       "type": "options",
@@ -266,6 +324,7 @@
     }]
   }],
   "values": {
+    "defaultBasemap": "streets-vector",
     "compassWidget": " ",
     "homeWidget": " ",
     "legendWidget": " ",
