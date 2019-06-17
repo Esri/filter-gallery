@@ -147,7 +147,7 @@ define({
       "browse": "Procurar",
       "search": "Pesquisar"
     },
-    "resultCount": "itens",
+    "resultCount": "ã_Items_____________Ç:",
     "searchPlaceholders": {
       "generic": "Inserir termo de pesquisa"
     },

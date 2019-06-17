@@ -147,7 +147,7 @@ define({
       "browse": "Naršyti",
       "search": "Ieškoti"
     },
-    "resultCount": "elementai",
+    "resultCount": "Į_Items_____________š:",
     "searchPlaceholders": {
       "generic": "Įveskite paieškos frazes"
     },

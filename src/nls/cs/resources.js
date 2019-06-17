@@ -147,7 +147,7 @@ define({
       "browse": "Procházet",
       "search": "Vyhledávání"
     },
-    "resultCount": "položek",
+    "resultCount": "Ř_Items_____________ů:",
     "searchPlaceholders": {
       "generic": "Zadat hledané výrazy"
     },

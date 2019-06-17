@@ -147,7 +147,7 @@ define({
       "browse": "参照",
       "search": "検索"
     },
-    "resultCount": "アイテム",
+    "resultCount": "須_Items_____________鷗:",
     "searchPlaceholders": {
       "generic": "検索語句の入力"
     },

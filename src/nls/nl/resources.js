@@ -147,7 +147,7 @@ define({
       "browse": "Bladeren",
       "search": "Zoeken"
     },
-    "resultCount": "items",
+    "resultCount": "Ĳ_Items_____________ä:",
     "searchPlaceholders": {
       "generic": "Zoektermen invoeren"
     },

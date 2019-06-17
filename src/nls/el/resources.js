@@ -147,7 +147,7 @@ define({
       "browse": "Περιήγηση",
       "search": "Αναζήτηση"
     },
-    "resultCount": "αντικείμενα",
+    "resultCount": "π_Items_____________Ω:",
     "searchPlaceholders": {
       "generic": "Εισαγωγή όρων αναζήτησης"
     },

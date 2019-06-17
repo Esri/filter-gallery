@@ -147,7 +147,7 @@ define({
       "browse": "찾아보기",
       "search": "검색"
     },
-    "resultCount": "항목",
+    "resultCount": "한_Items_____________빠:",
     "searchPlaceholders": {
       "generic": "검색어 입력"
     },

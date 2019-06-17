@@ -147,7 +147,7 @@ define({
       "browse": "Tallózás",
       "search": "Keresés"
     },
-    "resultCount": "elemek",
+    "resultCount": "í_Items_____________ő:",
     "searchPlaceholders": {
       "generic": "Adjon meg keresőkifejezést"
     },

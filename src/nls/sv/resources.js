@@ -147,7 +147,7 @@ define({
       "browse": "Bläddra",
       "search": "Sök"
     },
-    "resultCount": "objekt",
+    "resultCount": "Å_Items_____________ö:",
     "searchPlaceholders": {
       "generic": "Ange söktermer"
     },
