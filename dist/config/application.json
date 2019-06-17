@@ -102,6 +102,7 @@
     "Workflow Manager Service",
     "Application"
   ],
+  "defaultBasemap": "streets-vector",
   "compassWidget": "",
   "homeWidget": "",
   "legendWidget": "",

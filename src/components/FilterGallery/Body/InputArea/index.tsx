@@ -22,7 +22,7 @@ export interface InputAreaProps {
  */
 export class InputArea extends Component<InputAreaProps> {
     public render(tsx: H) {
-        const resultCount = `${this.props.itemTotal.toLocaleString()} ${i18n.gallery.resultCount}`;
+        const resultCount = `${i18n.gallery.resultCount} ${this.props.itemTotal.toLocaleString()}`;
 
         return (
             <div class="fg-input__container" key="ib-result-count-container">
