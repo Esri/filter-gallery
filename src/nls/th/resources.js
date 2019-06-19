@@ -147,7 +147,7 @@ define({
       "browse": "ค้นหา",
       "search": "ค้นหา"
     },
-    "resultCount": "ก้_Items_____________ษฺ:",
+    "resultCount": "รายการ:",
     "searchPlaceholders": {
       "generic": "ใส่คำที่ใช้ค้นหา"
     },

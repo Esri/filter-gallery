@@ -147,7 +147,7 @@ define({
       "browse": "ब्राउज करें",
       "search": "खोजें"
     },
-    "resultCount": "आ_Items_____________ज:",
+    "resultCount": "आइटम:",
     "searchPlaceholders": {
       "generic": "खोज शब्द दर्ज करें"
     },

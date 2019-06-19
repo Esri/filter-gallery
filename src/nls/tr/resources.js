@@ -147,7 +147,7 @@ define({
       "browse": "Göz at",
       "search": "Arama"
     },
-    "resultCount": "ı_Items_____________İ:",
+    "resultCount": "öğeler:",
     "searchPlaceholders": {
       "generic": "Arama terimlerini gir"
     },

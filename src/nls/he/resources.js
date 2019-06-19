@@ -147,7 +147,7 @@ define({
       "browse": "עיין",
       "search": "חיפוש"
     },
-    "resultCount": "כן_Items_____________ש:",
+    "resultCount": "פריטים:",
     "searchPlaceholders": {
       "generic": "הזן מונחי חיפוש"
     },

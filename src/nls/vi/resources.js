@@ -147,7 +147,7 @@ define({
       "browse": "Duyệt",
       "search": "Tìm kiếm"
     },
-    "resultCount": "Đ_Items_____________ớ:",
+    "resultCount": "mục:",
     "searchPlaceholders": {
       "generic": "Nhập cụm từ tìm kiếm"
     },

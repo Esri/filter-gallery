@@ -147,7 +147,7 @@ define({
       "browse": "Bla gjennom",
       "search": "Søk"
     },
-    "resultCount": "å_Items_____________ø:",
+    "resultCount": "elementer:",
     "searchPlaceholders": {
       "generic": "Skriv inn søkeord"
     },

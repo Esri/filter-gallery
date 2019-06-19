@@ -147,7 +147,7 @@ define({
       "browse": "Pārlūkot",
       "search": "Meklēt"
     },
-    "resultCount": "ķ_Items_____________ū:",
+    "resultCount": "vienības:",
     "searchPlaceholders": {
       "generic": "Ievadiet meklēšanas kritērijus"
     },

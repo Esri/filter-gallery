@@ -147,7 +147,7 @@ define({
       "browse": "Переглянути",
       "search": "Пошук"
     },
-    "resultCount": "ґ_Items_____________Ї:",
+    "resultCount": "елементи:",
     "searchPlaceholders": {
       "generic": "Введіть критерії пошуку"
     },

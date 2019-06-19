@@ -147,7 +147,7 @@ define({
       "browse": "استعراض",
       "search": "بحث"
     },
-    "resultCount": "بيت_Items_____________لاحقة:",
+    "resultCount": "العناصر:",
     "searchPlaceholders": {
       "generic": "أدخل كلمات البحث"
     },

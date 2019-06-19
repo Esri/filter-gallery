@@ -147,7 +147,7 @@ define({
       "browse": "瀏覽",
       "search": "搜尋"
     },
-    "resultCount": "試_Items_____________驗:",
+    "resultCount": "項目:",
     "searchPlaceholders": {
       "generic": "輸入搜尋字詞"
     },

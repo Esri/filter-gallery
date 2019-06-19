@@ -147,7 +147,7 @@ define({
       "browse": "Gennemse",
       "search": "Søg"
     },
-    "resultCount": "ø_Items_____________å:",
+    "resultCount": "elementer:",
     "searchPlaceholders": {
       "generic": "Angiv søgetermer"
     },

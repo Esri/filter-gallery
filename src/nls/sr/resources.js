@@ -147,7 +147,7 @@ define({
       "browse": "Pregledaj",
       "search": "Pretraži"
     },
-    "resultCount": "Č_Items_____________ž:",
+    "resultCount": "stavke:",
     "searchPlaceholders": {
       "generic": "Unesite pojmove za pretragu"
     },

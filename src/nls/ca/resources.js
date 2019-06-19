@@ -147,7 +147,7 @@ define({
       "browse": "Navega",
       "search": "Cerca"
     },
-    "resultCount": "ó_Items_____________à:",
+    "resultCount": "elements:",
     "searchPlaceholders": {
       "generic": "Introduïu els termes de cerca"
     },

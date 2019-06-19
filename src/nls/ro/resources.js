@@ -147,7 +147,7 @@ define({
       "browse": "Răsfoire",
       "search": "Căutare"
     },
-    "resultCount": "Ă_Items_____________ș:",
+    "resultCount": "elemente:",
     "searchPlaceholders": {
       "generic": "Introducere termeni de căutare"
     },
