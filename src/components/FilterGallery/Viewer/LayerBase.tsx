@@ -92,7 +92,6 @@ export class LayerBase extends Component<LayerBaseProps, LayerBaseState> {
         LayerConstructor: __esri.LayerConstructor
     ) {
         this.layer = new LayerConstructor({ url: this.props.layerUrl } as __esri.LayerProperties);
-        console.log(this);
         this.map = new MapConstructor({
             basemap: this.props.defaultBasemap, 
             layers: [this.layer]

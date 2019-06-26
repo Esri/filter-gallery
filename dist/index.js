@@ -21963,7 +21963,6 @@ var LayerBase = /** @class */ (function (_super) {
     LayerBase.prototype.loadMap = function (MapConstructor, ViewConstructor, LayerConstructor) {
         var _this = this;
         this.layer = new LayerConstructor({ url: this.props.layerUrl });
-        console.log(this);
         this.map = new MapConstructor({
             basemap: this.props.defaultBasemap,
             layers: [this.layer]
