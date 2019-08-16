@@ -113,6 +113,12 @@
   "resultsPerQuery": 16,
   "useOrgCategories": false,
   "displayDefault": "list",
+  "showItemOwner": true,
+  "showItemInfo": true,
+  "showItemDetails": true,
+  "showItemType": true,
+  "showItemToolTip": false,
+  "itemSummaryMaxChar": 250,
   "filters": [
     "categories",
     "itemType",
