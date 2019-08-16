@@ -147,7 +147,7 @@ define({
       "browse": "浏览",
       "search": "搜索"
     },
-    "resultCount": "项目",
+    "resultCount": "项目:",
     "searchPlaceholders": {
       "generic": "输入搜索词"
     },

@@ -147,7 +147,7 @@ define({
       "browse": "ค้นหา",
       "search": "ค้นหา"
     },
-    "resultCount": "รายการ",
+    "resultCount": "รายการ:",
     "searchPlaceholders": {
       "generic": "ใส่คำที่ใช้ค้นหา"
     },
