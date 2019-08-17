@@ -50,6 +50,12 @@ export interface SharedFilterProps {
      * @type {boolean} 
      */
     hideOrgGroupFilters?: boolean;
+
+    /**
+     * If this option is enabled the filter will start in the active state
+     * @type {boolean}
+     */
+    startActive?: boolean;
 }
 
 export interface SharedFilterState {
@@ -84,6 +90,7 @@ export default class SharedFilters extends Component<SharedFilterProps, SharedFi
                 title={componentI18n.filters.shared.shared}
                 clearable={!!this.props.sharedFilter}
                 onClear={this.handleClearFilter}
+                startActive={this.props.startActive}
             >
                 <ul
                     id="shared-accordion-tree"

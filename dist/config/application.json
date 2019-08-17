@@ -119,6 +119,7 @@
   "showItemType": true,
   "showItemToolTip": false,
   "itemSummaryMaxChar": 250,
+  "filterPaneDefault": false,
   "filters": [
     "categories",
     "itemType",
@@ -128,6 +129,7 @@
     "status",
     "tags"
   ],
+  "filtersDefault": [],
   "sortOptions": ["relevance", "title", "owner", "created", "modified", "numviews"],
   "availableItemTypeFilters": [
     "maps",

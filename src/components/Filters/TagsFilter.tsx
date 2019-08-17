@@ -52,6 +52,12 @@ export interface TagsFilterProps {
      * @type {string}
      */
     title?: string;
+
+    /**
+     * If this option is enabled the filter will start in the active state
+     * @type {boolean}
+     */
+    startActive?: boolean;
 }
 
 /**
@@ -73,6 +79,7 @@ export default class TagsFilter extends Component<TagsFilterProps> {
                 title={this.props.title ? this.props.title : tagsI18n.filters.tags.tags}
                 clearable={!!this.props.tagsFilter}
                 onClear={this.handleClearFilter}
+                startActive={this.props.startActive}
                 padding={false}
             >
                     <div class="ftr-tags__input-area">

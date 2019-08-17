@@ -46,9 +46,39 @@
       }],
       "tooltip": "Control the way items are presented to users in the gallery."
     }, {
+      "label": "Show filter pane on load",
+      "fieldName": "filterPaneDefault",
+      "type": "boolean"
+    }, {
       "type": "multiselect",
       "fieldName": "filters",
       "label": "Select the ways you want to allow users to filters content in your gallery",
+      "values": [{
+        "value": "categories",
+        "label": "Categories"
+      }, {
+        "value": "itemType",
+        "label": "Item Type"
+      }, {
+        "value": "created",
+        "label": "Date Created"
+      }, {
+        "value": "modified",
+        "label": "Date Modified"
+      }, {
+        "value": "shared",
+        "label": "Sharing Status"
+      }, {
+        "value": "status",
+        "label": "Status"
+      }, {
+        "value": "tags",
+        "label": "Tags"
+      }]
+    }, {
+      "type": "multiselect",
+      "fieldName": "filtersDefault",
+      "label": "Select the filters you want to be open by default",
       "values": [{
         "value": "categories",
         "label": "Categories"

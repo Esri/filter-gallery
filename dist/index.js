@@ -17487,6 +17487,7 @@ var initialState = {
         ],
         id: "8de7d7e7162549f3960f3094754dbe37"
     },
+    filtersDefault: [],
     sortOptions: ["relevance", "title", "owner", "created", "modified", "numviews"],
     searchPlaceholderText: dojo_i18n_nls__WEBPACK_IMPORTED_MODULE_1__["defaultPlaceholder"],
     widgets: {
@@ -17532,7 +17533,7 @@ var initialState = {
                         }) : filter;
                     }),
                     id: config.group
-                }, group: config.group });
+                }, filtersDefault: config.filtersDefault, group: config.group });
         default:
             return state;
     }
@@ -18431,6 +18432,8 @@ var initialState = {
 /* harmony default export */ __webpack_exports__["default"] = (function (state, action) {
     if (state === void 0) { state = initialState; }
     switch (action.type) {
+        case _actions__WEBPACK_IMPORTED_MODULE_1__["LOAD_PORTAL_SUCCESS"]:
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"]({}, state, { filtersOpen: action.payload.config.filterPaneDefault });
         case _actions__WEBPACK_IMPORTED_MODULE_1__["CLEAR_ALL_FILTERS"]:
             return {
                 filtersOpen: state.filtersOpen
@@ -20645,16 +20648,17 @@ var FilterPane = /** @class */ (function (_super) {
         var config = this.props.stateTree.settings.config;
         var user = this.props.stateTree.settings.utils.portal.user;
         var availableFilters = this.props.stateTree.settings.config.section.filters;
+        var filtersDefault = config.filtersDefault;
         var sectionFilters = availableFilters.map(function (filter, index) {
             switch (filter) {
                 case "itemType":
-                    return (tsx(_Filters_ItemTypeFilter__WEBPACK_IMPORTED_MODULE_4__["default"], { key: "item-type-filter", onItemTypeSelect: _this.handleItemTypeFilterChange, availableItemTypes: config.availableItemTypeFilters, itemTypeFilter: _this.props.stateTree.parameters.filter.itemType }));
+                    return (tsx(_Filters_ItemTypeFilter__WEBPACK_IMPORTED_MODULE_4__["default"], { key: "item-type-filter", onItemTypeSelect: _this.handleItemTypeFilterChange, availableItemTypes: config.availableItemTypeFilters, itemTypeFilter: _this.props.stateTree.parameters.filter.itemType, startActive: filtersDefault.indexOf("itemType") > -1 ? true : false }));
                 case "modified":
-                    return (tsx(_Filters_DateFilter__WEBPACK_IMPORTED_MODULE_3__["default"], { key: "modified-filters", title: "Date Modified", onDateSelect: _this.handleModifiedFilterChange, dateFilter: _this.props.stateTree.parameters.filter.dateModified, dateSection: _this.props.stateTree.ui.filters.modifiedSection }));
+                    return (tsx(_Filters_DateFilter__WEBPACK_IMPORTED_MODULE_3__["default"], { key: "modified-filters", title: "Date Modified", onDateSelect: _this.handleModifiedFilterChange, dateFilter: _this.props.stateTree.parameters.filter.dateModified, dateSection: _this.props.stateTree.ui.filters.modifiedSection, startActive: filtersDefault.indexOf("modified") > -1 ? true : false }));
                 case "created":
-                    return (tsx(_Filters_DateFilter__WEBPACK_IMPORTED_MODULE_3__["default"], { key: "created-filters", title: "Date Created", onDateSelect: _this.handleCreatedFilterChange, dateFilter: _this.props.stateTree.parameters.filter.dateCreated, dateSection: _this.props.stateTree.ui.filters.createdSection }));
+                    return (tsx(_Filters_DateFilter__WEBPACK_IMPORTED_MODULE_3__["default"], { key: "created-filters", title: "Date Created", onDateSelect: _this.handleCreatedFilterChange, dateFilter: _this.props.stateTree.parameters.filter.dateCreated, dateSection: _this.props.stateTree.ui.filters.createdSection, startActive: filtersDefault.indexOf("created") > -1 ? true : false }));
                 case "shared":
-                    return (tsx(_Filters_SharedFilter__WEBPACK_IMPORTED_MODULE_5__["default"], { counts: _this.props.stateTree.results.counts.access, key: "shared-filters", onSharedSelect: _this.handleSharedFilterChange, sharedFilter: _this.props.stateTree.parameters.filter.shared, hideOrgGroupFilters: !!user && !user.orgId }));
+                    return (tsx(_Filters_SharedFilter__WEBPACK_IMPORTED_MODULE_5__["default"], { counts: _this.props.stateTree.results.counts.access, key: "shared-filters", onSharedSelect: _this.handleSharedFilterChange, sharedFilter: _this.props.stateTree.parameters.filter.shared, hideOrgGroupFilters: !!user && !user.orgId, startActive: filtersDefault.indexOf("shared") > -1 ? true : false }));
                 case "status":
                     var _a = _this.props.stateTree.results.counts.contentStatus, deprecated = _a.deprecated, orgAuthoritative = _a.orgAuthoritative, publicAuthoritative = _a.publicAuthoritative;
                     return (tsx(_Filters_StatusFilter__WEBPACK_IMPORTED_MODULE_6__["default"], { counts: {
@@ -20662,9 +20666,9 @@ var FilterPane = /** @class */ (function (_super) {
                                 orgAuthoritative + publicAuthoritative :
                                 publicAuthoritative,
                             deprecated: deprecated
-                        }, key: "status-filters", onStatusSelect: _this.handleStatusFilterChange, statusFilter: _this.props.stateTree.parameters.filter.status }));
+                        }, key: "status-filters", onStatusSelect: _this.handleStatusFilterChange, statusFilter: _this.props.stateTree.parameters.filter.status, startActive: filtersDefault.indexOf("status") > -1 ? true : false }));
                 case "tags":
-                    return (tsx(_Filters_TagsFilter__WEBPACK_IMPORTED_MODULE_7__["default"], { availableTags: _this.props.stateTree.ui.tagsFilter.visibleTags, filterString: _this.props.stateTree.ui.tagsFilter.filterString, key: "ib-tags-filter", onFilterStringChange: _this.handleTagsFilterStringChange, onTagSelect: _this.handleTagsFilterChange, tagsFilter: _this.props.stateTree.parameters.filter.tags }));
+                    return (tsx(_Filters_TagsFilter__WEBPACK_IMPORTED_MODULE_7__["default"], { availableTags: _this.props.stateTree.ui.tagsFilter.visibleTags, filterString: _this.props.stateTree.ui.tagsFilter.filterString, key: "ib-tags-filter", onFilterStringChange: _this.handleTagsFilterStringChange, onTagSelect: _this.handleTagsFilterChange, tagsFilter: _this.props.stateTree.parameters.filter.tags, startActive: filtersDefault.indexOf("tags") > -1 ? true : false }));
                 default:
                     if (typeof filter === "object") {
                         var schema = _this.props.stateTree.results.section.schema;
@@ -20674,7 +20678,7 @@ var FilterPane = /** @class */ (function (_super) {
                                 var subTree = Object(_utils__WEBPACK_IMPORTED_MODULE_2__["genericSubtreeFromPath"])("children", "value", schema, filter.path);
                                 pathCategories = subTree ? subTree.children : undefined;
                             }
-                            return (tsx(_Filters_CategoriesFilter__WEBPACK_IMPORTED_MODULE_8__["default"], { key: "custom-group-categories-filter", onCategorySelect: _this.handleCategorySelect, onClearCategories: _this.handleClearGroupCategories, availableCategories: filter.path && pathCategories ? pathCategories : schema.children, categoriesFilter: _this.props.stateTree.parameters.filter.categories, title: filter["name"], prependValue: "/" + (filter.path ? filter.path.join("/") + "/" : "") }));
+                            return (tsx(_Filters_CategoriesFilter__WEBPACK_IMPORTED_MODULE_8__["default"], { key: "custom-group-categories-filter", onCategorySelect: _this.handleCategorySelect, onClearCategories: _this.handleClearGroupCategories, availableCategories: filter.path && pathCategories ? pathCategories : schema.children, categoriesFilter: _this.props.stateTree.parameters.filter.categories, title: filter["name"], prependValue: "/" + (filter.path ? filter.path.join("/") + "/" : ""), startActive: filtersDefault.indexOf("categories") > -1 ? true : false }));
                         }
                     }
                     return null;
@@ -20760,7 +20764,7 @@ var CreatedFilter = /** @class */ (function (_super) {
         return _this;
     }
     CreatedFilter.prototype.render = function (tsx) {
-        return (tsx(_Dropdowns_AccordionDropdown__WEBPACK_IMPORTED_MODULE_2__["default"], { key: "created-filter-accordion", title: this.props.title, clearable: !!this.props.dateFilter, onClear: this.handleClearFilter },
+        return (tsx(_Dropdowns_AccordionDropdown__WEBPACK_IMPORTED_MODULE_2__["default"], { key: "created-filter-accordion", title: this.props.title, clearable: !!this.props.dateFilter, onClear: this.handleClearFilter, startActive: this.props.startActive },
             tsx("ul", { "aria-label": this.props.title, class: "ftr-created__tree", id: "created-filter-accordion-tree", role: "tree" },
                 tsx(_DateSelection_DateRangeSelector__WEBPACK_IMPORTED_MODULE_3__["default"], { key: "date-range-selector", selectedOption: this.props.dateSection, range: this.props.dateFilter, onDateRangeSelect: this.handleDateRangeSelect }))));
     };
@@ -21141,7 +21145,7 @@ var ItemTypeFilter = /** @class */ (function (_super) {
         return _this;
     }
     ItemTypeFilter.prototype.render = function (tsx) {
-        return (tsx(_Dropdowns_AccordionDropdown__WEBPACK_IMPORTED_MODULE_3__["default"], { key: "item-type-accordion", title: dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["filters"].itemType.itemType, clearable: !!this.props.itemTypeFilter, onClear: this.handleClearFilter },
+        return (tsx(_Dropdowns_AccordionDropdown__WEBPACK_IMPORTED_MODULE_3__["default"], { key: "item-type-accordion", title: dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["filters"].itemType.itemType, clearable: !!this.props.itemTypeFilter, onClear: this.handleClearFilter, startActive: this.props.startActive },
             tsx("ul", { "aria-label": dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["filters"].itemType.itemType, id: "item-type-accordion-tree", class: "ftr-item-type__tree", role: "tree" }, this.mapItemTypesToToggles(tsx))));
     };
     ItemTypeFilter.prototype.mapItemTypesToToggles = function (tsx) {
@@ -21276,7 +21280,7 @@ var SharedFilters = /** @class */ (function (_super) {
         return _this;
     }
     SharedFilters.prototype.render = function (tsx) {
-        return (tsx(_Dropdowns_AccordionDropdown__WEBPACK_IMPORTED_MODULE_3__["default"], { key: "shared-accordion", title: dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["filters"].shared.shared, clearable: !!this.props.sharedFilter, onClear: this.handleClearFilter },
+        return (tsx(_Dropdowns_AccordionDropdown__WEBPACK_IMPORTED_MODULE_3__["default"], { key: "shared-accordion", title: dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["filters"].shared.shared, clearable: !!this.props.sharedFilter, onClear: this.handleClearFilter, startActive: this.props.startActive },
             tsx("ul", { id: "shared-accordion-tree", class: "ftr-shared__tree", role: "tree", "aria-label": dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["filters"].shared.shared }, this.mapOptionsToToggles(tsx))));
     };
     SharedFilters.prototype.mapOptionsToToggles = function (tsx) {
@@ -21342,7 +21346,7 @@ var StatusFilter = /** @class */ (function (_super) {
         return _this;
     }
     StatusFilter.prototype.render = function (tsx) {
-        return (tsx(_Dropdowns_AccordionDropdown__WEBPACK_IMPORTED_MODULE_3__["default"], { key: "status-accordion", title: dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["filters"].status.status, clearable: !!this.props.statusFilter, onClear: this.handleClearFilter },
+        return (tsx(_Dropdowns_AccordionDropdown__WEBPACK_IMPORTED_MODULE_3__["default"], { key: "status-accordion", title: dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["filters"].status.status, clearable: !!this.props.statusFilter, onClear: this.handleClearFilter, startActive: this.props.startActive },
             tsx("ul", { "aria-label": dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["filters"].status.status, class: "ftr-status__tree", id: "status-accordion-tree", role: "tree" }, this.mapOptionsToToggles(tsx))));
     };
     StatusFilter.prototype.mapOptionsToToggles = function (tsx) {
@@ -21398,7 +21402,7 @@ var TagsFilter = /** @class */ (function (_super) {
         return _this;
     }
     TagsFilter.prototype.render = function (tsx) {
-        return (tsx(_Dropdowns_AccordionDropdown__WEBPACK_IMPORTED_MODULE_3__["default"], { key: this.props.key + "-accordion", title: this.props.title ? this.props.title : dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["filters"].tags.tags, clearable: !!this.props.tagsFilter, onClear: this.handleClearFilter, padding: false },
+        return (tsx(_Dropdowns_AccordionDropdown__WEBPACK_IMPORTED_MODULE_3__["default"], { key: this.props.key + "-accordion", title: this.props.title ? this.props.title : dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["filters"].tags.tags, clearable: !!this.props.tagsFilter, onClear: this.handleClearFilter, startActive: this.props.startActive, padding: false },
             tsx("div", { class: "ftr-tags__input-area" },
                 tsx("input", { id: "filter-tag-filters", type: "search", placeholder: dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["filters"].tags.filterTags, "aria-label": dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["filters"].tags.filterTags, oninput: this.handleFilterStringChange, value: this.props.filterString })),
             tsx("ul", { class: "ftr-tags__tree", id: this.props.key + "-accordion-tree", role: "tree", "aria-label": dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["filters"].tags.tags }, this.props.availableTags.length > 0 ?

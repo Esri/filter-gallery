@@ -190,6 +190,14 @@ export interface ConfigState {
     section: CustomSection;
 
     /**
+     * Array of filters that will default open in the section dropdown.
+     * - options: `categories`, `itemType`, `created`, `modified`, `shared`, `status`, `tags`
+     * @type {array}
+     * @default []
+     */
+    filtersDefault: String[];
+
+    /**
      * Array of sort options available in the gallery.
      * - options: `relevance`, `title`, `created`, `type`, `owner`, `modified`, `avgrating`, `numcomments`, `numviews`
      * @type {array}
@@ -304,6 +312,7 @@ export const initialState: ConfigState = {
         ],
         id: "8de7d7e7162549f3960f3094754dbe37"
     },
+    filtersDefault: [],
     sortOptions: ["relevance", "title", "owner", "created", "modified", "numviews"],
     searchPlaceholderText: i18n.defaultPlaceholder,
     widgets: {
@@ -366,6 +375,7 @@ export default (state: ConfigState = initialState, action: Action) => {
                     ),
                     id: config.group
                 },
+                filtersDefault: config.filtersDefault,
                 group: config.group
             };
         default:
