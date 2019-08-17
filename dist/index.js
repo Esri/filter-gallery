@@ -19200,7 +19200,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(13);
 /* harmony import */ var _ItemCards_ListCard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(330);
-/* harmony import */ var _ItemCards_GridCard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(339);
+/* harmony import */ var _ItemCards_GridCard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(340);
 
 
 
@@ -19265,6 +19265,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Badges_Subscriber__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(337);
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(15);
 /* harmony import */ var _Loaders_LoaderBars__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(338);
+/* harmony import */ var _Buttons_IconButton__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(339);
+
 
 
 
@@ -19292,6 +19294,7 @@ var AnalysisCard = /** @class */ (function (_super) {
     AnalysisCard.prototype.render = function (tsx) {
         var _this = this;
         var _a = this.props, item = _a.item, sortField = _a.sortField;
+        var baseConfig = this.props.stateTree.settings.utils.base.config;
         var infoString;
         if (sortField === "numviews") {
             infoString = dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["itemCards"].viewCount + ": " + item.numViews;
@@ -19325,21 +19328,41 @@ var AnalysisCard = /** @class */ (function (_super) {
                     tsx("h3", { class: "card-lc__title" }, item.title),
                     tsx("div", { class: "card-lc__info-row" },
                         tsx("div", { class: "card-lc__icon-title-container" },
-                            tsx("img", { src: item.iconURI, class: "content-search-item-icon", title: item.displayName }),
-                            tsx("span", { class: "card-lc__author-text" }, item.displayName + " " + dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["itemCards"].by,
-                                tsx("a", { class: "content-search-selectable card-mc__author-link", title: this.props.organization ? dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["itemCards"].viewOrg : dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["itemCards"].viewProfile, href: this.props.organization ?
-                                        this.props.organization.orgUrl :
-                                        this.props.portal.baseUrl + "/home/user.html?user=" + item.owner, target: "_blank" }, " " + (this.props.organization ? this.props.organization.name : item.owner)))),
-                        tsx("span", { class: "card-lc__info-bullet" }, "\u2022"),
-                        tsx("span", { class: "card-lc__info-string" }, infoString)),
+                            baseConfig.showItemType ?
+                                (tsx("img", { src: item.iconURI, class: "content-search-item-icon", title: item.displayName }))
+                                : "",
+                            tsx("span", { class: "card-lc__author-text" },
+                                baseConfig.showItemType ? item.displayName + " " : "",
+                                baseConfig.showItemOwner ? "" + dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["itemCards"].by : "",
+                                baseConfig.showItemOwner ?
+                                    (tsx("a", { class: "content-search-selectable card-mc__author-link", title: this.props.organization ? dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["itemCards"].viewOrg : dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["itemCards"].viewProfile, href: this.props.organization ?
+                                            this.props.organization.orgUrl :
+                                            this.props.portal.baseUrl + "/home/user.html?user=" + item.owner, target: "_blank" }, " " + (this.props.organization ? this.props.organization.name : item.owner)))
+                                    : "")),
+                        baseConfig.showItemInfo ?
+                            ([
+                                (tsx("span", { class: "card-lc__info-bullet" }, "\u2022")),
+                                (tsx("span", { class: "card-lc__info-string" }, infoString))
+                            ]) : ""),
                     tsx("p", { class: "card-lc__snippet" },
                         tsx("span", { class: "card-lc__snippet-text" },
-                            item.snippet, " "),
-                        tsx("a", { class: "card-lc__side-action card-lc__no-wrap", href: this.props.portal.baseUrl + "/home/item.html?id=" + item.id, target: "_blank" },
-                            dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["itemCards"].viewItem,
-                            tsx("svg", { version: "1.1", xmlns: "http://www.w3.org/2000/svg", width: "16", height: "16", viewBox: "0 0 16 16" },
-                                tsx("path", { d: "M10 1v1h3.293l-6.646 6.646 0.707 0.707 6.646-6.646v3.293h1v-5z" }),
-                                tsx("path", { d: "M14 8v6h-12v-12h6v-1h-7v14h14v-7z" })))))),
+                            baseConfig.itemSummaryMaxChar < 250 && item.snippet.length > baseConfig.itemSummaryMaxChar ?
+                                item.snippet.substring(0, baseConfig.itemSummaryMaxChar) + "..." :
+                                item.snippet, " "),
+                        baseConfig.showItemToolTip && item.description ?
+                            (tsx(_Buttons_IconButton__WEBPACK_IMPORTED_MODULE_11__["default"], { key: "grid-info-tooltip-btn", active: false, handleClick: function (e) { return e.preventDefault(); } },
+                                tsx("div", { class: "grid-info-tooltip-btn-body tooltip tooltip-multiline tooltip-left", tooltip: item.description.replace(/<\/?[^>]+(>|$)/g, "") },
+                                    tsx("svg", { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 16 16" },
+                                        tsx("path", { d: "M7.5 0A7.5 7.5 0 1 0 15 7.5 7.509 7.509 0 0 0 7.5 0zm.001 14.1A6.6 6.6 0 1 1 14.1 7.5a6.608 6.608 0 0 1-6.599 6.6zM7.5 5.5a1 1 0 1 1 1-1 1.002 1.002 0 0 1-1 1zM7 7h1v5H7zm2 5H6v-1h3z" })),
+                                    tsx("span", { class: "grid-info-tooltip-btn-label" }, item.description))))
+                            : "",
+                        baseConfig.showItemDetails ?
+                            (tsx("a", { class: "card-lc__side-action card-lc__no-wrap", href: this.props.portal.baseUrl + "/home/item.html?id=" + item.id, target: "_blank" },
+                                dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["itemCards"].viewItem,
+                                tsx("svg", { version: "1.1", xmlns: "http://www.w3.org/2000/svg", width: "16", height: "16", viewBox: "0 0 16 16" },
+                                    tsx("path", { d: "M10 1v1h3.293l-6.646 6.646 0.707 0.707 6.646-6.646v3.293h1v-5z" }),
+                                    tsx("path", { d: "M14 8v6h-12v-12h6v-1h-7v14h14v-7z" }))))
+                            : ""))),
             tsx("div", { class: "card-lc__sub-container" },
                 tsx("div", { class: "card-lc__badge-container card-lc__badge-container--regular card-lc__sub-group" }, this.renderBadges(tsx)),
                 tsx("div", { class: "card-lc__badge-container card-lc__badge-container--small card-lc__sub-group" }, this.renderBadges(tsx, true)),
@@ -19568,6 +19591,44 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var _Component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(13);
+
+
+/**
+ * A common button component supporting icons for AGOL.
+ */
+var IconButton = /** @class */ (function (_super) {
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](IconButton, _super);
+    function IconButton() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    IconButton.prototype.render = function (tsx) {
+        var _a = this.props, active = _a.active, label = _a.label, labelDirection = _a.labelDirection, key = _a.key, title = _a.title;
+        var containerClasses = {
+            "btn-icon__button": true,
+            "btn-icon__button--tooltip": !!label,
+            "btn-icon__button--tooltip-left": labelDirection === "left",
+            "btn-icon__button--tooltip-right": labelDirection === "right",
+            "btn-icon__button--tooltip-top": labelDirection === "top",
+            "btn-icon__button--active": active
+        };
+        return (tsx("button", { id: key, key: key + "-container", classes: containerClasses, "aria-label": label, onmousedown: this.preventFocus, onclick: this.props.handleClick, tabindex: this.props.tabindex ? "" + this.props.tabindex : "0", "aria-checked": active, title: title }, this.props.children));
+    };
+    IconButton.prototype.preventFocus = function (e) {
+        e.preventDefault();
+    };
+    return IconButton;
+}(_Component__WEBPACK_IMPORTED_MODULE_1__["Component"]));
+/* harmony default export */ __webpack_exports__["default"] = (IconButton);
+
+
+/***/ }),
+/* 340 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 /* harmony import */ var dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(292);
 /* harmony import */ var dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(13);
@@ -19580,7 +19641,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Badges_Subscriber__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(337);
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(15);
 /* harmony import */ var _Loaders_LoaderBars__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(338);
-/* harmony import */ var _Buttons_IconButton__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(340);
+/* harmony import */ var _Buttons_IconButton__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(339);
 
 
 
@@ -19726,44 +19787,6 @@ var GridCard = /** @class */ (function (_super) {
 
 
 /***/ }),
-/* 340 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var _Component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(13);
-
-
-/**
- * A common button component supporting icons for AGOL.
- */
-var IconButton = /** @class */ (function (_super) {
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](IconButton, _super);
-    function IconButton() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    IconButton.prototype.render = function (tsx) {
-        var _a = this.props, active = _a.active, label = _a.label, labelDirection = _a.labelDirection, key = _a.key, title = _a.title;
-        var containerClasses = {
-            "btn-icon__button": true,
-            "btn-icon__button--tooltip": !!label,
-            "btn-icon__button--tooltip-left": labelDirection === "left",
-            "btn-icon__button--tooltip-right": labelDirection === "right",
-            "btn-icon__button--tooltip-top": labelDirection === "top",
-            "btn-icon__button--active": active
-        };
-        return (tsx("button", { id: key, key: key + "-container", classes: containerClasses, "aria-label": label, onmousedown: this.preventFocus, onclick: this.props.handleClick, tabindex: this.props.tabindex ? "" + this.props.tabindex : "0", "aria-checked": active, title: title }, this.props.children));
-    };
-    IconButton.prototype.preventFocus = function (e) {
-        e.preventDefault();
-    };
-    return IconButton;
-}(_Component__WEBPACK_IMPORTED_MODULE_1__["Component"]));
-/* harmony default export */ __webpack_exports__["default"] = (IconButton);
-
-
-/***/ }),
 /* 341 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -19774,7 +19797,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(292);
 /* harmony import */ var dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(13);
-/* harmony import */ var _Buttons_IconButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(340);
+/* harmony import */ var _Buttons_IconButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(339);
 /* harmony import */ var _Dropdowns_SortDropdown__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(342);
 /* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(256);
 /* harmony import */ var _Dropdowns_ViewDropdown__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(348);
@@ -19903,7 +19926,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(292);
 /* harmony import */ var dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(13);
-/* harmony import */ var _Buttons_IconButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(340);
+/* harmony import */ var _Buttons_IconButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(339);
 /* harmony import */ var _Buttons_Toggle__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(343);
 /* harmony import */ var _Ago2018Dropdown__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(344);
 /* harmony import */ var _Modals_MobileWrap__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(346);
@@ -20368,7 +20391,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(292);
 /* harmony import */ var dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(13);
-/* harmony import */ var _Buttons_IconButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(340);
+/* harmony import */ var _Buttons_IconButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(339);
 /* harmony import */ var _Buttons_Toggle__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(343);
 /* harmony import */ var _Ago2018Dropdown__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(344);
 /* harmony import */ var _Modals_MobileWrap__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(346);
@@ -21587,7 +21610,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(292);
 /* harmony import */ var dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(13);
-/* harmony import */ var _Buttons_IconButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(340);
+/* harmony import */ var _Buttons_IconButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(339);
 /* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(256);
 /* harmony import */ var _MapView__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(370);
 /* harmony import */ var _SceneView__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(375);

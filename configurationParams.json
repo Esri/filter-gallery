@@ -135,33 +135,35 @@
       "type": "string",
       "tooltip": "Control the ways items filters presented to users in the gallery.Controls how many results are returned per query to the portal Search API. This is equivalent to how many items are shown per page."
     }, {
-      "fieldName": "showItemOwner",
-      "label": "Show item owner on card",
-      "type": "boolean",
-      "tooltip": "If enabled, will display the item's owner on the item card."
+      "type": "subcategory",
+      "label": "Item Settings"
     }, {
-      "fieldName": "showItemInfo",
-      "label": "Show update date on card",
-      "type": "boolean",
-      "tooltip": "If enabled, will display the date of the last update to the item on the item's card."
-    }, {
-      "fieldName": "showItemDetails",
-      "label": "Show item details link on card",
-      "type": "boolean",
-      "tooltip": "If enabled, will display the item detail link on the item card."
+      "type": "paragraph",
+      "value": "Show the following item details on the card:"
     }, {
       "fieldName": "showItemType",
-      "label": "Show item type on card",
-      "type": "boolean",
-      "tooltip": "If enabled, will display the item type on the item card."
+      "label": "Item type (such as Web Map, Tile Layer)",
+      "type": "boolean"
+    }, {
+      "fieldName": "showItemOwner",
+      "label": "Owner name linked to user profile",
+      "type": "boolean"
+    }, {
+      "fieldName": "showItemInfo",
+      "label": "Date or view count, depending on sort",
+      "type": "boolean"
+    }, {
+      "fieldName": "showItemDetails",
+      "label": "Link to item page",
+      "type": "boolean"
     }, {
       "fieldName": "showItemToolTip",
-      "label": "Show item summary tool tip on card",
+      "label": "Full summary as hover text",
       "type": "boolean",
-      "tooltip": "If enabled, will use the item summary in a tooltip on the item card."
+      "tooltip": "If enabled, will use the full item summary in a ToolTip on the item card."
     }, {
       "fieldName": "itemSummaryMaxChar",
-      "label": "Max characters allowed on item summary",
+      "label": "Max characters allowed for summary text (max 250)",
       "type": "string",
       "tooltip": "Control the max character count for the summary section on an item card."
     }, {

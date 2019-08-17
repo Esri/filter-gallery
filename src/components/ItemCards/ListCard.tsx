@@ -12,6 +12,7 @@ import { scrubItemInfo } from "../../_utils";
 import { FilterGalleryStore } from "../..";
 import { FilterGalleryState } from "../../_reducer";
 import LoaderBars from "../Loaders/LoaderBars";
+import IconButton from '../Buttons/IconButton';
 
 export interface ListCardProps {
     /**
@@ -79,6 +80,7 @@ export default class AnalysisCard extends Component<ListCardProps> {
 
     public render(tsx: H) {
         const { item, sortField } = this.props;
+        const baseConfig = this.props.stateTree.settings.utils.base.config;
 
         let infoString: string;
         if (sortField === "numviews") {
@@ -149,46 +151,74 @@ export default class AnalysisCard extends Component<ListCardProps> {
                         <h3 class="card-lc__title">{item.title}</h3>
                         <div class="card-lc__info-row">
                             <div class="card-lc__icon-title-container">
-                                <img
+                            {baseConfig.showItemType ?
+                                (<img
                                     src={item.iconURI}
                                     class="content-search-item-icon"
                                     title={item.displayName}
-                                />
+                                />)
+                                : ``}
                                 <span
                                     class="card-lc__author-text"
                                 >
-                                    {`${item.displayName} ${i18n.itemCards.by}`}
-                                    <a
-                                        class="content-search-selectable card-mc__author-link"
-                                        title={this.props.organization ? i18n.itemCards.viewOrg : i18n.itemCards.viewProfile}
-                                        href={
-                                            this.props.organization ?
-                                                this.props.organization.orgUrl :
-                                                `${this.props.portal.baseUrl}/home/user.html?user=${item.owner}`
-                                        }
-                                        target="_blank"
-                                    >
-                                        {` ${this.props.organization ? this.props.organization.name : item.owner}`}
-                                    </a>
+                                    {baseConfig.showItemType ? `${item.displayName} ` : ``} 
+                                    {baseConfig.showItemOwner ? `${i18n.itemCards.by}` : ``}
+                                    {baseConfig.showItemOwner ? 
+                                        (<a
+                                            class="content-search-selectable card-mc__author-link"
+                                            title={this.props.organization ? i18n.itemCards.viewOrg : i18n.itemCards.viewProfile}
+                                            href={
+                                                this.props.organization ?
+                                                    this.props.organization.orgUrl :
+                                                    `${this.props.portal.baseUrl}/home/user.html?user=${item.owner}`
+                                            }
+                                            target="_blank"
+                                        >
+                                            {` ${this.props.organization ? this.props.organization.name : item.owner}`}
+                                        </a>)
+                                        : ``}
                                 </span>
                             </div>
-                            <span class="card-lc__info-bullet">•</span>
-                            <span class="card-lc__info-string">{infoString}</span>
+                            {baseConfig.showItemInfo ?
+                                ([
+                                    (<span class="card-lc__info-bullet">•</span>),
+                                    (<span class="card-lc__info-string">{infoString}</span>)
+                                ]) : ``}
                         </div>
                         <p class="card-lc__snippet">
-                            <span class="card-lc__snippet-text">{item.snippet}{` `}</span>
-                            <a
-                                class="card-lc__side-action card-lc__no-wrap"
-                                href={`${this.props.portal.baseUrl}/home/item.html?id=${item.id}`}
-                                target="_blank"
-                            >
-                                {i18n.itemCards.viewItem}
-                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-                                    <path d="M10 1v1h3.293l-6.646 6.646 0.707 0.707 6.646-6.646v3.293h1v-5z"></path>
-                                    <path d="M14 8v6h-12v-12h6v-1h-7v14h14v-7z"></path>
-                                </svg>
+                            <span class="card-lc__snippet-text">{baseConfig.itemSummaryMaxChar < 250 && item.snippet.length > baseConfig.itemSummaryMaxChar ? 
+                                                                item.snippet.substring(0, baseConfig.itemSummaryMaxChar)+ `...` :
+                                                                item.snippet}{` `}</span>
+                            {baseConfig.showItemToolTip && item.description ?
+                                (<IconButton
+                                    key="grid-info-tooltip-btn"
+                                    active={false}
+                                    handleClick={e => e.preventDefault()}
+                                >
+                                    <div class="grid-info-tooltip-btn-body tooltip tooltip-multiline tooltip-left" tooltip={item.description.replace(/<\/?[^>]+(>|$)/g, "")}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+                                        <path d="M7.5 0A7.5 7.5 0 1 0 15 7.5 7.509 7.509 0 0 0 7.5 0zm.001 14.1A6.6 6.6 0 1 1 14.1 7.5a6.608 6.608 0 0 1-6.599 6.6zM7.5 5.5a1 1 0 1 1 1-1 1.002 1.002 0 0 1-1 1zM7 7h1v5H7zm2 5H6v-1h3z"/>
+                                    </svg>
+                                        <span class="grid-info-tooltip-btn-label">
+                                            {item.description}
+                                        </span>
+                                    </div>
+                                </IconButton>)
+                                    : `` }
+                            {baseConfig.showItemDetails ? 
+                                (<a
+                                    class="card-lc__side-action card-lc__no-wrap"
+                                    href={`${this.props.portal.baseUrl}/home/item.html?id=${item.id}`}
+                                    target="_blank"
+                                >
+                                    {i18n.itemCards.viewItem}
+                                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                                        <path d="M10 1v1h3.293l-6.646 6.646 0.707 0.707 6.646-6.646v3.293h1v-5z"></path>
+                                        <path d="M14 8v6h-12v-12h6v-1h-7v14h14v-7z"></path>
+                                    </svg>
 
-                            </a>
+                                </a>)
+                                : ``}
                         </p>
                     </div>
                 </div>
