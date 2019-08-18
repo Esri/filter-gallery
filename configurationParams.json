@@ -10,6 +10,11 @@
       "fieldName": "title",
       "tooltip": "Use this to introduce the subject of your gallery.",
       "label": "Title of your application"
+    }, {
+      "label": "Include a Sign In button",
+      "fieldName": "showSignInBtn",
+      "type": "boolean",
+      "tooltip": "If enabled, will show the sign in button in the top right of the header"
     }]
   }, {
     "category": "<b>Theme</b>",

@@ -213,6 +213,13 @@ export interface ConfigState {
     searchPlaceholderText: string;
 
     /**
+     * Include sign in button in header.
+     * @type {boolean}
+     * @default false
+     */
+    showSignInBtn: boolean;
+
+    /**
      * Widgets to add to the map or scene. To hide the widget set to an empty string.
      * To show the widget, set the property for the widget to
      * `top-left`, `top-right`, `bottom-left`, or `bottom-right`. 
@@ -315,6 +322,7 @@ export const initialState: ConfigState = {
     filtersDefault: [],
     sortOptions: ["relevance", "title", "owner", "created", "modified", "numviews"],
     searchPlaceholderText: i18n.defaultPlaceholder,
+    showSignInBtn: false,
     widgets: {
         compassWidget: "",
         homeWidget: "",
@@ -376,7 +384,8 @@ export default (state: ConfigState = initialState, action: Action) => {
                     id: config.group
                 },
                 filtersDefault: config.filtersDefault,
-                group: config.group
+                group: config.group,
+                showSignInBtn: config.showSignInBtn
             };
         default:
             return state;

@@ -4,6 +4,7 @@
   "group": "f940e2df7815454081ad49b1f87554d0",
   "portalUrl": "https://www.arcgis.com",
   "title": "Category Gallery",
+  "showSignInBtn": false,
   "allowedItemTypes": [
     "Web Map",
     "CityEngine Web Scene",

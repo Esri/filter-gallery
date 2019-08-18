@@ -17490,6 +17490,7 @@ var initialState = {
     filtersDefault: [],
     sortOptions: ["relevance", "title", "owner", "created", "modified", "numviews"],
     searchPlaceholderText: dojo_i18n_nls__WEBPACK_IMPORTED_MODULE_1__["defaultPlaceholder"],
+    showSignInBtn: false,
     widgets: {
         compassWidget: "",
         homeWidget: "",
@@ -17533,7 +17534,7 @@ var initialState = {
                         }) : filter;
                     }),
                     id: config.group
-                }, filtersDefault: config.filtersDefault, group: config.group });
+                }, filtersDefault: config.filtersDefault, group: config.group, showSignInBtn: config.showSignInBtn });
         default:
             return state;
     }
@@ -19832,6 +19833,8 @@ var SearchArea = /** @class */ (function (_super) {
         var placeholder = this.props.searchPlaceholderText ?
             this.props.searchPlaceholderText :
             dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["gallery"].searchPlaceholders.generic;
+        var showSignInBtn = this.props.showSignInBtn ?
+            this.props.showSignInBtn : false;
         return (tsx("div", { class: "fg-search-area__container" },
             tsx("svg", { width: "20", height: "20", viewBox: "0 0 20 20" },
                 tsx("path", { d: "M19.205 18.295l-7.036-7.035A6.874 6.874 0 0 0 6.875 0 6.874 6.874 0 0 0 0 6.875a6.874 6.874 0 0 0 11.286 5.27l7.035 7.034.884-.884zM1.25 6.875A5.632 5.632 0 0 1 6.875 1.25 5.632 5.632 0 0 1 12.5 6.875 5.632 5.632 0 0 1 6.875 12.5 5.632 5.632 0 0 1 1.25 6.875z", fill: "#595959", "fill-rule": "nonzero" })),
@@ -19847,11 +19850,11 @@ var SearchArea = /** @class */ (function (_super) {
                                 tsx("g", { id: "filter-sliders-1px-16" },
                                     tsx("path", { d: "M7,13 L0,13 L0,12 L7,12 L7,10 L8,10 L8,15 L7,15 L7,13 Z M12,8 L0,8 L0,7 L12,7 L12,5 L13,5 L13,10 L12,10 L12,8 Z M2,3 L0,3 L0,2 L2,2 L2,0 L3,0 L3,5 L2,5 L2,3 Z M4,2 L16,2 L16,3 L4,3 L4,2 Z M14,7 L16,7 L16,8 L14,8 L14,7 Z M9,12 L16,12 L16,13 L9,13 L9,12 Z" })))),
                         tsx("span", { class: "drp-sort__btn-label" }, dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["gallery"].filterPane.filter)))) : null,
-                tsx(_Buttons_IconButton__WEBPACK_IMPORTED_MODULE_3__["default"], { key: "fg-filter-btn", active: !!this.props.user, handleClick: this.handleSignClick },
+                showSignInBtn ? (tsx(_Buttons_IconButton__WEBPACK_IMPORTED_MODULE_3__["default"], { key: "fg-filter-btn", active: !!this.props.user, handleClick: this.handleSignClick },
                     tsx("div", { class: "drp-sort__btn-body" },
                         tsx("svg", { width: "16", height: "16", viewBox: "0 0 32 32" },
                             tsx("path", { d: "M16.005 15.871a5.872 5.872 0 0 0 0-11.742 5.87 5.87 0 1 0 0 11.742zm11.567 7.188C27.27 19.036 20.023 18 16 18c-4.012 0-11.271 1.039-11.573 5.059C4.203 26.11 4.068 28.18 4.02 30h23.96c-.047-1.82-.184-3.891-.407-6.941z" })),
-                        tsx("span", { class: "drp-sort__btn-label" }, this.props.user ? dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["gallery"].signOut + " (" + this.props.user.username + ")" : dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["gallery"].signIn))))));
+                        tsx("span", { class: "drp-sort__btn-label" }, this.props.user ? dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["gallery"].signOut + " (" + this.props.user.username + ")" : dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["gallery"].signIn)))) : null)));
     };
     SearchArea.prototype.handleToggleFilters = function () {
         this.props.toggleFilters();
@@ -19901,6 +19904,7 @@ var SearchArea = /** @class */ (function (_super) {
     sortOrder: state.parameters.sort.order,
     sortOptions: state.settings.config.sortOptions,
     filtersActive: state.ui.filters.filtersOpen,
+    showSignInBtn: state.settings.config.showSignInBtn,
     user: state.settings.utils.portal.user,
     view: state.ui.resultPanel.display,
     viewActive: state.ui.resultPanel.viewDropdownActive,
