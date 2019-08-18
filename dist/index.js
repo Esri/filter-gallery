@@ -19323,11 +19323,23 @@ var AnalysisCard = /** @class */ (function (_super) {
             "card-lc__container": true,
             "card-lc__container--loading": loading
         };
+        var primaryAction = this.props.customActions[0] && this.props.customActions[0].href ?
+            this.props.customActions[0] :
+            undefined;
+        var thumbnailClasses = {
+            "card-lc__thumbnail": true,
+            "card-lc__thumbnail--actionable": !!primaryAction
+        };
+        var thumbnail = (tsx("img", { "aria-label": primaryAction ? primaryAction.name : undefined, src: "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7", alt: "", classes: thumbnailClasses, style: "\n                    background-image: url(" + item.thumbURI + ");\n                " }));
         return (tsx("div", { classes: containerClasses, key: this.props.key, id: this.props.item.id },
             loading ? tsx(_Loaders_LoaderBars__WEBPACK_IMPORTED_MODULE_10__["default"], { key: "item-loading" }) : null,
             tsx("div", { class: "card-lc__details-container" },
-                tsx("div", { class: "card-lc__thumb-container" },
-                    tsx("img", { src: "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7", alt: "", class: "card-lc__thumbnail", style: "\n                                background-image: url(" + item.thumbURI + ");\n                            " })),
+                tsx("div", { class: "card-lc__thumb-container" }, !!primaryAction && !!primaryAction.href ? ([
+                    (tsx("span", { class: "card-lc__thumb-overlay" },
+                        tsx("span", null, primaryAction.name),
+                        tsx("div", { class: "card-lc__custom-icon-container", innerHTML: primaryAction.icon }))),
+                    (tsx("a", { class: "card-lc__thumb-link", href: primaryAction.href(this.props.item, this.props.stateTree), target: primaryAction.target ? primaryAction.target : undefined }, thumbnail))
+                ]) : thumbnail),
                 tsx("div", { class: "card-lc__details" },
                     tsx("h3", { class: "card-lc__title" }, item.title),
                     tsx("div", { class: "card-lc__info-row" },

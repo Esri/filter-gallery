@@ -133,19 +133,49 @@ export default class AnalysisCard extends Component<ListCardProps> {
             "card-lc__container--loading": loading
         };
 
+        const primaryAction = this.props.customActions[0] && this.props.customActions[0].href ?
+            this.props.customActions[0] :
+            undefined;
+        const thumbnailClasses = {
+            "card-lc__thumbnail": true,
+            "card-lc__thumbnail--actionable": !!primaryAction
+        };
+        const thumbnail = (
+            <img
+                aria-label={primaryAction ? primaryAction.name : undefined}
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                alt=""
+                classes={thumbnailClasses}
+                style={`
+                    background-image: url(${item.thumbURI});
+                `}
+            />
+        );
+
         return (
             <div classes={containerClasses} key={this.props.key} id={this.props.item.id}>
                 {loading ? <LoaderBars key="item-loading" /> : null}
                 <div class="card-lc__details-container">
                     <div class="card-lc__thumb-container">
-                        <img
-                            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                            alt=""
-                            class="card-lc__thumbnail"
-                            style={`
-                                background-image: url(${item.thumbURI});
-                            `}
-                        />
+                    {
+                            !!primaryAction && !!primaryAction.href ? ([
+                                (
+                                    <span class="card-lc__thumb-overlay">
+                                        <span>{primaryAction.name}</span>
+                                        <div class="card-lc__custom-icon-container" innerHTML={primaryAction.icon} />
+                                    </span>
+                                ),
+                                (
+                                    <a
+                                        class="card-lc__thumb-link"
+                                        href={primaryAction.href(this.props.item, this.props.stateTree)}
+                                        target={primaryAction.target ? primaryAction.target : undefined}
+                                    >
+                                        {thumbnail}
+                                    </a>
+                                )
+                            ]) : thumbnail
+                        }
                     </div>
                     <div class="card-lc__details">
                         <h3 class="card-lc__title">{item.title}</h3>
