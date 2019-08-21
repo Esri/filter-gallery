@@ -2622,6 +2622,7 @@ html[dir="rtl"] .tooltip-right:before {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: baseline;
   margin-left: -0.5rem;
   margin-right: -0.5rem; }
 
@@ -3125,7 +3126,7 @@ html[dir="rtl"] .tooltip-right:before {
 .card-gc__details-container {
   display: flex;
   flex-direction: column;
-  height: 400px;
+  min-height: 400px;
   justify-content: space-between;
   padding: 0; }
 
