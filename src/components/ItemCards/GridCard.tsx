@@ -81,6 +81,7 @@ export default class GridCard extends Component<GridCardProps> {
     public render(tsx: H) {
         const { item, sortField } = this.props;
         const baseConfig = this.props.stateTree.settings.utils.base.config;
+        const itemSummaryMaxChar = parseInt(baseConfig.itemSummaryMaxChar, 10);
 
         let infoString: string;
         if (sortField === "numviews") {
@@ -215,8 +216,8 @@ export default class GridCard extends Component<GridCardProps> {
                                     (<span class="card-gc__info-string">{infoString}</span>)
                                 ]) : ``}
                         </div>
-                        <span class="card-gc__snippet">{baseConfig.itemSummaryMaxChar < 250 && item.snippet.length > baseConfig.itemSummaryMaxChar ? 
-                                                        item.snippet.substring(0, baseConfig.itemSummaryMaxChar)+ `...` :
+                        <span class="card-gc__snippet">{itemSummaryMaxChar < 250 && item.snippet.length > itemSummaryMaxChar ? 
+                                                        item.snippet.substring(0, itemSummaryMaxChar)+ `...` :
                                                         item.snippet}{` `}</span>
                         {baseConfig.showItemToolTip && item.description ?
                             (<IconButton
