@@ -17227,7 +17227,7 @@ __webpack_require__.r(__webpack_exports__);
     var _b = state.settings.utils, portal = _b.portal, iconDir = _b.iconDir;
     var request = state.settings.utils.request;
     var perPage = state.settings.config.resultsPerQuery;
-    var neededItems = perPage * payload - perPage;
+    var neededItems = perPage * (payload - 1) + 1;
     var _c = Object(_actions_results_utils_requestHelpers__WEBPACK_IMPORTED_MODULE_4__["getSearchRequest"])({ num: perPage, start: neededItems }, state), url = _c[0], parameters = _c[1];
     return Object(_utils__WEBPACK_IMPORTED_MODULE_5__["fromDeferred"])(request(url, parameters)).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["switchMap"])(function (searchResponse) { return Object(_utils__WEBPACK_IMPORTED_MODULE_5__["fromDeferred"])(Object(_actions__WEBPACK_IMPORTED_MODULE_3__["mixinOrganizationInfo"])(state, searchResponse)).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (response) { return ({
         type: _actions__WEBPACK_IMPORTED_MODULE_3__["CHANGE_PAGE_SUCCESS"],

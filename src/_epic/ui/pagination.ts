@@ -13,7 +13,7 @@ export default (action$: Subject<Action>, getState: () => FilterGalleryState) =>
         const { portal, iconDir } = state.settings.utils;
         const request = state.settings.utils.request;
         const perPage = state.settings.config.resultsPerQuery;
-        const neededItems = perPage * payload - perPage;
+        const neededItems = perPage * (payload - 1) + 1;
         const [ url, parameters ] = getSearchRequest({ num: perPage, start: neededItems }, state);
 
         return fromDeferred(request(url, parameters)).pipe(
