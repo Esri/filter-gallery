@@ -502,6 +502,15 @@
     "headHTML": "",
     "customCSS": "",
     "availableItemTypeFilters": ["maps", "layers", "scenes", "apps", "files"],
-    "filters": ["categories", "itemType", "tags"]
+    "filters": ["categories", "itemType", "tags"],
+    "showSignInBtn": false,
+    "showItemOwner": true,
+    "showItemInfo": true,
+    "showItemDetails": true,
+    "showItemType": true,
+    "showItemToolTip": false,
+    "itemSummaryMaxChar": 250,
+    "filterPaneDefault": false,
+    "filtersDefault": []
   }
 }
