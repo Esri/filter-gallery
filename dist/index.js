@@ -2550,8 +2550,23 @@ function genericPrune(childProp, valueProp, tree, include) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"]({}, t);
     }
     return tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"]({}, t, (_a = {}, _a[childProp] = children.reduce(function (result, current) {
+        var _a;
         if (include.indexOf(current[valueProp]) !== -1) {
             result.push(genericPrune(childProp, valueProp, current, include));
+        }
+        else if (current[childProp]) {
+            var childs = current[childProp].reduce(function (result, current) {
+                if (include.indexOf(current[valueProp]) !== -1) {
+                    result.push(genericPrune(childProp, valueProp, current, include));
+                }
+                return result;
+            }, []);
+            if (childs.length > 0) {
+                result.push((_a = {},
+                    _a[valueProp] = t[valueProp],
+                    _a[childProp] = childs,
+                    _a));
+            }
         }
         return result;
     }, []), _a));

@@ -165,6 +165,20 @@ export function genericPrune<T, K extends keyof T>(childProp: keyof T, valueProp
         [childProp]: children.reduce((result: T[], current: T) => {
             if (include.indexOf(current[valueProp]) !== -1) {
                 result.push(genericPrune(childProp, valueProp, current, include));
+            } else if (current[childProp]) {
+                let childs = (current[childProp] as any as T[]).reduce((result: T[], current: T)=> {
+                    if (include.indexOf(current[valueProp]) !== -1) {
+                        result.push(genericPrune(childProp, valueProp, current, include));
+                    }
+                    return result;
+                }, []);
+                if (childs.length > 0) {
+                    result.push(
+                        {
+                            [valueProp]: t[valueProp], 
+                            [childProp]: childs
+                        } as T);
+                }
             }
             return result;
         }, [])
