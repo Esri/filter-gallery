@@ -2588,7 +2588,7 @@ function genericCompress(childProp, tree) {
         if (ch.length === 0) {
             return [];
         }
-        else if (ch.length === 1 && !ch[0][childProp]) {
+        else if (ch.length === 1 && (!ch[0][childProp] || ch[0][childProp].length === 0)) {
             return ch;
         }
         else if (ch.length > 1) {
