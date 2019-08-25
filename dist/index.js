@@ -19768,7 +19768,7 @@ var GridCard = /** @class */ (function (_super) {
                                 (tsx("span", { class: "card-gc__info-string" }, infoString))
                             ]) : ""),
                     tsx("span", { class: "card-gc__snippet" },
-                        itemSummaryMaxChar < 250 && item.snippet.length > itemSummaryMaxChar ?
+                        itemSummaryMaxChar < 250 && item.snippet && item.snippet.length > itemSummaryMaxChar ?
                             item.snippet.substring(0, itemSummaryMaxChar) + "..." :
                             item.snippet, " "),
                     baseConfig.showItemToolTip && item.description ?
