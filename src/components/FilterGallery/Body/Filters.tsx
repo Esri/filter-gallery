@@ -79,7 +79,7 @@ export class FilterPane extends Component<FilterPaneProps> {
                     return (
                         <DateFilter
                             key="modified-filters"
-                            title="Date Modified"
+                            title={i18n.gallery.filterChips.dateModified}
                             onDateSelect={this.handleModifiedFilterChange}
                             dateFilter={this.props.stateTree.parameters.filter.dateModified}
                             dateSection={this.props.stateTree.ui.filters.modifiedSection}
@@ -90,7 +90,7 @@ export class FilterPane extends Component<FilterPaneProps> {
                     return (
                         <DateFilter
                             key="created-filters"
-                            title="Date Created"
+                            title={i18n.gallery.filterChips.dateCreated}
                             onDateSelect={this.handleCreatedFilterChange}
                             dateFilter={this.props.stateTree.parameters.filter.dateCreated}
                             dateSection={this.props.stateTree.ui.filters.createdSection}
@@ -164,7 +164,7 @@ export class FilterPane extends Component<FilterPaneProps> {
                                         filter.path && pathCategories ? pathCategories : schema.children
                                     }
                                     categoriesFilter={this.props.stateTree.parameters.filter.categories}
-                                    title={filter["name"]}
+                                    title={i18n.gallery.filterChips.category}
                                     prependValue={`/${filter.path ? filter.path.join("/") + "/" : ""}`}
                                     startActive={filtersDefault.indexOf("categories") > -1 ? true : false}
                                 />
