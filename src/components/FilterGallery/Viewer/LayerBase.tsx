@@ -27,7 +27,7 @@ interface LayerBaseState {
 
 export class LayerBase extends Component<LayerBaseProps, LayerBaseState> {
     private map: __esri.Map;
-    private view: __esri.View;
+    private view: __esri.MapView | __esri.SceneView;
     private layer: __esri.Layer;
 
     constructor(props: LayerBaseProps) {
@@ -93,32 +93,34 @@ export class LayerBase extends Component<LayerBaseProps, LayerBaseState> {
     ) {
         this.layer = new LayerConstructor({ url: this.props.layerUrl } as __esri.LayerProperties);
         this.map = new MapConstructor({
-            basemap: this.props.defaultBasemap, 
-            layers: [this.layer]
+            basemap: this.props.defaultBasemap
+        });
+        this.view = new ViewConstructor({
+            container: this.props.containerId,
+            map: this.map
         });
         this.setState({ loadText: "layers" });
+        this.view.popup.defaultPopupTemplateEnabled = true;
+        this.view.when(() => {
+            this.loadWidgets(this.view as any).then(
+                () => {
+                    this.view.container = this.props.containerId as any;
+                    this.setState({ status: "loaded" });
+                    this.layer.when(() => {
+                        this.map.add(this.layer);
+                        this.view.extent = this.layer.fullExtent;
+                    });
+                },
+                (err) => {
+                    this.setState({ status: "failed" });
+                }
+            )
+        });
         this.layer.load().then(
             () => {
                 this.setState({ loadText: "widgets" });
-                this.view = new ViewConstructor({
-                    container: this.props.containerId,
-                    map: this.map, 
-                    extent: this.layer.fullExtent
-                });
-                this.view.popup.defaultPopupTemplateEnabled = true;
-                this.view.when(() => {
-                    this.loadWidgets(this.view as any).then(
-                        () => {
-                            this.view.container = this.props.containerId as any;
-                            this.setState({ status: "loaded" });
-                        },
-                        (err) => {
-                            this.setState({ status: "failed" });
-                        }
-                    );
-                });
             },
-            (err) => {
+            () => {
                 this.setState({ status: "failed" });
             }
         );
