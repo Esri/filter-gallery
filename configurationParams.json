@@ -57,7 +57,7 @@
     }, {
       "type": "multiselect",
       "fieldName": "filters",
-      "label": "Select the ways you want to allow users to filters content in your gallery",
+      "label": "Select the ways you want to allow users to filter content in your gallery.",
       "values": [{
         "value": "categories",
         "label": "Categories"
@@ -83,7 +83,7 @@
     }, {
       "type": "multiselect",
       "fieldName": "filtersDefault",
-      "label": "Select the filters you want to be open by default",
+      "label": "Select the filters you want to be open by default.",
       "values": [{
         "value": "categories",
         "label": "Categories"
@@ -109,7 +109,7 @@
     }, {
       "type": "multiselect",
       "fieldName": "availableItemTypeFilters",
-      "label": "Select the item type classes user will be able to filter by in your gallery.",
+      "label": "Select the item type classes users will be able to filter by in your gallery.",
       "values": [{
         "value": "maps",
         "label": "Maps"
@@ -282,7 +282,7 @@
         "label": "Hide",
         "value": " "
       }],
-      "tooltip": "When enable, this will provide users the ability to view the orientation of the map and reorient toward the north."
+      "tooltip": "When enabled, this will provide users the ability to view the orientation of the map and reorient toward the north."
     }, {
       "label": "Basemap Gallery",
       "fieldName": "basemapGalleryWidget",
@@ -303,7 +303,7 @@
         "label": "Hide",
         "value": " "
       }],
-      "tooltip": "When enable, this will provide users the ability to change the background of the map or scene."
+      "tooltip": "When enabled, this will provide users the ability to change the background of the map or scene."
     }, {
       "fieldName": "searchWidget",
       "label": "Enable Search capabilities",
@@ -324,7 +324,7 @@
         "label": "Hide",
         "value": " "
       }],
-      "tooltip": "When enable, this will provide users the ability to search for places."
+      "tooltip": "When enabled, this will provide users the ability to search for places."
     }, {
       "fieldName": "locateWidget",
       "label": "Enable Geolocation button on the map",
@@ -366,7 +366,7 @@
         "label": "Hide",
         "value": " "
       }],
-      "tooltip": "When enable, this will add a legend to the map allowing users to interpret the symbology used."
+      "tooltip": "When enabled, this will add a legend to the map allowing users to interpret the symbology used."
     }, {
       "fieldName": "homeWidget",
       "label": "Enable Home button on the map",
