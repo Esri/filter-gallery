@@ -3,6 +3,7 @@ import { Component, H } from "../../Component";
 
 import AccordionDropdown from "../Dropdowns/AccordionDropdown";
 import CheckToggle from "../Buttons/CheckToggle";
+import { Tag } from "../../_reducer/ui/tagsFilter";
 
 /**
  * An option for the `TagsFilter` component.
@@ -109,6 +110,13 @@ export default class TagsFilter extends Component<TagsFilterProps> {
 
     private mapTagsToToggles(tsx: H) {
         return this.props.availableTags
+            .sort((a: Tag, b: Tag) => {
+                let tagA = a.value,
+                    tagB = b.value;
+                if (tagA < tagB) { return -1; }
+                if (tagA > tagB) { return 1; }
+                return 0;    
+            })
             .map((tag) => (
                 <CheckToggle
                     // count={tag.count}

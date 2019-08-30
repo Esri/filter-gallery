@@ -21450,6 +21450,16 @@ var TagsFilter = /** @class */ (function (_super) {
     TagsFilter.prototype.mapTagsToToggles = function (tsx) {
         var _this = this;
         return this.props.availableTags
+            .sort(function (a, b) {
+            var tagA = a.value, tagB = b.value;
+            if (tagA < tagB) {
+                return -1;
+            }
+            if (tagA > tagB) {
+                return 1;
+            }
+            return 0;
+        })
             .map(function (tag) { return (tsx(_Buttons_CheckToggle__WEBPACK_IMPORTED_MODULE_4__["default"]
         // count={tag.count}
         , { 
