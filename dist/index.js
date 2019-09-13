@@ -19773,7 +19773,7 @@ var GridCard = /** @class */ (function (_super) {
                             item.snippet, " "),
                     baseConfig.showItemToolTip && item.snippet ?
                         (tsx(_Buttons_IconButton__WEBPACK_IMPORTED_MODULE_11__["default"], { key: "grid-info-tooltip-btn", active: false, handleClick: function (e) { return e.preventDefault(); } },
-                            tsx("div", { class: "grid-info-tooltip-btn-body tooltip tooltip-multiline", tooltip: item.snippet.replace(/<\/?[^>]+(>|$)/g, "") },
+                            tsx("div", { class: "grid-info-tooltip-btn-body tooltip tooltip-multiline tooltip-left", tooltip: item.snippet.replace(/<\/?[^>]+(>|$)/g, "") },
                                 tsx("svg", { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 16 16" },
                                     tsx("path", { d: "M7.5 0A7.5 7.5 0 1 0 15 7.5 7.509 7.509 0 0 0 7.5 0zm.001 14.1A6.6 6.6 0 1 1 14.1 7.5a6.608 6.608 0 0 1-6.599 6.6zM7.5 5.5a1 1 0 1 1 1-1 1.002 1.002 0 0 1-1 1zM7 7h1v5H7zm2 5H6v-1h3z" })),
                                 tsx("span", { class: "grid-info-tooltip-btn-label" }, item.snippet))))
