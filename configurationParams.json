@@ -199,7 +199,8 @@
     }, {
       "fieldName": "itemSummaryMaxChar",
       "label": "Max characters allowed for summary text (max 250)",
-      "type": "string",
+      "type": "number",
+      "constraints": {"min":0, "max":250, "places":0},
       "tooltip": "Control the max character count for the summary section on an item card."
     }, {
       "type": "subcategory",
