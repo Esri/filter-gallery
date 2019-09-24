@@ -449,6 +449,11 @@
     right: 0.25rem;
 }
 
+html[dir="rtl"] .grid-info-tooltip-btn-body {
+    right: auto;
+    left: 0.25rem;
+}
+
 .grid-info-tooltip-btn-label {
     display: none;
 }
