@@ -19317,6 +19317,7 @@ var AnalysisCard = /** @class */ (function (_super) {
         var _this = this;
         var _a = this.props, item = _a.item, sortField = _a.sortField;
         var baseConfig = this.props.stateTree.settings.utils.base.config;
+        var itemSummaryMaxChar = parseInt(baseConfig.itemSummaryMaxChar, 10);
         var infoString;
         if (sortField === "numviews") {
             infoString = dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["itemCards"].viewCount + ": " + item.numViews;
@@ -19380,8 +19381,8 @@ var AnalysisCard = /** @class */ (function (_super) {
                             ]) : ""),
                     tsx("p", { class: "card-lc__snippet" },
                         tsx("span", { class: "card-lc__snippet-text" },
-                            baseConfig.itemSummaryMaxChar < 250 && item.snippet.length > baseConfig.itemSummaryMaxChar ?
-                                item.snippet.substring(0, baseConfig.itemSummaryMaxChar) + "..." :
+                            itemSummaryMaxChar < 250 && item.snippet && item.snippet.length > itemSummaryMaxChar ?
+                                item.snippet.substring(0, itemSummaryMaxChar) + "..." :
                                 item.snippet, " "),
                         baseConfig.showItemToolTip && item.snippet ?
                             (tsx(_Buttons_IconButton__WEBPACK_IMPORTED_MODULE_11__["default"], { key: "grid-info-tooltip-btn", active: false, handleClick: function (e) { return e.preventDefault(); } },

@@ -81,6 +81,7 @@ export default class AnalysisCard extends Component<ListCardProps> {
     public render(tsx: H) {
         const { item, sortField } = this.props;
         const baseConfig = this.props.stateTree.settings.utils.base.config;
+        const itemSummaryMaxChar = parseInt(baseConfig.itemSummaryMaxChar, 10);
 
         let infoString: string;
         if (sortField === "numviews") {
@@ -216,8 +217,8 @@ export default class AnalysisCard extends Component<ListCardProps> {
                                 ]) : ``}
                         </div>
                         <p class="card-lc__snippet">
-                            <span class="card-lc__snippet-text">{baseConfig.itemSummaryMaxChar < 250 && item.snippet.length > baseConfig.itemSummaryMaxChar ? 
-                                                                item.snippet.substring(0, baseConfig.itemSummaryMaxChar)+ `...` :
+                            <span class="card-lc__snippet-text">{itemSummaryMaxChar < 250 && item.snippet && item.snippet.length > itemSummaryMaxChar ? 
+                                                                item.snippet.substring(0, itemSummaryMaxChar) + `...` :
                                                                 item.snippet}{` `}</span>
                             {baseConfig.showItemToolTip && item.snippet ?
                                 (<IconButton
