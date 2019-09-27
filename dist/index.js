@@ -22061,31 +22061,25 @@ var LayerBase = /** @class */ (function (_super) {
     };
     LayerBase.prototype.loadMap = function (MapConstructor, ViewConstructor, LayerConstructor) {
         var _this = this;
-        this.layer = new LayerConstructor({ url: this.props.layerUrl });
         this.map = new MapConstructor({
             basemap: this.props.defaultBasemap
         });
-        this.view = new ViewConstructor({
-            container: this.props.containerId,
-            map: this.map
-        });
         this.setState({ loadText: "layers" });
-        this.view.popup.defaultPopupTemplateEnabled = true;
-        this.view.when(function () {
-            _this.loadWidgets(_this.view).then(function () {
-                _this.view.container = _this.props.containerId;
-                _this.setState({ status: "loaded" });
-                _this.layer.when(function () {
-                    _this.map.add(_this.layer);
-                    _this.view.extent = _this.layer.fullExtent;
-                });
-            }, function (err) {
-                _this.setState({ status: "failed" });
-            });
-        });
-        this.layer.load().then(function () {
+        this.layer = new LayerConstructor({ url: this.props.layerUrl });
+        this.layer.load().then(function (layers) {
             _this.setState({ loadText: "widgets" });
-        }, function () {
+            _this.view = new ViewConstructor({
+                container: _this.props.containerId,
+                map: _this.map
+            });
+            _this.view.popup.defaultPopupTemplateEnabled = true;
+            _this.map.add(_this.layer);
+            _this.view.extent = _this.layer.fullExtent;
+            return _this.loadWidgets(_this.view);
+        }).then(function () {
+            _this.view.container = _this.props.containerId;
+            _this.setState({ status: "loaded" });
+        }).otherwise(function (err) {
             _this.setState({ status: "failed" });
         });
     };

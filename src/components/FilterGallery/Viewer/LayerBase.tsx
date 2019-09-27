@@ -91,39 +91,27 @@ export class LayerBase extends Component<LayerBaseProps, LayerBaseState> {
         ViewConstructor: __esri.MapViewConstructor,
         LayerConstructor: __esri.LayerConstructor
     ) {
-        this.layer = new LayerConstructor({ url: this.props.layerUrl } as __esri.LayerProperties);
         this.map = new MapConstructor({
             basemap: this.props.defaultBasemap
         });
-        this.view = new ViewConstructor({
-            container: this.props.containerId,
-            map: this.map
-        });
         this.setState({ loadText: "layers" });
-        this.view.popup.defaultPopupTemplateEnabled = true;
-        this.view.when(() => {
-            this.loadWidgets(this.view as any).then(
-                () => {
-                    this.view.container = this.props.containerId as any;
-                    this.setState({ status: "loaded" });
-                    this.layer.when(() => {
-                        this.map.add(this.layer);
-                        this.view.extent = this.layer.fullExtent;
-                    });
-                },
-                (err) => {
-                    this.setState({ status: "failed" });
-                }
-            )
+        this.layer = new LayerConstructor({ url: this.props.layerUrl } as __esri.LayerProperties);
+        this.layer.load().then((layers: any) => {
+            this.setState({ loadText: "widgets" });
+            this.view = new ViewConstructor({
+                container: this.props.containerId,
+                map: this.map
+            });
+            this.view.popup.defaultPopupTemplateEnabled = true;
+            this.map.add(this.layer);
+            this.view.extent = this.layer.fullExtent;
+            return this.loadWidgets(this.view as any);
+        }).then(() => {
+            this.view.container = this.props.containerId as any;
+            this.setState({ status: "loaded" });
+        }).otherwise((err) => {
+            this.setState({ status: "failed" });
         });
-        this.layer.load().then(
-            () => {
-                this.setState({ loadText: "widgets" });
-            },
-            () => {
-                this.setState({ status: "failed" });
-            }
-        );
     }
 
     private loadWidgets(view: __esri.MapView) {
