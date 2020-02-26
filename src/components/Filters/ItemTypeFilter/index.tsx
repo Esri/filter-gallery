@@ -37,6 +37,12 @@ export interface ItemTypeFilterProps {
      * @type {object}
      */
     itemTypeFilter: ItemTypeOption | undefined; 
+
+    /**
+     * If this option is enabled the filter will start in the active state
+     * @type {boolean}
+     */
+    startActive?: boolean;
 }
 
 export interface ItemTypeFilterState {
@@ -69,6 +75,7 @@ export default class ItemTypeFilter extends Component<ItemTypeFilterProps, ItemT
                 title={componentI18n.filters.itemType.itemType}
                 clearable={!!this.props.itemTypeFilter}
                 onClear={this.handleClearFilter}
+                startActive={this.props.startActive}
             >
                 <ul
                     aria-label={componentI18n.filters.itemType.itemType}

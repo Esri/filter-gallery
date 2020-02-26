@@ -147,7 +147,7 @@ define({
       "browse": "Просмотр",
       "search": "Поиск"
     },
-    "resultCount": "элементы",
+    "resultCount": "элементы:",
     "searchPlaceholders": {
       "generic": "Введите текст поиска"
     },

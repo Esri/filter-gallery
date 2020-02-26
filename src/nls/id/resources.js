@@ -147,7 +147,7 @@ define({
       "browse": "Jelajahi",
       "search": "Cari"
     },
-    "resultCount": "item",
+    "resultCount": "item:",
     "searchPlaceholders": {
       "generic": "Masukkan istilah pencarian"
     },

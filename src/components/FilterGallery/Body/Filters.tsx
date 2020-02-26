@@ -61,6 +61,7 @@ export class FilterPane extends Component<FilterPaneProps> {
         const user = this.props.stateTree.settings.utils.portal.user;
 
         const availableFilters = this.props.stateTree.settings.config.section.filters;
+        const filtersDefault = config.filtersDefault;
 
         const sectionFilters = availableFilters.map((filter: string | CategoryFilter, index: number) => {
             switch (filter) {
@@ -71,26 +72,29 @@ export class FilterPane extends Component<FilterPaneProps> {
                             onItemTypeSelect={this.handleItemTypeFilterChange}
                             availableItemTypes={config.availableItemTypeFilters}
                             itemTypeFilter={this.props.stateTree.parameters.filter.itemType}
+                            startActive={filtersDefault.indexOf("itemType") > -1 ? true : false}
                         />
                     );
                 case "modified":
                     return (
                         <DateFilter
                             key="modified-filters"
-                            title="Date Modified"
+                            title={i18n.gallery.filterChips.dateModified}
                             onDateSelect={this.handleModifiedFilterChange}
                             dateFilter={this.props.stateTree.parameters.filter.dateModified}
                             dateSection={this.props.stateTree.ui.filters.modifiedSection}
+                            startActive={filtersDefault.indexOf("modified") > -1 ? true : false}
                         />
                     );
                 case "created":
                     return (
                         <DateFilter
                             key="created-filters"
-                            title="Date Created"
+                            title={i18n.gallery.filterChips.dateCreated}
                             onDateSelect={this.handleCreatedFilterChange}
                             dateFilter={this.props.stateTree.parameters.filter.dateCreated}
                             dateSection={this.props.stateTree.ui.filters.createdSection}
+                            startActive={filtersDefault.indexOf("created") > -1 ? true : false}
                         />
                     );
                 case "shared":
@@ -101,6 +105,7 @@ export class FilterPane extends Component<FilterPaneProps> {
                             onSharedSelect={this.handleSharedFilterChange}
                             sharedFilter={this.props.stateTree.parameters.filter.shared}
                             hideOrgGroupFilters={!!user && !user.orgId}
+                            startActive={filtersDefault.indexOf("shared") > -1 ? true : false}
                         />
                     );
                 case "status":
@@ -121,6 +126,7 @@ export class FilterPane extends Component<FilterPaneProps> {
                             key="status-filters"
                             onStatusSelect={this.handleStatusFilterChange}
                             statusFilter={this.props.stateTree.parameters.filter.status}
+                            startActive={filtersDefault.indexOf("status") > -1 ? true : false}
                         />
                     );
                 case "tags":
@@ -132,6 +138,7 @@ export class FilterPane extends Component<FilterPaneProps> {
                             onFilterStringChange={this.handleTagsFilterStringChange}
                             onTagSelect={this.handleTagsFilterChange}
                             tagsFilter={this.props.stateTree.parameters.filter.tags}
+                            startActive={filtersDefault.indexOf("tags") > -1 ? true : false}
                         />
                     );
                 default:
@@ -157,8 +164,9 @@ export class FilterPane extends Component<FilterPaneProps> {
                                         filter.path && pathCategories ? pathCategories : schema.children
                                     }
                                     categoriesFilter={this.props.stateTree.parameters.filter.categories}
-                                    title={filter["name"]}
+                                    title={i18n.gallery.filterChips.category}
                                     prependValue={`/${filter.path ? filter.path.join("/") + "/" : ""}`}
+                                    startActive={filtersDefault.indexOf("categories") > -1 ? true : false}
                                 />
                             );
                         }

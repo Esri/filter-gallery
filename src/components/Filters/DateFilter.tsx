@@ -29,6 +29,12 @@ export interface CreatedFilterProps extends ComponentProps {
      * @type {string}
      */
     dateSection: DateRangeSection | undefined;
+
+    /**
+     * If this option is enabled the filter will start in the active state
+     * @type {boolean}
+     */
+    startActive?: boolean;
 }
 
 /**
@@ -49,6 +55,7 @@ export default class CreatedFilter extends Component<CreatedFilterProps> {
                 title={this.props.title}
                 clearable={!!this.props.dateFilter}
                 onClear={this.handleClearFilter}
+                startActive={this.props.startActive}
             >
                 <ul
                     aria-label={this.props.title}

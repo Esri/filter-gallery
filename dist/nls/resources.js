@@ -148,7 +148,7 @@ define({
                 browse: "Browse", // arcgisonline.common.browser
                 search: "Search" // arcgisonline.common.search
             },
-            resultCount: "items",
+            resultCount: "Items:", //items 
             searchPlaceholders: {
                 generic: "Enter search terms" // arcgisonline.browseItemsDlg.placeholder
             },
@@ -270,7 +270,6 @@ define({
     "fi": 1,
     "fr": 1,
     "he": 1,
-    "hi": 1,
     "hr": 1,
     "hu": 1,
     "id": 1,

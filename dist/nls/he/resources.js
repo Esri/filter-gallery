@@ -90,7 +90,7 @@ define({
         "featureLayers": "שכבות ישויות",
         "tileLayers": "שכבות אריחים",
         "mapImageLayers": "שכבות של תמונות מפה",
-        "imageryLayers": "שכבות של תמונות",
+        "imageryLayers": "שכבות של הדמאות",
         "sceneLayers": "שכבות של סצינות",
         "tables": "טבלאות",
         "layerFiles": "קבצי שכבה",
@@ -147,7 +147,7 @@ define({
       "browse": "עיין",
       "search": "חיפוש"
     },
-    "resultCount": "פריטים",
+    "resultCount": "פריטים:",
     "searchPlaceholders": {
       "generic": "הזן מונחי חיפוש"
     },
@@ -208,7 +208,7 @@ define({
     "viewDetails": "הצג תיאור פריט",
     "back": "חזור",
     "compact": "טבלה",
-    "compactView": "תצוגה דחוסה",
+    "compactView": "תצוגה מצומצמת",
     "list": "רשימה",
     "listView": "תצוגת רשימה",
     "showing": "מציג",

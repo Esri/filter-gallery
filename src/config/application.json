@@ -4,6 +4,7 @@
   "group": "f940e2df7815454081ad49b1f87554d0",
   "portalUrl": "https://www.arcgis.com",
   "title": "Category Gallery",
+  "showSignInBtn": false,
   "allowedItemTypes": [
     "Web Map",
     "CityEngine Web Scene",
@@ -23,6 +24,7 @@
     "Scene Service",
     "Relational Database Connection",
     "Web Mapping Application",
+    "StoryMap",
     "Mobile Application",
     "Code Attachment",
     "Operations Dashboard Add In",
@@ -102,6 +104,7 @@
     "Workflow Manager Service",
     "Application"
   ],
+  "defaultBasemap": "streets-vector",
   "compassWidget": "",
   "homeWidget": "",
   "legendWidget": "",
@@ -111,6 +114,13 @@
   "resultsPerQuery": 16,
   "useOrgCategories": false,
   "displayDefault": "list",
+  "showItemOwner": true,
+  "showItemInfo": true,
+  "showItemDetails": true,
+  "showItemType": true,
+  "showItemToolTip": false,
+  "itemSummaryMaxChar": 250,
+  "filterPaneDefault": false,
   "filters": [
     "categories",
     "itemType",
@@ -120,6 +130,7 @@
     "status",
     "tags"
   ],
+  "filtersDefault": [],
   "sortOptions": ["relevance", "title", "owner", "created", "modified", "numviews"],
   "availableItemTypeFilters": [
     "maps",

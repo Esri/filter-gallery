@@ -76,7 +76,7 @@
 .card-gc__details-container {
     display: flex;
     flex-direction: column;
-    height: 400px;
+    min-height: 400px;
     justify-content: space-between;
     padding: 0;
 }
@@ -260,4 +260,204 @@
 
 .card-gc__item-icon {
     margin-top: 4px;
+}
+
+.tooltip {
+  position: relative;
+  cursor: pointer; }
+  .tooltip:after {
+    content: attr(tooltip);
+    position: absolute;
+    z-index: 1000000;
+    display: none;
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: #ffffff;
+    text-align: center;
+    word-wrap: break-word;
+    white-space: pre;
+    pointer-events: none;
+    background: rgba(0, 0, 0, 0.75);
+    border-radius: 3px; }
+
+.tooltip:before {
+  content: "";
+  position: absolute;
+  z-index: 1000001;
+  display: none;
+  width: 0;
+  height: 0;
+  color: rgba(0, 0, 0, 0.75);
+  pointer-events: none;
+  border: 5px solid transparent; }
+
+.tooltip:hover, .tooltip:active, .tooltip:focus {
+  text-decoration: none; }
+  .tooltip:hover:before, .tooltip:hover:after, .tooltip:active:before, .tooltip:active:after, .tooltip:focus:before, .tooltip:focus:after {
+    display: inline-block; }
+
+.tooltip-multiline:hover:after, .tooltip-multiline:active:after, .tooltip-multiline:focus:after {
+  display: table-cell; }
+
+.tooltip:after {
+  top: 100%;
+  right: 50%;
+  margin-top: 5px;
+  line-height: 1.5; }
+
+.tooltip:before {
+  top: auto;
+  right: 50%;
+  bottom: -5px;
+  margin-right: -5px;
+  border-bottom-color: rgba(0, 0, 0, 0.75); }
+
+.tooltip-top:after {
+  top: auto;
+  right: 50%;
+  bottom: 100%;
+  margin-bottom: 5px; }
+
+.tooltip-top:before {
+  top: -5px;
+  right: 50%;
+  bottom: auto;
+  margin-right: -5px;
+  border-top-color: rgba(0, 0, 0, 0.75);
+  border-bottom: 5px solid transparent; }
+
+.tooltip:after,
+.tooltip-bottom:after {
+  -webkit-transform: translateX(50%);
+  -moz-transform: translateX(50%);
+  -ms-transform: translateX(50%);
+  -o-transform: translateX(50%);
+  transform: translateX(50%); }
+
+.tooltip-left:after {
+  top: auto;
+  right: 100%;
+  left: auto;
+  margin-right: 5px;
+  bottom: 50%;
+  margin-bottom: inherit;
+  -webkit-transform: translateY(50%);
+  -moz-transform: translateY(50%);
+  -ms-transform: translateY(50%);
+  -o-transform: translateY(50%);
+  transform: translateY(50%); }
+  html[dir="rtl"] .tooltip-left:after {
+    right: auto;
+    left: 100%; }
+  html[dir="rtl"] .tooltip-left:after {
+    margin-right: 0;
+    margin-left: 5px; }
+
+.tooltip-left:before {
+  top: 50%;
+  bottom: 50%;
+  left: -5px;
+  right: auto;
+  margin-top: -5px;
+  border-left-color: rgba(0, 0, 0, 0.75);
+  border-bottom: 5px solid transparent; }
+  html[dir="rtl"] .tooltip-left:before {
+    left: auto;
+    right: -5px; }
+  html[dir="rtl"] .tooltip-left:before {
+    border-left-color: transparent;
+    border-right-color: rgba(0, 0, 0, 0.75); }
+  html[dir="rtl"] .tooltip-left:before {
+    margin-right: 0; }
+
+.tooltip-right:after {
+  top: auto;
+  bottom: 50%;
+  left: 100%;
+  right: auto;
+  margin-left: 5px;
+  -webkit-transform: translateY(50%);
+  -moz-transform: translateY(50%);
+  -ms-transform: translateY(50%);
+  -o-transform: translateY(50%);
+  transform: translateY(50%); }
+  html[dir="rtl"] .tooltip-right:after {
+    left: auto;
+    right: 100%; }
+  html[dir="rtl"] .tooltip-right:after {
+    margin-left: 0;
+    margin-right: 5px; }
+
+.tooltip-right:before {
+  top: 50%;
+  right: -5px;
+  left: auto;
+  bottom: 50%;
+  margin-top: -5px;
+  margin-right: 0;
+  border-right-color: rgba(0, 0, 0, 0.75);
+  border-bottom: 5px solid transparent; }
+  html[dir="rtl"] .tooltip-right:before {
+    right: auto;
+    left: -5px; }
+  html[dir="rtl"] .tooltip-right:before {
+    border-right-color: transparent;
+    border-left-color: rgba(0, 0, 0, 0.75); }
+
+.tooltip-multiline:after {
+  width: 22em;
+  width: -moz-max-content;
+  width: -webkit-max-content;
+  max-width: 250px;
+  word-break: break-word;
+  word-wrap: normal;
+  white-space: pre-line;
+  border-collapse: separate; }
+
+.tooltip-multiline.tooltip-bottom:after, .tooltip-multiline.tooltip-top:after {
+  right: auto;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%); }
+
+.tooltip-multiline.tooltip-left:after, .tooltip-multiline.tooltip-right:after {
+  right: 100%; }
+
+@media screen and (min-width: 0\0) {
+  .tooltip-multiline:after {
+    width: 250px; } }
+
+.card-gc__details {
+    position: relative;
+    overflow: visible;
+}
+
+#grid-info-tooltip-btn {
+    padding: 0;
+}
+
+.grid-info-tooltip-btn-body {
+    position: absolute;
+    width: 16px;
+    padding: 0 0px;
+    display: block;
+    bottom: 0;
+    right: 0.25rem;
+}
+
+html[dir="rtl"] .grid-info-tooltip-btn-body {
+    right: auto;
+    left: 0.25rem;
+}
+
+.grid-info-tooltip-btn-label {
+    display: none;
+}
+
+#viewDiv {
+    overflow: hidden;
 }

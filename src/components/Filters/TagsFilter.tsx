@@ -3,6 +3,7 @@ import { Component, H } from "../../Component";
 
 import AccordionDropdown from "../Dropdowns/AccordionDropdown";
 import CheckToggle from "../Buttons/CheckToggle";
+import { Tag } from "../../_reducer/ui/tagsFilter";
 
 /**
  * An option for the `TagsFilter` component.
@@ -52,6 +53,12 @@ export interface TagsFilterProps {
      * @type {string}
      */
     title?: string;
+
+    /**
+     * If this option is enabled the filter will start in the active state
+     * @type {boolean}
+     */
+    startActive?: boolean;
 }
 
 /**
@@ -73,6 +80,7 @@ export default class TagsFilter extends Component<TagsFilterProps> {
                 title={this.props.title ? this.props.title : tagsI18n.filters.tags.tags}
                 clearable={!!this.props.tagsFilter}
                 onClear={this.handleClearFilter}
+                startActive={this.props.startActive}
                 padding={false}
             >
                     <div class="ftr-tags__input-area">
@@ -102,6 +110,13 @@ export default class TagsFilter extends Component<TagsFilterProps> {
 
     private mapTagsToToggles(tsx: H) {
         return this.props.availableTags
+            .sort((a: Tag, b: Tag) => {
+                let tagA = a.value,
+                    tagB = b.value;
+                if (tagA < tagB) { return -1; }
+                if (tagA > tagB) { return 1; }
+                return 0;    
+            })
             .map((tag) => (
                 <CheckToggle
                     // count={tag.count}

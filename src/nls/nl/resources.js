@@ -147,7 +147,7 @@ define({
       "browse": "Bladeren",
       "search": "Zoeken"
     },
-    "resultCount": "items",
+    "resultCount": "items:",
     "searchPlaceholders": {
       "generic": "Zoektermen invoeren"
     },

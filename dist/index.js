@@ -2550,8 +2550,23 @@ function genericPrune(childProp, valueProp, tree, include) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"]({}, t);
     }
     return tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"]({}, t, (_a = {}, _a[childProp] = children.reduce(function (result, current) {
+        var _a;
         if (include.indexOf(current[valueProp]) !== -1) {
             result.push(genericPrune(childProp, valueProp, current, include));
+        }
+        else if (current[childProp]) {
+            var childs = current[childProp].reduce(function (result, current) {
+                if (include.indexOf(current[valueProp]) !== -1) {
+                    result.push(genericPrune(childProp, valueProp, current, include));
+                }
+                return result;
+            }, []);
+            if (childs.length > 0) {
+                result.push((_a = {},
+                    _a[valueProp] = t[valueProp],
+                    _a[childProp] = childs,
+                    _a));
+            }
         }
         return result;
     }, []), _a));
@@ -2573,7 +2588,7 @@ function genericCompress(childProp, tree) {
         if (ch.length === 0) {
             return [];
         }
-        else if (ch.length === 1 && !ch[0][childProp]) {
+        else if (ch.length === 1 && (!ch[0][childProp] || ch[0][childProp].length === 0)) {
             return ch;
         }
         else if (ch.length > 1) {
@@ -3303,6 +3318,9 @@ var getItemIcon = function (imgDir, type, typeKeywords) {
     else if (itemType === "dashboard") {
         imgName = "dashboard";
     }
+    else if (itemType === "storymap") {
+        imgName = "storymap";
+    }
     else {
         imgName = "maps";
     }
@@ -3403,8 +3421,8 @@ var itemTypeMap = {
     tables: "(typekeywords:Table)",
     layerFiles: "(type:(\"Layer\" OR \"Explorer Layer\" OR \"Tile Package\" OR \"Vector Tile Package\" OR \"Scene Package\" OR \"Layer Package\" OR \"CSV\" OR \"Shapefile\" OR \"GeoJson\" OR \"Service Definition\" OR \"File Geodatabase\" OR \"CAD Drawing\" OR \"Microsoft Excel\") -type:(\"Explorer Maps\" OR \"Map Documents\"))",
     scenes: "(-type:\"CityEngine Web Scene\" type:\"Web Scene\")",
-    apps: "(type:(\"Code Sample\" OR \"Web Mapping Application\" OR \"Mobile Application\" OR \"Application\" OR \"Desktop Application Template\" OR \"Desktop Application\" OR \"Operation View\" OR \"Dashboard\" OR \"Operations Dashboard Extension\" OR \"Workforce Project\" OR \"Insights Workbook\" OR \"Insights Page\" OR \"Insights Model\" OR \"Hub Page\" OR \"Hub Initiative\" OR \"Hub Site Application\"))",
-    webApps: "(type:(\"Web Mapping Application\" OR \"Dashboard\"))",
+    apps: "(type:(\"Code Sample\" OR \"Web Mapping Application\" OR \"Mobile Application\" OR \"Application\" OR \"Desktop Application Template\" OR \"Desktop Application\" OR \"Operation View\" OR \"Dashboard\" OR \"Operations Dashboard Extension\" OR \"Workforce Project\" OR \"Insights Workbook\" OR \"Insights Page\" OR \"Insights Model\" OR \"Hub Page\" OR \"Hub Initiative\" OR \"Hub Site Application\") OR (type:\"StoryMap\" AND typekeywords: (\"smstatuspublished\" OR \"smstatusunpublishedchanges\")))",
+    webApps: "(type:(\"Web Mapping Application\" OR \"Dashboard\") OR (type:\"StoryMap\" AND typekeywords: (\"smstatuspublished\" OR \"smstatusunpublishedchanges\")))",
     mobileApps: "(type:\"Mobile Application\")",
     desktopApps: "(type:\"Desktop Application\" -type:\"Desktop Application Template\")",
     tools: "((typekeywords:\"tool\" OR type:\"Raster function template\" OR type:\"Geodata Service\" OR type:\"Workflow Manager Package\" OR type:\"Rule Package\" OR type:\"Operations Dashboard Add In\" OR type:\"Workflow Manager Service\" OR type:\"ArcGIS Pro Configuration\") -type:\"KML\")",
@@ -3443,6 +3461,7 @@ var allItemTypes = [
     "Relational Database Connection",
     "Application",
     "Web Mapping Application",
+    "StoryMap",
     "Mobile Application",
     "Code Attachment",
     "Operations Dashboard Add In",
@@ -4337,8 +4356,11 @@ function getAllowedItemTypesQuery(allowedItemTypes) {
         }
         return result;
     }, false); });
+    var filterStoryMaps = allowedItemTypes.indexOf("StoryMap") > -1;
     return "((type:\"" + allowedItemTypes.join("\" OR type:\"") + "\")" + (partialMatches.length > 0 ?
         " AND (-type:\"" + partialMatches.join("\" AND -type:\"") + "\")" :
+        "") + (filterStoryMaps ?
+        " NOT (type:\"StoryMap\" AND typekeywords: (\"smstatusdraft\"))" :
         "") + ")";
 }
 
@@ -17220,7 +17242,7 @@ __webpack_require__.r(__webpack_exports__);
     var _b = state.settings.utils, portal = _b.portal, iconDir = _b.iconDir;
     var request = state.settings.utils.request;
     var perPage = state.settings.config.resultsPerQuery;
-    var neededItems = perPage * payload - perPage;
+    var neededItems = perPage * (payload - 1) + 1;
     var _c = Object(_actions_results_utils_requestHelpers__WEBPACK_IMPORTED_MODULE_4__["getSearchRequest"])({ num: perPage, start: neededItems }, state), url = _c[0], parameters = _c[1];
     return Object(_utils__WEBPACK_IMPORTED_MODULE_5__["fromDeferred"])(request(url, parameters)).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["switchMap"])(function (searchResponse) { return Object(_utils__WEBPACK_IMPORTED_MODULE_5__["fromDeferred"])(Object(_actions__WEBPACK_IMPORTED_MODULE_3__["mixinOrganizationInfo"])(state, searchResponse)).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (response) { return ({
         type: _actions__WEBPACK_IMPORTED_MODULE_3__["CHANGE_PAGE_SUCCESS"],
@@ -17465,6 +17487,7 @@ var initialState = {
         "notebooks"
     ],
     customActions: _utils_defaultActions__WEBPACK_IMPORTED_MODULE_3__["default"],
+    defaultBasemap: "streets-vector",
     section: {
         name: "doesnt matter",
         baseQuery: "",
@@ -17482,8 +17505,10 @@ var initialState = {
         ],
         id: "8de7d7e7162549f3960f3094754dbe37"
     },
+    filtersDefault: [],
     sortOptions: ["relevance", "title", "owner", "created", "modified", "numviews"],
     searchPlaceholderText: dojo_i18n_nls__WEBPACK_IMPORTED_MODULE_1__["defaultPlaceholder"],
+    showSignInBtn: false,
     widgets: {
         compassWidget: "",
         homeWidget: "",
@@ -17510,7 +17535,7 @@ var initialState = {
             document.documentElement.lang = action.payload.locale;
             var dirNode = document.getElementsByTagName("html")[0];
             dirNode.setAttribute("dir", action.payload.direction);
-            return tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"]({}, state, { url: config.portalUrl, dialogTitle: config.title, resultsPerQuery: config.resultsPerQuery, allowedItemTypes: config.allowedItemTypes, widgets: {
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"]({}, state, { url: config.portalUrl, dialogTitle: config.title, resultsPerQuery: config.resultsPerQuery, allowedItemTypes: config.allowedItemTypes, defaultBasemap: config.defaultBasemap, widgets: {
                     "compassWidget": config.compassWidget,
                     "homeWidget": config.homeWidget,
                     "legendWidget": config.legendWidget,
@@ -17527,7 +17552,7 @@ var initialState = {
                         }) : filter;
                     }),
                     id: config.group
-                }, group: config.group });
+                }, filtersDefault: config.filtersDefault, group: config.group, showSignInBtn: config.showSignInBtn });
         default:
             return state;
     }
@@ -17572,7 +17597,7 @@ var defaultActions = [
     },
     {
         name: dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_0__["actions"].viewApp,
-        allowed: function (item) { return (item.type === "Web Mapping Application" || item.type === "Application"); },
+        allowed: function (item) { return (item.type === "Web Mapping Application" || item.type === "Application" || item.type === "StoryMap"); },
         asynchronous: false,
         onAction: function () { },
         icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M11.364 14.138a1.89 1.89 0 0 0 .036-.545.772.772 0 0 0-.04-.144l-.368-.364a1.497 1.497 0 0 1-.416.949.53.53 0 0 1-.14.224 1.592 1.592 0 0 0-.303.409 6.992 6.992 0 0 1-7.058-1.695v-.017c0-.053 0-.061.059-.105a2.006 2.006 0 0 1 .192-.117.61.61 0 0 0 .272-.334.588.588 0 0 0-.04-.443l-.069-.103a3.563 3.563 0 0 0-.92-.733l-.49-.317c-.123-.084-.179-.132-.19-.165a1.006 1.006 0 0 1 .016-.174 1.559 1.559 0 0 0-.053-.724 5.289 5.289 0 0 0-.316-.748l-.05-.108a7.055 7.055 0 0 1-.259-.56 1.982 1.982 0 0 0-.176-.353 2.667 2.667 0 0 0-.046-.073 6.967 6.967 0 0 1 1.911-4.701c.15.002.31.007.528.028a.68.68 0 0 0 .648-.501c.035-.093.056-.13.066-.13.003 0 .005.002.007.009a.884.884 0 0 1 .204.052 1.282 1.282 0 0 0 .184.044l.108.011a.557.557 0 0 0 .428-.195c.162-.196.422-.557.594-.812a1.156 1.156 0 0 0 .157-.36c.2-.065.405-.119.613-.166a.977.977 0 0 0-.228.523.556.556 0 0 0 .275.5.549.549 0 0 0 .55-.002 2.493 2.493 0 0 1 .793-.313l.523.027a1.338 1.338 0 0 0 .19-.014.624.624 0 0 0 .376-.204l.111-.146.098-.156a1.335 1.335 0 0 1 .184-.244l.019-.016a6.936 6.936 0 0 1 1.547.498 1.574 1.574 0 0 0-.241.222 1.326 1.326 0 0 0-.103.176l-.143.317a.98.98 0 0 1-.073.123.894.894 0 0 0-.087.141.623.623 0 0 0 .137.67 4.213 4.213 0 0 0 .376.327l-.006.005a1.315 1.315 0 0 0-.174.143c-.034.03-.068.063-.101.094a.59.59 0 0 0-.223-.321.594.594 0 0 0-.021-.095.838.838 0 0 0-.249-.376.557.557 0 0 0-.403-.128c-.02 0-.04 0-.062.003a.555.555 0 0 0-.393.303l-.055.121a.56.56 0 0 0 .301.698.58.58 0 0 0 .221.427c.025.015.047.033.07.046a.614.614 0 0 0-.033.59c.005.015.015.042.024.073h-.006a1.44 1.44 0 0 1-.234-.051 1.278 1.278 0 0 0-.134-.018.566.566 0 0 0-.525.337 1.144 1.144 0 0 0-.07.269 3.551 3.551 0 0 0-.03.512.574.574 0 0 0 .165.425 1.376 1.376 0 0 0-.116.123l-.06.07a.747.747 0 0 1-.118.095 1.228 1.228 0 0 0-.53.614l-.093.115-.14.05a2.003 2.003 0 0 0-.922.923 1.787 1.787 0 0 0-.155.396 1.29 1.29 0 0 0-.03.317.581.581 0 0 1-.142.385.555.555 0 0 0-.176.297.928.928 0 0 0-.012.255 1.03 1.03 0 0 0 .15.438.821.821 0 0 0 .16.18l.137.133a.591.591 0 0 1 .165.224 1.515 1.515 0 0 0 .463.749 1.478 1.478 0 0 0 .6.307v-.865a.707.707 0 0 1-.086-.056.736.736 0 0 1-.21-.36 1.34 1.34 0 0 0-.376-.575l-.14-.134a.234.234 0 0 1-.056-.08 1.414 1.414 0 0 0 .322-.898.501.501 0 0 1 .01-.138 1.493 1.493 0 0 1 .1-.235 1.445 1.445 0 0 1 .45-.504l.161-.058a.803.803 0 0 0 .368-.272l.092-.113a.811.811 0 0 0 .106-.194c.028-.072.04-.105.241-.245a1.257 1.257 0 0 0 .185-.144 1.018 1.018 0 0 0 .09-.093l.107-.123a.746.746 0 0 0 .145-.16.803.803 0 0 0 .62.289.819.819 0 0 0 .174-.02 4.216 4.216 0 0 1 .501-.034c.068.002.124.005.17.008a.809.809 0 0 0 .06.195 1.25 1.25 0 0 0 .437.475H13a1.484 1.484 0 0 1 .664.162 1.255 1.255 0 0 0 .292-.062c.101-.04.167-.065.264-.095a.8.8 0 0 0 .52-1.03l.001.001a1.301 1.301 0 0 0-.112-.342.799.799 0 0 0-.535-.453 1.475 1.475 0 0 0-.4-.058.8.8 0 0 0-.72-.205 1.351 1.351 0 0 0-.083-.153 1.654 1.654 0 0 0-.109-.145 3.612 3.612 0 0 0-.286-.296l-.09-.076a.801.801 0 0 0-.92-.063 2.32 2.32 0 0 0-.086-.058.798.798 0 0 0-.283-.11 1.664 1.664 0 0 0-.22-.021 1.118 1.118 0 0 0-.116.006.8.8 0 0 0-.265-.045.78.78 0 0 0-.096.006 5.498 5.498 0 0 0-.032-.099.782.782 0 0 0 .065-.216h.023a.798.798 0 0 0 .553-.221 5.46 5.46 0 0 0 .115-.109.802.802 0 0 0 .413.115 1.029 1.029 0 0 0 .686-.193.798.798 0 0 0 .176-.195l.057-.09a1.253 1.253 0 0 0 .124-1.01.8.8 0 0 0-.287-.42 3.568 3.568 0 0 0-.21-.142c.017 0 .031-.01.047-.011a6.969 6.969 0 0 1 1.753 9.373l.732.724a8.02 8.02 0 1 0-2.114 2.128l-.736-.728c-.14.09-.274.189-.421.27zm-1.908-8.02c0-.056.002-.103.005-.148l.059.01a.732.732 0 0 0-.064.137zm1.173-.152l-.113-.21.2.1a.306.306 0 0 1 .181-.06.452.452 0 0 1 .074.007 1.914 1.914 0 0 1 .176.13.569.569 0 0 0 .34.107.482.482 0 0 0 .245-.055.569.569 0 0 0 .169-.116l.05.042a2.595 2.595 0 0 1 .212.215c.045.055.063.082.063.082a.85.85 0 0 0 .134.347.527.527 0 0 0 .49.242.565.565 0 0 0 .29-.096.655.655 0 0 0 .545.222h.004a.733.733 0 0 1 .208.033 1.3 1.3 0 0 1 .088.284 3.493 3.493 0 0 0-.306.11.359.359 0 0 1-.152.028l-.061-.002a.626.626 0 0 1-.12-.048.635.635 0 0 0-.215-.077h-.015a.56.56 0 0 0-.137-.024.55.55 0 0 0-.52.38 1.398 1.398 0 0 1-.698-.416.593.593 0 0 0-.467-.62 2.133 2.133 0 0 0-.48-.049 4.835 4.835 0 0 0-.557.033 1.07 1.07 0 0 0-.125.02.563.563 0 0 0 .049-.077c.028-.048.05-.092.039-.108a.665.665 0 0 0 .094-.14.838.838 0 0 0 .315-.284zm1.2-2.804a.435.435 0 0 1-.028.363l-.057.09c-.003.002-.031.018-.172.018h-.015a.636.636 0 0 0 .161-.511l-.002-.04c.04.027.081.055.113.08zm-.552-.805a.52.52 0 0 1 .181-.145l.207.072a.809.809 0 0 0-.353.108.906.906 0 0 0-.075.05zm-3.54-1.276c.021-.02.036-.048.055-.07C7.862 1.007 7.93 1 8 1c.145 0 .287.013.43.022l-.054.083-.533-.02a.823.823 0 0 0-.12.01zM2.682 12.189a1.057 1.057 0 0 0-.155.168 7.018 7.018 0 0 1-.414-.58l.02.014a6.12 6.12 0 0 1 .56.391zM10.717 10l4.635 4.584-.704.71L10 10.699V13H9V9h4v1z"/></svg>',
@@ -18426,6 +18451,8 @@ var initialState = {
 /* harmony default export */ __webpack_exports__["default"] = (function (state, action) {
     if (state === void 0) { state = initialState; }
     switch (action.type) {
+        case _actions__WEBPACK_IMPORTED_MODULE_1__["LOAD_PORTAL_SUCCESS"]:
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"]({}, state, { filtersOpen: action.payload.config.filterPaneDefault });
         case _actions__WEBPACK_IMPORTED_MODULE_1__["CLEAR_ALL_FILTERS"]:
             return {
                 filtersOpen: state.filtersOpen
@@ -18747,7 +18774,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(13);
 /* harmony import */ var _InputArea__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(324);
 /* harmony import */ var _ResultPanel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(328);
-/* harmony import */ var _SearchArea__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(340);
+/* harmony import */ var _SearchArea__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(341);
 /* harmony import */ var _Navigation_Pager__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(352);
 /* harmony import */ var _Loaders_LoaderBars__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(338);
 /* harmony import */ var _Modals_MobileWrap__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(346);
@@ -18867,7 +18894,7 @@ var InputArea = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     InputArea.prototype.render = function (tsx) {
-        var resultCount = this.props.itemTotal.toLocaleString() + " " + dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["gallery"].resultCount;
+        var resultCount = dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["gallery"].resultCount + " " + this.props.itemTotal.toLocaleString();
         return (tsx("div", { class: "fg-input__container", key: "ib-result-count-container" },
             tsx("span", { class: "fg-input-area__result-count" }, resultCount),
             tsx(_ActiveFilters__WEBPACK_IMPORTED_MODULE_3__["default"], { key: "fg__active-filters", theme: "dark" })));
@@ -19195,7 +19222,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(13);
 /* harmony import */ var _ItemCards_ListCard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(330);
-/* harmony import */ var _ItemCards_GridCard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(339);
+/* harmony import */ var _ItemCards_GridCard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(340);
 
 
 
@@ -19260,6 +19287,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Badges_Subscriber__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(337);
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(15);
 /* harmony import */ var _Loaders_LoaderBars__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(338);
+/* harmony import */ var _Buttons_IconButton__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(339);
+
 
 
 
@@ -19287,6 +19316,8 @@ var AnalysisCard = /** @class */ (function (_super) {
     AnalysisCard.prototype.render = function (tsx) {
         var _this = this;
         var _a = this.props, item = _a.item, sortField = _a.sortField;
+        var baseConfig = this.props.stateTree.settings.utils.base.config;
+        var itemSummaryMaxChar = parseInt(baseConfig.itemSummaryMaxChar, 10);
         var infoString;
         if (sortField === "numviews") {
             infoString = dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["itemCards"].viewCount + ": " + item.numViews;
@@ -19311,30 +19342,62 @@ var AnalysisCard = /** @class */ (function (_super) {
             "card-lc__container": true,
             "card-lc__container--loading": loading
         };
+        var primaryAction = this.props.customActions[0] && this.props.customActions[0].href ?
+            this.props.customActions[0] :
+            undefined;
+        var thumbnailClasses = {
+            "card-lc__thumbnail": true,
+            "card-lc__thumbnail--actionable": !!primaryAction
+        };
+        var thumbnail = (tsx("img", { "aria-label": primaryAction ? primaryAction.name : undefined, src: "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7", alt: "", classes: thumbnailClasses, style: "\n                    background-image: url(" + item.thumbURI + ");\n                " }));
         return (tsx("div", { classes: containerClasses, key: this.props.key, id: this.props.item.id },
             loading ? tsx(_Loaders_LoaderBars__WEBPACK_IMPORTED_MODULE_10__["default"], { key: "item-loading" }) : null,
             tsx("div", { class: "card-lc__details-container" },
-                tsx("div", { class: "card-lc__thumb-container" },
-                    tsx("img", { src: "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7", alt: "", class: "card-lc__thumbnail", style: "\n                                background-image: url(" + item.thumbURI + ");\n                            " })),
+                tsx("div", { class: "card-lc__thumb-container" }, !!primaryAction && !!primaryAction.href ? ([
+                    (tsx("span", { class: "card-lc__thumb-overlay" },
+                        tsx("span", null, primaryAction.name),
+                        tsx("div", { class: "card-lc__custom-icon-container", innerHTML: primaryAction.icon }))),
+                    (tsx("a", { class: "card-lc__thumb-link", href: primaryAction.href(this.props.item, this.props.stateTree), target: primaryAction.target ? primaryAction.target : undefined }, thumbnail))
+                ]) : thumbnail),
                 tsx("div", { class: "card-lc__details" },
                     tsx("h3", { class: "card-lc__title" }, item.title),
                     tsx("div", { class: "card-lc__info-row" },
                         tsx("div", { class: "card-lc__icon-title-container" },
-                            tsx("img", { src: item.iconURI, class: "content-search-item-icon", title: item.displayName }),
-                            tsx("span", { class: "card-lc__author-text" }, item.displayName + " " + dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["itemCards"].by,
-                                tsx("a", { class: "content-search-selectable card-mc__author-link", title: this.props.organization ? dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["itemCards"].viewOrg : dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["itemCards"].viewProfile, href: this.props.organization ?
-                                        this.props.organization.orgUrl :
-                                        this.props.portal.baseUrl + "/home/user.html?user=" + item.owner, target: "_blank" }, " " + (this.props.organization ? this.props.organization.name : item.owner)))),
-                        tsx("span", { class: "card-lc__info-bullet" }, "\u2022"),
-                        tsx("span", { class: "card-lc__info-string" }, infoString)),
+                            baseConfig.showItemType ?
+                                (tsx("img", { src: item.iconURI, class: "content-search-item-icon", title: item.displayName }))
+                                : "",
+                            tsx("span", { class: "card-lc__author-text" },
+                                baseConfig.showItemType ? item.displayName + " " : "",
+                                baseConfig.showItemOwner ? "" + dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["itemCards"].by : "",
+                                baseConfig.showItemOwner ?
+                                    (tsx("a", { class: "content-search-selectable card-mc__author-link", title: this.props.organization ? dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["itemCards"].viewOrg : dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["itemCards"].viewProfile, href: this.props.organization ?
+                                            this.props.organization.orgUrl :
+                                            this.props.portal.baseUrl + "/home/user.html?user=" + item.owner, target: "_blank" }, " " + (this.props.organization ? this.props.organization.name : item.owner)))
+                                    : "")),
+                        baseConfig.showItemInfo ?
+                            ([
+                                (tsx("span", { class: "card-lc__info-bullet" }, "\u2022")),
+                                (tsx("span", { class: "card-lc__info-string" }, infoString))
+                            ]) : ""),
                     tsx("p", { class: "card-lc__snippet" },
                         tsx("span", { class: "card-lc__snippet-text" },
-                            item.snippet, " "),
-                        tsx("a", { class: "card-lc__side-action card-lc__no-wrap", href: this.props.portal.baseUrl + "/home/item.html?id=" + item.id, target: "_blank" },
-                            dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["itemCards"].viewItem,
-                            tsx("svg", { version: "1.1", xmlns: "http://www.w3.org/2000/svg", width: "16", height: "16", viewBox: "0 0 16 16" },
-                                tsx("path", { d: "M10 1v1h3.293l-6.646 6.646 0.707 0.707 6.646-6.646v3.293h1v-5z" }),
-                                tsx("path", { d: "M14 8v6h-12v-12h6v-1h-7v14h14v-7z" })))))),
+                            itemSummaryMaxChar < 250 && item.snippet && item.snippet.length > itemSummaryMaxChar ?
+                                item.snippet.substring(0, itemSummaryMaxChar) + "..." :
+                                item.snippet, " "),
+                        baseConfig.showItemToolTip && item.snippet ?
+                            (tsx(_Buttons_IconButton__WEBPACK_IMPORTED_MODULE_11__["default"], { key: "grid-info-tooltip-btn", active: false, handleClick: function (e) { return e.preventDefault(); } },
+                                tsx("div", { class: "grid-info-tooltip-btn-body tooltip tooltip-multiline tooltip-left", tooltip: item.snippet.replace(/<\/?[^>]+(>|$)/g, "") },
+                                    tsx("svg", { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 16 16" },
+                                        tsx("path", { d: "M7.5 0A7.5 7.5 0 1 0 15 7.5 7.509 7.509 0 0 0 7.5 0zm.001 14.1A6.6 6.6 0 1 1 14.1 7.5a6.608 6.608 0 0 1-6.599 6.6zM7.5 5.5a1 1 0 1 1 1-1 1.002 1.002 0 0 1-1 1zM7 7h1v5H7zm2 5H6v-1h3z" })),
+                                    tsx("span", { class: "grid-info-tooltip-btn-label" }, item.snippet))))
+                            : "",
+                        baseConfig.showItemDetails ?
+                            (tsx("a", { class: "card-lc__side-action card-lc__no-wrap", href: this.props.portal.baseUrl + "/home/item.html?id=" + item.id, target: "_blank" },
+                                dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["itemCards"].viewItem,
+                                tsx("svg", { version: "1.1", xmlns: "http://www.w3.org/2000/svg", width: "16", height: "16", viewBox: "0 0 16 16" },
+                                    tsx("path", { d: "M10 1v1h3.293l-6.646 6.646 0.707 0.707 6.646-6.646v3.293h1v-5z" }),
+                                    tsx("path", { d: "M14 8v6h-12v-12h6v-1h-7v14h14v-7z" }))))
+                            : ""))),
             tsx("div", { class: "card-lc__sub-container" },
                 tsx("div", { class: "card-lc__badge-container card-lc__badge-container--regular card-lc__sub-group" }, this.renderBadges(tsx)),
                 tsx("div", { class: "card-lc__badge-container card-lc__badge-container--small card-lc__sub-group" }, this.renderBadges(tsx, true)),
@@ -19563,6 +19626,44 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var _Component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(13);
+
+
+/**
+ * A common button component supporting icons for AGOL.
+ */
+var IconButton = /** @class */ (function (_super) {
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](IconButton, _super);
+    function IconButton() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    IconButton.prototype.render = function (tsx) {
+        var _a = this.props, active = _a.active, label = _a.label, labelDirection = _a.labelDirection, key = _a.key, title = _a.title;
+        var containerClasses = {
+            "btn-icon__button": true,
+            "btn-icon__button--tooltip": !!label,
+            "btn-icon__button--tooltip-left": labelDirection === "left",
+            "btn-icon__button--tooltip-right": labelDirection === "right",
+            "btn-icon__button--tooltip-top": labelDirection === "top",
+            "btn-icon__button--active": active
+        };
+        return (tsx("button", { id: key, key: key + "-container", classes: containerClasses, "aria-label": label, onmousedown: this.preventFocus, onclick: this.props.handleClick, tabindex: this.props.tabindex ? "" + this.props.tabindex : "0", "aria-checked": active, title: title }, this.props.children));
+    };
+    IconButton.prototype.preventFocus = function (e) {
+        e.preventDefault();
+    };
+    return IconButton;
+}(_Component__WEBPACK_IMPORTED_MODULE_1__["Component"]));
+/* harmony default export */ __webpack_exports__["default"] = (IconButton);
+
+
+/***/ }),
+/* 340 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 /* harmony import */ var dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(292);
 /* harmony import */ var dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(13);
@@ -19575,6 +19676,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Badges_Subscriber__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(337);
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(15);
 /* harmony import */ var _Loaders_LoaderBars__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(338);
+/* harmony import */ var _Buttons_IconButton__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(339);
+
 
 
 
@@ -19602,6 +19705,8 @@ var GridCard = /** @class */ (function (_super) {
     GridCard.prototype.render = function (tsx) {
         var _this = this;
         var _a = this.props, item = _a.item, sortField = _a.sortField;
+        var baseConfig = this.props.stateTree.settings.utils.base.config;
+        var itemSummaryMaxChar = parseInt(baseConfig.itemSummaryMaxChar, 10);
         var infoString;
         if (sortField === "numviews") {
             infoString = dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["itemCards"].viewCount + ": " + item.numViews;
@@ -19647,20 +19752,40 @@ var GridCard = /** @class */ (function (_super) {
                     tsx("h3", { class: "card-gc__title" }, item.title),
                     tsx("div", { class: "card-gc__info-row" },
                         tsx("div", { class: "card-gc__icon-title-container" },
-                            tsx("img", { src: item.iconURI, class: "card-gc__item-icon", title: item.displayName }),
-                            tsx("span", { class: "card-gc__author-text" }, item.displayName + " " + dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["itemCards"].by,
-                                tsx("a", { class: "content-search-selectable card-mc__author-link", title: this.props.organization ? dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["itemCards"].viewOrg : dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["itemCards"].viewProfile, href: this.props.organization ?
-                                        this.props.organization.orgUrl :
-                                        this.props.portal.baseUrl + "/home/user.html?user=" + item.owner, target: "_blank" }, " " + (this.props.organization ? this.props.organization.name : item.owner)))),
-                        tsx("span", { class: "card-gc__info-bullet" }, "\u2022"),
-                        tsx("span", { class: "card-gc__info-string" }, infoString)),
+                            baseConfig.showItemType ?
+                                (tsx("img", { src: item.iconURI, class: "card-gc__item-icon", title: item.displayName }))
+                                : "",
+                            tsx("span", { class: "card-gc__author-text" },
+                                baseConfig.showItemType ? item.displayName + " " : "",
+                                baseConfig.showItemOwner ? "" + dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["itemCards"].by : "",
+                                baseConfig.showItemOwner ?
+                                    (tsx("a", { class: "content-search-selectable card-mc__author-link", title: this.props.organization ? dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["itemCards"].viewOrg : dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["itemCards"].viewProfile, href: this.props.organization ?
+                                            this.props.organization.orgUrl :
+                                            this.props.portal.baseUrl + "/home/user.html?user=" + item.owner, target: "_blank" }, " " + (this.props.organization ? this.props.organization.name : item.owner)))
+                                    : "")),
+                        baseConfig.showItemInfo ?
+                            ([
+                                (tsx("span", { class: "card-gc__info-bullet" }, "\u2022")),
+                                (tsx("span", { class: "card-gc__info-string" }, infoString))
+                            ]) : ""),
                     tsx("span", { class: "card-gc__snippet" },
-                        item.snippet, " "),
-                    tsx("a", { class: "card-gc__side-action card-gc__details-link", href: this.props.portal.baseUrl + "/home/item.html?id=" + item.id, target: "_blank" },
-                        dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["itemCards"].viewItem,
-                        tsx("svg", { version: "1.1", xmlns: "http://www.w3.org/2000/svg", width: "16", height: "16", viewBox: "0 0 16 16" },
-                            tsx("path", { d: "M10 1v1h3.293l-6.646 6.646 0.707 0.707 6.646-6.646v3.293h1v-5z" }),
-                            tsx("path", { d: "M14 8v6h-12v-12h6v-1h-7v14h14v-7z" }))))),
+                        itemSummaryMaxChar < 250 && item.snippet && item.snippet.length > itemSummaryMaxChar ?
+                            item.snippet.substring(0, itemSummaryMaxChar) + "..." :
+                            item.snippet, " "),
+                    baseConfig.showItemToolTip && item.snippet ?
+                        (tsx(_Buttons_IconButton__WEBPACK_IMPORTED_MODULE_11__["default"], { key: "grid-info-tooltip-btn", active: false, handleClick: function (e) { return e.preventDefault(); } },
+                            tsx("div", { class: "grid-info-tooltip-btn-body tooltip tooltip-multiline tooltip-left", tooltip: item.snippet.replace(/<\/?[^>]+(>|$)/g, "") },
+                                tsx("svg", { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 16 16" },
+                                    tsx("path", { d: "M7.5 0A7.5 7.5 0 1 0 15 7.5 7.509 7.509 0 0 0 7.5 0zm.001 14.1A6.6 6.6 0 1 1 14.1 7.5a6.608 6.608 0 0 1-6.599 6.6zM7.5 5.5a1 1 0 1 1 1-1 1.002 1.002 0 0 1-1 1zM7 7h1v5H7zm2 5H6v-1h3z" })),
+                                tsx("span", { class: "grid-info-tooltip-btn-label" }, item.snippet))))
+                        : "",
+                    baseConfig.showItemDetails ?
+                        (tsx("a", { class: "card-gc__side-action card-gc__details-link", href: this.props.portal.baseUrl + "/home/item.html?id=" + item.id, target: "_blank" },
+                            dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["itemCards"].viewItem,
+                            tsx("svg", { version: "1.1", xmlns: "http://www.w3.org/2000/svg", width: "16", height: "16", viewBox: "0 0 16 16" },
+                                tsx("path", { d: "M10 1v1h3.293l-6.646 6.646 0.707 0.707 6.646-6.646v3.293h1v-5z" }),
+                                tsx("path", { d: "M14 8v6h-12v-12h6v-1h-7v14h14v-7z" }))))
+                        : "")),
             tsx("div", { class: "card-gc__sub-container" },
                 tsx("div", { class: "card-gc__badge-container card-gc__badge-container--regular card-gc__sub-group" }, this.renderBadges(tsx)),
                 tsx("div", { class: "card-gc__badge-container card-gc__badge-container--small card-gc__sub-group" }, this.renderBadges(tsx, true)),
@@ -19698,7 +19823,7 @@ var GridCard = /** @class */ (function (_super) {
 
 
 /***/ }),
-/* 340 */
+/* 341 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -19708,7 +19833,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(292);
 /* harmony import */ var dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(13);
-/* harmony import */ var _Buttons_IconButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(341);
+/* harmony import */ var _Buttons_IconButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(339);
 /* harmony import */ var _Dropdowns_SortDropdown__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(342);
 /* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(256);
 /* harmony import */ var _Dropdowns_ViewDropdown__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(348);
@@ -19740,6 +19865,8 @@ var SearchArea = /** @class */ (function (_super) {
         var placeholder = this.props.searchPlaceholderText ?
             this.props.searchPlaceholderText :
             dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["gallery"].searchPlaceholders.generic;
+        var showSignInBtn = this.props.showSignInBtn ?
+            this.props.showSignInBtn : false;
         return (tsx("div", { class: "fg-search-area__container" },
             tsx("svg", { width: "20", height: "20", viewBox: "0 0 20 20" },
                 tsx("path", { d: "M19.205 18.295l-7.036-7.035A6.874 6.874 0 0 0 6.875 0 6.874 6.874 0 0 0 0 6.875a6.874 6.874 0 0 0 11.286 5.27l7.035 7.034.884-.884zM1.25 6.875A5.632 5.632 0 0 1 6.875 1.25 5.632 5.632 0 0 1 12.5 6.875 5.632 5.632 0 0 1 6.875 12.5 5.632 5.632 0 0 1 1.25 6.875z", fill: "#595959", "fill-rule": "nonzero" })),
@@ -19755,11 +19882,11 @@ var SearchArea = /** @class */ (function (_super) {
                                 tsx("g", { id: "filter-sliders-1px-16" },
                                     tsx("path", { d: "M7,13 L0,13 L0,12 L7,12 L7,10 L8,10 L8,15 L7,15 L7,13 Z M12,8 L0,8 L0,7 L12,7 L12,5 L13,5 L13,10 L12,10 L12,8 Z M2,3 L0,3 L0,2 L2,2 L2,0 L3,0 L3,5 L2,5 L2,3 Z M4,2 L16,2 L16,3 L4,3 L4,2 Z M14,7 L16,7 L16,8 L14,8 L14,7 Z M9,12 L16,12 L16,13 L9,13 L9,12 Z" })))),
                         tsx("span", { class: "drp-sort__btn-label" }, dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["gallery"].filterPane.filter)))) : null,
-                tsx(_Buttons_IconButton__WEBPACK_IMPORTED_MODULE_3__["default"], { key: "fg-filter-btn", active: !!this.props.user, handleClick: this.handleSignClick },
+                showSignInBtn ? (tsx(_Buttons_IconButton__WEBPACK_IMPORTED_MODULE_3__["default"], { key: "fg-filter-btn", active: !!this.props.user, handleClick: this.handleSignClick },
                     tsx("div", { class: "drp-sort__btn-body" },
                         tsx("svg", { width: "16", height: "16", viewBox: "0 0 32 32" },
                             tsx("path", { d: "M16.005 15.871a5.872 5.872 0 0 0 0-11.742 5.87 5.87 0 1 0 0 11.742zm11.567 7.188C27.27 19.036 20.023 18 16 18c-4.012 0-11.271 1.039-11.573 5.059C4.203 26.11 4.068 28.18 4.02 30h23.96c-.047-1.82-.184-3.891-.407-6.941z" })),
-                        tsx("span", { class: "drp-sort__btn-label" }, this.props.user ? dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["gallery"].signOut + " (" + this.props.user.username + ")" : dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["gallery"].signIn))))));
+                        tsx("span", { class: "drp-sort__btn-label" }, this.props.user ? dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["gallery"].signOut + " (" + this.props.user.username + ")" : dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["gallery"].signIn)))) : null)));
     };
     SearchArea.prototype.handleToggleFilters = function () {
         this.props.toggleFilters();
@@ -19809,6 +19936,7 @@ var SearchArea = /** @class */ (function (_super) {
     sortOrder: state.parameters.sort.order,
     sortOptions: state.settings.config.sortOptions,
     filtersActive: state.ui.filters.filtersOpen,
+    showSignInBtn: state.settings.config.showSignInBtn,
     user: state.settings.utils.portal.user,
     view: state.ui.resultPanel.display,
     viewActive: state.ui.resultPanel.viewDropdownActive,
@@ -19828,44 +19956,6 @@ var SearchArea = /** @class */ (function (_super) {
 
 
 /***/ }),
-/* 341 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var _Component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(13);
-
-
-/**
- * A common button component supporting icons for AGOL.
- */
-var IconButton = /** @class */ (function (_super) {
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](IconButton, _super);
-    function IconButton() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    IconButton.prototype.render = function (tsx) {
-        var _a = this.props, active = _a.active, label = _a.label, labelDirection = _a.labelDirection, key = _a.key, title = _a.title;
-        var containerClasses = {
-            "btn-icon__button": true,
-            "btn-icon__button--tooltip": !!label,
-            "btn-icon__button--tooltip-left": labelDirection === "left",
-            "btn-icon__button--tooltip-right": labelDirection === "right",
-            "btn-icon__button--tooltip-top": labelDirection === "top",
-            "btn-icon__button--active": active
-        };
-        return (tsx("button", { id: key, key: key + "-container", classes: containerClasses, "aria-label": label, onmousedown: this.preventFocus, onclick: this.props.handleClick, tabindex: this.props.tabindex ? "" + this.props.tabindex : "0", "aria-checked": active, title: title }, this.props.children));
-    };
-    IconButton.prototype.preventFocus = function (e) {
-        e.preventDefault();
-    };
-    return IconButton;
-}(_Component__WEBPACK_IMPORTED_MODULE_1__["Component"]));
-/* harmony default export */ __webpack_exports__["default"] = (IconButton);
-
-
-/***/ }),
 /* 342 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -19875,7 +19965,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(292);
 /* harmony import */ var dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(13);
-/* harmony import */ var _Buttons_IconButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(341);
+/* harmony import */ var _Buttons_IconButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(339);
 /* harmony import */ var _Buttons_Toggle__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(343);
 /* harmony import */ var _Ago2018Dropdown__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(344);
 /* harmony import */ var _Modals_MobileWrap__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(346);
@@ -20340,7 +20430,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(292);
 /* harmony import */ var dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(13);
-/* harmony import */ var _Buttons_IconButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(341);
+/* harmony import */ var _Buttons_IconButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(339);
 /* harmony import */ var _Buttons_Toggle__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(343);
 /* harmony import */ var _Ago2018Dropdown__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(344);
 /* harmony import */ var _Modals_MobileWrap__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(346);
@@ -20552,15 +20642,18 @@ var Pager = /** @class */ (function (_super) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FilterPane", function() { return FilterPane; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var _Component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(13);
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(15);
-/* harmony import */ var _Filters_DateFilter__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(354);
-/* harmony import */ var _Filters_ItemTypeFilter__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(361);
-/* harmony import */ var _Filters_SharedFilter__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(363);
-/* harmony import */ var _Filters_StatusFilter__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(364);
-/* harmony import */ var _Filters_TagsFilter__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(365);
-/* harmony import */ var _Filters_CategoriesFilter__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(367);
-/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(256);
+/* harmony import */ var dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(292);
+/* harmony import */ var dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _Component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(13);
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(15);
+/* harmony import */ var _Filters_DateFilter__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(354);
+/* harmony import */ var _Filters_ItemTypeFilter__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(361);
+/* harmony import */ var _Filters_SharedFilter__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(363);
+/* harmony import */ var _Filters_StatusFilter__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(364);
+/* harmony import */ var _Filters_TagsFilter__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(365);
+/* harmony import */ var _Filters_CategoriesFilter__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(367);
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(256);
+
 
 
 
@@ -20594,36 +20687,37 @@ var FilterPane = /** @class */ (function (_super) {
         var config = this.props.stateTree.settings.config;
         var user = this.props.stateTree.settings.utils.portal.user;
         var availableFilters = this.props.stateTree.settings.config.section.filters;
+        var filtersDefault = config.filtersDefault;
         var sectionFilters = availableFilters.map(function (filter, index) {
             switch (filter) {
                 case "itemType":
-                    return (tsx(_Filters_ItemTypeFilter__WEBPACK_IMPORTED_MODULE_4__["default"], { key: "item-type-filter", onItemTypeSelect: _this.handleItemTypeFilterChange, availableItemTypes: config.availableItemTypeFilters, itemTypeFilter: _this.props.stateTree.parameters.filter.itemType }));
+                    return (tsx(_Filters_ItemTypeFilter__WEBPACK_IMPORTED_MODULE_5__["default"], { key: "item-type-filter", onItemTypeSelect: _this.handleItemTypeFilterChange, availableItemTypes: config.availableItemTypeFilters, itemTypeFilter: _this.props.stateTree.parameters.filter.itemType, startActive: filtersDefault.indexOf("itemType") > -1 ? true : false }));
                 case "modified":
-                    return (tsx(_Filters_DateFilter__WEBPACK_IMPORTED_MODULE_3__["default"], { key: "modified-filters", title: "Date Modified", onDateSelect: _this.handleModifiedFilterChange, dateFilter: _this.props.stateTree.parameters.filter.dateModified, dateSection: _this.props.stateTree.ui.filters.modifiedSection }));
+                    return (tsx(_Filters_DateFilter__WEBPACK_IMPORTED_MODULE_4__["default"], { key: "modified-filters", title: dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["gallery"].filterChips.dateModified, onDateSelect: _this.handleModifiedFilterChange, dateFilter: _this.props.stateTree.parameters.filter.dateModified, dateSection: _this.props.stateTree.ui.filters.modifiedSection, startActive: filtersDefault.indexOf("modified") > -1 ? true : false }));
                 case "created":
-                    return (tsx(_Filters_DateFilter__WEBPACK_IMPORTED_MODULE_3__["default"], { key: "created-filters", title: "Date Created", onDateSelect: _this.handleCreatedFilterChange, dateFilter: _this.props.stateTree.parameters.filter.dateCreated, dateSection: _this.props.stateTree.ui.filters.createdSection }));
+                    return (tsx(_Filters_DateFilter__WEBPACK_IMPORTED_MODULE_4__["default"], { key: "created-filters", title: dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["gallery"].filterChips.dateCreated, onDateSelect: _this.handleCreatedFilterChange, dateFilter: _this.props.stateTree.parameters.filter.dateCreated, dateSection: _this.props.stateTree.ui.filters.createdSection, startActive: filtersDefault.indexOf("created") > -1 ? true : false }));
                 case "shared":
-                    return (tsx(_Filters_SharedFilter__WEBPACK_IMPORTED_MODULE_5__["default"], { counts: _this.props.stateTree.results.counts.access, key: "shared-filters", onSharedSelect: _this.handleSharedFilterChange, sharedFilter: _this.props.stateTree.parameters.filter.shared, hideOrgGroupFilters: !!user && !user.orgId }));
+                    return (tsx(_Filters_SharedFilter__WEBPACK_IMPORTED_MODULE_6__["default"], { counts: _this.props.stateTree.results.counts.access, key: "shared-filters", onSharedSelect: _this.handleSharedFilterChange, sharedFilter: _this.props.stateTree.parameters.filter.shared, hideOrgGroupFilters: !!user && !user.orgId, startActive: filtersDefault.indexOf("shared") > -1 ? true : false }));
                 case "status":
                     var _a = _this.props.stateTree.results.counts.contentStatus, deprecated = _a.deprecated, orgAuthoritative = _a.orgAuthoritative, publicAuthoritative = _a.publicAuthoritative;
-                    return (tsx(_Filters_StatusFilter__WEBPACK_IMPORTED_MODULE_6__["default"], { counts: {
+                    return (tsx(_Filters_StatusFilter__WEBPACK_IMPORTED_MODULE_7__["default"], { counts: {
                             authoritative: (user && user.orgId) ?
                                 orgAuthoritative + publicAuthoritative :
                                 publicAuthoritative,
                             deprecated: deprecated
-                        }, key: "status-filters", onStatusSelect: _this.handleStatusFilterChange, statusFilter: _this.props.stateTree.parameters.filter.status }));
+                        }, key: "status-filters", onStatusSelect: _this.handleStatusFilterChange, statusFilter: _this.props.stateTree.parameters.filter.status, startActive: filtersDefault.indexOf("status") > -1 ? true : false }));
                 case "tags":
-                    return (tsx(_Filters_TagsFilter__WEBPACK_IMPORTED_MODULE_7__["default"], { availableTags: _this.props.stateTree.ui.tagsFilter.visibleTags, filterString: _this.props.stateTree.ui.tagsFilter.filterString, key: "ib-tags-filter", onFilterStringChange: _this.handleTagsFilterStringChange, onTagSelect: _this.handleTagsFilterChange, tagsFilter: _this.props.stateTree.parameters.filter.tags }));
+                    return (tsx(_Filters_TagsFilter__WEBPACK_IMPORTED_MODULE_8__["default"], { availableTags: _this.props.stateTree.ui.tagsFilter.visibleTags, filterString: _this.props.stateTree.ui.tagsFilter.filterString, key: "ib-tags-filter", onFilterStringChange: _this.handleTagsFilterStringChange, onTagSelect: _this.handleTagsFilterChange, tagsFilter: _this.props.stateTree.parameters.filter.tags, startActive: filtersDefault.indexOf("tags") > -1 ? true : false }));
                 default:
                     if (typeof filter === "object") {
                         var schema = _this.props.stateTree.results.section.schema;
                         if (!!schema && !!schema.children && !!schema.children[0] && !!schema.children[0].children) {
                             var pathCategories = void 0;
                             if (filter.path) {
-                                var subTree = Object(_utils__WEBPACK_IMPORTED_MODULE_2__["genericSubtreeFromPath"])("children", "value", schema, filter.path);
+                                var subTree = Object(_utils__WEBPACK_IMPORTED_MODULE_3__["genericSubtreeFromPath"])("children", "value", schema, filter.path);
                                 pathCategories = subTree ? subTree.children : undefined;
                             }
-                            return (tsx(_Filters_CategoriesFilter__WEBPACK_IMPORTED_MODULE_8__["default"], { key: "custom-group-categories-filter", onCategorySelect: _this.handleCategorySelect, onClearCategories: _this.handleClearGroupCategories, availableCategories: filter.path && pathCategories ? pathCategories : schema.children, categoriesFilter: _this.props.stateTree.parameters.filter.categories, title: filter["name"], prependValue: "/" + (filter.path ? filter.path.join("/") + "/" : "") }));
+                            return (tsx(_Filters_CategoriesFilter__WEBPACK_IMPORTED_MODULE_9__["default"], { key: "custom-group-categories-filter", onCategorySelect: _this.handleCategorySelect, onClearCategories: _this.handleClearGroupCategories, availableCategories: filter.path && pathCategories ? pathCategories : schema.children, categoriesFilter: _this.props.stateTree.parameters.filter.categories, title: dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["gallery"].filterChips.category, prependValue: "/" + (filter.path ? filter.path.join("/") + "/" : ""), startActive: filtersDefault.indexOf("categories") > -1 ? true : false }));
                         }
                     }
                     return null;
@@ -20633,50 +20727,50 @@ var FilterPane = /** @class */ (function (_super) {
         return (tsx("div", { key: "filter-accordion", class: "fg-filter-pane__accordion" }, sectionFilters));
     };
     FilterPane.prototype.handleItemTypeFilterChange = function (itemTypeOption) {
-        this.props.dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_9__["updateItemTypeFilter"])(itemTypeOption));
-        this.props.dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_9__["search"])());
+        this.props.dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_10__["updateItemTypeFilter"])(itemTypeOption));
+        this.props.dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_10__["search"])());
     };
     FilterPane.prototype.handleModifiedFilterChange = function (section, modifiedOption) {
-        this.props.dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_9__["updateModifiedFilter"])(section, modifiedOption));
-        this.props.dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_9__["search"])());
+        this.props.dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_10__["updateModifiedFilter"])(section, modifiedOption));
+        this.props.dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_10__["search"])());
     };
     FilterPane.prototype.handleCreatedFilterChange = function (section, createdOption) {
-        this.props.dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_9__["updateCreatedFilter"])(section, createdOption));
-        this.props.dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_9__["search"])());
+        this.props.dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_10__["updateCreatedFilter"])(section, createdOption));
+        this.props.dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_10__["search"])());
     };
     FilterPane.prototype.handleSharedFilterChange = function (sharedOption) {
-        this.props.dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_9__["updateSharedFilter"])(sharedOption));
-        this.props.dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_9__["search"])());
+        this.props.dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_10__["updateSharedFilter"])(sharedOption));
+        this.props.dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_10__["search"])());
     };
     FilterPane.prototype.handleStatusFilterChange = function (statusOption) {
-        this.props.dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_9__["updateStatusFilter"])(statusOption));
-        this.props.dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_9__["search"])());
+        this.props.dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_10__["updateStatusFilter"])(statusOption));
+        this.props.dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_10__["search"])());
     };
     FilterPane.prototype.handleTagsFilterChange = function (tags) {
-        this.props.dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_9__["updateTagsFilter"])(tags));
-        this.props.dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_9__["search"])());
+        this.props.dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_10__["updateTagsFilter"])(tags));
+        this.props.dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_10__["search"])());
     };
     FilterPane.prototype.handleCategorySelect = function (category) {
         var filter = this.props.stateTree.parameters.filter.categories;
         if (filter && filter.value === category.value) {
-            this.props.dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_9__["updateCategoriesFilter"])());
+            this.props.dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_10__["updateCategoriesFilter"])());
         }
         else {
-            this.props.dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_9__["updateCategoriesFilter"])(category));
+            this.props.dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_10__["updateCategoriesFilter"])(category));
         }
-        this.props.dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_9__["search"])());
+        this.props.dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_10__["search"])());
     };
     FilterPane.prototype.handleClearGroupCategories = function () {
-        this.props.dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_9__["updateCategoriesFilter"])());
-        this.props.dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_9__["search"])());
+        this.props.dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_10__["updateCategoriesFilter"])());
+        this.props.dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_10__["search"])());
     };
     FilterPane.prototype.handleTagsFilterStringChange = function (tagName) {
-        this.props.dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_9__["updateTagsFilterString"])(tagName));
+        this.props.dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_10__["updateTagsFilterString"])(tagName));
     };
     return FilterPane;
-}(_Component__WEBPACK_IMPORTED_MODULE_1__["Component"]));
+}(_Component__WEBPACK_IMPORTED_MODULE_2__["Component"]));
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(_Component__WEBPACK_IMPORTED_MODULE_1__["connect"])(function (state) { return ({
+/* harmony default export */ __webpack_exports__["default"] = (Object(_Component__WEBPACK_IMPORTED_MODULE_2__["connect"])(function (state) { return ({
     stateTree: state
 }); }, function (dispatch) { return ({
     dispatch: dispatch
@@ -20709,7 +20803,7 @@ var CreatedFilter = /** @class */ (function (_super) {
         return _this;
     }
     CreatedFilter.prototype.render = function (tsx) {
-        return (tsx(_Dropdowns_AccordionDropdown__WEBPACK_IMPORTED_MODULE_2__["default"], { key: "created-filter-accordion", title: this.props.title, clearable: !!this.props.dateFilter, onClear: this.handleClearFilter },
+        return (tsx(_Dropdowns_AccordionDropdown__WEBPACK_IMPORTED_MODULE_2__["default"], { key: "created-filter-accordion", title: this.props.title, clearable: !!this.props.dateFilter, onClear: this.handleClearFilter, startActive: this.props.startActive },
             tsx("ul", { "aria-label": this.props.title, class: "ftr-created__tree", id: "created-filter-accordion-tree", role: "tree" },
                 tsx(_DateSelection_DateRangeSelector__WEBPACK_IMPORTED_MODULE_3__["default"], { key: "date-range-selector", selectedOption: this.props.dateSection, range: this.props.dateFilter, onDateRangeSelect: this.handleDateRangeSelect }))));
     };
@@ -21090,7 +21184,7 @@ var ItemTypeFilter = /** @class */ (function (_super) {
         return _this;
     }
     ItemTypeFilter.prototype.render = function (tsx) {
-        return (tsx(_Dropdowns_AccordionDropdown__WEBPACK_IMPORTED_MODULE_3__["default"], { key: "item-type-accordion", title: dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["filters"].itemType.itemType, clearable: !!this.props.itemTypeFilter, onClear: this.handleClearFilter },
+        return (tsx(_Dropdowns_AccordionDropdown__WEBPACK_IMPORTED_MODULE_3__["default"], { key: "item-type-accordion", title: dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["filters"].itemType.itemType, clearable: !!this.props.itemTypeFilter, onClear: this.handleClearFilter, startActive: this.props.startActive },
             tsx("ul", { "aria-label": dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["filters"].itemType.itemType, id: "item-type-accordion-tree", class: "ftr-item-type__tree", role: "tree" }, this.mapItemTypesToToggles(tsx))));
     };
     ItemTypeFilter.prototype.mapItemTypesToToggles = function (tsx) {
@@ -21225,7 +21319,7 @@ var SharedFilters = /** @class */ (function (_super) {
         return _this;
     }
     SharedFilters.prototype.render = function (tsx) {
-        return (tsx(_Dropdowns_AccordionDropdown__WEBPACK_IMPORTED_MODULE_3__["default"], { key: "shared-accordion", title: dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["filters"].shared.shared, clearable: !!this.props.sharedFilter, onClear: this.handleClearFilter },
+        return (tsx(_Dropdowns_AccordionDropdown__WEBPACK_IMPORTED_MODULE_3__["default"], { key: "shared-accordion", title: dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["filters"].shared.shared, clearable: !!this.props.sharedFilter, onClear: this.handleClearFilter, startActive: this.props.startActive },
             tsx("ul", { id: "shared-accordion-tree", class: "ftr-shared__tree", role: "tree", "aria-label": dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["filters"].shared.shared }, this.mapOptionsToToggles(tsx))));
     };
     SharedFilters.prototype.mapOptionsToToggles = function (tsx) {
@@ -21291,7 +21385,7 @@ var StatusFilter = /** @class */ (function (_super) {
         return _this;
     }
     StatusFilter.prototype.render = function (tsx) {
-        return (tsx(_Dropdowns_AccordionDropdown__WEBPACK_IMPORTED_MODULE_3__["default"], { key: "status-accordion", title: dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["filters"].status.status, clearable: !!this.props.statusFilter, onClear: this.handleClearFilter },
+        return (tsx(_Dropdowns_AccordionDropdown__WEBPACK_IMPORTED_MODULE_3__["default"], { key: "status-accordion", title: dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["filters"].status.status, clearable: !!this.props.statusFilter, onClear: this.handleClearFilter, startActive: this.props.startActive },
             tsx("ul", { "aria-label": dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["filters"].status.status, class: "ftr-status__tree", id: "status-accordion-tree", role: "tree" }, this.mapOptionsToToggles(tsx))));
     };
     StatusFilter.prototype.mapOptionsToToggles = function (tsx) {
@@ -21347,7 +21441,7 @@ var TagsFilter = /** @class */ (function (_super) {
         return _this;
     }
     TagsFilter.prototype.render = function (tsx) {
-        return (tsx(_Dropdowns_AccordionDropdown__WEBPACK_IMPORTED_MODULE_3__["default"], { key: this.props.key + "-accordion", title: this.props.title ? this.props.title : dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["filters"].tags.tags, clearable: !!this.props.tagsFilter, onClear: this.handleClearFilter, padding: false },
+        return (tsx(_Dropdowns_AccordionDropdown__WEBPACK_IMPORTED_MODULE_3__["default"], { key: this.props.key + "-accordion", title: this.props.title ? this.props.title : dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["filters"].tags.tags, clearable: !!this.props.tagsFilter, onClear: this.handleClearFilter, startActive: this.props.startActive, padding: false },
             tsx("div", { class: "ftr-tags__input-area" },
                 tsx("input", { id: "filter-tag-filters", type: "search", placeholder: dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["filters"].tags.filterTags, "aria-label": dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["filters"].tags.filterTags, oninput: this.handleFilterStringChange, value: this.props.filterString })),
             tsx("ul", { class: "ftr-tags__tree", id: this.props.key + "-accordion-tree", role: "tree", "aria-label": dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["filters"].tags.tags }, this.props.availableTags.length > 0 ?
@@ -21357,6 +21451,16 @@ var TagsFilter = /** @class */ (function (_super) {
     TagsFilter.prototype.mapTagsToToggles = function (tsx) {
         var _this = this;
         return this.props.availableTags
+            .sort(function (a, b) {
+            var tagA = a.value, tagB = b.value;
+            if (tagA < tagB) {
+                return -1;
+            }
+            if (tagA > tagB) {
+                return 1;
+            }
+            return 0;
+        })
             .map(function (tag) { return (tsx(_Buttons_CheckToggle__WEBPACK_IMPORTED_MODULE_4__["default"]
         // count={tag.count}
         , { 
@@ -21559,7 +21663,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(292);
 /* harmony import */ var dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(13);
-/* harmony import */ var _Buttons_IconButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(341);
+/* harmony import */ var _Buttons_IconButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(339);
 /* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(256);
 /* harmony import */ var _MapView__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(370);
 /* harmony import */ var _SceneView__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(375);
@@ -21957,29 +22061,25 @@ var LayerBase = /** @class */ (function (_super) {
     };
     LayerBase.prototype.loadMap = function (MapConstructor, ViewConstructor, LayerConstructor) {
         var _this = this;
-        this.layer = new LayerConstructor({ url: this.props.layerUrl });
         this.map = new MapConstructor({
-            basemap: "streets-vector",
-            layers: [this.layer]
+            basemap: this.props.defaultBasemap
         });
         this.setState({ loadText: "layers" });
-        this.layer.load().then(function () {
+        this.layer = new LayerConstructor({ url: this.props.layerUrl });
+        this.layer.load().then(function (layers) {
             _this.setState({ loadText: "widgets" });
             _this.view = new ViewConstructor({
                 container: _this.props.containerId,
-                map: _this.map,
-                extent: _this.layer.fullExtent
+                map: _this.map
             });
             _this.view.popup.defaultPopupTemplateEnabled = true;
-            _this.view.when(function () {
-                _this.loadWidgets(_this.view).then(function () {
-                    _this.view.container = _this.props.containerId;
-                    _this.setState({ status: "loaded" });
-                }, function (err) {
-                    _this.setState({ status: "failed" });
-                });
-            });
-        }, function (err) {
+            _this.map.add(_this.layer);
+            _this.view.extent = _this.layer.fullExtent;
+            return _this.loadWidgets(_this.view);
+        }).then(function () {
+            _this.view.container = _this.props.containerId;
+            _this.setState({ status: "loaded" });
+        }).otherwise(function (err) {
             _this.setState({ status: "failed" });
         });
     };
@@ -22038,7 +22138,8 @@ var LayerBase = /** @class */ (function (_super) {
 }(_Component__WEBPACK_IMPORTED_MODULE_2__["Component"]));
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(_Component__WEBPACK_IMPORTED_MODULE_2__["connect"])(function (state) { return ({
-    widgets: state.settings.config.widgets
+    widgets: state.settings.config.widgets,
+    defaultBasemap: state.settings.config.defaultBasemap
 }); }, function () { return ({}); })(LayerBase));
 
 
