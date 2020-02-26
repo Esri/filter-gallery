@@ -147,7 +147,7 @@ define({
       "browse": "Procurar",
       "search": "Pesquisar"
     },
-    "resultCount": "itens",
+    "resultCount": "itens:",
     "searchPlaceholders": {
       "generic": "Introduza termos de pesquisa"
     },

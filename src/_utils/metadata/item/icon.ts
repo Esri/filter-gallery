@@ -135,6 +135,8 @@ export const getItemIcon = (imgDir: string, type: string, typeKeywords: string[]
       imgName = "style";
     } else if (itemType === "dashboard") {
       imgName = "dashboard";
+    } else if (itemType === "storymap") {
+      imgName = "storymap"; 
     } else {
       imgName = "maps";
     }

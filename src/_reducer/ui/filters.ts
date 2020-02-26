@@ -1,4 +1,5 @@
 import {
+    LOAD_PORTAL_SUCCESS,
     CLEAR_ALL_FILTERS,
     TOGGLE_FILTERS,
     UPDATE_CREATED_FILTER,
@@ -18,6 +19,11 @@ export const initialState: FiltersState = {
 
 export default (state: FiltersState = initialState, action: Action) => {
     switch (action.type) {
+        case LOAD_PORTAL_SUCCESS:
+            return {
+                ...state,
+                filtersOpen: action.payload.config.filterPaneDefault
+            };
         case CLEAR_ALL_FILTERS:
             return {
                 filtersOpen: state.filtersOpen

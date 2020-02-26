@@ -147,7 +147,7 @@ define({
       "browse": "Sirvi",
       "search": "Otsing"
     },
-    "resultCount": "sisuobjektid",
+    "resultCount": "sisuobjektid:",
     "searchPlaceholders": {
       "generic": "Sisestage otsingusõnad"
     },

@@ -190,6 +190,14 @@ export interface ConfigState {
     section: CustomSection;
 
     /**
+     * Array of filters that will default open in the section dropdown.
+     * - options: `categories`, `itemType`, `created`, `modified`, `shared`, `status`, `tags`
+     * @type {array}
+     * @default []
+     */
+    filtersDefault: String[];
+
+    /**
      * Array of sort options available in the gallery.
      * - options: `relevance`, `title`, `created`, `type`, `owner`, `modified`, `avgrating`, `numcomments`, `numviews`
      * @type {array}
@@ -205,6 +213,13 @@ export interface ConfigState {
     searchPlaceholderText: string;
 
     /**
+     * Include sign in button in header.
+     * @type {boolean}
+     * @default false
+     */
+    showSignInBtn: boolean;
+
+    /**
      * Widgets to add to the map or scene. To hide the widget set to an empty string.
      * To show the widget, set the property for the widget to
      * `top-left`, `top-right`, `bottom-left`, or `bottom-right`. 
@@ -218,6 +233,13 @@ export interface ConfigState {
         searchWidget: string;
         basemapGalleryWidget: string;
     };
+
+    /**
+     * Basemap to use for layer viewer
+     * @type {string}
+     * @default streets-vector
+     */
+    defaultBasemap: string;
 
     /**
      * Url for the portal which contains the group being queried.
@@ -279,6 +301,7 @@ export const initialState: ConfigState = {
         "notebooks"
     ],
     customActions: defaultActions,
+    defaultBasemap: "streets-vector",
     section: {
         name: "doesnt matter",
         baseQuery: "",
@@ -296,8 +319,10 @@ export const initialState: ConfigState = {
         ],
         id: "8de7d7e7162549f3960f3094754dbe37"
     },
+    filtersDefault: [],
     sortOptions: ["relevance", "title", "owner", "created", "modified", "numviews"],
     searchPlaceholderText: i18n.defaultPlaceholder,
+    showSignInBtn: false,
     widgets: {
         compassWidget: "",
         homeWidget: "",
@@ -333,6 +358,7 @@ export default (state: ConfigState = initialState, action: Action) => {
                 dialogTitle: config.title,
                 resultsPerQuery: config.resultsPerQuery,
                 allowedItemTypes: config.allowedItemTypes,
+                defaultBasemap: config.defaultBasemap,
                 widgets: {
                     "compassWidget": config.compassWidget,
                     "homeWidget": config.homeWidget,
@@ -357,7 +383,9 @@ export default (state: ConfigState = initialState, action: Action) => {
                     ),
                     id: config.group
                 },
-                group: config.group
+                filtersDefault: config.filtersDefault,
+                group: config.group,
+                showSignInBtn: config.showSignInBtn
             };
         default:
             return state;

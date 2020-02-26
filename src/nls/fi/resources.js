@@ -147,7 +147,7 @@ define({
       "browse": "Selaa",
       "search": "Hae"
     },
-    "resultCount": "alkiot",
+    "resultCount": "alkiot:",
     "searchPlaceholders": {
       "generic": "Anna hakuehdot"
     },

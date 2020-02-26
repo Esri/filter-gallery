@@ -1,7 +1,7 @@
 define({
   "appInit": "Paleidžiama aplikacija...",
   "appFailed": "Nepavyko įkelti aplikacijos.",
-  "noAuth": "Jūsų paskyra nelicencijuota naudoti ne viešas konfigūruojamas aplikacijas. Kreipkitės į organizacijos administratorių, kad paskirtų jums vartotojo tipą, kuris turi svarbiausias aplikacijas, arba suteiktų jums papildomą svarbiausių aplikacijų licenciją.",
+  "noAuth": "Jūsų paskyra nelicencijuota naudoti ne viešas konfigūruojamas aplikacijas. Kreipkitės į organizacijos administratorių, kad paskirtų jums naudotojo tipą, kuris turi svarbiausias aplikacijas, arba suteiktų jums papildomą svarbiausių aplikacijų licenciją.",
   "notLicensed": "Nelicencijuota",
   "badges": {
     "authoritative": "Patikimas",
@@ -147,7 +147,7 @@ define({
       "browse": "Naršyti",
       "search": "Ieškoti"
     },
-    "resultCount": "elementai",
+    "resultCount": "elementai:",
     "searchPlaceholders": {
       "generic": "Įveskite paieškos frazes"
     },
@@ -186,7 +186,7 @@ define({
         "shared": "Šis elementas nėra bendrinamas.",
         "private": "Šis elementas nėra bendrinamas."
       },
-      "viewUser": "Peržiūrėti vartotojo profilį",
+      "viewUser": "Peržiūrėti naudotojo profilį",
       "viewOrg": "Aplankyti organizaciją",
       "addToFavorites": "Pridėti į mėgstamiausius",
       "removeFromFavorites": "Šalinti iš mėgstamiausių",
@@ -220,7 +220,7 @@ define({
     "by": "sukūrė",
     "actions": "Veiksmai",
     "viewOrg": "Aplankyti organizaciją",
-    "viewProfile": "Peržiūrėti vartotojo profilį",
+    "viewProfile": "Peržiūrėti naudotojo profilį",
     "viewItem": "Elemento aprašas",
     "hideItem": "Slėpti elemento aprašą",
     "created": "Sukurta",

@@ -44,6 +44,12 @@ export interface StatusFilterProps {
      * @type {object}
      */
     statusFilter: StatusOption | undefined;
+
+    /**
+     * If this option is enabled the filter will start in the active state
+     * @type {boolean}
+     */
+    startActive?: boolean;
 }
 
 export interface StatusFilterState {
@@ -76,6 +82,7 @@ export default class StatusFilter extends Component<StatusFilterProps, StatusFil
                 title={componentI18n.filters.status.status}
                 clearable={!!this.props.statusFilter}
                 onClear={this.handleClearFilter}
+                startActive={this.props.startActive}
             >
                 <ul
                     aria-label={componentI18n.filters.status.status}

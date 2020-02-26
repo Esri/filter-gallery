@@ -53,9 +53,14 @@ function getAllowedItemTypesQuery(allowedItemTypes: string[]): string {
             },
             false
         ));
+    const filterStoryMaps = allowedItemTypes.indexOf("StoryMap") > -1;
     return `((type:"${allowedItemTypes.join("\" OR type:\"")}")${
         partialMatches.length > 0 ?
             ` AND (-type:"${partialMatches.join("\" AND -type:\"")}")` :
+            ``
+        }${
+        filterStoryMaps ?
+            ` NOT (type:"StoryMap" AND typekeywords: ("smstatusdraft"))` :
             ``
     })`;
 }

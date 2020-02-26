@@ -147,7 +147,7 @@ define({
       "browse": "Sfoglia",
       "search": "Cercare"
     },
-    "resultCount": "elementi",
+    "resultCount": "elementi:",
     "searchPlaceholders": {
       "generic": "Immettere i termini da cercare"
     },

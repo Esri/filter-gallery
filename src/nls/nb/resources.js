@@ -147,7 +147,7 @@ define({
       "browse": "Bla gjennom",
       "search": "Søk"
     },
-    "resultCount": "elementer",
+    "resultCount": "elementer:",
     "searchPlaceholders": {
       "generic": "Skriv inn søkeord"
     },

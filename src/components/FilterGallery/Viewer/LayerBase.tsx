@@ -14,6 +14,7 @@ interface LayerBaseProps {
     viewModule: string;
     layerModule: string;
     widgets: { [propName: string]: string };
+    defaultBasemap: string;
     layerUrl: string;
     containerId: string;
     closing: boolean;
@@ -26,7 +27,7 @@ interface LayerBaseState {
 
 export class LayerBase extends Component<LayerBaseProps, LayerBaseState> {
     private map: __esri.Map;
-    private view: __esri.View;
+    private view: __esri.MapView | __esri.SceneView;
     private layer: __esri.Layer;
 
     constructor(props: LayerBaseProps) {
@@ -90,37 +91,27 @@ export class LayerBase extends Component<LayerBaseProps, LayerBaseState> {
         ViewConstructor: __esri.MapViewConstructor,
         LayerConstructor: __esri.LayerConstructor
     ) {
-        this.layer = new LayerConstructor({ url: this.props.layerUrl } as __esri.LayerProperties);
         this.map = new MapConstructor({
-            basemap: "streets-vector",
-            layers: [this.layer]
+            basemap: this.props.defaultBasemap
         });
         this.setState({ loadText: "layers" });
-        this.layer.load().then(
-            () => {
-                this.setState({ loadText: "widgets" });
-                this.view = new ViewConstructor({
-                    container: this.props.containerId,
-                    map: this.map, 
-                    extent: this.layer.fullExtent
-                });
-                this.view.popup.defaultPopupTemplateEnabled = true;
-                this.view.when(() => {
-                    this.loadWidgets(this.view as any).then(
-                        () => {
-                            this.view.container = this.props.containerId as any;
-                            this.setState({ status: "loaded" });
-                        },
-                        (err) => {
-                            this.setState({ status: "failed" });
-                        }
-                    );
-                });
-            },
-            (err) => {
-                this.setState({ status: "failed" });
-            }
-        );
+        this.layer = new LayerConstructor({ url: this.props.layerUrl } as __esri.LayerProperties);
+        this.layer.load().then((layers: any) => {
+            this.setState({ loadText: "widgets" });
+            this.view = new ViewConstructor({
+                container: this.props.containerId,
+                map: this.map
+            });
+            this.view.popup.defaultPopupTemplateEnabled = true;
+            this.map.add(this.layer);
+            this.view.extent = this.layer.fullExtent;
+            return this.loadWidgets(this.view as any);
+        }).then(() => {
+            this.view.container = this.props.containerId as any;
+            this.setState({ status: "loaded" });
+        }).otherwise((err) => {
+            this.setState({ status: "failed" });
+        });
     }
 
     private loadWidgets(view: __esri.MapView) {
@@ -179,11 +170,13 @@ interface StateProps {
     widgets: {
         [propName: string]: string;
     };
+    defaultBasemap: string;
 }
 
 export default connect<LayerBaseProps, FilterGalleryStore, StateProps, {}>(
     (state) => ({
-        widgets: state.settings.config.widgets
+        widgets: state.settings.config.widgets,
+        defaultBasemap: state.settings.config.defaultBasemap
     }),
     () => ({})
 )(LayerBase);

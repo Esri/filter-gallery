@@ -147,7 +147,7 @@ define({
       "browse": "استعراض",
       "search": "بحث"
     },
-    "resultCount": "العناصر",
+    "resultCount": "العناصر:",
     "searchPlaceholders": {
       "generic": "أدخل كلمات البحث"
     },
