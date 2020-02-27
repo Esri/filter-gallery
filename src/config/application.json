@@ -120,6 +120,7 @@
   "showItemType": true,
   "showItemToolTip": false,
   "itemSummaryMaxChar": 250,
+  "openDocumentInBrowser": false,
   "filterPaneDefault": false,
   "filters": [
     "categories",
