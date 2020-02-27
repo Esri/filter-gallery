@@ -240,6 +240,7 @@ define({
     "viewInMap": "在地圖中檢視",
     "viewInScene": "在場景中檢視",
     "download": "下載",
+    "openPdf": "試_Open in PDF____________驗",
     "addFavorite": "新增到我的最愛",
     "removeFavorite": "從我的最愛中移除"
   },

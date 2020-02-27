@@ -240,6 +240,7 @@ define({
     "viewInMap": "Skatīt kartē",
     "viewInScene": "Skatīt scēnā",
     "download": "Lejupielādēt",
+    "openPdf": "ķ_Open in PDF____________ū",
     "addFavorite": "Pievienot favorītiem",
     "removeFavorite": "Noņemt no favorītiem"
   },

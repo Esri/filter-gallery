@@ -240,6 +240,7 @@ define({
     "viewInMap": "ดูในแผนที่",
     "viewInScene": "ดูในซีน",
     "download": "ดาวน์โหลด",
+    "openPdf": "ก้_Open in PDF____________ษฺ",
     "addFavorite": "เพิ่มไปยังรายการโปรด",
     "removeFavorite": "นำออกจากรายการโปรด"
   },

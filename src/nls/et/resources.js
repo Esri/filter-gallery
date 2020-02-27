@@ -240,6 +240,7 @@ define({
     "viewInMap": "Kuva kaardil",
     "viewInScene": "Kuva stseenil",
     "download": "Allalaadimine",
+    "openPdf": "Š_Open in PDF____________ä",
     "addFavorite": "Lisa lemmikutesse",
     "removeFavorite": "Eemalda lemmikutest"
   },

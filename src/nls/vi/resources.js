@@ -240,6 +240,7 @@ define({
     "viewInMap": "Xem trên Bản đồ",
     "viewInScene": "Xem trên Scene",
     "download": "Tải xuống",
+    "openPdf": "Đ_Open in PDF____________ớ",
     "addFavorite": "Thêm vào mục Yêu thích",
     "removeFavorite": "Gỡ bỏ khỏi mục Yêu thích"
   },
