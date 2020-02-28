@@ -4,5 +4,6 @@ export default {
     legendWidget: "esri/widgets/Legend",
     locateWidget: "esri/widgets/Locate",
     searchWidget: "esri/widgets/Search",
-    basemapGalleryWidget: "esri/widgets/BasemapGallery"
+    basemapGalleryWidget: "esri/widgets/BasemapGallery", 
+    expandWidget: "esri/widgets/Expand"
 };

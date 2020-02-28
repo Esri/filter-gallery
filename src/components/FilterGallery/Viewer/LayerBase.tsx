@@ -2,11 +2,9 @@ import * as i18n from "dojo/i18n!../../../nls/resources";
 import { Component, H, connect } from "../../../Component";
 
 import * as promiseUtils from "esri/core/promiseUtils";
-import * as requireUtils from "esri/core/requireUtils";
 import LoaderBars from "../../Loaders/LoaderBars";
 import { FilterGalleryStore } from "../../..";
 import widgetMapping from "./_utils/widgetMapping"; //Widget 1 of 2
-import * as Expand from "esri/widgets/Expand";
 
 interface LayerBaseProps {
     key: string;
@@ -74,16 +72,55 @@ export class LayerBase extends Component<LayerBaseProps, LayerBaseState> {
     }
 
     private loadScripts() {
-        requireUtils.when(window["require"], [this.props.mapModule, this.props.viewModule, this.props.layerModule])
-            .then(
-                ([MapConstructor, ViewConstructor, LayerConstructor]) => {
-                    this.setState({ loadText: "map" });
-                    this.loadMap(MapConstructor, ViewConstructor, LayerConstructor);
-                },
-                (err) => {
-                    this.setState({ status: "failed" });
-                }
-            );
+        // requireUtils.when(window["require"], [this.props.mapModule, this.props.viewModule, this.props.layerModule])
+        //     .then(
+        //         ([MapConstructor, ViewConstructor, LayerConstructor]) => {
+        //             this.setState({ loadText: "map" });
+        //             this.loadMap(MapConstructor, ViewConstructor, LayerConstructor);
+        //         },
+        //         (err) => {
+        //             this.setState({ status: "failed" });
+        //         }
+        //     );
+
+        // Temp solution loading all options till can set up dynamically loading modules like before
+        let constructorKey: object;
+        promiseUtils.create(
+            (resolve, reject) => { 
+                require(
+                    ["esri/Map", // Map
+                    "esri/views/MapView", "esri/views/SceneView", // Views
+                    // tslint:disable-next-line: max-line-length
+                    "esri/layers/FeatureLayer", "esri/layers/VectorTileLayer", "esri/layers/MapImageLayer", "esri/layers/ImageryLayer", "esri/layers/SceneLayer"],  // Layers
+                    (Map, 
+                     MapView, SceneView, 
+                     FeatureLayer, VectorTileLayer, MapImageLayer, ImageryLayer, SceneLayer) => {
+                            constructorKey = {
+                                "esri/layers/FeatureLayer": FeatureLayer, 
+                                "esri/layers/VectorTileLayer": VectorTileLayer, 
+                                "esri/layers/MapImageLayer": MapImageLayer, 
+                                "esri/layers/ImageryLayer": ImageryLayer, 
+                                "esri/layers/SceneLayer": SceneLayer
+                            };
+                            return resolve([Map, MapView, SceneView]);
+                        }
+                ); 
+            }
+        ).then(
+            ([Map, MapView, SceneView, FeatureLayer, VectorTileLayer, MapImageLayer, ImageryLayer, SceneLayer]) => {
+                const viewModule = this.props.viewModule === "esri/views/MapView" ? MapView :
+                                this.props.viewModule === "esri/views/SceneView" ? SceneView :
+                                MapView; // default to MapView
+                const layerModule: any = constructorKey ? 
+                                            constructorKey[this.props.layerModule] : 
+                                            FeatureLayer; // default to FeatureLayer
+                this.setState({ loadText: "map" });
+                this.loadMap(Map, viewModule, layerModule);  
+            },
+            (err) => {
+                this.setState({ status: "failed" });
+            }
+        );
     }
 
     private loadMap(
@@ -129,40 +166,90 @@ export class LayerBase extends Component<LayerBaseProps, LayerBaseState> {
                 } as never); // typescript is weird
             }
             return p;
-        }, []);
-        return requireUtils.when(window["require"], modules.map((item) => item["module"]))
-            .then((constructors) => {
-                constructors.forEach((Constructor: any, i: number) => {
-                    const widget = new Constructor({ view });
-                    //only collapse if BasemapGallery or Legend
-                    if( (modules[i]["module"]==="esri/widgets/Legend") || (modules[i]["module"]==="esri/widgets/BasemapGallery") ) {
-                        let tooltip = widget.label;
-                        let group = ( (modules[i]["position"] as string).indexOf('left') < 0 ) ? "right" : "left";
-                        const widgetExpand = new Expand({
+        },                                                     []);
+        // return requireUtils.when(window["require"], modules.map((item) => item["module"]))
+        //     .then((constructors) => {
+        //         constructors.forEach((Constructor: any, i: number) => {
+        //             const widget = new Constructor({ view });
+        //             //only collapse if BasemapGallery or Legend
+        //             if( (modules[i]["module"]==="esri/widgets/Legend") || (modules[i]["module"]==="esri/widgets/BasemapGallery") ) {
+        //                 let tooltip = widget.label;
+        //                 let group = ( (modules[i]["position"] as string).indexOf('left') < 0 ) ? "right" : "left";
+        //                 const widgetExpand = new Expand({
+        //                     expandTooltip: tooltip,
+        //                     view: view,
+        //                     content: widget,
+        //                     group: group
+        //                 });
+        //                 if (widget.activeLayerInfos) {
+        //                     widget.watch("activeLayerInfos.length", () => {
+        //                         view.ui.add(widgetExpand, modules[i]["position"]);
+        //                     });
+        //                     return;
+        //                 }
+        //                 view.ui.add(widgetExpand, modules[i]["position"]);
+        //                 return;
+        //             }
+        //             if (widget.activeLayerInfos) {
+        //                 widget.watch("activeLayerInfos.length", () => {
+        //                     view.ui.add(widget, modules[i]["position"]);
+        //                 });
+        //                 return;
+        //             }
+        //             view.ui.add(widget, modules[i]["position"]);
+        //         });
+        //         return promiseUtils.resolve();
+        //     });
+
+        // Temp solution loading all options till can set up dynamically loading modules like before
+        let constructorKey: object = {};
+        return promiseUtils.create(
+            (resolve, reject) => { 
+                // tslint:disable-next-line: max-line-length
+                require(["esri/widgets/Compass", "esri/widgets/Home", "esri/widgets/Legend", "esri/widgets/Locate", "esri/widgets/Search", "esri/widgets/BasemapGallery", "esri/widgets/Expand"], 
+                        (Compass, Home, Legend, Locate, Search, BasemapGallery, Expand) => {
+                            constructorKey = {
+                                "esri/widgets/Compass": Compass, 
+                                "esri/widgets/Home": Home, 
+                                "esri/widgets/Legend": Legend, 
+                                "esri/widgets/Locate": Locate, 
+                                "esri/widgets/Search": Search, 
+                                "esri/widgets/BasemapGallery": BasemapGallery, 
+                                "esri/widgets/Expand": Expand
+                            };
+                            return resolve([Compass, Home, Legend, Locate, Search, BasemapGallery, Expand]);
+                        }
+                ); 
+            }).then(([Compass, Home, Legend, Locate, Search, BasemapGallery, Expand]) => {
+                modules.forEach((mod) => {
+                    const constructor: any = constructorKey[mod["module"]];
+                    let widget = new constructor({ view });
+                    if ( mod["module"] === "esri/widgets/Legend" || mod["module"] === "esri/widgets/BasemapGallery" ) {
+                        const tooltip = widget.label;
+                        const group = ( (mod["position"] as string).indexOf('left') < 0 ) ? "right" : "left";
+                        // create expand widget to go around legend
+                        widget = new Expand({
+                            expandIconClass: widget.iconClass || "esri-icon-layer-list",
                             expandTooltip: tooltip,
                             view: view,
                             content: widget,
                             group: group
                         });
-                        if (widget.activeLayerInfos) {
-                            widget.watch("activeLayerInfos.length", () => {
-                                view.ui.add(widgetExpand, modules[i]["position"]);
-                            });
-                            return;
-                        }
-                        view.ui.add(widgetExpand, modules[i]["position"]);
-                        return;
                     }
                     if (widget.activeLayerInfos) {
                         widget.watch("activeLayerInfos.length", () => {
-                            view.ui.add(widget, modules[i]["position"]);
+                            view.ui.add(widget, mod["position"]);
                         });
                         return;
                     }
-                    view.ui.add(widget, modules[i]["position"]);
+                    view.ui.add(widget, mod["position"]);
+
                 });
                 return promiseUtils.resolve();
-            });
+            },      (err) => {
+                console.error("Widget Loading Error: \n", err);
+            }
+        );
     }
 }
 
