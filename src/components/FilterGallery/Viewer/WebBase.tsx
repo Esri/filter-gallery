@@ -70,18 +70,6 @@ export class WebBase extends Component<WebBaseProps, WebBaseState> {
     }
 
     private loadScripts() {
-        // requireUtils.when(window["require"], [this.props.webModule, this.props.viewModule])
-        //     .then(
-        //         ([WebConstructor, ViewConstructor]) => {
-        //             this.setState({ loadText: "map" });
-        //             this.loadMap(WebConstructor, ViewConstructor);
-        //         },
-        //         (err) => {
-        //             this.setState({ status: "failed" });
-        //         }
-        //     );
-       
-        // Temp solution loading all options till can set up dynamically loading modules like before
         promiseUtils.create(
             (resolve, reject) => { 
                 require(["esri/WebMap", "esri/WebScene", "esri/views/MapView", "esri/views/SceneView"], 
@@ -155,41 +143,6 @@ export class WebBase extends Component<WebBaseProps, WebBaseState> {
             }
             return p;
         },                                                     []);
-        // return requireUtils.when(window["require"], modules.map((item) => item["module"]))
-        //     .then((constructors) => {
-        //         constructors.forEach((Constructor: any, i: number) => {
-        //             const widget = new Constructor({ view });
-        //             //only collapse if BasemapGallery or Legend
-        //             if( (modules[i]["module"]==="esri/widgets/Legend") || (modules[i]["module"]==="esri/widgets/BasemapGallery") ) {
-        //                 let tooltip = widget.label;
-        //                 let group = ( (modules[i]["position"] as string).indexOf('left') < 0 ) ? "right" : "left";
-        //                 const widgetExpand = new Expand({
-        //                     expandTooltip: tooltip,
-        //                     view: view,
-        //                     content: widget,
-        //                     group: group
-        //                 });
-        //                 if (widget.activeLayerInfos) {
-        //                     widget.watch("activeLayerInfos.length", () => {
-        //                         view.ui.add(widgetExpand, modules[i]["position"]);
-        //                     });
-        //                     return;
-        //                 }
-        //                 view.ui.add(widgetExpand, modules[i]["position"]);
-        //                 return;
-        //             }
-        //             if (widget.activeLayerInfos) {
-        //                 widget.watch("activeLayerInfos.length", () => {
-        //                     view.ui.add(widget, modules[i]["position"]);
-        //                 });
-        //                 return;
-        //             }
-        //             view.ui.add(widget, modules[i]["position"]);
-        //         });
-        //         return promiseUtils.resolve();
-        //     });
-
-        // Temp solution loading all options till can set up dynamically loading modules like before
         let constructorKey: object = {};
         return promiseUtils.create(
             (resolve, reject) => { 

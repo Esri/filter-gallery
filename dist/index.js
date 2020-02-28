@@ -1,4 +1,4 @@
-define(["dojo/_base/kernel","esri/config","esri/core/promiseUtils","esri/identity/IdentityManager","esri/identity/OAuthInfo","esri/portal/Portal","esri/portal/PortalItem","esri/portal/PortalQueryParams","dojo/_base/declare","dojo/promise/all","dojo/Deferred","dojo/cookie","dojo/io-query","dojo/i18n!./nls/resources","esri/request","dojo/date/locale","dijit/form/DateTextBox","esri/widgets/Expand","esri/WebMap","esri/WebScene","esri/views/MapView","esri/views/SceneView","esri/Map","esri/layers/FeatureLayer","esri/layers/VectorTileLayer","esri/layers/MapImageLayer","esri/layers/ImageryLayer","esri/layers/SceneLayer","esri/widgets/Compass","esri/widgets/Home","esri/widgets/Legend","esri/widgets/Locate","esri/widgets/Search","esri/widgets/BasemapGallery"], function(__WEBPACK_EXTERNAL_MODULE__3__, __WEBPACK_EXTERNAL_MODULE__4__, __WEBPACK_EXTERNAL_MODULE__5__, __WEBPACK_EXTERNAL_MODULE__6__, __WEBPACK_EXTERNAL_MODULE__7__, __WEBPACK_EXTERNAL_MODULE__8__, __WEBPACK_EXTERNAL_MODULE__9__, __WEBPACK_EXTERNAL_MODULE__10__, __WEBPACK_EXTERNAL_MODULE__12__, __WEBPACK_EXTERNAL_MODULE__46__, __WEBPACK_EXTERNAL_MODULE__48__, __WEBPACK_EXTERNAL_MODULE__283__, __WEBPACK_EXTERNAL_MODULE__288__, __WEBPACK_EXTERNAL_MODULE__292__, __WEBPACK_EXTERNAL_MODULE__295__, __WEBPACK_EXTERNAL_MODULE__331__, __WEBPACK_EXTERNAL_MODULE__358__, __WEBPACK_EXTERNAL_MODULE__374__, __WEBPACK_EXTERNAL_MODULE__381__, __WEBPACK_EXTERNAL_MODULE__382__, __WEBPACK_EXTERNAL_MODULE__383__, __WEBPACK_EXTERNAL_MODULE__384__, __WEBPACK_EXTERNAL_MODULE__385__, __WEBPACK_EXTERNAL_MODULE__386__, __WEBPACK_EXTERNAL_MODULE__387__, __WEBPACK_EXTERNAL_MODULE__388__, __WEBPACK_EXTERNAL_MODULE__389__, __WEBPACK_EXTERNAL_MODULE__390__, __WEBPACK_EXTERNAL_MODULE__391__, __WEBPACK_EXTERNAL_MODULE__392__, __WEBPACK_EXTERNAL_MODULE__393__, __WEBPACK_EXTERNAL_MODULE__394__, __WEBPACK_EXTERNAL_MODULE__395__, __WEBPACK_EXTERNAL_MODULE__396__) { return /******/ (function(modules) { // webpackBootstrap
+define(["dojo/_base/kernel","esri/config","esri/core/promiseUtils","esri/identity/IdentityManager","esri/identity/OAuthInfo","esri/portal/Portal","esri/portal/PortalItem","esri/portal/PortalQueryParams","dojo/_base/declare","dojo/promise/all","dojo/Deferred","dojo/cookie","dojo/io-query","dojo/i18n!./nls/resources","esri/request","dojo/date/locale","dijit/form/DateTextBox","esri/WebMap","esri/WebScene","esri/views/MapView","esri/views/SceneView","esri/widgets/Compass","esri/widgets/Home","esri/widgets/Legend","esri/widgets/Locate","esri/widgets/Search","esri/widgets/BasemapGallery","esri/widgets/Expand","esri/Map","esri/layers/FeatureLayer","esri/layers/VectorTileLayer","esri/layers/MapImageLayer","esri/layers/ImageryLayer","esri/layers/SceneLayer"], function(__WEBPACK_EXTERNAL_MODULE__3__, __WEBPACK_EXTERNAL_MODULE__4__, __WEBPACK_EXTERNAL_MODULE__5__, __WEBPACK_EXTERNAL_MODULE__6__, __WEBPACK_EXTERNAL_MODULE__7__, __WEBPACK_EXTERNAL_MODULE__8__, __WEBPACK_EXTERNAL_MODULE__9__, __WEBPACK_EXTERNAL_MODULE__10__, __WEBPACK_EXTERNAL_MODULE__12__, __WEBPACK_EXTERNAL_MODULE__46__, __WEBPACK_EXTERNAL_MODULE__48__, __WEBPACK_EXTERNAL_MODULE__283__, __WEBPACK_EXTERNAL_MODULE__288__, __WEBPACK_EXTERNAL_MODULE__292__, __WEBPACK_EXTERNAL_MODULE__295__, __WEBPACK_EXTERNAL_MODULE__331__, __WEBPACK_EXTERNAL_MODULE__358__, __WEBPACK_EXTERNAL_MODULE__379__, __WEBPACK_EXTERNAL_MODULE__380__, __WEBPACK_EXTERNAL_MODULE__381__, __WEBPACK_EXTERNAL_MODULE__382__, __WEBPACK_EXTERNAL_MODULE__383__, __WEBPACK_EXTERNAL_MODULE__384__, __WEBPACK_EXTERNAL_MODULE__385__, __WEBPACK_EXTERNAL_MODULE__386__, __WEBPACK_EXTERNAL_MODULE__387__, __WEBPACK_EXTERNAL_MODULE__388__, __WEBPACK_EXTERNAL_MODULE__389__, __WEBPACK_EXTERNAL_MODULE__390__, __WEBPACK_EXTERNAL_MODULE__391__, __WEBPACK_EXTERNAL_MODULE__392__, __WEBPACK_EXTERNAL_MODULE__393__, __WEBPACK_EXTERNAL_MODULE__394__, __WEBPACK_EXTERNAL_MODULE__395__) { return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// install a JSONP callback for chunk loading
 /******/ 	function webpackJsonpCallback(data) {
 /******/ 		var chunkIds = data[0];
@@ -152,7 +152,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _reducer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(289);
 /* harmony import */ var _components_FilterGallery__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(321);
 /* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(256);
-/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(380);
+/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(378);
 
 
 
@@ -21720,9 +21720,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Buttons_IconButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(339);
 /* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(256);
 /* harmony import */ var _MapView__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(370);
-/* harmony import */ var _SceneView__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(375);
-/* harmony import */ var _MapLayerView__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(376);
-/* harmony import */ var _SceneLayerView__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(379);
+/* harmony import */ var _SceneView__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(373);
+/* harmony import */ var _MapLayerView__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(374);
+/* harmony import */ var _SceneLayerView__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(377);
 
 
 
@@ -21818,7 +21818,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var esri_core_promiseUtils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(5);
 /* harmony import */ var esri_core_promiseUtils__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(esri_core_promiseUtils__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _Loaders_LoaderBars__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(338);
-/* harmony import */ var _utils_widgetMapping__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(373);
+/* harmony import */ var _utils_widgetMapping__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(372);
 
 
 
@@ -21859,20 +21859,9 @@ var WebBase = /** @class */ (function (_super) {
             tsx("h3", { class: "fg-viewer__center" }, dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["viewer"].viewLoading.failed)));
     };
     WebBase.prototype.loadScripts = function () {
-        // requireUtils.when(window["require"], [this.props.webModule, this.props.viewModule])
-        //     .then(
-        //         ([WebConstructor, ViewConstructor]) => {
-        //             this.setState({ loadText: "map" });
-        //             this.loadMap(WebConstructor, ViewConstructor);
-        //         },
-        //         (err) => {
-        //             this.setState({ status: "failed" });
-        //         }
-        //     );
         var _this = this;
-        // Temp solution loading all options till can set up dynamically loading modules like before
         esri_core_promiseUtils__WEBPACK_IMPORTED_MODULE_4__["create"](function (resolve, reject) {
-            Promise.resolve(/* AMD require */).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(381), __webpack_require__(382), __webpack_require__(383), __webpack_require__(384)]; (function (WebMap, WebScene, MapView, SceneView) {
+            Promise.resolve(/* AMD require */).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(379), __webpack_require__(380), __webpack_require__(381), __webpack_require__(382)]; (function (WebMap, WebScene, MapView, SceneView) {
                 return resolve([WebMap, WebScene, MapView, SceneView]);
             }).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__);}).catch(__webpack_require__.oe);
         }).then(function (_a) {
@@ -21935,44 +21924,10 @@ var WebBase = /** @class */ (function (_super) {
             }
             return p;
         }, []);
-        // return requireUtils.when(window["require"], modules.map((item) => item["module"]))
-        //     .then((constructors) => {
-        //         constructors.forEach((Constructor: any, i: number) => {
-        //             const widget = new Constructor({ view });
-        //             //only collapse if BasemapGallery or Legend
-        //             if( (modules[i]["module"]==="esri/widgets/Legend") || (modules[i]["module"]==="esri/widgets/BasemapGallery") ) {
-        //                 let tooltip = widget.label;
-        //                 let group = ( (modules[i]["position"] as string).indexOf('left') < 0 ) ? "right" : "left";
-        //                 const widgetExpand = new Expand({
-        //                     expandTooltip: tooltip,
-        //                     view: view,
-        //                     content: widget,
-        //                     group: group
-        //                 });
-        //                 if (widget.activeLayerInfos) {
-        //                     widget.watch("activeLayerInfos.length", () => {
-        //                         view.ui.add(widgetExpand, modules[i]["position"]);
-        //                     });
-        //                     return;
-        //                 }
-        //                 view.ui.add(widgetExpand, modules[i]["position"]);
-        //                 return;
-        //             }
-        //             if (widget.activeLayerInfos) {
-        //                 widget.watch("activeLayerInfos.length", () => {
-        //                     view.ui.add(widget, modules[i]["position"]);
-        //                 });
-        //                 return;
-        //             }
-        //             view.ui.add(widget, modules[i]["position"]);
-        //         });
-        //         return promiseUtils.resolve();
-        //     });
-        // Temp solution loading all options till can set up dynamically loading modules like before
         var constructorKey = {};
         return esri_core_promiseUtils__WEBPACK_IMPORTED_MODULE_4__["create"](function (resolve, reject) {
             // tslint:disable-next-line: max-line-length
-            Promise.resolve(/* AMD require */).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(391), __webpack_require__(392), __webpack_require__(393), __webpack_require__(394), __webpack_require__(395), __webpack_require__(396), __webpack_require__(374)]; (function (Compass, Home, Legend, Locate, Search, BasemapGallery, Expand) {
+            Promise.resolve(/* AMD require */).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(383), __webpack_require__(384), __webpack_require__(385), __webpack_require__(386), __webpack_require__(387), __webpack_require__(388), __webpack_require__(389)]; (function (Compass, Home, Legend, Locate, Search, BasemapGallery, Expand) {
                 constructorKey = {
                     "esri/widgets/Compass": Compass,
                     "esri/widgets/Home": Home,
@@ -22023,8 +21978,7 @@ var WebBase = /** @class */ (function (_super) {
 
 
 /***/ }),
-/* 372 */,
-/* 373 */
+/* 372 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -22041,13 +21995,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /***/ }),
-/* 374 */
-/***/ (function(module, exports) {
-
-module.exports = __WEBPACK_EXTERNAL_MODULE__374__;
-
-/***/ }),
-/* 375 */
+/* 373 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -22072,15 +22020,15 @@ var SceneView = /** @class */ (function (_super) {
 
 
 /***/ }),
-/* 376 */
+/* 374 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 /* harmony import */ var _Component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(13);
-/* harmony import */ var _LayerBase__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(377);
-/* harmony import */ var _utils_layerMapping__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(378);
+/* harmony import */ var _LayerBase__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(375);
+/* harmony import */ var _utils_layerMapping__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(376);
 
 
 
@@ -22099,7 +22047,7 @@ var MapLayerView = /** @class */ (function (_super) {
 
 
 /***/ }),
-/* 377 */
+/* 375 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -22112,7 +22060,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var esri_core_promiseUtils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(5);
 /* harmony import */ var esri_core_promiseUtils__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(esri_core_promiseUtils__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _Loaders_LoaderBars__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(338);
-/* harmony import */ var _utils_widgetMapping__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(373);
+/* harmony import */ var _utils_widgetMapping__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(372);
 
 
 
@@ -22152,24 +22100,13 @@ var LayerBase = /** @class */ (function (_super) {
             tsx("h3", { class: "fg-viewer__center" }, dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_1__["viewer"].viewLoading.failed)));
     };
     LayerBase.prototype.loadScripts = function () {
-        // requireUtils.when(window["require"], [this.props.mapModule, this.props.viewModule, this.props.layerModule])
-        //     .then(
-        //         ([MapConstructor, ViewConstructor, LayerConstructor]) => {
-        //             this.setState({ loadText: "map" });
-        //             this.loadMap(MapConstructor, ViewConstructor, LayerConstructor);
-        //         },
-        //         (err) => {
-        //             this.setState({ status: "failed" });
-        //         }
-        //     );
         var _this = this;
-        // Temp solution loading all options till can set up dynamically loading modules like before
         var constructorKey;
         esri_core_promiseUtils__WEBPACK_IMPORTED_MODULE_3__["create"](function (resolve, reject) {
-            Promise.resolve(/* AMD require */).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(385),
-                __webpack_require__(383), __webpack_require__(384),
+            Promise.resolve(/* AMD require */).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(390),
+                __webpack_require__(381), __webpack_require__(382),
                 // tslint:disable-next-line: max-line-length
-                __webpack_require__(386), __webpack_require__(387), __webpack_require__(388), __webpack_require__(389), __webpack_require__(390)]; (function (Map, MapView, SceneView, FeatureLayer, VectorTileLayer, MapImageLayer, ImageryLayer, SceneLayer) {
+                __webpack_require__(391), __webpack_require__(392), __webpack_require__(393), __webpack_require__(394), __webpack_require__(395)]; (function (Map, MapView, SceneView, FeatureLayer, VectorTileLayer, MapImageLayer, ImageryLayer, SceneLayer) {
                 constructorKey = {
                     "esri/layers/FeatureLayer": FeatureLayer,
                     "esri/layers/VectorTileLayer": VectorTileLayer,
@@ -22234,44 +22171,10 @@ var LayerBase = /** @class */ (function (_super) {
             }
             return p;
         }, []);
-        // return requireUtils.when(window["require"], modules.map((item) => item["module"]))
-        //     .then((constructors) => {
-        //         constructors.forEach((Constructor: any, i: number) => {
-        //             const widget = new Constructor({ view });
-        //             //only collapse if BasemapGallery or Legend
-        //             if( (modules[i]["module"]==="esri/widgets/Legend") || (modules[i]["module"]==="esri/widgets/BasemapGallery") ) {
-        //                 let tooltip = widget.label;
-        //                 let group = ( (modules[i]["position"] as string).indexOf('left') < 0 ) ? "right" : "left";
-        //                 const widgetExpand = new Expand({
-        //                     expandTooltip: tooltip,
-        //                     view: view,
-        //                     content: widget,
-        //                     group: group
-        //                 });
-        //                 if (widget.activeLayerInfos) {
-        //                     widget.watch("activeLayerInfos.length", () => {
-        //                         view.ui.add(widgetExpand, modules[i]["position"]);
-        //                     });
-        //                     return;
-        //                 }
-        //                 view.ui.add(widgetExpand, modules[i]["position"]);
-        //                 return;
-        //             }
-        //             if (widget.activeLayerInfos) {
-        //                 widget.watch("activeLayerInfos.length", () => {
-        //                     view.ui.add(widget, modules[i]["position"]);
-        //                 });
-        //                 return;
-        //             }
-        //             view.ui.add(widget, modules[i]["position"]);
-        //         });
-        //         return promiseUtils.resolve();
-        //     });
-        // Temp solution loading all options till can set up dynamically loading modules like before
         var constructorKey = {};
         return esri_core_promiseUtils__WEBPACK_IMPORTED_MODULE_3__["create"](function (resolve, reject) {
             // tslint:disable-next-line: max-line-length
-            Promise.resolve(/* AMD require */).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(391), __webpack_require__(392), __webpack_require__(393), __webpack_require__(394), __webpack_require__(395), __webpack_require__(396), __webpack_require__(374)]; (function (Compass, Home, Legend, Locate, Search, BasemapGallery, Expand) {
+            Promise.resolve(/* AMD require */).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(383), __webpack_require__(384), __webpack_require__(385), __webpack_require__(386), __webpack_require__(387), __webpack_require__(388), __webpack_require__(389)]; (function (Compass, Home, Legend, Locate, Search, BasemapGallery, Expand) {
                 constructorKey = {
                     "esri/widgets/Compass": Compass,
                     "esri/widgets/Home": Home,
@@ -22323,7 +22226,7 @@ var LayerBase = /** @class */ (function (_super) {
 
 
 /***/ }),
-/* 378 */
+/* 376 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -22338,15 +22241,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /***/ }),
-/* 379 */
+/* 377 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 /* harmony import */ var _Component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(13);
-/* harmony import */ var _LayerBase__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(377);
-/* harmony import */ var _utils_layerMapping__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(378);
+/* harmony import */ var _LayerBase__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(375);
+/* harmony import */ var _utils_layerMapping__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(376);
 
 
 
@@ -22365,7 +22268,7 @@ var SceneLayerView = /** @class */ (function (_super) {
 
 
 /***/ }),
-/* 380 */
+/* 378 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -22390,6 +22293,18 @@ function startHistoryListener(store) {
     };
 }
 
+
+/***/ }),
+/* 379 */
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE__379__;
+
+/***/ }),
+/* 380 */
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE__380__;
 
 /***/ }),
 /* 381 */
@@ -22480,12 +22395,6 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__394__;
 /***/ (function(module, exports) {
 
 module.exports = __WEBPACK_EXTERNAL_MODULE__395__;
-
-/***/ }),
-/* 396 */
-/***/ (function(module, exports) {
-
-module.exports = __WEBPACK_EXTERNAL_MODULE__396__;
 
 /***/ })
 /******/ ])});;
