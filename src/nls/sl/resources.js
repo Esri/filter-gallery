@@ -240,6 +240,7 @@ define({
     "viewInMap": "Pogled na karti",
     "viewInScene": "Pogled v prizoru",
     "download": "Prenos",
+    "openPdf": "Š_Open in PDF____________č",
     "addFavorite": "Dodaj med priljubljene",
     "removeFavorite": "Odstrani iz priljubljenih"
   },
