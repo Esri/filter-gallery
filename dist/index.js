@@ -17688,10 +17688,29 @@ var defaultActions = [
         id: "sceneLayer"
     },
     {
+        name: dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_0__["actions"].openPdf,
+        allowed: function (item) { return item.type === "PDF"; },
+        asynchronous: false,
+        onAction: function () { },
+        icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1 1h8v1H2v12h12V7h1v8H1zm7.325 7.382L14 2.707V5h1V1h-4v1h2.293L7.618 7.675z"/><path fill="none" d="M0 0h16v16H0z"/></svg>',
+        href: function (item, state) {
+            return state.settings.utils.portal.restUrl + "/content/items/" + item.id + "/data";
+        },
+        target: "_blank"
+    },
+    {
+        name: dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_0__["dropdowns"].contentViews.view,
+        allowed: function (item) { return item.type === "Document Link"; },
+        asynchronous: false,
+        onAction: function () { },
+        icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1 1h8v1H2v12h12V7h1v8H1zm7.325 7.382L14 2.707V5h1V1h-4v1h2.293L7.618 7.675z"/><path fill="none" d="M0 0h16v16H0z"/></svg>',
+        href: function (item) { return item.url; },
+        target: "_blank"
+    },
+    {
         name: dojo_i18n_nls_resources__WEBPACK_IMPORTED_MODULE_0__["actions"].download,
         allowed: function (item) { return [
-            "CSV",
-            "PDF"
+            "CSV"
         ].indexOf(item.type) > -1; },
         asynchronous: false,
         onAction: function () { },
