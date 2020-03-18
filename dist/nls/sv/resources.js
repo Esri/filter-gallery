@@ -240,6 +240,7 @@ define({
     "viewInMap": "Visa i karta",
     "viewInScene": "Visa i scen",
     "download": "Hämta",
+    "openPdf": "Öppna i PDF",
     "addFavorite": "Lägg till i favoriter",
     "removeFavorite": "Ta bort från favoriter"
   },

@@ -240,6 +240,7 @@ define({
     "viewInMap": "Peržiūrėti žemėlapyje",
     "viewInScene": "Peržiūrėti scenoje",
     "download": "Atsisiųsti",
+    "openPdf": "Atidaryti kaip PDF",
     "addFavorite": "Pridėti į mėgstamiausius",
     "removeFavorite": "Šalinti iš mėgstamiausių"
   },
