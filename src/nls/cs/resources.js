@@ -240,7 +240,7 @@ define({
     "viewInMap": "Zobrazit na mapě",
     "viewInScene": "Zobrazit ve scéně",
     "download": "Stáhnout",
-    "openPdf": "Ř_Open in PDF____________ů",
+    "openPdf": "Otevřít v PDF",
     "addFavorite": "Přidat k oblíbeným",
     "removeFavorite": "Odebrat z oblíbených"
   },

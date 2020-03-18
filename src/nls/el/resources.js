@@ -240,7 +240,7 @@ define({
     "viewInMap": "Προβολή στον χάρτη",
     "viewInScene": "Προβολή στη 3D προβολή",
     "download": "Λήψη",
-    "openPdf": "Đ_Open in PDF____________ớ",
+    "openPdf": "Άνοιγμα σε PDF",
     "addFavorite": "Προσθήκη στα Αγαπημένα",
     "removeFavorite": "Κατάργηση από τα Αγαπημένα"
   },

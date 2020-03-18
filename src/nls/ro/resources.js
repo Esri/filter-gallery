@@ -240,7 +240,7 @@ define({
     "viewInMap": "Vizualizare pe hartă",
     "viewInScene": "Vizualizare în scenă",
     "download": "Descărcare",
-    "openPdf": "Ă_Open in PDF____________ș",
+    "openPdf": "Deschidere în PDF",
     "addFavorite": "Adăugare la Preferate",
     "removeFavorite": "Eliminare din Preferate"
   },

@@ -240,7 +240,7 @@ define({
     "viewInMap": "Visualizar no Mapa",
     "viewInScene": "Visualizar em Cena",
     "download": "Descarregar",
-    "openPdf": "ã_Open in PDF____________Ç",
+    "openPdf": "Abrir em PDF",
     "addFavorite": "Adicionar aos Favoritos",
     "removeFavorite": "Remover dos Favoritos"
   },

@@ -240,7 +240,7 @@ define({
     "viewInMap": "הצג במפה",
     "viewInScene": "הצג בסצנה",
     "download": "הורדה",
-    "openPdf": "כן_Open in PDF____________ש",
+    "openPdf": "פתח ב-PDF",
     "addFavorite": "הוסף למועדפים",
     "removeFavorite": "הסר ממועדפים"
   },
