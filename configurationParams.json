@@ -203,11 +203,6 @@
       "constraints": {"min":0, "max":250, "places":0},
       "tooltip": "Control the max character count for the summary section on an item card."
     }, {
-      "fieldName": "openDocumentInBrowser",
-      "label": "Open document link item type in browser",
-      "type": "boolean",
-      "tooltip": "If enabled, document item types will open in browser as a PDF."
-    }, {
       "type": "subcategory",
       "label": "Map settings"
     }, {
@@ -517,7 +512,6 @@
     "showItemType": true,
     "showItemToolTip": false,
     "itemSummaryMaxChar": 250,
-    "openDocumentInBrowser": false,
     "filterPaneDefault": false,
     "filtersDefault": []
   }
