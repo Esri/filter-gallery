@@ -240,6 +240,7 @@ define({
     "viewInMap": "Lihat di Peta",
     "viewInScene": "Lihat di Scene",
     "download": "Unduh",
+    "openPdf": "Buka di PDF",
     "addFavorite": "Tambahkan ke Favorit",
     "removeFavorite": "Hapus dari Favorit"
   },

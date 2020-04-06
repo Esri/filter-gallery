@@ -240,6 +240,7 @@ define({
     "viewInMap": "맵에서 보기",
     "viewInScene": "씬에서 보기",
     "download": "다음을 다운로드합니다.",
+    "openPdf": "PDF로 열기",
     "addFavorite": "즐겨찾기에 추가하세요",
     "removeFavorite": "즐겨찾기에서 제거"
   },

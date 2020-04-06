@@ -240,6 +240,7 @@ define({
     "viewInMap": "Megtekintés a térképen",
     "viewInScene": "Megtekintés a 3D térképen",
     "download": "Letöltés",
+    "openPdf": "Megnyitás PDF-ben",
     "addFavorite": "Hozzáadás a kedvencekhez",
     "removeFavorite": "Eltávolítás a kedvencek közül"
   },

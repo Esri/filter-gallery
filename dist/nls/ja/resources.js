@@ -240,6 +240,7 @@ define({
     "viewInMap": "マップに表示",
     "viewInScene": "シーンに表示",
     "download": "ダウンロード",
+    "openPdf": "PDF で開く",
     "addFavorite": "お気に入りに追加",
     "removeFavorite": "お気に入りから削除"
   },
