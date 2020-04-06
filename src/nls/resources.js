@@ -241,6 +241,7 @@ define({
             viewInMap: "View in Map",
             viewInScene: "View in Scene",
             download: "Download",
+            openPdf: "Open in PDF",
             addFavorite: "Add to Favorites",
             removeFavorite: "Remove from Favorites"
         },

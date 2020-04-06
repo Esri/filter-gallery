@@ -240,6 +240,7 @@ define({
     "viewInMap": "Переглянути на карті",
     "viewInScene": "Переглянути на сцені",
     "download": "Завантажити",
+    "openPdf": "Відкрити в PDF",
     "addFavorite": "Додати до обраного",
     "removeFavorite": "Вилучити з обраного"
   },

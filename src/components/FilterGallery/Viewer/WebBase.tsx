@@ -3,11 +3,9 @@ import { Component, H, connect } from "../../../Component";
 
 import * as all from "dojo/promise/all";
 import * as promiseUtils from "esri/core/promiseUtils";
-import * as requireUtils from "esri/core/requireUtils";
 import LoaderBars from "../../Loaders/LoaderBars";
 import { FilterGalleryStore } from "../../..";
 import widgetMapping from "./_utils/widgetMapping"; //Widget 2 of 2
-import * as Expand from "esri/widgets/Expand";
 
 interface WebBaseProps {
     key: string;
@@ -72,16 +70,29 @@ export class WebBase extends Component<WebBaseProps, WebBaseState> {
     }
 
     private loadScripts() {
-        requireUtils.when(window["require"], [this.props.webModule, this.props.viewModule])
-            .then(
-                ([WebConstructor, ViewConstructor]) => {
-                    this.setState({ loadText: "map" });
-                    this.loadMap(WebConstructor, ViewConstructor);
-                },
-                (err) => {
-                    this.setState({ status: "failed" });
-                }
-            );
+        promiseUtils.create(
+            (resolve, reject) => { 
+                require(["esri/WebMap", "esri/WebScene", "esri/views/MapView", "esri/views/SceneView"], 
+                        (WebMap, WebScene, MapView, SceneView) => {
+                            return resolve([WebMap, WebScene, MapView, SceneView]);
+                        }
+                ); 
+            }
+        ).then(
+            ([WebMap, WebScene, MapView, SceneView]) => {
+                const webModule = this.props.webModule === "esri/WebMap" ? WebMap :
+                        this.props.webModule === "esri/WebScene" ? WebScene : 
+                        WebMap; // default to WebMap
+                const viewModule = this.props.viewModule === "esri/views/MapView" ? MapView :
+                                this.props.viewModule === "esri/views/SceneView" ? SceneView :
+                                MapView; // default to MapView
+                this.setState({ loadText: "map" });
+                this.loadMap(webModule, viewModule);  
+            },
+            (err) => {
+                this.setState({ status: "failed" });
+            }
+        );
     }
 
     private loadMap(
@@ -131,40 +142,55 @@ export class WebBase extends Component<WebBaseProps, WebBaseState> {
                 } as never); // typescript is weird
             }
             return p;
-        }, []);
-        return requireUtils.when(window["require"], modules.map((item) => item["module"]))
-            .then((constructors) => {
-                constructors.forEach((Constructor: any, i: number) => {
-                    const widget = new Constructor({ view });
-                    //only collapse if BasemapGallery or Legend
-                    if( (modules[i]["module"]==="esri/widgets/Legend") || (modules[i]["module"]==="esri/widgets/BasemapGallery") ) {
-                        let tooltip = widget.label;
-                        let group = ( (modules[i]["position"] as string).indexOf('left') < 0 ) ? "right" : "left";
-                        const widgetExpand = new Expand({
+        },                                                     []);
+        let constructorKey: object = {};
+        return promiseUtils.create(
+            (resolve, reject) => { 
+                // tslint:disable-next-line: max-line-length
+                require(["esri/widgets/Compass", "esri/widgets/Home", "esri/widgets/Legend", "esri/widgets/Locate", "esri/widgets/Search", "esri/widgets/BasemapGallery", "esri/widgets/Expand"], 
+                        (Compass, Home, Legend, Locate, Search, BasemapGallery, Expand) => {
+                            constructorKey = {
+                                "esri/widgets/Compass": Compass, 
+                                "esri/widgets/Home": Home, 
+                                "esri/widgets/Legend": Legend, 
+                                "esri/widgets/Locate": Locate, 
+                                "esri/widgets/Search": Search, 
+                                "esri/widgets/BasemapGallery": BasemapGallery, 
+                                "esri/widgets/Expand": Expand
+                            };
+                            return resolve([Compass, Home, Legend, Locate, Search, BasemapGallery, Expand]);
+                        }
+                ); 
+            }).then(([Compass, Home, Legend, Locate, Search, BasemapGallery, Expand]) => {
+                modules.forEach((mod) => {
+                    const constructor: any = constructorKey[mod["module"]];
+                    let widget = new constructor({ view });
+                    if ( mod["module"] === "esri/widgets/Legend" || mod["module"] === "esri/widgets/BasemapGallery" ) {
+                        const tooltip = widget.label;
+                        const group = ( (mod["position"] as string).indexOf('left') < 0 ) ? "right" : "left";
+                        // create expand widget to go around legend
+                        widget = new Expand({
+                            expandIconClass: widget.iconClass || "esri-icon-layer-list",
                             expandTooltip: tooltip,
                             view: view,
                             content: widget,
                             group: group
                         });
-                        if (widget.activeLayerInfos) {
-                            widget.watch("activeLayerInfos.length", () => {
-                                view.ui.add(widgetExpand, modules[i]["position"]);
-                            });
-                            return;
-                        }
-                        view.ui.add(widgetExpand, modules[i]["position"]);
-                        return;
                     }
                     if (widget.activeLayerInfos) {
                         widget.watch("activeLayerInfos.length", () => {
-                            view.ui.add(widget, modules[i]["position"]);
+                            view.ui.add(widget, mod["position"]);
                         });
                         return;
                     }
-                    view.ui.add(widget, modules[i]["position"]);
+                    view.ui.add(widget, mod["position"]);
+
                 });
                 return promiseUtils.resolve();
-            });
+            },      (err) => {
+                console.error("Widget Loading Error: \n", err);
+            }
+        );
     }
 }
 

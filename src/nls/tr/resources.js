@@ -240,6 +240,7 @@ define({
     "viewInMap": "Haritada Görüntüle",
     "viewInScene": "Sahnede Görüntüle",
     "download": "İndir",
+    "openPdf": "PDF'te Aç",
     "addFavorite": "Sık Kullanılanlara Ekle",
     "removeFavorite": "Sık Kullanılanlardan Kaldır"
   },
