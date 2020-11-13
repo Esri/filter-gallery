@@ -15,7 +15,8 @@
     "watch:bundles": "webpack --watch --mode none",
     "watch:sass": "npm run build:sass && node-sass styles -o dist -r -w",
     "watch:serviceworker": "webpack --watch --config sw.config.js -p",
-    "test": "nyc mocha"
+    "test": "nyc mocha",
+    "deploy": "npm run build"
   },
   "author": "",
   "license": "ISC",
