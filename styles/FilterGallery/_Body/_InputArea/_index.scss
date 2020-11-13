@@ -1,0 +1,41 @@
+@import "_ActiveFilters";
+
+.fg-input__container {
+    display: flex;
+    align-items: top;
+
+    @include padding-leader(0.25);
+    @include padding-trailer(0.25);
+    > .fg__active-filters {
+        background-color: transparent;
+        padding: 0;
+        @include gutter-left(1);
+        border-top: none;
+        flex: 1;
+
+        html[dir="rtl"] & {
+            padding-left: 0;
+            @include gutter-right(1);
+        }
+    }
+
+    @media screen and (max-width: $small) {
+        align-items: flex-start;
+        flex-direction: column-reverse;
+
+        > .fg__active-filters {
+            @include trailer(0.25);
+            padding: 0;
+            width: 100%;
+
+            html[dir="rtl"] & {
+                padding: 0;
+            }
+        }
+    }
+}
+
+.fg-input-area__result-count {
+    color: #6e6e6e;
+    font-size: 14px;
+}

@@ -1,0 +1,122 @@
+@import "../../Navigation/_Pager";
+@import "../../Modals/_MobileWrap";
+@import "_InputArea/_index";
+@import "_ResultPanel/_index";
+@import "_Filters";
+@import "_SearchArea";
+
+.fg__body {
+    display: block;
+}
+
+.fg__row {
+    @include padding-leader(0.5);
+    @include padding-trailer(2);
+    @include gutter-left(2);
+    @include gutter-right(2);
+    background-color: #f4f4f4;
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    height: 100%;
+
+    @media screen and (max-width: $medium) {
+        @include gutter-left(1);
+        @include gutter-right(1);
+    }
+    @media screen and (max-width: $small) {
+        @include gutter-left(0.5);
+        @include gutter-right(0.5);
+    }
+}
+
+.fg__section {
+    box-sizing: border-box;
+    display: inline-flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+}
+
+.fg__filters {
+    width: 350px;
+    transition: opacity 0ms, width 400ms, padding 400ms;
+    > label {
+        padding: 0.5166rem;
+    }
+    @include gutter-right(2);
+    html[dir="rtl"] & {
+        padding-right: 0;
+        @include gutter-left(2);
+    }
+
+    @media screen and (max-width: $medium) {
+        display: none;
+    }
+}
+
+.fg__filters--visible {
+    transition: opacity 200ms linear 300ms, width 400ms, padding 400ms;
+}
+
+.fg__filters--hidden {
+    max-height: 100vh;
+    width: 0px;
+    opacity: 0;
+    overflow: hidden;
+    padding-left: 0;
+    @include gutter-right(0.5);
+}
+
+.fg__results {
+    flex: 1;
+    min-height: calc(100vh - 250px);
+}
+
+.fg__wrapper {
+    opacity: 1;
+    transition: opacity 200ms;
+
+    > .nav-pager__container {
+        @include leader(2);
+    }
+}
+
+.fg__wrapper--faded {
+    opacity: 0.2;
+}
+
+.fg__wrapper--transparent {
+    opacity: 0;
+}
+
+.fg__load-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 400px;
+}
+
+.fg__filter-results-btn {
+    @include btn();
+
+    &:focus {
+        text-decoration: none;
+        background-color: #005e95;
+        color: #ffffff;
+    }
+}
+
+.fg__overlay-filters {
+    display: none;
+    @media screen and (max-width: $medium) {
+        display: block;
+    }
+}
+
+.fg__filter-label {
+    @include avenir-demi();
+    @include trailer-half();
+    font-size: 18px;
+}

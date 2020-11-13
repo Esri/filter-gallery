@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,8DAA8D,AAAC,CAC7D,UAAU,CAAE,IAAI,CACjB,AAED,AAAA,oDAAoD,AAAC,CACnD,MAAM,CAAE,MAAM,CACf,AAED,AAAA,yDAAyD,AAAC,CACxD,QAAQ,CAAE,QAAQ,CAClB,GAAG,CAAE,GAAG,CACR,IAAI,CAAE,GAAG,CACT,SAAS,CAAE,qBAAqB,CAChC,UAAU,CAAE,MAAM,CAClB,KAAK,CAAE,GAAG,CACX",
+    "sources": [
+        "UnsupportedBrowser.scss"
+    ],
+    "names": [],
+    "file": "UnsupportedBrowser.css"
+}

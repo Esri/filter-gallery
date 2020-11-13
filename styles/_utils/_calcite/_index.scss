@@ -1,0 +1,11 @@
+// Variables, functions, mixins and placeholder selectors only
+// Do not put things here that output to css, or they will be duplicated when importing into multiple modules
+@import '_color';
+@import '_config';
+@import '_reset';
+@import '_utils/_index';
+@import '_grid/_index';
+@import '_type/_index';
+@import '_icons/_index';
+@import '_components/_index';
+@import '_patterns/_index';

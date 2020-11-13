@@ -1,0 +1,116 @@
+@import "../../Dropdowns/_SortDropdown";
+
+.fg-search-area__container {
+    @include gutter-right(2);
+    @include gutter-left(2);
+    display: flex;
+    position: relative;
+    > svg {
+        position: absolute;
+        top: 36%;
+        left: 44px;
+        html[dir="rtl"] & {
+            left: 0px;
+            right: 44px;
+        }
+    }
+
+    border-bottom: 1px solid #dddddd;
+    background-color: white;
+    
+    @media screen and (max-width: $medium) {
+        @include gutter-left(1);
+        @include gutter-right(1);
+
+        > svg {
+            position: absolute;
+            top: 36%;
+            left: 22px;
+            html[dir="rtl"] & {
+                left: 0px;
+                right: 22px;
+            }
+        }
+    }
+
+    @media screen and (max-width: $small) {
+        @include gutter-left(0.5);
+        @include gutter-right(0.5);
+
+        > svg {
+            position: absolute;
+            top: 36%;
+            left: 11px;
+            html[dir="rtl"] & {
+                left: 0px;
+                right: 11px;
+            }
+        }
+    }
+}
+
+.fg-search-area__input {
+    @include input-minimal();
+    flex: 1;
+    margin: 0;
+    border-bottom: 2px solid transparent;
+    height: 65px;
+    padding: 26px 24px 23px 30px;
+    padding-left: 50px;
+    background: transparent;
+    font-size: 15px;
+
+    &:focus {
+        border-bottom-color: #0079c1;
+    }
+
+    @media screen and (max-width: $small) {
+        padding-left: 35px;
+    }
+
+    @media screen and (max-width: $small) {
+        padding-left: 30px;
+    }
+
+    html[dir="rtl"] & {
+        padding: 26px 24px 23px 30px;
+        padding-right: 50px;
+
+        @media screen and (max-width: $small) {
+            padding-right: 35px;
+        }
+    
+        @media screen and (max-width: $small) {
+            padding-right: 30px;
+        }
+    }
+}
+
+.fg-search-area__btn-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:before {
+        @include margin-gutter-right(1);
+        content: "";
+        display: block;
+        height: 44px;
+        width: 0;
+        border-left: 1px solid #dddddd;
+    }
+
+    > button {
+        margin-left: 5px;
+        html[dir="rtl"] & {
+            margin-left: 0px;
+            margin-right: 5px;
+        }
+    }
+
+    @media screen and (max-width: $small) {
+        > :first-child {
+            display: none;
+        }
+    }
+}

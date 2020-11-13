@@ -1,0 +1,79 @@
+@import "../_utils/_base/_index";
+@import "../Buttons/FilterChip";
+
+.filter-controller__container {
+    display: flex;
+}
+
+.filter-controller__container--light {
+    background-color: white;
+}
+
+.filter-controller__clear-btn {
+    @include reset-button();
+    @include margin-gutter-left-quarter();
+    color: #4c4c4c;
+    cursor: pointer;
+    font-size: 0.8125rem;
+    line-height: 1.55rem;
+    white-space: nowrap;
+
+    &:hover {
+        text-decoration: underline;
+    }
+
+    html[dir="rtl"] & {
+        margin-left: 0;
+        @include margin-gutter-right-quarter();
+    }
+}
+
+.filter-controller__expand-btn {
+    @include reset-button();
+    align-items: center;
+    @include label();
+    line-height: 0.9;
+    margin-top: 2.5px;
+    @include inline-block();
+    @include margin-gutter-right-quarter();
+    cursor: pointer;
+    &:hover, &:focus {
+        background-color: $lighter-gray;
+    }
+
+    > svg {
+        @include margin-gutter-left-quarter();
+        fill: #959595;
+        transform: translate(0,1px);
+    }
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+
+    html[dir="rtl"] & {
+        margin-right: 0;
+        @include margin-gutter-left-quarter();
+    }
+}
+
+.filter-controller__expand-btn--dark {
+    background-color: #f4f4f4;
+}
+
+.filter-controller__expand-btn--active {
+    background-color: $Calcite_Gray_300;
+
+    > svg {
+        transform: translate(0,2px) rotate(180deg);
+    }
+}
+
+.filter-controller__chip-container {
+}
+
+.filter-controller__chip-container--full-width {
+    flex: 1;
+}
+
+.filter-controller__clear-container {
+    height: 100%;
+}

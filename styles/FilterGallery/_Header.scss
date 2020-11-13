@@ -1,0 +1,37 @@
+.fg__header {
+    @include gutter-left(2);
+    @include gutter-right(2);
+    background-color: #ffffff;
+    border-bottom: 1px solid #dddddd;
+    box-sizing: border-box;
+    width: 100%;
+
+    @media screen and (max-width: $medium) {
+        @include gutter-left(1);
+        @include gutter-right(1);
+    }
+
+    @media screen and (max-width: $small) {
+        @include gutter-left(0.5);
+        @include gutter-right(0.5);
+    }
+}
+
+.fg__header-title-section {
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.fg__header-title {
+    margin-bottom: 0;
+    font-size: 1.414rem;
+    line-height: 1.5;
+    float: left;
+    display: inline-block;
+    font-weight: 400;
+    margin-bottom: 0;
+}

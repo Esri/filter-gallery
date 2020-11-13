@@ -1,0 +1,45 @@
+@import "../_utils/_base/_index";
+@import "../_utils/_calcite/_index";
+
+.btn-icon__button {
+    @include reset-button();
+    display: inline-flex;
+    padding: 8px 10px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+
+    > svg {
+        fill: currentColor;
+    }
+
+    &:hover {
+        background-color: $lightest-gray;
+    }
+}
+
+.btn-icon__button--tooltip {
+    @include tooltip();
+    overflow: visible;
+}
+
+.btn-icon__button--tooltip-left {
+    @include tooltip-left();
+}
+
+.btn-icon__button--tooltip-right {
+    @include tooltip-right();
+}
+
+.btn-icon__button--tooltip-top {
+    @include tooltip-top();
+}
+
+.btn-icon__button--active {
+    color: $Calcite_Highlight_Blue_400;
+    background-color: $lightest-blue;
+
+    &:hover {
+        background-color: $lightest-blue;
+    }
+}

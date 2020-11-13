@@ -1,0 +1,25 @@
+@import "../../../ItemCards/_ListCard";
+
+.fg-results__item-list {
+
+}
+
+.fg-results__item-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: baseline;
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+}
+
+.fg-results__no-items-container {
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+
+.fg-results__no-items-centered {
+    display: inline-block;
+    max-width: 35em;
+}

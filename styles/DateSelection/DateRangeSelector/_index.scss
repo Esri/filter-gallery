@@ -1,0 +1,20 @@
+@import "../../_utils/_calcite/_index";
+@import "../_DatePicker";
+
+@import "_StaticToggles";
+
+.date__selector {
+    @include font-size(-2);
+    @include padding-leader(0.5);
+    @include margin-gutter-left(1);
+    margin-right: 0;
+}
+
+.date__selector--hide {
+    display: none;
+}
+
+.date-selector__pick-wrapper {
+    position: relative;
+    height: 2.4rem;
+}

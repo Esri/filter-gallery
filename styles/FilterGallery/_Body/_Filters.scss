@@ -1,0 +1,25 @@
+@import "../../Dropdowns/_AccordionDropdown";
+@import "../../Filters/_CategoriesFilter";
+@import "../../Filters/_CreatedFilter";
+@import "../../Filters/_ItemTypeFilter";
+@import "../../Filters/_ModifiedFilter";
+@import "../../Filters/_SharedFilter";
+@import "../../Filters/_StatusFilter";
+@import "../../Filters/_TagsFilter";
+
+.fg-filter-pane__container {
+    padding: 1rem;
+}
+
+.fg-filter-pane__title {
+    @include inline-block();
+    word-wrap: break-word;
+    max-width: calc(100% - 20px);
+}
+
+.fg-filter-pane__accordion {
+    @include accordion();
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #ddd;
+}

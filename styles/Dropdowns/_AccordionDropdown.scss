@@ -1,0 +1,76 @@
+@import "../_utils/_base/_index";
+@import "../_utils/_calcite/_index";
+
+.drp-accordion__section {
+}
+
+.drp-accordion__content {
+    display: block;
+    padding: .75rem .6rem;
+    font-size: 0.875rem;
+}
+
+.drp-accordion__content--no-padding {
+    padding: 0;
+}
+
+.drp-accordion__clear-btn {
+    @include font-size(-3);
+    @include right();
+    padding: 0;
+    border: none;
+    color: #4c4c4c;
+    text-decoration: none;
+    white-space: normal;
+    font-weight: inherit;
+    text-align: left;
+    cursor: pointer;
+    background-color: transparent;
+    overflow: visible;
+
+    &:hover {
+        text-decoration: underline;
+        background-color: transparent;
+        color: #323232;
+    }
+}
+
+.esriRtl .drp-accordion__clear-btn {
+    text-align: right;
+}
+
+.drp-accordion__title {
+    @include accordion-title();
+    background-color: transparent;
+    border-top: 1px solid #ddd;
+    &:focus, &:hover {
+        background-color: rgba(0,0,0,.035);
+    }
+}
+
+.drp-accordion__icon {
+    > svg {
+        fill: currentColor;
+        pointer-events: none;
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        vertical-align: -0.15em;
+        padding-right: .15em;
+        transform: rotate(-90deg);
+
+        html[dir="rtl"] & {
+            transform: rotate(90deg);
+        }
+    }
+}
+
+.drp-accordion__icon--active {
+    > svg {
+        transform: rotate(0deg);
+
+        html[dir="rtl"] & {
+            transform: rotate(0deg);
+        }
+    }
+}

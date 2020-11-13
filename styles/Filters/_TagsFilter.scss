@@ -1,0 +1,29 @@
+@import "../Dropdowns/_AccordionDropdown";
+@import "../Buttons/_CheckToggle";
+
+.ftr-tags__input-area {
+    margin: 0;
+    padding: 0.51667rem;
+    font-size: 0.9375rem;
+    line-height: 1.55rem;
+    color: #4c4c4c;
+    font-weight: 400;
+    border-bottom: 1px solid #efefef;
+    border-top: 1px solid #efefef;
+    margin-bottom: -1px;
+}
+
+.ftr-tags__tree {
+    @include padding-leader(0.5);
+    @include padding-trailer(0.5);
+    margin-bottom: 0;
+    max-height: 12rem;
+    overflow-x: hidden;
+}
+
+.ftr-tags__none {
+    @include font-size(-2);
+    @include gutter-left(1);
+    @include gutter-right(1);
+    margin-bottom: 0;
+}

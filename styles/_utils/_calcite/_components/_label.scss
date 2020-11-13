@@ -1,0 +1,33 @@
+// ┌────────┐
+// │ Label  │
+// └────────┘
+//  ↳ http://esri.github.io/calcite-web/documentation/components/#label
+//  ↳ components → _label.md
+@mixin label() {
+    background-color: $lightest-gray;
+    padding: .25em .5em;
+    border-radius: 3px;
+    font-size: .85em;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+@mixin label-red() {
+    background-color: $red;
+    color: $white;
+}
+
+@mixin label-yellow() {
+    background-color: $light-yellow;
+    color: $off-black;
+}
+
+@mixin label-green() {
+    background-color: $green;
+    color: $white;
+}
+
+@mixin label-blue() {
+    background-color: $blue;
+    color: $white;
+}

@@ -1,0 +1,42 @@
+@import "../_utils/_base/_index";
+@import "../_utils/_calcite/_index";
+
+.btn-svg__button {
+    @include reset-button();
+    @include inline-block();
+    @include selectable();
+
+    > svg {
+        vertical-align: middle;
+        fill: currentColor;
+    }
+}
+
+.btn-svg__button--tooltip {
+    @include tooltip();
+    overflow: visible;
+    &:focus {
+        &:before,
+        &:after {
+            display: none;
+        }
+    }
+    &:hover {
+        &:before,
+        &:after {
+            display: inline-block;
+        }
+    }
+}
+
+.btn-svg__button--tooltip-left {
+    @include tooltip-left();
+}
+
+.btn-svg__button--tooltip-right {
+    @include tooltip-right();
+}
+
+.btn-svg__button--tooltip-top {
+    @include tooltip-top();
+}

@@ -1,0 +1,50 @@
+@import "../_utils/_base/_index";
+@import "../_utils/_calcite/_index";
+
+.qual-badge__container {
+    padding: 6px 8px;
+    border-radius: 20px;
+    font-size: 14px;
+    background-color: #DBEDFA;
+    margin-right: 6px;
+    margin-bottom: 2px;
+    display: inline-block;
+    line-height: 1.4;
+    white-space: nowrap;
+}
+
+.qual-badge__container--small {
+    padding: 3px 4px;
+}
+
+.qual-badge__container--tooltip {
+    @include tooltip();
+    @include tooltip-multiline();
+    cursor: auto;
+}
+
+.qual-badge__container--tooltip-left {
+    @include tooltip-left();
+}
+
+.qual-badge__container--tooltip-top {
+    @include tooltip-top();
+}
+
+.qual-badge__container--tooltip-right {
+    @include tooltip-right();
+}
+
+.qual-badge__container svg {
+    vertical-align: -3px;
+}
+
+.esriRtl .qual-badge__container {
+    margin-right: 0;
+    margin-left: 6px;
+}
+
+.qual-badge__text {
+    margin-left: 2px;
+    cursor: default;
+}

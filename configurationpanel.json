@@ -1,0 +1,128 @@
+{ 
+    "about": {
+        "group": { 
+            "defaultValue": "",
+            "express": true
+        },
+        "title": {
+            "defaultValue": "Category Gallery",
+            "express": true
+        }
+    }, 
+    "themeLayout": {
+        "displayDefault": { 
+            "defaultValue": "grid",
+            "express": true
+        },
+        "headHTML": { 
+            "defaultValue": ""
+        },
+        "customCSS": {
+            "defaultValue": ""
+        },
+        "positionManager": {
+            "defaultValue": ""
+        }
+    }, 
+    "interactivity": {
+        "galleryDisplay": {
+            "filterPaneDefault": { 
+                "defaultValue": false,
+                "express": true
+            },
+            "allowedItemTypes": { 
+                "defaultValue": "all"
+            },
+            "resultsPerQuery": { 
+                "defaultValue": "16"
+            },
+            "showSignInBtn": { 
+                "defaultValue": false
+            }
+        },
+        "contentFiltering": {
+            "filters": { 
+                "defaultValue": "",
+                "express": true
+            },
+            "filtersDefault": { 
+                "defaultValue": ""
+            },
+            "availableItemTypeFilters": { 
+                "defaultValue": ""
+            },
+            "useOrgCategories": { 
+                "defaultValue": false,
+                "express": true
+            }
+        },
+        "itemCardDisplay": {
+            "showItemType": {
+                "defaultValue": true,
+                "express": true
+            },
+            "showItemOwner": {
+                "defaultValue": true,
+                "express": true
+            },
+            "showItemInfo": {
+                "defaultValue": true,
+                "express": true
+            },
+            "showItemDetails": {
+                "defaultValue": true,
+                "express": true
+            },
+            "showItemToolTip": {
+                "defaultValue": false
+            },
+            "itemSummaryMaxChar": {
+                "defaultValue": "250"
+            }
+        },
+        "map": {
+            "defaultBasemap": { 
+                "defaultValue": "streets-vector"
+            },
+            "compassWidget": { 
+                "defaultValue": false,
+                "locateWidgetPosition": {
+                    "defaultValue": "top-right"
+                }
+            },
+            "basemapToggle": {
+                "defaultValue": false,
+                "basemapTogglePosition": {
+                    "defaultValue": "bottom-right"
+                },
+                "nextBasemap": {
+                    "defaultValue": "topo"
+                }
+            },
+            "search": {
+                "defaultValue": true,
+                "searchPosition": {
+                    "defaultValue": "top-right"
+                }
+            },
+            "locateWidget": { 
+                "defaultValue": false,
+                "locateWidgetPosition": {
+                    "defaultValue": "bottom-right"
+                }
+            },
+            "legend": {
+                "defaultValue": false,
+                "legendPosition": {
+                    "defaultValue": "bottom-left"
+                }
+            },
+            "home": {
+                "defaultValue": false,
+                "homePosition": {
+                    "defaultValue": "top-left"
+                }
+            }
+        }
+    } 
+} 
