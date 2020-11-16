@@ -1,6 +1,6 @@
 
 // i18n
-import i18n = require("dojo/i18n!./nls/resources");
+import i18n from "dojo/i18n!./nls/resources";
 
 // esri.core
 import {
@@ -84,4 +84,4 @@ class UnsupportedBrowser extends (Widget) {
   }
 }
 
-export = UnsupportedBrowser;
+export default UnsupportedBrowser;
