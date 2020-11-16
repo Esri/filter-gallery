@@ -49,8 +49,7 @@ module.exports = {
                 /^dojo/.test(request) ||
                 /^dojox/.test(request) ||
                 /^dijit/.test(request) ||
-                /^esri/.test(request) ||
-                /^arcgis-components/.test(request)
+                /^esri/.test(request)
             ) {
                 return callback(null, `amd ${request}`);
             }

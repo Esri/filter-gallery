@@ -18,10 +18,6 @@ import { startHistoryListener, router } from "./router";
 
 import ConfigurationSettings from "./ConfigurationSettings";
 
-// import { ItemBrowserWrapper } from "arcgis-components/wrappers/ItemBrowser";
-// import * as Portal from "esri/portal/Portal";
-// import * as request from "esri/request";
-
 export type FilterGalleryStore = Store<FilterGalleryState>;
 
 export default (cfg: string, settings: Pojo) => {

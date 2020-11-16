@@ -65,7 +65,7 @@ export class RootComponent extends Component<RootComponentProps> {
             );
         } else if (this.props.portalStatus === "ie11") {
             const UB = new UnsupportedBrowser({
-                isIE11: this.props.base["isIE"],
+                isIE11: this.props.base.isIE,
                 container: document.body
             });
             return (

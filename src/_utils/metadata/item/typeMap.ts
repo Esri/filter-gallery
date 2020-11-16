@@ -1,6 +1,3 @@
-import { ItemTypeMap, ItemType } from "arcgis-components/_utils/metadata/item/typeMap";
-export { ItemTypeMap, ItemType } from "arcgis-components/_utils/metadata/item/typeMap";
-
 export type ItemTypeFilter = keyof ItemTypeMap;
 
 /**
@@ -151,3 +148,51 @@ export const allItemTypes: ItemType[] = [
   "Feed",
   // "Document Link"
 ];
+
+/**
+ * Typings copied from arcgis-components typemap
+ */
+
+
+/**
+ * Item type as listed in the sharing API documentation:
+ * https://developers.arcgis.com/rest/users-groups-and-items/items-and-item-types.htm
+ */
+export declare type ItemType = "WMS" | "Web Map" | "CityEngine Web Scene" | "Web Scene" | "360 VR Experience" | "Pro Map" | "Feature Service" | "Map Service" | "Image Service" | "KML" | "KML Collection" | "WFS" | "WMTS" | "Feature Collection" | "Feature Collection Template" | "Vector Tile Service" | "Scene Service" | "Relational Database Connection" | "Web Mapping Application" | "StoryMap" | "Mobile Application" | "Code Attachment" | "Operations Dashboard Add In" | "Native Application" | "Native Application Template" | "Native Application Installer" | "Workforce Project" | "Form" | "Insights Workbook" | "Insights Model" | "Insights Page" | "Dashboard" | "Hub Initiative" | "Hub Site Application" | "Hub Page" | "AppBuilder Widget Package" | "Symbol Set" | "Color Set" | "Shapefile" | "File Geodatabase" | "CSV" | "CAD Drawing" | "Service Definition" | "Microsoft Word" | "Microsoft Powerpoint" | "Microsoft Excel" | "PDF" | "Image" | "Visio Document" | "iWork Keynote" | "iWork Pages" | "iWork Numbers" | "Report Template" | "Statistical Data Collection" | "Map Document" | "Map Package" | "Mobile Basemap Package" | "Mobile Map Package" | "Tile Package" | "Vector Tile Package" | "Project Package" | "Task File" | "ArcPad Package" | "Explorer Map" | "Globe Document" | "Scene Document" | "Published Map" | "Map Template" | "Windows Mobile Package" | "Pro Map" | "Layout" | "Project Template" | "Layer" | "Layer" | "Layer Package" | "Explorer Layer" | "Scene Package" | "Image Collection" | "Desktop Style" | "Geoprocessing Package" | "Geoprocessing Package (Pro version)" | "Geoprocessing Sample" | "Locator Package" | "Rule Package" | "Raster function template" | "Deep Learning Package" | "ArcGIS Pro Configuration" | "Workflow Manager Package" | "Desktop Application" | "Desktop Application Template" | "Code Sample" | "Desktop Add In" | "Explorer Add In" | "ArcGIS Pro Add In" | "Geometry Service" | "Geocoding Service" | "Network Analysis Service" | "Geoprocessing Service" | "Workflow Manager Service" | "Stream Service" | "Big Data File Share" | "Web Tool" | "Notebook" | "Web Experience" | "Web Experience Template" | "Feed";
+
+export interface ItemTypeMap {
+    maps: string;
+    webMaps: string;
+    mapFiles: string;
+    layers: string;
+    featureLayers: string;
+    tileLayers: string;
+    mapImageLayers: string;
+    imageryLayers: string;
+    sceneLayers: string;
+    tables: string;
+    layerFiles: string;
+    scenes: string;
+    apps: string;
+    webApps: string;
+    storyMaps: string;
+    experienceApps: string;
+    mobileApps: string;
+    desktopApps: string;
+    tools: string;
+    locators: string;
+    geodatabaseAccess: string;
+    geometricOperations: string;
+    geoprocessingTasks: string;
+    networkAnalysis: string;
+    files: string;
+    documents: string;
+    images: string;
+    pdfs: string;
+    csvs: string;
+    webTools: string;
+    notebooks: string;
+    bigDataFileShares: string;
+    rasterFunctionTemplates: string;
+    deepLearningPackages: string;
+}

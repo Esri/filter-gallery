@@ -19,15 +19,11 @@
         "types": ["arcgis-js-api"],
         "importHelpers": true,
         "lib": ["dom", "es2015", "scripthost"],
-        "paths": {
-            "arcgis-components/*": ["./arcgis-components/dist/*"]
-        },
     },
     "include": [
         "./src/**/*"
     ],
     "files": [
-        "./arcgis-components/namespace.d.ts",
         "./node_modules/dojo-typings/dojo/1.11/loader.d.ts",
         "./node_modules/dojo-typings/dojo/1.11/index.d.ts",
         "./node_modules/dojo-typings/dojo/1.11/modules.d.ts",
