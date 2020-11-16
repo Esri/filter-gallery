@@ -122,7 +122,7 @@ export class WebBase extends Component<WebBaseProps, WebBaseState> {
         }).then(() => {
             this.view.container = this.props.containerId as any;
             this.setState({ status: "loaded" });
-        }).otherwise((err) => {
+        }).catch((err: any) => {
             this.setState({ status: "failed" });
         });
     }
