@@ -1,5 +1,6 @@
 import { Component, H, ComponentProps } from "../../Component";
 import SvgButton from "../Buttons/SvgButton";
+import { JSX } from "../../Component";
 
 export interface MobileWrapProps extends ComponentProps {
     /**
