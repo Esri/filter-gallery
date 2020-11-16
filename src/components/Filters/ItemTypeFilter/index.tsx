@@ -60,7 +60,7 @@ export default class ItemTypeFilter extends Component<ItemTypeFilterProps, ItemT
         this.state = {
             availableFilters: treeCompress(treePrune(
                 {  value: "##itemTypeOptionsRoot", children: itemTypeOptions },
-                props.availableItemTypes
+                props.availableItemTypes as string[]
             )).children as ToggleOption[]
         };
 
@@ -97,7 +97,7 @@ export default class ItemTypeFilter extends Component<ItemTypeFilterProps, ItemT
                     key={option.value}
                     name={option.displayName}
                     value={option.value}
-                    selectedToggle={this.props.itemTypeFilter ? this.props.itemTypeFilter.value : undefined}
+                    selectedToggle={this.props.itemTypeFilter ? (this.props.itemTypeFilter.value as string) : undefined}
                     childOptions={option.children}
                     onToggleClick={this.handleToggleClick}
                 />

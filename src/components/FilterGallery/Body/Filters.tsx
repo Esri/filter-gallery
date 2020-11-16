@@ -83,12 +83,12 @@ export class FilterPane extends Component<FilterPaneProps> {
                     !this.props.stateTree.parameters.filter.itemType.text) {
                         const types = treeCompress(treePrune(
                             {  value: "##itemTypeOptionsRoot", children: itemTypeOptions },
-                            config.availableItemTypeFilters
+                            config.availableItemTypeFilters as string[]
                         )).children as ToggleOption[];
                         this.props.stateTree.parameters.filter.itemType.text = "" + 
                             this.props.stateTree.parameters.filter.itemType ?
                                 // tslint:disable-next-line: max-line-length
-                                this.mapUrlParamToFilter(this.props.stateTree.parameters.filter.itemType.value, types) :
+                                this.mapUrlParamToFilter(this.props.stateTree.parameters.filter.itemType.value as string, types) :
                                 "";
                     }
                     return (
@@ -233,7 +233,7 @@ export class FilterPane extends Component<FilterPaneProps> {
         this.props.dispatch(updateItemTypeFilter(itemTypeOption));
         this.props.dispatch(search());
         const options = itemTypeOption ? itemTypeOption.value : "";
-        this.handleToggleUrl("itemType", options);
+        this.handleToggleUrl("itemType", options as string);
     }
 
     private handleModifiedFilterChange(
