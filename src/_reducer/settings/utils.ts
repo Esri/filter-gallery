@@ -3,7 +3,7 @@ import request = require("esri/request");
 import { getOrgBaseUrl } from "../../_utils";
 import { Pojo, Action } from "../../Component";
 import { SIGNED_IN, SIGNED_OUT, LOAD_PORTAL_SUCCESS, LOAD_PORTAL_FAILED, 
-    AUTHENTICATION_FAILED, ORIGIN_FAILED, BROWSER_FAILED } from "../../_actions";
+    AUTHENTICATION_FAILED, ORIGIN_FAILED } from "../../_actions";
 
 export interface UtilsState {
     base: Pojo;
@@ -57,12 +57,6 @@ export default (state: UtilsState = initialState, action: Action) => {
                 ...state,
                 portalStatus: "originother" as UtilsState["portalStatus"],
                 err: action.payload
-            };
-        case BROWSER_FAILED:
-            return {
-                ...state,
-                portalStatus: "ie11" as UtilsState["portalStatus"],
-                base: action.payload.base
             };
         default:
             return state;
