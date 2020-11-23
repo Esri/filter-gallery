@@ -29,6 +29,17 @@
     </div>
   </noscript>
   <script>
+    if (navigator && navigator.userAgent) {
+      var match = /\b(MSIE |Trident.*?rv:|Edge\/)(\d+)/.exec(navigator.userAgent);
+      if (match && match.length && match.length === 3) {
+        const version = parseInt(match[2]);
+        if (version <= 19) {
+          document.location = "../../shared/unsupported/index.html";
+        }
+      }
+    }
+  </script>
+  <script>
     var file_path = window.location.pathname;
     var dist_path = file_path.slice(0, file_path.lastIndexOf("/"));
     var base_path = dist_path.slice(0, dist_path.lastIndexOf("/"));
