@@ -1,4 +1,4 @@
-import * as Deferred from "dojo/Deferred";
+import Deferred = require("dojo/Deferred");
 import {
     fetchGroupByQuery,
     fetchGroupCategorySchema,

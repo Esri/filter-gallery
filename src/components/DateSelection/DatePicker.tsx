@@ -1,5 +1,5 @@
 import { Component, H, ComponentProps } from "../../Component";
-import * as DateTextBox from "dijit/form/DateTextBox";
+import DateTextBox = require("dijit/form/DateTextBox");
 
 export interface DatePickerProps extends ComponentProps {
     /**

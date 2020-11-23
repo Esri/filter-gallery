@@ -1,4 +1,4 @@
-import * as tagsI18n from "dojo/i18n!./nls/resources";
+import tagsI18n = require("dojo/i18n!./nls/resources");
 import { Component, H } from "../../Component";
 
 import AccordionDropdown from "../Dropdowns/AccordionDropdown";

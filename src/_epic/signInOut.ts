@@ -4,9 +4,9 @@ import { FilterGalleryState } from "../_reducer";
 import { SIGN_IN, SIGNED_IN, SIGN_OUT, SIGNED_OUT, SIGN_IN_FAILED, SIGN_OUT_FAILED } from "../_actions";
 import { filter, switchMap, map, catchError } from "rxjs/operators";
 
-import * as Portal from "esri/portal/Portal";
-import * as IdentityManager from "esri/identity/IdentityManager";
-import * as cookie from "dojo/cookie";
+import Portal = require("esri/portal/Portal");
+import IdentityManager = require("esri/identity/IdentityManager");
+import cookie = require("dojo/cookie");
 import { fromDeferred, getOrgBaseUrl } from "../_utils";
 
 export const signInEpic = (action$: Subject<Action>, getState: () => FilterGalleryState) => action$.pipe(

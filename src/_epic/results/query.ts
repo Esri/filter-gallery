@@ -17,7 +17,7 @@ import {
     LOAD_PORTAL_SUCCESS
 } from "../../_actions";
 import { getSearchRequest, getCountsRequest, getTagsRequest } from "../../_actions/results/_utils/requestHelpers";
-import * as all from "dojo/promise/all";
+import all = require("dojo/promise/all");
 import { fromDeferred, mixinItemInfo } from "../../_utils";
 
 export const searchEpic = (action$: Subject<Action>) => action$.pipe(

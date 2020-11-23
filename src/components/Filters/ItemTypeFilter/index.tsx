@@ -1,4 +1,4 @@
-import * as componentI18n from "dojo/i18n!../../../nls/resources";
+import componentI18n = require("dojo/i18n!../../../nls/resources");
 
 import { Component, H } from "../../../Component";
 
@@ -6,7 +6,7 @@ import AccordionDropdown from "../../Dropdowns/AccordionDropdown";
 import Toggle, { ToggleOption } from "../../Buttons/Toggle";
 import itemTypeOptions from "./_utils/itemTypeOptions";
 import { treeCompress, treePrune, ItemTypeFilter as ItemTypeFilters } from "../../../_utils";
-import * as ioQuery from "dojo/io-query";
+import ioQuery = require("dojo/io-query");
 
 /**
  * An option in the item type filter.

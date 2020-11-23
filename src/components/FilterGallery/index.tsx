@@ -1,4 +1,4 @@
-import * as i18n from "dojo/i18n!../../nls/resources";
+import i18n = require("dojo/i18n!../../nls/resources");
 
 import { Component, H, connect } from "../../Component";
 import Header from "./Header";
@@ -7,7 +7,6 @@ import { FilterGalleryStore } from "../..";
 import Overlay from "../Modals/Overlay";
 import Viewer from "./Viewer";
 import LoaderBars from "../Loaders/LoaderBars";
-import UnsupportedBrowser from "../unsupported/UnsupportedBrowser";
 
 export interface RootComponentProps {
     key: string;
@@ -17,7 +16,6 @@ export interface RootComponentProps {
     title: string;
     headHTML?: string;
     err?: any;
-    base?: any;
 }
 
 export class RootComponent extends Component<RootComponentProps> {
@@ -63,15 +61,7 @@ export class RootComponent extends Component<RootComponentProps> {
                     </div>
                 </main>
             );
-        } else if (this.props.portalStatus === "ie11") {
-            const UB = new UnsupportedBrowser({
-                isIE11: this.props.base.isIE,
-                container: document.body
-            });
-            return (
-                <main class="fg__container hide" />
-            );
-        }
+        } 
 
         return (
             <main class="fg__container">

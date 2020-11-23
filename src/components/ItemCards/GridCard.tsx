@@ -1,6 +1,6 @@
-import * as i18n from "dojo/i18n!../../nls/resources";
+import i18n = require("dojo/i18n!../../nls/resources");
 import { Component, H, Pojo } from "../../Component";
-import * as dojoDate from "dojo/date/locale";
+import dojoDate = require("dojo/date/locale");
 
 import AuthoritativeBadge from "../Badges/Authoritative";
 import DeprecatedBadge from "../Badges/Deprecated";

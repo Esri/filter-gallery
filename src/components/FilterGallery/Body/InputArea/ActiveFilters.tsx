@@ -1,4 +1,4 @@
-import * as i18n from "dojo/i18n!../../../../nls/resources";
+import i18n = require("dojo/i18n!../../../../nls/resources");
 import { Component, H, connect, ComponentProps } from "../../../../Component";
 import {
     CLEAR_ALL_FILTERS,
@@ -15,7 +15,7 @@ import {
 import FilterController, { FilterControllerProps } from "../../../Dropdowns/FilterController";
 import { FilterGalleryState } from "../../../../_reducer";
 import { FilterGalleryStore } from "../../../..";
-import * as ioQuery from "dojo/io-query";
+import ioQuery = require("dojo/io-query");
 
 const generalUpdateActions = {
     itemType: updateItemTypeFilter(),

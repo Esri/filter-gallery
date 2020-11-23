@@ -1,4 +1,5 @@
-import * as Base from "./_applicationBase/ApplicationBase";
+// import Base from "./_applicationBase/ApplicationBase";
+import ApplicationBase = require("@esri/application-base-js");
 
 import {
     applyMiddleware,
@@ -20,15 +21,16 @@ import ConfigurationSettings from "./ConfigurationSettings";
 
 export type FilterGalleryStore = Store<FilterGalleryState>;
 
-export default (cfg: string, settings: Pojo) => {
+export default (cfg: string, sets: string) => {
     let config = JSON.parse(cfg);
+    let settings = JSON.parse(sets);
 
     // parse config for new config experience
     config = new ConfigurationSettings(config);
     config = parseConfigSettings(config);
     
     // Load the application base
-    const base = new Base({ config, settings });
+    const base = new ApplicationBase({ config, settings });
     const node = document.getElementById("viewDiv") as HTMLElement;
     const store: FilterGalleryStore = applyMiddleware(
         createEpicMiddleware(rootEpic),

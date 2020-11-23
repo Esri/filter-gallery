@@ -1,4 +1,4 @@
-import * as request from "esri/request";
+import request = require("esri/request");
 
 import { getOrgBaseUrl } from "../../_utils";
 import { Pojo, Action } from "../../Component";

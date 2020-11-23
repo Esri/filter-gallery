@@ -1,4 +1,4 @@
-import * as componentI18n from "dojo/i18n!../../../nls/resources";
+import componentI18n = require("dojo/i18n!../../../nls/resources");
 
 import { Component, H } from "../../../Component";
 import DatePicker from "../DatePicker";

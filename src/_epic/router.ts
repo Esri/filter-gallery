@@ -1,4 +1,4 @@
-import * as ioQuery from "dojo/io-query";
+import ioQuery = require("dojo/io-query");
 
 import { Action, ofType, combineEpics } from "../Component";
 import { Subject, Observable, of } from "rxjs";

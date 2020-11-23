@@ -32,6 +32,7 @@
     var file_path = window.location.pathname;
     var dist_path = file_path.slice(0, file_path.lastIndexOf("/"));
     var base_path = dist_path.slice(0, dist_path.lastIndexOf("/"));
+    var instantPath = dist_path.slice(0, base_path.lastIndexOf("/"));
 
     dojoConfig = {
       async: true,
@@ -43,6 +44,11 @@
         {
           name: "nls",
           location: dist_path + "/nls"
+        },
+        {
+          name: 'ApplicationBase',
+          location: `${instantPath}/node_modules/@esri/application-base-js`,
+          main: 'ApplicationBase'
         }
       ]
     };

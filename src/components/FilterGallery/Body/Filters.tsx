@@ -1,4 +1,4 @@
-import * as i18n from "dojo/i18n!../../nls/resources";
+import i18n = require("dojo/i18n!../../nls/resources");
 import { Component, H, connect, ComponentProps } from "../../../Component";
 import { genericSubtreeFromPath } from "../../../_utils";
 
@@ -27,7 +27,7 @@ import { treeCompress, treePrune, ItemTypeFilter as ItemTypeFilters } from "../.
 import itemTypeOptions from "../../Filters/ItemTypeFilter/_utils/itemTypeOptions";
 import { SharedFilterOptions } from "../../Filters/SharedFilter";
 import { StatusFilterOptions } from "../../Filters/StatusFilter";
-import * as ioQuery from "dojo/io-query";
+import ioQuery = require("dojo/io-query");
 
 
 export interface FilterPaneProps extends ComponentProps {

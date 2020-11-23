@@ -4,11 +4,11 @@
         "outDir": "./dist",
         "sourceMap": true,
         "declaration": false,
-        "noImplicitReturns": true,
+        "noImplicitReturns": false,
         "noImplicitThis": true,
         "noImplicitAny": false,
-        "strictNullChecks": true,
-        "module": "es2015",
+        "strictNullChecks": false,
+        "module": "commonjs",
         "moduleResolution": "node",
         "target": "es5",
         "experimentalDecorators": true,
@@ -19,11 +19,19 @@
         "types": ["arcgis-js-api"],
         "importHelpers": true,
         "lib": ["dom", "es2015", "scripthost"],
+        "skipLibCheck": true,
+        "preserveConstEnums": true
     },
     "include": [
         "./src/**/*"
     ],
+    "exclude": [
+        "./node_modules",
+        "./../node_modules"
+    ],
     "files": [
+        "./node_modules/@types/arcgis-js-api/index.d.ts",
+        "./../node_modules/@esri/application-base-js/index.d.ts",
         "./node_modules/dojo-typings/dojo/1.11/loader.d.ts",
         "./node_modules/dojo-typings/dojo/1.11/index.d.ts",
         "./node_modules/dojo-typings/dojo/1.11/modules.d.ts",

@@ -1,7 +1,7 @@
-import * as i18n from "dojo/i18n!../../../nls/resources";
+import i18n = require("dojo/i18n!../../../nls/resources");
 import { Component, H, connect } from "../../../Component";
 
-import * as promiseUtils from "esri/core/promiseUtils";
+import promiseUtils = require("esri/core/promiseUtils");
 import LoaderBars from "../../Loaders/LoaderBars";
 import { FilterGalleryStore } from "../../..";
 import widgetMapping from "./_utils/widgetMapping"; //Widget 1 of 2

@@ -1,4 +1,4 @@
-import * as i18n from "dojo/i18n!../../nls";
+import i18n = require("dojo/i18n!../../nls");
 
 import { Pojo, Action } from "../../Component";
 import { allItemTypes, ItemType, ItemTypeFilter } from "../../_utils";

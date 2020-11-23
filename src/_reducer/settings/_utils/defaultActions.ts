@@ -1,5 +1,5 @@
-import * as i18n from "dojo/i18n!../../../nls/resources";
-import * as ioQuery from "dojo/io-query";
+import i18n = require("dojo/i18n!../../../nls/resources");
+import ioQuery = require("dojo/io-query");
 import { CustomAction } from "../config";
 import { Pojo } from "../../../Component";
 import { FilterGalleryState } from "../..";

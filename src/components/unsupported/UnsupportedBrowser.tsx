@@ -1,6 +1,6 @@
 
 // i18n
-import i18n from "dojo/i18n!./nls/resources";
+import i18n = require("dojo/i18n!./nls/resources");
 
 // esri.core
 import {
@@ -9,7 +9,7 @@ import {
 } from "esri/core/accessorSupport/decorators";
 
 // esri.widgets
-import Widget from "esri/widgets/Widget";
+import Widget = require("esri/widgets/Widget");
 import { tsx } from "esri/widgets/support/widget";
 
 import { substitute } from "esri/intl";

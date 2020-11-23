@@ -3,7 +3,7 @@ import {
     subclass
 } from "esri/core/accessorSupport/decorators";
 
-import Accessor from "esri/core/Accessor";
+import Accessor = require("esri/core/Accessor");
 import { ApplicationConfig } from "./_applicationBase/interfaces";
 
 type UIPosition =
@@ -17,7 +17,7 @@ type UIPosition =
     | "bottom-trailing";
 
 @subclass("app.ConfigurationSettings")
-class ConfigurationSettings extends (Accessor) {
+class ConfigurationSettings extends Accessor {
     @property()
     group: string;
 
