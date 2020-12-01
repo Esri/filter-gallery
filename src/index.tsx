@@ -135,6 +135,5 @@ function parseConfigSettings(config: ConfigurationSettings) {
             config.get("basemapGalleryPosition") : 
             all["basemapGalleryWidget"]
         ); 
-
     return all;
 }

@@ -342,7 +342,9 @@ export const initialState: ConfigState = {
 export default (state: ConfigState = initialState, action: Action) => {
     switch (action.type) {
         case LOAD_PORTAL_SUCCESS:
-            const { config } = action.payload;
+            let { config } = action.payload;
+
+            config = parseApplicationConfig(config);
             
             // Inject custom stylesheet if provided
             if (config.customCSS && config.customCSS.length > 0) {
@@ -355,6 +357,8 @@ export default (state: ConfigState = initialState, action: Action) => {
             document.documentElement.lang = action.payload.locale;
             var dirNode = document.getElementsByTagName("html")[0];
             dirNode.setAttribute("dir", action.payload.direction);
+
+            const filters = config.filters ? config.filters : [];
 
             return {
                 ...state,
@@ -378,7 +382,7 @@ export default (state: ConfigState = initialState, action: Action) => {
                 section: {
                     name: "doesn't matter!",
                     baseQuery: "",
-                    filters: config.filters.map(
+                    filters: filters.map(
                         (filter: string) =>
                             filter === "categories" ? ({
                                 name: "Categories",
@@ -395,3 +399,45 @@ export default (state: ConfigState = initialState, action: Action) => {
             return state;
     }
 };
+
+function parseApplicationConfig(config: any) {
+    // Verify all needed props are set correctly:
+    config["compassWidget"] = 
+        (config["compassPosition"] !== undefined ? 
+            config["compassPosition"] : 
+            config["compassWidget"]
+        ); 
+    config["homeWidget"] = 
+        (config["homePosition"] !== undefined ? 
+            config["homePosition"] : 
+            config["homeWidget"]
+        ); 
+    config["legendWidget"] = 
+        (config["legendPosition"] !== undefined ? 
+            config["legendPosition"] : 
+            config["legendWidget"]
+        ); 
+    config["locateWidget"] = 
+        (config["locatePosition"] !== undefined ? 
+            config["locatePosition"] : 
+            config["locateWidget"]
+        ); 
+    config["searchWidget"] = 
+        (config["searchPosition"] !== undefined ? 
+            config["searchPosition"] : 
+            config["searchWidget"]
+        ); 
+    config["basemapGalleryWidget"] = 
+        (config["basemapGalleryPosition"] !== undefined ? 
+            config["basemapGalleryPosition"] : 
+            config["basemapGalleryWidget"]
+        ); 
+    if (typeof config["allowedItemTypes"] === "string") {
+        let types = config["allowedItemTypes"].replace("[", "").replace("]", "");
+        if (types === "all") {
+            types = "['Web Map', 'CityEngine Web Scene', 'Web Scene', '360 VR Experience', 'Pro Map', 'Feature Service', 'Map Service', 'Image Service', 'KML', 'KML Collection', 'WFS', 'WMTS', 'Feature Collection', 'Feature Collection Template', 'Vector Tile Service', 'Scene Service', 'Relational Database Connection', 'Web Mapping Application', 'StoryMap', 'Mobile Application', 'Operations Dashboard Add In', 'Native Application', 'Native Application Template', 'Native Application Installer', 'Workforce Project', 'Form', 'Insights Workbook', 'Insights Model', 'Insights Page', 'Dashboard', 'Hub Initiative', 'Hub Site Application', 'Hub Page', 'AppBuilder Widget Package', 'Symbol Set', 'Color Set', 'Shapefile', 'File Geodatabase', 'CSV', 'CAD Drawing', 'Service Definition', 'Microsoft Word', 'Microsoft Powerpoint', 'Microsoft Excel', 'PDF', 'Image', 'Visio Document', 'iWork Keynote', 'iWork Pages', 'iWork Numbers', 'Report Template', 'Statistical Data Collection', 'Map Document', 'Map Package', 'Mobile Basemap Package', 'Mobile Map Package', 'Tile Package', 'Vector Tile Package', 'Project Package', 'Task File', 'ArcPad Package', 'Explorer Map', 'Document Link', 'Globe Document', 'Scene Document', 'Published Map', 'Map Template', 'Windows Mobile Package', 'Pro Map', 'Layout', 'Project Template', 'Layer', 'Layer Package', 'Explorer Layer', 'Scene Package', 'Image Collection', 'Desktop Style', 'Geoprocessing Package', 'Geoprocessing Package (Pro version)', 'Geoprocessing Sample', 'Locator Package', 'Rule Package', 'Raster function template', 'ArcGIS Pro Configuration', 'Workflow Manager Package', 'Desktop Application', 'Desktop Application Template', 'Code Sample', 'Desktop Add In', 'Explorer Add In', 'ArcGIS Pro Add In', 'Geometry Service', 'Geocoding Service', 'Network Analysis Service', 'Geoprocessing Service', 'Workflow Manager Service', 'Application', 'Big Data File Share', 'Web Tool', 'Notebook', 'Deep Learning Package', 'Web Experience', 'Web Experience Template', 'Feed']";
+        }
+        config["allowedItemTypes"] = types.split(", ");
+    }
+    return config;
+}

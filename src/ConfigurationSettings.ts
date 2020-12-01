@@ -37,7 +37,7 @@ class ConfigurationSettings extends Accessor {
     filterPaneDefault: boolean;
 
     @property()
-    allowedItemTypes: any;
+    allowedItemTypes: string[];
 
     @property()
     resultsPerQuery: number;
@@ -46,13 +46,13 @@ class ConfigurationSettings extends Accessor {
     showSignInBtn: boolean;
 
     @property()
-    filters: any;
+    filters: string[];
 
     @property()
-    filtersDefault: any;
+    filtersDefault: string[];
 
     @property()
-    availableItemTypeFilters: any;
+    availableItemTypeFilters: string[];
 
     @property()
     useOrgCategories: boolean;
