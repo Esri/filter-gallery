@@ -9,6 +9,9 @@
         "title": {
             "defaultValue": "Category Gallery",
             "express": true
+        },
+        "headHTML": { 
+            "defaultValue": ""
         }
     }, 
     "interactivity": {
@@ -126,9 +129,6 @@
                 "displayDefault": { 
                     "defaultValue": "grid",
                     "express": true
-                },
-                "headHTML": { 
-                    "defaultValue": ""
                 },
                 "customCSS": {
                     "defaultValue": ""
