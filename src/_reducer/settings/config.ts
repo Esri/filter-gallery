@@ -8,6 +8,8 @@ import defaultActions from "./_utils/defaultActions";
 import { FilterGalleryState } from "..";
 import { LOAD_PORTAL_SUCCESS } from "../../_actions";
 
+import ConfigurationSettings from "../../ConfigurationSettings";
+
 export type BaseFilters = "itemType" | "modified" | "created" | "shared" | "status" | "tags";
 
 /**
@@ -344,6 +346,8 @@ export default (state: ConfigState = initialState, action: Action) => {
         case LOAD_PORTAL_SUCCESS:
             let { config } = action.payload;
 
+            // Check for draft values and parse config
+            config = new ConfigurationSettings(config);
             config = parseApplicationConfig(config);
             
             // Inject custom stylesheet if provided
