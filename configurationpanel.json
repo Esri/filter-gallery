@@ -35,14 +35,14 @@
         "contentFiltering": {
             "contentFiltering": {
                 "filters": { 
-                    "defaultValue": [],
+                    "defaultValue": ["categories", "itemType", "tags"],
                     "express": true
                 },
                 "filtersDefault": { 
                     "defaultValue": []
                 },
                 "availableItemTypeFilters": { 
-                    "defaultValue": []
+                    "defaultValue": ["maps", "layers", "scenes", "apps", "files"]
                 },
                 "useOrgCategories": { 
                     "defaultValue": false,
