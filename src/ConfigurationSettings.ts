@@ -127,6 +127,15 @@ class ConfigurationSettings extends Accessor {
     googleAnalytics: boolean;
     @property()
     googleAnalyticsKey: string;
+    @property()
+    googleAnalyticsConsentMsg: string;
+    @property()
+    googleAnalyticsConsent: boolean;
+    @property()
+    telemetry: any;
+
+    @property()
+    theme: string;
 
     @property()
     withinConfigurationExperience: boolean =

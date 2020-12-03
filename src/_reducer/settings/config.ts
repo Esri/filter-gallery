@@ -9,6 +9,11 @@ import { FilterGalleryState } from "..";
 import { LOAD_PORTAL_SUCCESS } from "../../_actions";
 
 import ConfigurationSettings from "../../ConfigurationSettings";
+import Telemetry, { TelemetryInstance } from "../../telemetry/telemetry";
+import Alert = require("../../components/ui/Alert");
+
+import { eachAlways } from "esri/core/promiseUtils";
+import { watch, whenDefinedOnce } from "esri/core/watchUtils";
 
 export type BaseFilters = "itemType" | "modified" | "created" | "shared" | "status" | "tags";
 
@@ -344,11 +349,13 @@ export const initialState: ConfigState = {
 export default (state: ConfigState = initialState, action: Action) => {
     switch (action.type) {
         case LOAD_PORTAL_SUCCESS:
-            let { config } = action.payload;
+            let { config, portal } = action.payload;
 
             // Check for draft values and parse config
             config = new ConfigurationSettings(config);
             config = parseApplicationConfig(config);
+
+            _handleTelemetry(config, portal);
             
             // Inject custom stylesheet if provided
             if (config.customCSS && config.customCSS.length > 0) {
@@ -444,4 +451,30 @@ function parseApplicationConfig(config: any) {
         config["allowedItemTypes"] = types.split(", ");
     }
     return config;
+}
+
+async function createTelemetry(config, portal) {
+    // add alert to container
+    const appName = config.telemetry?.name || "filter-gallery";
+    const _telemetry = await Telemetry.init({ portal, config, appName });
+    _telemetry?.logPageView();
+}
+function _handleTelemetry(appConfig, portal) {
+    // Wait until both are defined 
+    eachAlways([
+        whenDefinedOnce(appConfig, "googleAnalytics"),
+        whenDefinedOnce(appConfig, "googleAnalyticsKey"),
+        whenDefinedOnce(appConfig, "googleAnalyticsConsentMsg"),
+        whenDefinedOnce(appConfig, "googleAnalyticsConsent")
+    ]).then(() => {
+        const alertContainer = document.createElement("container");
+        document.body.appendChild(alertContainer);
+        new Alert({ config: appConfig, container: alertContainer });
+
+        createTelemetry(appConfig, portal);
+        watch(appConfig, ["googleAnalytics", "googleAnalyticsConsent", "googleAnalyticsConsentMsg", "googleAnalyticsKey"], (newValue, oldValue, propertyName) => {
+            createTelemetry(appConfig, portal);
+        });
+
+    })
 }
