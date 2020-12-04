@@ -83,7 +83,7 @@
                 },
                 "compassWidget": { 
                     "defaultValue": false,
-                    "locateWidgetPosition": {
+                    "compassWidgetPosition": {
                         "defaultValue": "top-right"
                     }
                 },
