@@ -147,8 +147,8 @@ export class WebBase extends Component<WebBaseProps, WebBaseState> {
         return promiseUtils.create(
             (resolve, reject) => { 
                 // tslint:disable-next-line: max-line-length
-                require(["esri/widgets/Compass", "esri/widgets/Home", "esri/widgets/Legend", "esri/widgets/Locate", "esri/widgets/Search", "esri/widgets/BasemapGallery", "esri/widgets/Expand"], 
-                        (Compass, Home, Legend, Locate, Search, BasemapGallery, Expand) => {
+                require(["esri/widgets/Compass", "esri/widgets/Home", "esri/widgets/Legend", "esri/widgets/Locate", "esri/widgets/Search", "esri/widgets/BasemapGallery", "esri/widgets/Expand", "esri/widgets/BasemapToggle"], 
+                        (Compass, Home, Legend, Locate, Search, BasemapGallery, Expand, BasemapToggle) => {
                             constructorKey = {
                                 "esri/widgets/Compass": Compass, 
                                 "esri/widgets/Home": Home, 
@@ -156,12 +156,13 @@ export class WebBase extends Component<WebBaseProps, WebBaseState> {
                                 "esri/widgets/Locate": Locate, 
                                 "esri/widgets/Search": Search, 
                                 "esri/widgets/BasemapGallery": BasemapGallery, 
-                                "esri/widgets/Expand": Expand
+                                "esri/widgets/Expand": Expand,
+                                "esri/widgets/BasemapToggle": BasemapToggle
                             };
-                            return resolve([Compass, Home, Legend, Locate, Search, BasemapGallery, Expand]);
+                            return resolve([Compass, Home, Legend, Locate, Search, BasemapGallery, Expand, BasemapToggle]);
                         }
                 ); 
-            }).then(([Compass, Home, Legend, Locate, Search, BasemapGallery, Expand]) => {
+            }).then(([Compass, Home, Legend, Locate, Search, BasemapGallery, Expand, BasemapToggle]) => {
                 modules.forEach((mod) => {
                     const constructor: any = constructorKey[mod["module"]];
                     let widget = new constructor({ view });
@@ -175,6 +176,12 @@ export class WebBase extends Component<WebBaseProps, WebBaseState> {
                             view: view,
                             content: widget,
                             group: group
+                        });
+                    }
+                    if ( mod["module"] === "esri/widgets/BasemapToggle" ) {
+                        widget = new BasemapToggle({
+                            view,
+                            nextBasemap: this.props.widgets.basemapToggleWidgetNext
                         });
                     }
                     if (widget.activeLayerInfos) {

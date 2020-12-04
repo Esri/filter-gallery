@@ -24,10 +24,6 @@ export type FilterGalleryStore = Store<FilterGalleryState>;
 export default (cfg: string, sets: string) => {
     let config = JSON.parse(cfg);
     let settings = JSON.parse(sets);
-
-    // parse config for new config experience
-    config = new ConfigurationSettings(config);
-    config = parseConfigSettings(config);
     
     // Load the application base
     const base = new ApplicationBase({ config, settings });
@@ -61,79 +57,3 @@ export default (cfg: string, sets: string) => {
     //     portal,
     //     request});
 };
-
-const originalConfig = [
-    "appid",
-    "oauthappid",
-    "group",
-    "portalUrl",
-    "title",
-    "showSignInBtn",
-    "allowedItemTypes",
-    "defaultBasemap",
-    "compassWidget",
-    "homeWidget",
-    "legendWidget",
-    "locateWidget",
-    "searchWidget",
-    "basemapGalleryWidget",
-    "resultsPerQuery",
-    "useOrgCategories",
-    "displayDefault",
-    "showItemOwner",
-    "showItemInfo",
-    "showItemDetails",
-    "showItemType",
-    "showItemToolTip",
-    "itemSummaryMaxChar",
-    "openDocumentInBrowser",
-    "filterPaneDefault",
-    "filters",
-    "filtersDefault",
-    "sortOptions",
-    "availableItemTypeFilters",
-    "headHTML",
-    "customCSS"
-];
-
-function parseConfigSettings(config: ConfigurationSettings) {
-    const all = {};
-    let keys: string[] = (config as any).keys();
-    keys = keys.concat(originalConfig);
-    keys.forEach((key: string) => {
-        all[key] = config.get(key);
-    });
-
-    // Verify all needed props are set correctly:
-    all["compassWidget"] = 
-        (config.get("compassPosition") !== undefined ? 
-            config.get("compassPosition") : 
-            all["compassWidget"]
-        ); 
-    all["homeWidget"] = 
-        (config.get("homePosition") !== undefined ? 
-            config.get("homePosition") : 
-            all["homeWidget"]
-        ); 
-    all["legendWidget"] = 
-        (config.get("legendPosition") !== undefined ? 
-            config.get("legendPosition") : 
-            all["legendWidget"]
-        ); 
-    all["locateWidget"] = 
-        (config.get("locatePosition") !== undefined ? 
-            config.get("locatePosition") : 
-            all["locateWidget"]
-        ); 
-    all["searchWidget"] = 
-        (config.get("searchPosition") !== undefined ? 
-            config.get("searchPosition") : 
-            all["searchWidget"]
-        ); 
-    all["basemapGalleryWidget"] = 
-        (config.get("basemapGalleryPosition") !== undefined ? 
-            config.get("basemapGalleryPosition") : 
-            all["basemapGalleryWidget"]
-        ); 
-    return all;
-}

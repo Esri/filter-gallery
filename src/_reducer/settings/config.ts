@@ -238,7 +238,8 @@ export interface ConfigState {
         legendWidget: string;
         locateWidget: string;
         searchWidget: string;
-        basemapGalleryWidget: string;
+        basemapGalleryWidget?: string;
+        basemapToggleWidget?: string;
     };
 
     /**
@@ -379,12 +380,13 @@ export default (state: ConfigState = initialState, action: Action) => {
                 allowedItemTypes: config.allowedItemTypes,
                 defaultBasemap: config.defaultBasemap,
                 widgets: {
-                    "compassWidget": config.compassWidget,
-                    "homeWidget": config.homeWidget,
-                    "legendWidget": config.legendWidget,
-                    "locateWidget": config.locateWidget,
-                    "searchWidget": config.searchWidget,
-                    "basemapGalleryWidget": config.basemapGalleryWidget,
+                    "compassWidget": config.compassWidget ? config.compassWidgetPosition : "",
+                    "homeWidget": config.home ? config.homePosition : "",
+                    "legendWidget": config.legend ? config.legendPosition : "",
+                    "locateWidget": config.locateWidget ? config.locateWidgetPosition : "",
+                    "searchWidget": config.search ? config.searchPosition : "",
+                    "basemapToggleWidget": config.basemapToggle ? config.basemapTogglePosition : "",
+                    "basemapToggleWidgetNext": config.basemapToggle ? config.nextBasemap : "",
                 },
                 useOrgCategories: config.useOrgCategories,
                 sortOptions: config.sortOptions,
@@ -413,36 +415,6 @@ export default (state: ConfigState = initialState, action: Action) => {
 
 function parseApplicationConfig(config: any) {
     // Verify all needed props are set correctly:
-    config["compassWidget"] = 
-        (config["compassPosition"] !== undefined ? 
-            config["compassPosition"] : 
-            config["compassWidget"]
-        ); 
-    config["homeWidget"] = 
-        (config["homePosition"] !== undefined ? 
-            config["homePosition"] : 
-            config["homeWidget"]
-        ); 
-    config["legendWidget"] = 
-        (config["legendPosition"] !== undefined ? 
-            config["legendPosition"] : 
-            config["legendWidget"]
-        ); 
-    config["locateWidget"] = 
-        (config["locatePosition"] !== undefined ? 
-            config["locatePosition"] : 
-            config["locateWidget"]
-        ); 
-    config["searchWidget"] = 
-        (config["searchPosition"] !== undefined ? 
-            config["searchPosition"] : 
-            config["searchWidget"]
-        ); 
-    config["basemapGalleryWidget"] = 
-        (config["basemapGalleryPosition"] !== undefined ? 
-            config["basemapGalleryPosition"] : 
-            config["basemapGalleryWidget"]
-        ); 
     if (typeof config["allowedItemTypes"] === "string") {
         let types = 
             config["allowedItemTypes"]
