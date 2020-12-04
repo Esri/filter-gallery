@@ -6,6 +6,8 @@ import {
 import Accessor = require("esri/core/Accessor");
 import { ApplicationConfig } from "./_applicationBase/interfaces";
 
+import { allItemTypes, ItemType, ItemTypeFilter } from "./_utils";
+
 type UIPosition =
     | "top-left"
     | "top-right"
@@ -37,7 +39,10 @@ class ConfigurationSettings extends Accessor {
     filterPaneDefault: boolean;
 
     @property()
-    allowedItemTypes: string[];
+    allowedItemTypes: string;
+
+    @property()
+    allowedItemTypesArray: ItemType[];
 
     @property()
     resultsPerQuery: number;
@@ -52,7 +57,7 @@ class ConfigurationSettings extends Accessor {
     filtersDefault: string[];
 
     @property()
-    availableItemTypeFilters: string[];
+    availableItemTypeFilters: ItemTypeFilter[];
 
     @property()
     useOrgCategories: boolean;
@@ -82,19 +87,19 @@ class ConfigurationSettings extends Accessor {
     compassWidget: boolean;
 
     @property()
-    compassPosition: UIPosition;
+    compassWidgetPosition: UIPosition;
 
     @property()
-    basemapGalleryWidget: boolean;
+    basemapToggle: boolean;
 
     @property()
-    basemapGalleryPosition: UIPosition;
+    basemapTogglePosition: UIPosition;
 
     @property()
     nextBasemap: string;
 
     @property()
-    searchWidget: boolean;
+    search: boolean;
 
     @property()
     searchPosition: UIPosition;
@@ -103,16 +108,16 @@ class ConfigurationSettings extends Accessor {
     locateWidget: boolean;
 
     @property()
-    locatePosition: UIPosition;
+    locateWidgetPosition: UIPosition;
 
     @property()
-    homeWidget: boolean;
+    home: boolean;
 
     @property()
     homePosition: UIPosition;
 
     @property()
-    legendWidget: boolean;
+    legend: boolean;
 
     @property()
     legendPosition: UIPosition;
@@ -140,6 +145,9 @@ class ConfigurationSettings extends Accessor {
     @property()
     withinConfigurationExperience: boolean =
         window?.frameElement?.getAttribute("data-embed-type") === "instant-config";
+
+    @property()
+    draftChanges: boolean;
 
     _storageKey = "config-values";
     _draft: ApplicationConfig = {};
@@ -170,6 +178,7 @@ class ConfigurationSettings extends Accessor {
     _handleConfigurationUpdates(e: MessageEvent) {
         if (e?.data?.type === "cats-app") {
             Object.assign(this, e.data);
+            window.postMessage({type: "rerender"}, window.origin);
         }
     }
 }

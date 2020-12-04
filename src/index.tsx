@@ -50,6 +50,24 @@ export default (cfg: string, sets: string) => {
         node
     );
 
+    window.addEventListener(
+        "message",
+        ((e: MessageEvent) => {
+            if (e?.data?.type === "rerender") {
+                // Rerender the app
+                store.dispatch(loadPortal());
+                startHistoryListener(store);
+                createProjector(
+                    store,
+                    (tsx: H) => (<RootComponent key="root2" />),
+                    node
+                );
+                // Creates new root then removes the original
+                node.firstChild.remove();
+            }
+        })
+    );
+
     // const portal = new Portal({ url: "https://devext.arcgis.com" });
     // // const container = document.querySelector("#myDomNode");
     // const myItemBrowser = new ItemBrowserWrapper(node, {
