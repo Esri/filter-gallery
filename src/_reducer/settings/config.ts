@@ -392,7 +392,7 @@ export default (state: ConfigState = initialState, action: Action) => {
                 useOrgCategories: config.useOrgCategories,
                 sortOptions: config.sortOptions,
                 availableItemTypeFilters: config.availableItemTypeFilters,
-                headHTML: config.headHTML.length > 0 ? config.headHTML : undefined,
+                headHTML: config.headHTML?.length > 0 ? config.headHTML : undefined,
                 section: {
                     name: "doesn't matter!",
                     baseQuery: "",

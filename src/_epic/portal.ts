@@ -11,7 +11,13 @@ export const baseEpic = (action$: Subject<Action>, getState: () => FilterGallery
     ofType(LOAD_PORTAL),
     switchMap(() => {
         const base = getState().settings.utils.base;
-        return fromDeferred(base.load() as any).pipe(
+        return fromDeferred(
+            base.load().then(
+                () => {
+                    base.loadConfig();
+                    return base;
+                }
+            ) as any).pipe(
             switchMap(() => fromDeferred(base.portal.load()).pipe(
                 map(() => ({ type: LOAD_PORTAL_SUCCESS, payload: base })),
                 catchError((err) => {

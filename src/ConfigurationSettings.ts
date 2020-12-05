@@ -152,6 +152,7 @@ class ConfigurationSettings extends Accessor {
     _storageKey = "config-values";
     _draft: ApplicationConfig = {};
     _draftMode: boolean = false;
+
     constructor(params?: ApplicationConfig) {
 
         super(params);
@@ -180,6 +181,19 @@ class ConfigurationSettings extends Accessor {
             Object.assign(this, e.data);
             window.postMessage({type: "rerender"}, window.origin);
         }
+    }
+
+    toObjectLiteral() {
+        const object = {};
+        const propsMap = this["__accessor__"].properties;
+        const propsObj = Array.from(propsMap).reduce((obj, [key, value]) => (
+            Object.assign(obj, { [key]: value }) 
+          ), {});
+        const keys = Object.keys(propsObj);
+        keys.forEach(key => {
+            object[key] = this[key];
+        });
+        return object;
     }
 }
 export default ConfigurationSettings;

@@ -17,7 +17,7 @@ import RootComponent from "./components/FilterGallery";
 import { loadPortal } from "./_actions";
 import { startHistoryListener, router } from "./router";
 
-import ConfigurationSettings from "./ConfigurationSettings";
+import ApplicationBaseGallery from "./ApplicationBaseGallery";
 
 export type FilterGalleryStore = Store<FilterGalleryState>;
 
@@ -26,7 +26,11 @@ export default (cfg: string, sets: string) => {
     let settings = JSON.parse(sets);
     
     // Load the application base
-    const base = new ApplicationBase({ config, settings });
+    let base = new ApplicationBaseGallery({ config, settings });
+    base.load().then(() => {
+        base.loadConfig();
+    });
+    
     const node = document.getElementById("viewDiv") as HTMLElement;
     const store: FilterGalleryStore = applyMiddleware(
         createEpicMiddleware(rootEpic),
