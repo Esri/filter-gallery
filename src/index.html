@@ -100,6 +100,9 @@
     if (location.search.match(/locale=([\w-]+)/)) {
       dojoConfig.locale = RegExp.$1;
     }  
+
+    window["esriConfig"] = { locale: dojoConfig.locale };
+	  window["dojoConfig"] = dojoConfig;
   </script>
   <script src="https://js.arcgis.com/4.18/"></script>
   <script
