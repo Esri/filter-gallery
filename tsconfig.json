@@ -20,7 +20,10 @@
         "importHelpers": true,
         "lib": ["dom", "es2015", "scripthost"],
         "skipLibCheck": true,
-        "preserveConstEnums": true
+        "preserveConstEnums": true,
+        "paths": {
+            "tslib" : ["./node_modules/tslib/tslib.d.ts"]
+          }
     },
     "include": [
         "./src/**/*"
