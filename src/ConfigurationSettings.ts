@@ -152,6 +152,8 @@ class ConfigurationSettings extends Accessor {
     _storageKey = "config-values";
     _draft: ApplicationConfig = {};
     _draftMode: boolean = false;
+    _handleConfigurationUpdates: Function; 
+    _appliedDraft: boolean = false;
 
     constructor(params?: ApplicationConfig) {
 
@@ -166,17 +168,32 @@ class ConfigurationSettings extends Accessor {
                 Object.assign(this, this._draft);
             }
 
-            window.addEventListener(
-                "message",
-                ((e: MessageEvent) => {
-                    this._handleConfigurationUpdates(e);
-                }).bind(this),
-                false
-            );
+            // ensured to only call once
+            if (this._handleConfigurationUpdates === undefined) {
+                this._handleConfigurationUpdates = this.handleConfigurationUpdates;
+                window.addEventListener(
+                    "message",
+                    ((e: MessageEvent) => {
+                        this._handleConfigurationUpdates(e);
+                    }).bind(this),
+                    false
+                );
+            }
         }
     }
 
-    _handleConfigurationUpdates(e: MessageEvent) {
+    async applyDraft() {
+        if ((this.withinConfigurationExperience || this._draftMode) && !this._appliedDraft) {
+            // Apply any draft properties
+            if (this._draft) {
+                Object.assign(this, this._draft);
+                this._appliedDraft = true;
+            }
+        }
+        return Promise.resolve();
+    }
+
+    handleConfigurationUpdates(e: MessageEvent) {
         if (e?.data?.type === "cats-app") {
             Object.assign(this, e.data);
             window.postMessage({type: "rerender"}, window.origin);
@@ -191,7 +208,9 @@ class ConfigurationSettings extends Accessor {
           ), {});
         const keys = Object.keys(propsObj);
         keys.forEach(key => {
-            object[key] = this[key];
+            if (this[key] !== undefined && this[key] !== "") {
+                object[key] = this[key];
+            }
         });
         return object;
     }

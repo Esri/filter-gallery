@@ -5,6 +5,7 @@ import {
     applyMiddleware,
     createStore,
     createProjector,
+    Projector,
     createEpicMiddleware,
     H,
     Store,
@@ -18,56 +19,59 @@ import { loadPortal } from "./_actions";
 import { startHistoryListener, router } from "./router";
 
 import ApplicationBaseGallery from "./ApplicationBaseGallery";
+import { ApplicationConfig } from 'ApplicationBase/interfaces';
 
 export type FilterGalleryStore = Store<FilterGalleryState>;
 
 export default (cfg: string, sets: string) => {
-    let config = JSON.parse(cfg);
-    let settings = JSON.parse(sets);
+    const config = JSON.parse(cfg);
+    const settings = JSON.parse(sets);
     
     // Load the application base
-    let base = new ApplicationBaseGallery({ config, settings });
-    base.load().then(() => {
-        base.loadConfig();
-    });
+    const base = new ApplicationBaseGallery({ config, settings });
     
     const node = document.getElementById("viewDiv") as HTMLElement;
-    const store: FilterGalleryStore = applyMiddleware(
-        createEpicMiddleware(rootEpic),
-        router,
-        // addListener(console.log)
-    )(createStore)(reducer, {
-        ...initialState,
-        settings: {
-            ...initialState.settings,
-            utils: {
-                ...initialState.settings.utils,
-                base
-            }
-        }
-    });
-    store.dispatch(loadPortal());
-    startHistoryListener(store);
-    createProjector(
-        store,
-        (tsx: H) => (<RootComponent key="root" />),
-        node
-    );
+    let store: FilterGalleryStore;
+    let projector: Projector;
+    base.load().then(() => {
+        base.portal.load().then(() => {
+            base.loadConfig().then(() => { 
+                let config = base.config as ApplicationConfig;
 
+                store = applyMiddleware(
+                    createEpicMiddleware(rootEpic),
+                    router,
+                    // addListener(console.log)
+                )(createStore)(reducer, {
+                    ...initialState,
+                    settings: {
+                        ...initialState.settings,
+                        utils: {
+                            ...initialState.settings.utils,
+                            base
+                        }
+                    }
+                });
+                store.dispatch(loadPortal());
+                startHistoryListener(store);
+                projector = createProjector(
+                    store,
+                    (tsx: H) => (<RootComponent key="root" />),
+                    node
+                );
+            });
+        });
+    });
+    
     window.addEventListener(
         "message",
         ((e: MessageEvent) => {
             if (e?.data?.type === "rerender") {
-                // Rerender the app
-                store.dispatch(loadPortal());
-                startHistoryListener(store);
-                createProjector(
-                    store,
-                    (tsx: H) => (<RootComponent key="root2" />),
-                    node
-                );
-                // Creates new root then removes the original
-                node.firstChild.remove();
+                base.loadConfig();
+                if (projector !== undefined) {
+                    store.dispatch(loadPortal());
+                    // projector.scheduleRender();
+                }
             }
         })
     );
