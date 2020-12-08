@@ -191,6 +191,7 @@ export default class AnalysisCard extends Component<ListCardProps> {
                                 : ``}
                                 <span
                                     class="card-lc__author-text"
+                                    key="itemAuthor"
                                 >
                                     {baseConfig.showItemType ? `${item.displayName} ` : ``} 
                                     {baseConfig.showItemOwner ? `${i18n.itemCards.by}` : ``}
@@ -212,12 +213,12 @@ export default class AnalysisCard extends Component<ListCardProps> {
                             </div>
                             {baseConfig.showItemInfo ?
                                 ([
-                                    (<span class="card-lc__info-bullet">•</span>),
-                                    (<span class="card-lc__info-string">{infoString}</span>)
+                                    (<span class="card-lc__info-bullet" key="showItemInfoBullet">•</span>),
+                                    (<span class="card-lc__info-string" key="showItemInfo">{infoString}</span>)
                                 ]) : ``}
                         </div>
                         <p class="card-lc__snippet">
-                            <span class="card-lc__snippet-text">{itemSummaryMaxChar < 250 && item.snippet && item.snippet.length > itemSummaryMaxChar ? 
+                            <span class="card-lc__snippet-text" key="itemSummaryMaxChar">{itemSummaryMaxChar < 250 && item.snippet && item.snippet.length > itemSummaryMaxChar ? 
                                                                 item.snippet.substring(0, itemSummaryMaxChar) + `...` :
                                                                 item.snippet}{` `}</span>
                             {baseConfig.showItemToolTip && item.snippet ?
