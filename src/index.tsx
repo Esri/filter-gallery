@@ -33,68 +33,55 @@ export default (cfg: string, sets: string) => {
     const node = document.getElementById("viewDiv") as HTMLElement;
     let store: FilterGalleryStore;
     let projector: Projector;
-    base.load().then(() => {
-        base.portal.load().then(
-            () => {
-                base.loadConfig().then(() => { 
-                    let config = base.config as ApplicationConfig;
 
-                    store = applyMiddleware(
-                        createEpicMiddleware(rootEpic),
-                        router,
-                        // addListener(console.log)
-                    )(createStore)(reducer, {
-                        ...initialState,
-                        settings: {
-                            ...initialState.settings,
-                            utils: {
-                                ...initialState.settings.utils,
-                                base
-                            }
-                        }
-                    });
-                    store.dispatch(loadPortal());
-                    startHistoryListener(store);
-                    projector = createProjector(
-                        store,
-                        (tsx: H) => (<RootComponent key="root" />),
-                        node
-                    );
-                });
-            },
-            (err: Error | OriginError) => {
-                if  ((err as OriginError).error === "application:origin-other") {
-                    err = err as OriginError;
-                    document.location.href = `../../shared/origin/index.html?appUrl=${err?.appUrl}`; 
-                } else {
-                    console.error("Error: ", err);
-                    // create store and projector in order for app to display error
-                    store = applyMiddleware(
-                        createEpicMiddleware(rootEpic),
-                        router,
-                        // addListener(console.log)
-                    )(createStore)(reducer, {
-                        ...initialState,
-                        settings: {
-                            ...initialState.settings,
-                            utils: {
-                                ...initialState.settings.utils,
-                                base
-                            }
-                        }
-                    });
-                    store.dispatch(loadPortal());
-                    startHistoryListener(store);
-                    projector = createProjector(
-                        store,
-                        (tsx: H) => (<RootComponent key="root" />),
-                        node
-                    );
+    const startProjector = () => {
+        store = applyMiddleware(
+            createEpicMiddleware(rootEpic),
+            router,
+            // addListener(console.log)
+        )(createStore)(reducer, {
+            ...initialState,
+            settings: {
+                ...initialState.settings,
+                utils: {
+                    ...initialState.settings.utils,
+                    base
                 }
-                
             }
+        });
+        store.dispatch(loadPortal());
+        startHistoryListener(store);
+        projector = createProjector(
+            store,
+            (tsx: H) => (<RootComponent key="root" />),
+            node
         );
-    });
+    };
+
+    const errorHandler = (err: Error | OriginError) => {
+        console.error("Error: ", err);
+        if  ((err as OriginError).error === "application:origin-other") {
+            err = err as OriginError;
+            document.location.href = `../../shared/origin/index.html?appUrl=${err?.appUrl}`; 
+        } else {
+            // create store and projector in order for app to display error
+            startProjector();
+        }  
+    };
+
+    base.load().then(
+        () => {
+            base.portal.load().then(
+                () => {
+                    base.loadConfig().then(() => { 
+                        startProjector();
+                    });
+                }, 
+                errorHandler
+            );
+        }, 
+        errorHandler
+    );
     
     window.addEventListener(
         "message",
