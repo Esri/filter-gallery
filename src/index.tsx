@@ -15,7 +15,7 @@ import {
 import { rootEpic } from "./_epic";
 import reducer, { initialState, FilterGalleryState } from "./_reducer";
 import RootComponent from "./components/FilterGallery";
-import { loadPortal } from "./_actions";
+import { loadPortal, OriginError } from "./_actions";
 import { startHistoryListener, router } from "./router";
 
 import ApplicationBaseGallery from "./ApplicationBaseGallery";
@@ -34,33 +34,66 @@ export default (cfg: string, sets: string) => {
     let store: FilterGalleryStore;
     let projector: Projector;
     base.load().then(() => {
-        base.portal.load().then(() => {
-            base.loadConfig().then(() => { 
-                let config = base.config as ApplicationConfig;
+        base.portal.load().then(
+            () => {
+                base.loadConfig().then(() => { 
+                    let config = base.config as ApplicationConfig;
 
-                store = applyMiddleware(
-                    createEpicMiddleware(rootEpic),
-                    router,
-                    // addListener(console.log)
-                )(createStore)(reducer, {
-                    ...initialState,
-                    settings: {
-                        ...initialState.settings,
-                        utils: {
-                            ...initialState.settings.utils,
-                            base
+                    store = applyMiddleware(
+                        createEpicMiddleware(rootEpic),
+                        router,
+                        // addListener(console.log)
+                    )(createStore)(reducer, {
+                        ...initialState,
+                        settings: {
+                            ...initialState.settings,
+                            utils: {
+                                ...initialState.settings.utils,
+                                base
+                            }
                         }
-                    }
+                    });
+                    store.dispatch(loadPortal());
+                    startHistoryListener(store);
+                    projector = createProjector(
+                        store,
+                        (tsx: H) => (<RootComponent key="root" />),
+                        node
+                    );
                 });
-                store.dispatch(loadPortal());
-                startHistoryListener(store);
-                projector = createProjector(
-                    store,
-                    (tsx: H) => (<RootComponent key="root" />),
-                    node
-                );
-            });
-        });
+            },
+            (err: Error | OriginError) => {
+                if  ((err as OriginError).error === "application:origin-other") {
+                    err = err as OriginError;
+                    document.location.href = `../../shared/origin/index.html?appUrl=${err?.appUrl}`; 
+                } else {
+                    console.error("Error: ", err);
+                    // create store and projector in order for app to display error
+                    store = applyMiddleware(
+                        createEpicMiddleware(rootEpic),
+                        router,
+                        // addListener(console.log)
+                    )(createStore)(reducer, {
+                        ...initialState,
+                        settings: {
+                            ...initialState.settings,
+                            utils: {
+                                ...initialState.settings.utils,
+                                base
+                            }
+                        }
+                    });
+                    store.dispatch(loadPortal());
+                    startHistoryListener(store);
+                    projector = createProjector(
+                        store,
+                        (tsx: H) => (<RootComponent key="root" />),
+                        node
+                    );
+                }
+                
+            }
+        );
     });
     
     window.addEventListener(
