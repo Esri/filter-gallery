@@ -176,7 +176,7 @@ class ConfigurationSettings extends Accessor {
 
         super(params);
         this._draft = params?.draft;
-        this._draftMode = true; // params?.mode === "draft";
+        this._draftMode = params?.mode === "draft";
     }
     initialize() {
         if (this.withinConfigurationExperience || this._draftMode) {

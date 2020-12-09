@@ -119,6 +119,10 @@ export class WebBase extends Component<WebBaseProps, WebBaseState> {
                 container: this.props.containerId,
                 map: this.map
             });
+            if ( this.view.type === "3d" && this.props.widgets.compassWidget) {
+                // if scene and has compass widget custom -> remove default compass widget
+                this.view.ui.components = ["attribution", "navigation-toggle", "zoom"];
+            }
             return this.loadWidgets(this.view as any);
         }).then(() => {
             this.view.container = this.props.containerId as any;
@@ -129,12 +133,6 @@ export class WebBase extends Component<WebBaseProps, WebBaseState> {
     }
 
     private loadWidgets(view: __esri.MapView) {
-        // const positions = {
-        //     "bottom-left": true,
-        //     "bottom-right": true,
-        //     "top-left": true,
-        //     "top-right": true
-        // };
         const modules: UIPosition[] = Object.keys(this.props.widgets).reduce((p, c, i) => {
             if (this.props.widgets[c] && widgetMapping[c]) {
                 let ui = typeof this.props.widgets[c] === "string" ?

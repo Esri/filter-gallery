@@ -114,7 +114,7 @@ export class LayerBase extends Component<LayerBaseProps, LayerBaseState> {
 
     private loadMap(
         MapConstructor: __esri.MapConstructor,
-        ViewConstructor: __esri.MapViewConstructor,
+        ViewConstructor: __esri.MapViewConstructor | __esri.SceneViewConstructor,
         LayerConstructor: __esri.LayerConstructor
     ) {
         this.map = new MapConstructor({
@@ -128,6 +128,10 @@ export class LayerBase extends Component<LayerBaseProps, LayerBaseState> {
                 container: this.props.containerId,
                 map: this.map
             });
+            if ( this.view.type === "3d" && this.props.widgets.compassWidget) {
+                // if scene and has compass widget custom -> remove default compass widget
+                this.view.ui.components = ["attribution", "navigation-toggle", "zoom"];
+            }
             this.view.popup.defaultPopupTemplateEnabled = true;
             this.map.add(this.layer);
             this.view.extent = this.layer.fullExtent;
@@ -141,13 +145,6 @@ export class LayerBase extends Component<LayerBaseProps, LayerBaseState> {
     }
 
     private loadWidgets(view: __esri.MapView) {
-        // const positions = {
-        //     "bottom-left": true,
-        //     "bottom-right": true,
-        //     "top-left": true,
-        //     "top-right": true
-        // };
-        
         const modules: UIPosition[] = Object.keys(this.props.widgets).reduce((p, c, i) => {
             if (this.props.widgets[c] && widgetMapping[c]) {
                 let ui = typeof this.props.widgets[c] === "string" ?
