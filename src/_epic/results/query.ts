@@ -41,7 +41,7 @@ export const loadingContentEpic = (action$: Subject<Action>, getState: () => Fil
         const user = state.settings.utils.portal.user;
         const loggedIn = !!user;
 
-        if (loggedIn && state.results.user.status === "initial") {
+        if (loggedIn && state.results.user.status === "initial" && state.settings.utils.base.config.group) {
             // User is logged in, but don't yet have their information in state.
             // Need to fetch the section and user information prior to searching.
             return action$.pipe(
@@ -56,7 +56,7 @@ export const loadingContentEpic = (action$: Subject<Action>, getState: () => Fil
                 switchMap(() => executeSearch(getState(), updateCounts)),
                 startWith({ type: LOADING_SECTION_INFO }, { type: LOADING_USER_INFO })
             );
-        } else if (state.results.section.status === "initial") {
+        } else if (state.results.section.status === "initial" && state.settings.utils.base.config.group) {
             // Don't yet have the information about the section being queried.
             // Need to fetch the section information prior to searching.
             return action$.pipe(
@@ -67,7 +67,7 @@ export const loadingContentEpic = (action$: Subject<Action>, getState: () => Fil
                     type: LOADING_SECTION_INFO
                 })
             );
-        } else if (state.results.section.status === "failed" || state.results.user.status === "failed") {
+        } else if (state.results.section.status === "failed" || state.results.user.status === "failed" || !state.settings.utils.base.config.group) {
             return of({
                 type: LOADING_CONTENT_FAILED,
                 payload: "Failed to retrieve user/section info"
