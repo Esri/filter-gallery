@@ -51,7 +51,7 @@ export const closeViewerEpic = (action$: Subject<Action>, getState: () => Filter
         const state = getState();
         const el = document.getElementById(state.ui.viewer.item.id);
         if (el) {
-            el.scrollIntoView();
+            // el.scrollIntoView();
             const btn = el.querySelector(`#${state.ui.viewer.type}-${state.ui.viewer.item.id}`) as HTMLElement;
             if (btn) {
                 btn.focus();
