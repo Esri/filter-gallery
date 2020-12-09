@@ -5,13 +5,14 @@ import promiseUtils = require("esri/core/promiseUtils");
 import LoaderBars from "../../Loaders/LoaderBars";
 import { FilterGalleryStore } from "../../..";
 import widgetMapping from "./_utils/widgetMapping"; //Widget 1 of 2
+import { UIPosition } from "../../../ConfigurationSettings";
 
 interface LayerBaseProps {
     key: string;
     mapModule: string;
     viewModule: string;
     layerModule: string;
-    widgets: { [propName: string]: string };
+    widgets: { [propName: string]: string | UIPosition };
     defaultBasemap: string;
     layerUrl: string;
     containerId: string;
@@ -140,21 +141,28 @@ export class LayerBase extends Component<LayerBaseProps, LayerBaseState> {
     }
 
     private loadWidgets(view: __esri.MapView) {
-        const positions = {
-            "bottom-left": true,
-            "bottom-right": true,
-            "top-left": true,
-            "top-right": true
-        };
-        const modules = Object.keys(this.props.widgets).reduce((p, c, i) => {
-            if (positions[this.props.widgets[c]]) {
-                p.push({
-                    module: widgetMapping[c],
-                    position: this.props.widgets[c]
-                } as never); // typescript is weird
+        // const positions = {
+        //     "bottom-left": true,
+        //     "bottom-right": true,
+        //     "top-left": true,
+        //     "top-right": true
+        // };
+        
+        const modules: UIPosition[] = Object.keys(this.props.widgets).reduce((p, c, i) => {
+            if (this.props.widgets[c] && widgetMapping[c]) {
+                let ui = typeof this.props.widgets[c] === "string" ?
+                    {
+                        module: widgetMapping[c],
+                        position: this.props.widgets[c]
+                    } :
+                    {
+                        module: widgetMapping[c],
+                        ...this.props.widgets[c] as UIPosition
+                    };
+                p.push(ui);
             }
             return p;
-        },                                                     []);
+        },                                                                   []);
         let constructorKey: object = {};
         return promiseUtils.create(
             (resolve, reject) => { 
@@ -180,6 +188,9 @@ export class LayerBase extends Component<LayerBaseProps, LayerBaseState> {
                 modules.forEach((mod) => {
                     const constructor: any = constructorKey[mod["module"]];
                     let widget = new constructor({ view });
+                    let position: string | __esri.UIAddPosition = mod["index"] ? 
+                        { position: mod["position"], index: mod["index"] } : 
+                        mod["position"];
                     if ( mod["module"] === "esri/widgets/Legend" || mod["module"] === "esri/widgets/BasemapGallery" ) {
                         const tooltip = widget.label;
                         const group = ( (mod["position"] as string).indexOf('left') < 0 ) ? "right" : "left";
@@ -200,11 +211,11 @@ export class LayerBase extends Component<LayerBaseProps, LayerBaseState> {
                     }
                     if (widget.activeLayerInfos) {
                         widget.watch("activeLayerInfos.length", () => {
-                            view.ui.add(widget, mod["position"]);
+                            view.ui.add(widget, position);
                         });
                         return;
                     }
-                    view.ui.add(widget, mod["position"]);
+                    view.ui.add(widget, position);
 
                 });
                 return promiseUtils.resolve();

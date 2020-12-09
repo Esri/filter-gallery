@@ -8,15 +8,32 @@ import { ApplicationConfig } from "./_applicationBase/interfaces";
 
 import { allItemTypes, ItemType, ItemTypeFilter } from "./_utils";
 
-type UIPosition =
-    | "top-left"
-    | "top-right"
-    | "bottom-left"
-    | "bottom-right"
-    | "top-leading"
-    | "top-trailing"
-    | "bottom-leading"
-    | "bottom-trailing";
+// type UIPosition = 
+//     | "top-left"
+//     | "top-right"
+//     | "bottom-left"
+//     | "bottom-right"
+//     | "top-leading"
+//     | "top-trailing"
+//     | "bottom-leading"
+//     | "bottom-trailing";
+
+export interface UIPosition {
+    fieldName?: string;      // Identifier for Widget being positioned. Ex: "searchPosition"
+    position: 
+      | "bottom-leading"
+      | "bottom-left"
+      | "bottom-right"
+      | "bottom-trailing"
+      | "top-leading"
+      | "top-left"
+      | "top-right"
+      | "top-trailing"
+      | "manual";       // ui location. Ex: "top-leading"
+    index?: number;         // index for the particular ui section
+    enabledState?: boolean; // indicates whether positioned widget is shown enabled to be shown on the map UI
+    label?: string;         // label in Position Manager
+}
 
 @subclass("app.ConfigurationSettings")
 class ConfigurationSettings extends Accessor {
@@ -159,7 +176,7 @@ class ConfigurationSettings extends Accessor {
 
         super(params);
         this._draft = params?.draft;
-        this._draftMode = params?.mode === "draft";
+        this._draftMode = true; // params?.mode === "draft";
     }
     initialize() {
         if (this.withinConfigurationExperience || this._draftMode) {
