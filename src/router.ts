@@ -4,7 +4,13 @@ import { Store } from "./Component";
 export const router = () => (next: any) => (action: any) => {
     switch (action.type) {
         case PUSH:
-            window.location.hash = action.payload;
+            if (action.payload) {
+                window.location.hash = action.payload;
+            } else {
+                // push dummy hash to avoid scroll, then remove
+                window.location.hash = "__";
+                history.pushState("", document.title, window.location.pathname + window.location.search);
+            }
             break;
         default:
             return next(action);

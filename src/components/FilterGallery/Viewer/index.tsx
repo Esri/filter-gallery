@@ -86,6 +86,6 @@ export default connect<ViewerProps, FilterGalleryStore, StateProps, DispatchProp
         closing: state.ui.viewer.closing
     }),
     (dispatch) => ({
-        exit: () => dispatch(push(""))
+        exit: () => dispatch(push(null))
     })
 )(Viewer);
