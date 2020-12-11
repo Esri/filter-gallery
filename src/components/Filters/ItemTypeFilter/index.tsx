@@ -48,6 +48,7 @@ export interface ItemTypeFilterProps {
 
 export interface ItemTypeFilterState {
     availableFilters: ToggleOption[];
+    defaultAvailableItemTypes: ItemTypeFilters[];
 }
 
 /**
@@ -61,7 +62,8 @@ export default class ItemTypeFilter extends Component<ItemTypeFilterProps, ItemT
             availableFilters: treeCompress(treePrune(
                 {  value: "##itemTypeOptionsRoot", children: itemTypeOptions },
                 props.availableItemTypes as string[]
-            )).children as ToggleOption[]
+            )).children as ToggleOption[], 
+            defaultAvailableItemTypes : props.availableItemTypes ? props.availableItemTypes : []
         };
 
         this.mapItemTypesToToggles = this.mapItemTypesToToggles.bind(this);
@@ -70,6 +72,16 @@ export default class ItemTypeFilter extends Component<ItemTypeFilterProps, ItemT
     }
 
     public render(tsx: H) {
+        // Check if availableFilters changed for drafts
+        if (this.state.defaultAvailableItemTypes !== this.props.availableItemTypes) {
+            this.state = {
+                availableFilters: treeCompress(treePrune(
+                    {  value: "##itemTypeOptionsRoot", children: itemTypeOptions },
+                    this.props.availableItemTypes as string[]
+                )).children as ToggleOption[], 
+                defaultAvailableItemTypes : this.props.availableItemTypes ? this.props.availableItemTypes : []
+            };
+        }
         return (
             <AccordionDropdown
                 key="item-type-accordion"
