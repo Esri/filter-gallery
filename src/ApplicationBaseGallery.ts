@@ -21,10 +21,15 @@ class ApplicationBaseGallery extends ApplicationBase {
         super(params);
     }
 
-    async loadConfig() {
+    async loadConfig() { 
         if (this.configSettings === undefined) {
             this.configSettings = new ConfigurationSettings(this.config);
             _handleTelemetry(this.configSettings, this.portal);
+            if (this.configSettings.group === undefined && this.configSettings._draft?.group === undefined) {
+                whenDefinedOnce(this.configSettings, ["group", "_draft.group"], () => {
+                    window.postMessage({type: "rerender"}, window.origin);
+                })
+            }
         }
         await this.configSettings.applyDraft();
         let configObj = this.configSettings.toObjectLiteral();
