@@ -211,7 +211,8 @@ class ConfigurationSettings extends Accessor {
     }
 
     handleConfigurationUpdates(e: MessageEvent) {
-        if (e?.data?.type === "cats-app") {
+        if (e?.data?.type === "cats-app" && (!e.data.hasOwnProperty('group') || e.data.group !== "")) {
+            // Prevents defaults data push from overwriting data
             Object.assign(this, e.data);
             window.postMessage({type: "rerender"}, window.origin);
         }

@@ -87,11 +87,13 @@ export default (cfg: string, sets: string) => {
         "message",
         ((e: MessageEvent) => {
             if (e?.data?.type === "rerender") {
-                base.loadConfig();
-                if (projector !== undefined) {
-                    store.dispatch(loadPortal());
-                    // projector.scheduleRender();
-                }
+                base.loadConfig().then(() => {
+                    if (projector !== undefined) {
+                        store.dispatch(loadPortal());
+                        // projector.scheduleRender();
+                    }
+                });
+                
             }
         })
     );
