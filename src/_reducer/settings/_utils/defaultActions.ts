@@ -94,7 +94,8 @@ const defaultActions: CustomAction[] = [
     onAction: () => { },
     icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1 1h8v1H2v12h12V7h1v8H1zm7.325 7.382L14 2.707V5h1V1h-4v1h2.293L7.618 7.675z"/><path fill="none" d="M0 0h16v16H0z"/></svg>',
     href: (item: Pojo, state: FilterGalleryState) => {
-      const url = state.settings.utils.portal.baseUrl + "/apps/opsdashboard/index.html#/" + item.id;
+      const portalUrl = !!state.settings.utils.portal.credential ? state.settings.utils.portal.baseUrl : `https://${state.settings.utils.portal.portalHostname}`
+      const url = portalUrl + "/apps/opsdashboard/index.html#/" + item.id;
       return url;
     },
     target: "_blank"
