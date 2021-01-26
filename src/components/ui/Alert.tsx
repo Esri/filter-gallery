@@ -3,7 +3,7 @@ import Widget = require("esri/widgets/Widget");
 import AppConfig from "../../ConfigurationSettings";
 import i18n = require("dojo/i18n!../nls/resources");
 import { renderable, storeNode, tsx } from "esri/widgets/support/widget";
-import { esriWidgetProps } from "ApplicationBase/support/widgetConfigUtils/widgetConfigUtils";
+import { esriWidgetProps } from "ApplicationBase/interfaces";
 
 @subclass("Alert")
 class Alert extends Widget {
