@@ -98,7 +98,7 @@
 
     // &locale=<lang code>, overwrites language of page
     if (location.search.match(/locale=([\w-]+)/)) {
-      dojoConfig.locale = RegExp.$1;
+      dojoConfig.locale = RegExp.$1.toLowerCase();
     }  
 
     window["esriConfig"] = { locale: dojoConfig.locale };
