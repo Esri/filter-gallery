@@ -5,7 +5,7 @@
             "express": true
         }
     },
-    "about": {
+    "galleryAbout": {
         "title": {
             "defaultValue": "Category Gallery",
             "express": true
@@ -14,7 +14,7 @@
             "defaultValue": ""
         }
     }, 
-    "interactivity": {
+    "galleryInteractivity": {
         "galleryDisplay": {
             "galleryDisplay": {
                 "filterPaneDefault": { 
@@ -123,7 +123,7 @@
             }
         }
     },
-    "themeLayout": {
+    "galleryTheme": {
         "galleryLayout": {
             "galleryLayout": {
                 "displayDefault": { 
