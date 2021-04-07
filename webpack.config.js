@@ -26,6 +26,7 @@ module.exports = {
             { from: "src/nls", to: "nls" },
             { from: "src/config", to: "config" },
             { from: "src/index.html", to: "index.html" },
+            { from: "src/favicon.png", to: "favicon.png" },
             { from: "src/oauth-callback.html", to: "oauth-callback.html" },
             { from: "src/telemetry", to: "telemetry" }
         ])
