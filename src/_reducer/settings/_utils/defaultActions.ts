@@ -79,7 +79,7 @@ const defaultActions: CustomAction[] = [
     target: "_blank"
   },
   {
-    name: i18n.dropdowns.contentViews.view, // Placeholder for 8.2 string addition
+    name: i18n.actions.openDoc,
     allowed: (item: Pojo) => item.type === "Document Link",    
     asynchronous: false,
     onAction: () => { },
@@ -98,6 +98,15 @@ const defaultActions: CustomAction[] = [
       const url = portalUrl + "/apps/opsdashboard/index.html#/" + item.id;
       return url;
     },
+    target: "_blank"
+  }, 
+  {
+    name: i18n.actions.openTab, 
+    allowed: (item: Pojo) => item.type === "Hub Site Application",    
+    asynchronous: false,
+    onAction: () => { },
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1 1h8v1H2v12h12V7h1v8H1zm7.325 7.382L14 2.707V5h1V1h-4v1h2.293L7.618 7.675z"/><path fill="none" d="M0 0h16v16H0z"/></svg>',
+    href: (item: Pojo) => item.url,
     target: "_blank"
   },
   {
