@@ -30,7 +30,7 @@ class ApplicationBaseGallery extends ApplicationBase {
         let configObj = this.configSettings.toObjectLiteral();
         configObj = this.parseApplicationConfig(configObj);
         this.config = {...this.config, ...configObj};
-        return Promise.resolve();
+        return Promise.resolve(this.config);
     }
 
     // ensure all config options parsed correctly

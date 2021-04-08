@@ -73,7 +73,12 @@ export default (cfg: string, sets: string) => {
         () => {
             base.portal.load().then(
                 () => {
-                    base.loadConfig().then(() => { 
+                    base.loadConfig().then((config) => { 
+                        if (!config.group) { //group is not set
+                            document.location.href = `../../shared/unavailable/index.html?appid=${
+                                config?.appid || null
+                              }`;
+                        }
                         startProjector();
                     });
                 }, 
