@@ -50,7 +50,7 @@ export class RootComponent extends Component<RootComponentProps> {
             );
         } else if (this.props.portalStatus === "originother") {
             // Redirect to unsupported page
-            document.location.href = `../../shared/origin/index.html?appUrl=${this.props.err?.appUrl}`; 
+            document.location.href = `./shared/origin/index.html?appUrl=${this.props.err?.appUrl}`; 
             // return (
             //     <main class="fg__container">
             //         <div key="no-auth-container" class="fg__no-js-text">

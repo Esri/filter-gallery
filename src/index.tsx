@@ -62,7 +62,7 @@ export default (cfg: string, sets: string) => {
         console.error("Error: ", err);
         if  ((err as OriginError).error === "application:origin-other") {
             err = err as OriginError;
-            document.location.href = `../../shared/origin/index.html?appUrl=${err?.appUrl}`; 
+            document.location.href = `./shared/origin/index.html?appUrl=${err?.appUrl}`; 
         } else {
             // create store and projector in order for app to display error
             startProjector();
@@ -75,7 +75,7 @@ export default (cfg: string, sets: string) => {
                 () => {
                     base.loadConfig().then((config) => { 
                         if (!config.group) { //group is not set
-                            document.location.href = `../../shared/unavailable/index.html?appid=${
+                            document.location.href = `./shared/unavailable/index.html?appid=${
                                 config?.appid || null
                               }`;
                         }
