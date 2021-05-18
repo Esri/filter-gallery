@@ -111,6 +111,10 @@ export default class AnalysisCard extends Component<ListCardProps> {
                     value={index}
                     href={action.href ? action.href(this.props.item, this.props.stateTree) : undefined}
                     target={action.target ? action.target : undefined}
+                    data-event="track-component" 
+                    data-component-name="Custom action on card"
+                    data-component-link={action.name} 
+                    data-component-link-type="button"
                 >
                     <span class="card-lc__custom-action-text" value={index}>{action.name}</span>
                     <div class="card-lc__custom-icon-container" innerHTML={action.icon} value={index} />
@@ -123,6 +127,10 @@ export default class AnalysisCard extends Component<ListCardProps> {
                         onclick={this.handleCustomActionClick}
                         title={action.name}
                         value={index}
+                        data-event="track-component" 
+                        data-component-name="Custom action on card"
+                        data-component-link={action.name} 
+                        data-component-link-type="button"
                     >
                         <span class="card-lc__custom-action-text" value={index}>{action.name}</span>
                         <div class="card-lc__custom-icon-container" innerHTML={action.icon} value={index} />
@@ -171,6 +179,10 @@ export default class AnalysisCard extends Component<ListCardProps> {
                                         class="card-lc__thumb-link"
                                         href={primaryAction.href(this.props.item, this.props.stateTree)}
                                         target={primaryAction.target ? primaryAction.target : undefined}
+                                        data-event="track-component" 
+                                        data-component-name="Primary action on card"
+                                        data-component-link={primaryAction.name} 
+                                        data-component-link-type="button"
                                     >
                                         {thumbnail}
                                     </a>
@@ -205,6 +217,10 @@ export default class AnalysisCard extends Component<ListCardProps> {
                                                     `${this.props.portal.baseUrl}/home/user.html?user=${item.owner}`
                                             }
                                             target="_blank"
+                                            data-event="track-component" 
+                                            data-component-name="Owner name on card"
+                                            data-component-link={` ${this.props.organization ? this.props.organization.name : item.owner}`} 
+                                            data-component-link-type="button"
                                         >
                                             {` ${this.props.organization ? this.props.organization.name : item.owner}`}
                                         </a>)
@@ -242,6 +258,10 @@ export default class AnalysisCard extends Component<ListCardProps> {
                                     class="card-lc__side-action card-lc__no-wrap"
                                     href={`${this.props.portal.baseUrl}/home/item.html?id=${item.id}`}
                                     target="_blank"
+                                    data-event="track-component" 
+                                    data-component-name="Item details link on card"
+                                    data-component-link="Show item details" 
+                                    data-component-link-type="button"
                                 >
                                     {i18n.itemCards.viewItem}
                                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">

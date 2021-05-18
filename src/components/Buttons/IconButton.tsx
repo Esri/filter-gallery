@@ -71,6 +71,10 @@ export default class IconButton extends Component<IconButtonProps> {
                 tabindex={this.props.tabindex ? `${this.props.tabindex}` : `0`}
                 aria-checked={active}
                 title={title}
+                data-event="track-component" 
+                data-component-name="Icon button"
+                data-component-link={title} 
+                data-component-link-type="button"
             >
                 {this.props.children}
             </button>

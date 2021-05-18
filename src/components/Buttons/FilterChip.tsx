@@ -56,6 +56,10 @@ export default class FilterChip extends Component<FilterChipProps> {
                             id={`filter-chip-x-${text}`}
                             class="btn-ftr-chip__remove"
                             onclick={handleRemoveFilter}
+                            data-event="track-component" 
+                            data-component-name="Remove filter"
+                            data-component-link={text} 
+                            data-component-link-type="button"
                         >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"

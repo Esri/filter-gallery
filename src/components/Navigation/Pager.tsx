@@ -59,6 +59,10 @@ export default class Pager extends Component<PagerProps> {
                     role="link"
                     tabindex="0"
                     key={`page-${i + 1}-button`}
+                    data-event="track-component" 
+                    data-component-name={`Pager`} 
+                    data-component-link={`${i + 1}`} 
+                    data-component-link-type="button"
                 >
                     {`${i + 1}`}
                 </button>
@@ -116,6 +120,10 @@ export default class Pager extends Component<PagerProps> {
                     key="previous-btn"
                     onclick={this.handlePrevious}
                     tabindex={this.props.currentPage <= 1 ? `-1` : `0`}
+                    data-event="track-component" 
+                    data-component-name="Pager"
+                    data-component-link="Previous" 
+                    data-component-link-type="button"
                 >
                     {componentI18n.pager.previous}
                 </button>
@@ -130,6 +138,10 @@ export default class Pager extends Component<PagerProps> {
                     key="next-btn"
                     onclick={this.handleNext}
                     tabindex={this.props.currentPage >= this.props.numPages ? `-1` : `0`}
+                    data-event="track-component" 
+                    data-component-name="Pager"
+                    data-component-link="Next" 
+                    data-component-link-type="button"
                 >
                     {componentI18n.pager.next}
                 </button>

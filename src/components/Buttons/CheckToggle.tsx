@@ -107,6 +107,10 @@ export default class CheckToggle extends Component<CheckToggleProps> {
                     onmousedown={this.preventDefault}
                     onclick={this.handleToggleClick}
                     tabindex="0"
+                    data-event="track-component" 
+                    data-component-name="Check Toggle (Tags Filter)" 
+                    data-component-link={name} 
+                    data-component-link-type="button"
                 >
                     <span class="btn-check-toggle__text" key="text">{name}</span>
                     {

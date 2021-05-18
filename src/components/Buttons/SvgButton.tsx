@@ -97,6 +97,10 @@ export default class SvgButton extends Component<SvgButtonProps> {
                 tabindex={focusable ? "0" : "-1"}
                 title={title}
                 value={value}
+                data-event="track-component" 
+                data-component-name="SVG button"
+                data-component-link={title} 
+                data-component-link-type="button"
             >
                 {this.props.children}
             </button>

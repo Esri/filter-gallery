@@ -111,6 +111,10 @@ export default class Toggle extends Component<ToggleProps> {
                     onclick={this.handleToggleClick}
                     title={this.props.tooltip}
                     tabindex="0"
+                    data-event="track-component" 
+                    data-component-name="Toggle component (Filters and other page interactions)" 
+                    data-component-link={name} 
+                    data-component-link-type="button"
                 >
                     {
                         this.props.children && this.props.children.length > 0 ?
