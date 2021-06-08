@@ -239,8 +239,13 @@ define({
     "viewApp": "Wyświetl aplikację",
     "viewInMap": "Wyświetl na mapie",
     "viewInScene": "Wyświetl na scenie",
+    "view": "Wyświetl",
     "download": "Pobierz",
     "openPdf": "Otwórz jako plik PDF",
+    "open": "Otwórz",
+    "openDoc": "Otwórz dokument",
+    "openTab": "Otwórz na nowej karcie",
+    "openViewer": "ł_Open in Map Viewer___________________ą",
     "addFavorite": "Dodaj do ulubionych",
     "removeFavorite": "Usuń z ulubionych"
   },
@@ -256,5 +261,10 @@ define({
       "failed": "Wczytywanie elementu nie powiodło się.",
       "sorry": "Niestety, wystąpiły problemy podczas wczytywania żądanego elementu."
     }
+  },
+  "share": {
+    "shareGallery": "ł_Share gallery______________ą",
+    "shareFiltered": "ł_Share filtered gallery_______________________ą",
+    "tooltip": "ł_URL copied to you clipboard____________________________ą"
   }
 });

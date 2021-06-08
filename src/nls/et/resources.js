@@ -239,8 +239,13 @@ define({
     "viewApp": "Kuva rakendus",
     "viewInMap": "Kuva kaardil",
     "viewInScene": "Kuva stseenil",
+    "view": "Vaatamine",
     "download": "Allalaadimine",
     "openPdf": "Ava PDF",
+    "open": "Avatud",
+    "openDoc": "Ava dokument",
+    "openTab": "Ava uuel vahelehel",
+    "openViewer": "Š_Open in Map Viewer___________________ä",
     "addFavorite": "Lisa lemmikutesse",
     "removeFavorite": "Eemalda lemmikutest"
   },
@@ -256,5 +261,10 @@ define({
       "failed": "Üksuse laadimine nurjus.",
       "sorry": "Taotletud üksuse laadimisel läks kahjuks midagi valesti."
     }
+  },
+  "share": {
+    "shareGallery": "Š_Share gallery______________ä",
+    "shareFiltered": "Š_Share filtered gallery_______________________ä",
+    "tooltip": "Š_URL copied to you clipboard____________________________ä"
   }
 });

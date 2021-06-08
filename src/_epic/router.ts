@@ -1,4 +1,4 @@
-import * as ioQuery from "dojo/io-query";
+import ioQuery = require("dojo/io-query");
 
 import { Action, ofType, combineEpics } from "../Component";
 import { Subject, Observable, of } from "rxjs";
@@ -51,14 +51,14 @@ export const closeViewerEpic = (action$: Subject<Action>, getState: () => Filter
         const state = getState();
         const el = document.getElementById(state.ui.viewer.item.id);
         if (el) {
-            el.scrollIntoView();
+            // el.scrollIntoView();
             const btn = el.querySelector(`#${state.ui.viewer.type}-${state.ui.viewer.item.id}`) as HTMLElement;
             if (btn) {
                 btn.focus();
             }
         }
     }),
-    map(([]) => closeViewer())
+    map(() => closeViewer())
 );
 
 /**
@@ -78,7 +78,7 @@ export const loadItemEpic = (action$: Subject<Action>, getState: () => FilterGal
         const { request, portal } = state.settings.utils;
         const query = ioQuery.queryToObject(action.payload);
         return fromDeferred(fetchItemById(request, portal, query.viewId) as any).pipe(
-            map(response => (loadedItem(response, query.viewType))),
+            map((response: any) => (loadedItem(response, query.viewType))),
             catchError(err => of({
                 type: LOAD_ITEM_FAILED,
                 payload: err

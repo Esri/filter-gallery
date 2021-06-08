@@ -1,5 +1,5 @@
-import * as Deferred from "dojo/Deferred";
-import * as all from "dojo/promise/all";
+import Deferred = require("dojo/Deferred");
+import all = require("dojo/promise/all");
 import { curry, fetchOrgInfo, mixinOrgInfo, removeDups } from "../../_utils/index";
 import { FilterGalleryState } from "../../_reducer/index";
 import { Pojo } from "../../Component";

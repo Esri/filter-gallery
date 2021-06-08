@@ -1,6 +1,6 @@
-# Category Gallery
+# Filter Gallery Application
 
-Category Gallery is a configurable app for group content. It enables browsing by group or organization categories. The app is built with the Esri [ArcGIS API for JavaScript v4.10](https://developers.arcgis.com/javascript/) and the Esri [Application-Base](https://github.com/Esri/application-base-js)
+This is a group gallery built with the Esri [ArcGIS API for JavaScript v4.11](https://developers.arcgis.com/javascript/) and the Esri [Application-Base](https://github.com/Esri/application-base-js)
 
 ## Configuration
 
@@ -45,7 +45,7 @@ Found a bug or want to request a new feature? Please let us know by submitting a
 
 ## Contributing
 
-Anyone and everyone is welcome to contribute. Please see our [guidelines for contributing](https://github.com/esri/contributing).
+Anyone and everyone is welcome to contribute.
 
 ## Licensing
 

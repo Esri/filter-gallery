@@ -1,4 +1,4 @@
-import * as componentI18n from "dojo/i18n!../../nls/resources";
+import componentI18n = require("dojo/i18n!../../nls/resources");
 
 import { Component, H, ComponentProps } from "../../Component";
 import { onEnter } from "../../_utils";
@@ -43,6 +43,7 @@ export interface AccordionDropdownProps extends ComponentProps {
 
 export interface AccordionDropdownState {
     active: boolean;
+    startActive: boolean;
 }
 
 /**
@@ -55,7 +56,8 @@ export default class AccordionDropdown extends Component<AccordionDropdownProps,
         super(props);
 
         this.state = {
-            active: props.startActive ? props.startActive : false
+            active: props.startActive ? props.startActive : false,
+            startActive: props.startActive ? props.startActive : false
         };
 
         this.handleDropdownClick = this.handleDropdownClick.bind(this);
@@ -63,6 +65,14 @@ export default class AccordionDropdown extends Component<AccordionDropdownProps,
     }
 
     public render(tsx: H) {
+        // Check if startActive changed for drafts
+        if (this.state.startActive !== this.props.startActive) {
+            this.state = {
+                active: this.props.startActive ? this.props.startActive : false,
+                startActive: this.props.startActive ? this.props.startActive : false
+            }
+        }
+
         const accordionClasses = {
             "drp-accordion__section": true
         };

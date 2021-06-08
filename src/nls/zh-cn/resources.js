@@ -239,8 +239,13 @@ define({
     "viewApp": "查看应用程序",
     "viewInMap": "在地图中查看",
     "viewInScene": "在场景中查看",
+    "view": "查看",
     "download": "下载",
     "openPdf": "在 PDF 中打开",
+    "open": "打开",
+    "openDoc": "打开文档",
+    "openTab": "在新选项卡中打开",
+    "openViewer": "试_Open in Map Viewer___________________验",
     "addFavorite": "添加到收藏夹",
     "removeFavorite": "从收藏夹中移除"
   },
@@ -256,5 +261,10 @@ define({
       "failed": "项目加载失败。",
       "sorry": "抱歉，加载请求的项目时出现问题。"
     }
+  },
+  "share": {
+    "shareGallery": "试_Share gallery______________验",
+    "shareFiltered": "试_Share filtered gallery_______________________验",
+    "tooltip": "试_URL copied to you clipboard____________________________验"
   }
 });

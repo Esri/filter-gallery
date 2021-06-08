@@ -1,4 +1,4 @@
-import * as componentI18n from "dojo/i18n!../../../nls/resources";
+import componentI18n = require("dojo/i18n!../../../nls/resources");
 
 import { Component, H } from "../../../Component";
 
@@ -6,6 +6,7 @@ import AccordionDropdown from "../../Dropdowns/AccordionDropdown";
 import Toggle, { ToggleOption } from "../../Buttons/Toggle";
 import itemTypeOptions from "./_utils/itemTypeOptions";
 import { treeCompress, treePrune, ItemTypeFilter as ItemTypeFilters } from "../../../_utils";
+import ioQuery = require("dojo/io-query");
 
 /**
  * An option in the item type filter.
@@ -47,6 +48,7 @@ export interface ItemTypeFilterProps {
 
 export interface ItemTypeFilterState {
     availableFilters: ToggleOption[];
+    defaultAvailableItemTypes: ItemTypeFilters[];
 }
 
 /**
@@ -59,8 +61,9 @@ export default class ItemTypeFilter extends Component<ItemTypeFilterProps, ItemT
         this.state = {
             availableFilters: treeCompress(treePrune(
                 {  value: "##itemTypeOptionsRoot", children: itemTypeOptions },
-                props.availableItemTypes
-            )).children as ToggleOption[]
+                props.availableItemTypes as string[]
+            )).children as ToggleOption[], 
+            defaultAvailableItemTypes : props.availableItemTypes ? props.availableItemTypes : []
         };
 
         this.mapItemTypesToToggles = this.mapItemTypesToToggles.bind(this);
@@ -69,6 +72,16 @@ export default class ItemTypeFilter extends Component<ItemTypeFilterProps, ItemT
     }
 
     public render(tsx: H) {
+        // Check if availableFilters changed for drafts
+        if (this.state.defaultAvailableItemTypes !== this.props.availableItemTypes) {
+            this.state = {
+                availableFilters: treeCompress(treePrune(
+                    {  value: "##itemTypeOptionsRoot", children: itemTypeOptions },
+                    this.props.availableItemTypes as string[]
+                )).children as ToggleOption[], 
+                defaultAvailableItemTypes : this.props.availableItemTypes ? this.props.availableItemTypes : []
+            };
+        }
         return (
             <AccordionDropdown
                 key="item-type-accordion"
@@ -96,7 +109,7 @@ export default class ItemTypeFilter extends Component<ItemTypeFilterProps, ItemT
                     key={option.value}
                     name={option.displayName}
                     value={option.value}
-                    selectedToggle={this.props.itemTypeFilter ? this.props.itemTypeFilter.value : undefined}
+                    selectedToggle={this.props.itemTypeFilter ? (this.props.itemTypeFilter.value as string) : undefined}
                     childOptions={option.children}
                     onToggleClick={this.handleToggleClick}
                 />

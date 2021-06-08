@@ -1,14 +1,15 @@
-import * as request from "esri/request";
+import request = require("esri/request");
 
 import { getOrgBaseUrl } from "../../_utils";
 import { Pojo, Action } from "../../Component";
-import { SIGNED_IN, SIGNED_OUT, LOAD_PORTAL_SUCCESS, LOAD_PORTAL_FAILED, AUTHENTICATION_FAILED } from "../../_actions";
+import { SIGNED_IN, SIGNED_OUT, LOAD_PORTAL_SUCCESS, LOAD_PORTAL_FAILED, 
+    AUTHENTICATION_FAILED, ORIGIN_FAILED } from "../../_actions";
 
 export interface UtilsState {
     base: Pojo;
     iconDir: string;
     portal: Pojo;
-    portalStatus: "loading" | "success" | "failed" | "noauth";
+    portalStatus: "loading" | "success" | "failed" | "noauth" | "originother" | "ie11";
     request: (url: string, options?: Pojo) => dojo.Deferred<any>;
 }
 
@@ -50,6 +51,12 @@ export default (state: UtilsState = initialState, action: Action) => {
             return {
                 ...state,
                 portalStatus: "noauth" as UtilsState["portalStatus"]
+            };
+        case ORIGIN_FAILED:
+            return {
+                ...state,
+                portalStatus: "originother" as UtilsState["portalStatus"],
+                err: action.payload
             };
         default:
             return state;

@@ -1,4 +1,4 @@
-import * as componentI18n from "dojo/i18n!../../nls/resources";
+import componentI18n = require("dojo/i18n!../../nls/resources");
 
 import { Component, H } from "../../Component";
 
@@ -62,6 +62,13 @@ export interface SharedFilterState {
     options: ToggleOption[];
 }
 
+export const SharedFilterOptions = [
+    { value: "public", displayName: componentI18n.filters.shared.options.public },
+    { value: "org", displayName: componentI18n.filters.shared.options.org },
+    { value: "shared", displayName: componentI18n.filters.shared.options.shared },
+    { value: "private", displayName: componentI18n.filters.shared.options.private }
+];
+
 /**
  * A filter accordion for sharing status.
  */
@@ -70,12 +77,7 @@ export default class SharedFilters extends Component<SharedFilterProps, SharedFi
         super(props);
 
         this.state = {
-            options: [
-                { value: "public", displayName: componentI18n.filters.shared.options.public },
-                { value: "org", displayName: componentI18n.filters.shared.options.org },
-                { value: "shared", displayName: componentI18n.filters.shared.options.shared },
-                { value: "private", displayName: componentI18n.filters.shared.options.private }
-            ]
+            options: SharedFilterOptions
         };
 
         this.mapOptionsToToggles = this.mapOptionsToToggles.bind(this);

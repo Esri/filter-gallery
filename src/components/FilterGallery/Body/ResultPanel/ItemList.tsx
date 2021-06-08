@@ -1,4 +1,4 @@
-import * as i18n from "dojo/i18n!../../../nls/resources";
+import i18n = require("dojo/i18n!../../../nls/resources");
 import { Component, H, connect, Pojo } from "../../../../Component";
 import ListCard from "../../../ItemCards/ListCard";
 import { FilterGalleryState } from "../../../../_reducer";

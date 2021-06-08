@@ -1,4 +1,4 @@
-import * as i18n from "dojo/i18n!../../nls/resources";
+import i18n = require("dojo/i18n!../../nls/resources");
 
 import { Component, H } from "../../Component";
 import IconButton from "../Buttons/IconButton";

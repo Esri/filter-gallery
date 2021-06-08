@@ -1,6 +1,6 @@
-import * as i18n from "dojo/i18n!../../nls/resources";
+import i18n = require("dojo/i18n!../../nls/resources");
 import { Component, H, Pojo } from "../../Component";
-import * as dojoDate from "dojo/date/locale";
+import dojoDate = require("dojo/date/locale");
 
 import AuthoritativeBadge from "../Badges/Authoritative";
 import DeprecatedBadge from "../Badges/Deprecated";
@@ -106,7 +106,7 @@ export default class GridCard extends Component<GridCardProps> {
                     key={action.name}
                     id={action.id ? `${action.id}-${item.id}` : undefined}
                     class="card-gc__side-action"
-                    onclick={action.href ? undefined : this.handleCustomActionClick}
+                    onclick={undefined}
                     title={action.name}
                     value={index}
                     href={action.href ? action.href(this.props.item, this.props.stateTree) : undefined}
@@ -120,7 +120,7 @@ export default class GridCard extends Component<GridCardProps> {
                         key={action.name}
                         id={action.id ? `${action.id}-${item.id}` : undefined}
                         class="card-gc__side-action-btn card-gc__side-action"
-                        onclick={action.href ? undefined : this.handleCustomActionClick}
+                        onclick={this.handleCustomActionClick}
                         title={action.name}
                         value={index}
                     >
@@ -191,6 +191,7 @@ export default class GridCard extends Component<GridCardProps> {
                                     : ``}
                                 <span
                                     class="card-gc__author-text"
+                                    key="itemAuthor"
                                 >
                                     {baseConfig.showItemType ? `${item.displayName} ` : ``} 
                                     {baseConfig.showItemOwner ? `${i18n.itemCards.by}` : ``}
@@ -212,11 +213,11 @@ export default class GridCard extends Component<GridCardProps> {
                             </div>
                             {baseConfig.showItemInfo ?
                                 ([
-                                    (<span class="card-gc__info-bullet">•</span>),
-                                    (<span class="card-gc__info-string">{infoString}</span>)
+                                    (<span class="card-gc__info-bullet" key="showItemInfoBullet">•</span>),
+                                    (<span class="card-gc__info-string"key="showItemInfo">{infoString}</span>)
                                 ]) : ``}
                         </div>
-                        <span class="card-gc__snippet">{itemSummaryMaxChar < 250 && item.snippet && item.snippet.length > itemSummaryMaxChar ? 
+                        <span class="card-gc__snippet" key="itemSummary">{itemSummaryMaxChar < 250 && item.snippet && item.snippet.length > itemSummaryMaxChar ? 
                                                         item.snippet.substring(0, itemSummaryMaxChar) + `...` :
                                                         item.snippet}{` `}</span>
                         {baseConfig.showItemToolTip && item.snippet ?

@@ -239,8 +239,13 @@ define({
     "viewApp": "Просмотр приложения",
     "viewInMap": "Просмотреть на карте",
     "viewInScene": "Просмотреть в сцене",
+    "view": "Просмотр",
     "download": "Загрузка",
     "openPdf": "Открыть в PDF",
+    "open": "Открыть",
+    "openDoc": "Открыть документ",
+    "openTab": "Открыть в новой вкладке",
+    "openViewer": "Ж_Open in Map Viewer___________________Я",
     "addFavorite": "Добавить в Избранное",
     "removeFavorite": "Удалить из Избранного"
   },
@@ -256,5 +261,10 @@ define({
       "failed": "Не удалось загрузить элемент.",
       "sorry": "При загрузке запрашиваемого элемента что-то пошло не так."
     }
+  },
+  "share": {
+    "shareGallery": "Ж_Share gallery______________Я",
+    "shareFiltered": "Ж_Share filtered gallery_______________________Я",
+    "tooltip": "Ж_URL copied to you clipboard____________________________Я"
   }
 });

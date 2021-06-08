@@ -239,8 +239,13 @@ define({
     "viewApp": "Prikaži aplikaciju",
     "viewInMap": "Prikaži na mapi",
     "viewInScene": "Prikaži na sceni",
+    "view": "Prikaži",
     "download": "Preuzmi",
     "openPdf": "Otvori u PDF",
+    "open": "Otvori",
+    "openDoc": "Otvori dokument",
+    "openTab": "Otvori u novoj kartici",
+    "openViewer": "Č_Open in Map Viewer___________________ž",
     "addFavorite": "Dodaj u omiljeni sadržaj",
     "removeFavorite": "Ukloni iz omiljenog sadržaja"
   },
@@ -256,5 +261,10 @@ define({
       "failed": "Učitavanje stavke nije uspelo.",
       "sorry": "Žao nam je, došlo je do greške prilikom učitavanja zahtevane stavke."
     }
+  },
+  "share": {
+    "shareGallery": "Č_Share gallery______________ž",
+    "shareFiltered": "Č_Share filtered gallery_______________________ž",
+    "tooltip": "Č_URL copied to you clipboard____________________________ž"
   }
 });

@@ -239,8 +239,13 @@ define({
     "viewApp": "アプリの表示",
     "viewInMap": "マップに表示",
     "viewInScene": "シーンに表示",
+    "view": "表示",
     "download": "ダウンロード",
     "openPdf": "PDF で開く",
+    "open": "開く",
+    "openDoc": "ドキュメントを開く",
+    "openTab": "新しいタブで開く",
+    "openViewer": "須_Open in Map Viewer___________________鷗",
     "addFavorite": "お気に入りに追加",
     "removeFavorite": "お気に入りから削除"
   },
@@ -256,5 +261,10 @@ define({
       "failed": "アイテムを読み込めませんでした。",
       "sorry": "要求されたアイテムの読み込み中に問題が発生しました。"
     }
+  },
+  "share": {
+    "shareGallery": "須_Share gallery______________鷗",
+    "shareFiltered": "須_Share filtered gallery_______________________鷗",
+    "tooltip": "須_URL copied to you clipboard____________________________鷗"
   }
 });

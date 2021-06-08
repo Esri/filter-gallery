@@ -100,17 +100,17 @@ define({
         "mobileApps": "Mobilní aplikace",
         "desktopApps": "Desktopové aplikace",
         "tools": "Nástroje",
-        "locators": "lokátory",
+        "locators": "Lokátory",
         "geodatabaseAccess": "Geodatabázový přístup",
         "geometricOperations": "Geometrické operace",
         "geoprocessingTasks": "Úlohy geoprocessingu",
-        "networkAnalysis": "Síťová analýzy",
+        "networkAnalysis": "Síťová analýza",
         "files": "Soubory",
         "documents": "Dokumenty",
         "images": "Snímky",
         "pdfs": "PDF",
         "webTools": "Webové nástroje",
-        "notebooks": "Poznámkové bloky"
+        "notebooks": "Notebooky"
       }
     },
     "date": {
@@ -239,8 +239,13 @@ define({
     "viewApp": "Zobrazit aplikaci",
     "viewInMap": "Zobrazit na mapě",
     "viewInScene": "Zobrazit ve scéně",
+    "view": "Zobrazit",
     "download": "Stáhnout",
     "openPdf": "Otevřít v PDF",
+    "open": "Otevřít",
+    "openDoc": "Otevřený dokument",
+    "openTab": "Otevřít na nové kartě",
+    "openViewer": "Ř_Open in Map Viewer___________________ů",
     "addFavorite": "Přidat k oblíbeným",
     "removeFavorite": "Odebrat z oblíbených"
   },
@@ -256,5 +261,10 @@ define({
       "failed": "Nepodařilo se načíst položku.",
       "sorry": "Je nám líto, ale nepodařilo se načíst požadovanou položku."
     }
+  },
+  "share": {
+    "shareGallery": "Ř_Share gallery______________ů",
+    "shareFiltered": "Ř_Share filtered gallery_______________________ů",
+    "tooltip": "Ř_URL copied to you clipboard____________________________ů"
   }
 });

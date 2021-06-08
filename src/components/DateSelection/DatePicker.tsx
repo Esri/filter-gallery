@@ -1,5 +1,5 @@
 import { Component, H, ComponentProps } from "../../Component";
-import * as DateTextBox from "dijit/form/DateTextBox";
+import DateTextBox = require("dijit/form/DateTextBox");
 
 export interface DatePickerProps extends ComponentProps {
     /**
@@ -87,8 +87,7 @@ export default class DatePicker extends Component<DatePickerProps, ComponentStat
     private createDijit(node: Element) {
         return new DateTextBox({
             value: this.props.value,
-            constraints: { ...this.props.constraints },
-            region: "ignore"
+            constraints: { ...this.props.constraints }
         }, node);
     }
 

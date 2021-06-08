@@ -239,8 +239,13 @@ define({
     "viewApp": "App bekijken",
     "viewInMap": "Bekijk in kaart",
     "viewInScene": "Bekijk in scene",
+    "view": "Weergeven",
     "download": "Downloaden",
     "openPdf": "Openen in PDF",
+    "open": "Openen",
+    "openDoc": "Open document",
+    "openTab": "Openen in een nieuw tabblad",
+    "openViewer": "Ĳ_Open in Map Viewer___________________ä",
     "addFavorite": "Toevoegen aan Favorieten",
     "removeFavorite": "Verwijderen uit Favorieten"
   },
@@ -256,5 +261,10 @@ define({
       "failed": "Het item kan niet worden geladen.",
       "sorry": "Sorry, bij het laden van het opgevraagde item is er iets fout gegaan."
     }
+  },
+  "share": {
+    "shareGallery": "Ĳ_Share gallery______________ä",
+    "shareFiltered": "Ĳ_Share filtered gallery_______________________ä",
+    "tooltip": "Ĳ_URL copied to you clipboard____________________________ä"
   }
 });

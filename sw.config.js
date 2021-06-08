@@ -10,16 +10,13 @@ module.exports = {
         filename: "[name].js"
     },
 
-    devtool: "source-map",
-
     resolve: {
         extensions: [".ts", ".tsx", ".js", ".jsx"]
     },
 
     module: {
         rules: [
-            { test: /\.tsx?$/, loader: 'awesome-typescript-loader' },
-            { test: /\.js$/, loader: 'source-map-loader', enforce: 'pre' }
+            { test: /\.tsx?$/, loader: 'awesome-typescript-loader' }
         ]
     },
 

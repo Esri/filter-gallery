@@ -8,7 +8,13 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="theme-color" content="#FFFFFF">
-  <link rel="stylesheet" href="https://js.arcgis.com/4.15/esri/css/main.css">
+  <link rel="shorcut icon" type="image/png" href="./favicon.png">
+  <link rel="stylesheet" href="https://js.arcgis.com/4.19/esri/css/main.css">
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="https://unpkg.com/@esri/calcite-components/dist/calcite/calcite.css"
+  />
   <link rel="stylesheet" href="./bundle.css">
   <link rel="manifest" href="./webapp.manifest">
 </head>
@@ -29,8 +35,21 @@
     </div>
   </noscript>
   <script>
+    if (navigator && navigator.userAgent) {
+      var match = /\b(MSIE |Trident.*?rv:|Edge\/)(\d+)/.exec(navigator.userAgent);
+      if (match && match.length && match.length === 3) {
+        const version = parseInt(match[2]);
+        if (version <= 19) {
+          document.location = "./shared/unsupported/index.html";
+        }
+      }
+    }
+  </script>
+  <script>
     var file_path = window.location.pathname;
     var dist_path = file_path.slice(0, file_path.lastIndexOf("/"));
+    var base_path = dist_path.slice(0, dist_path.lastIndexOf("/"));
+    var instantPath = dist_path.slice(0, base_path.lastIndexOf("/"));
 
     dojoConfig = {
       async: true,
@@ -42,6 +61,11 @@
         {
           name: "nls",
           location: dist_path + "/nls"
+        },
+        {
+          name: 'ApplicationBase',
+          location: `${instantPath}/node_modules/@esri/application-base-js`,
+          main: 'ApplicationBase'
         }
       ]
     };
@@ -75,10 +99,21 @@
 
     // &locale=<lang code>, overwrites language of page
     if (location.search.match(/locale=([\w-]+)/)) {
-      dojoConfig.locale = RegExp.$1;
+      dojoConfig.locale = RegExp.$1.toLowerCase();
     }  
+
+    window["esriConfig"] = { locale: dojoConfig.locale };
+	  window["dojoConfig"] = dojoConfig;
   </script>
-  <script src="https://js.arcgis.com/4.15/"></script>
+  <script src="https://js.arcgis.com/4.19/"></script>
+  <script
+    type="module"
+    src="https://unpkg.com/@esri/calcite-components/dist/calcite/calcite.esm.js"
+  ></script>
+  <script
+    nomodule=""
+    src="https://unpkg.com/@esri/calcite-components/dist/calcite/calcite.js"
+  ></script>
   <script>
     require([
       "dojo/text!config/application.json",

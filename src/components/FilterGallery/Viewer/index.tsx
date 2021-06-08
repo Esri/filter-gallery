@@ -1,5 +1,5 @@
-import * as i18n from "dojo/i18n!../../../nls/resources";
-import * as ioQuery from "dojo/io-query";
+import i18n = require("dojo/i18n!../../../nls/resources");
+import ioQuery = require("dojo/io-query");
 
 import { Component, H, Pojo, connect } from "../../../Component";
 import IconButton from "../../Buttons/IconButton";
@@ -86,6 +86,6 @@ export default connect<ViewerProps, FilterGalleryStore, StateProps, DispatchProp
         closing: state.ui.viewer.closing
     }),
     (dispatch) => ({
-        exit: () => dispatch(push(""))
+        exit: () => dispatch(push(null))
     })
 )(Viewer);

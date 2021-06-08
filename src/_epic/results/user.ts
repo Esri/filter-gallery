@@ -4,7 +4,7 @@ import { Subject, Observable, of } from "rxjs";
 import { Action, ofType, Pojo, combineEpics } from "../../Component";
 import { FilterGalleryState } from "../../_reducer";
 
-import * as all from "dojo/promise/all";
+import all = require("dojo/promise/all");
 import { fetchGroupById, fetchGroupCategorySchema, fromDeferred, fetchUser, fetchUserContent, fetchUserFavorites, requestJSON } from "../../_utils";
 
 const userInfoEpic = (action$: Subject<Action>, getState: () => FilterGalleryState) => action$.pipe(
@@ -35,7 +35,7 @@ const userInfoEpic = (action$: Subject<Action>, getState: () => FilterGallerySta
         ]);
 
         return fromDeferred(requests as any).pipe(
-            map((responses) => ({
+            map((responses: any) => ({
                 type: UPDATE_USER_INFO_SUCCESS,
                 payload: {
                     groups: responses[0],

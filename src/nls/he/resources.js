@@ -239,8 +239,13 @@ define({
     "viewApp": "הצג אפליקציה",
     "viewInMap": "הצג במפה",
     "viewInScene": "הצג בסצנה",
+    "view": "הצג",
     "download": "הורדה",
     "openPdf": "פתח ב-PDF",
+    "open": "פתוח",
+    "openDoc": "פתח מסמך",
+    "openTab": "פתח בכרטיסייה חדשה",
+    "openViewer": "כן_Open in Map Viewer___________________ש",
     "addFavorite": "הוסף למועדפים",
     "removeFavorite": "הסר ממועדפים"
   },
@@ -256,5 +261,10 @@ define({
       "failed": "טעינת הפריט נכשלה.",
       "sorry": "מצטערים, משהו השתבש בטעינת הפריט המבוקש."
     }
+  },
+  "share": {
+    "shareGallery": "כן_Share gallery______________ש",
+    "shareFiltered": "כן_Share filtered gallery_______________________ש",
+    "tooltip": "כן_URL copied to you clipboard____________________________ש"
   }
 });

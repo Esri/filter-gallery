@@ -239,8 +239,13 @@ define({
     "viewApp": "Vizualizare aplicație",
     "viewInMap": "Vizualizare pe hartă",
     "viewInScene": "Vizualizare în scenă",
+    "view": "Vizualizare",
     "download": "Descărcare",
     "openPdf": "Deschidere în PDF",
+    "open": "Deschidere",
+    "openDoc": "Deschidere document",
+    "openTab": "Deschideți într-o filă nouă",
+    "openViewer": "Ă_Open in Map Viewer___________________ș",
     "addFavorite": "Adăugare la Preferate",
     "removeFavorite": "Eliminare din Preferate"
   },
@@ -256,5 +261,10 @@ define({
       "failed": "Elementul nu a putut fi încărcat.",
       "sorry": "Ne pare rău, dar ceva nu a mers bine în timpul încărcării elementului solicitat."
     }
+  },
+  "share": {
+    "shareGallery": "Ă_Share gallery______________ș",
+    "shareFiltered": "Ă_Share filtered gallery_______________________ș",
+    "tooltip": "Ă_URL copied to you clipboard____________________________ș"
   }
 });

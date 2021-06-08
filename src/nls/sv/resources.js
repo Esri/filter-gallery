@@ -239,8 +239,13 @@ define({
     "viewApp": "Visa app",
     "viewInMap": "Visa i karta",
     "viewInScene": "Visa i scen",
+    "view": "Visa",
     "download": "Hämta",
     "openPdf": "Öppna i PDF",
+    "open": "Öppna",
+    "openDoc": "Öppna dokument",
+    "openTab": "Öppna i en ny flik",
+    "openViewer": "Å_Open in Map Viewer___________________ö",
     "addFavorite": "Lägg till i favoriter",
     "removeFavorite": "Ta bort från favoriter"
   },
@@ -256,5 +261,10 @@ define({
       "failed": "Det gick inte att läsa in objektet.",
       "sorry": "Något gick fel när objektet skulle begäras."
     }
+  },
+  "share": {
+    "shareGallery": "Å_Share gallery______________ö",
+    "shareFiltered": "Å_Share filtered gallery_______________________ö",
+    "tooltip": "Å_URL copied to you clipboard____________________________ö"
   }
 });

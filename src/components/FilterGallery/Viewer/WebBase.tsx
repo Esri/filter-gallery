@@ -1,17 +1,18 @@
-import * as i18n from "dojo/i18n!../../../nls/resources";
+import i18n = require("dojo/i18n!../../../nls/resources");
 import { Component, H, connect } from "../../../Component";
 
-import * as all from "dojo/promise/all";
-import * as promiseUtils from "esri/core/promiseUtils";
+import all = require("dojo/promise/all");
+import promiseUtils = require("esri/core/promiseUtils");
 import LoaderBars from "../../Loaders/LoaderBars";
 import { FilterGalleryStore } from "../../..";
 import widgetMapping from "./_utils/widgetMapping"; //Widget 2 of 2
+import { UIPosition } from "../../../ConfigurationSettings";
 
 interface WebBaseProps {
     key: string;
     webModule: string;
     viewModule: string;
-    widgets: { [propName: string]: string };
+    widgets: { [propName: string]: string | UIPosition };
     itemId: string;
     containerId: string;
     closing: boolean;
@@ -118,37 +119,41 @@ export class WebBase extends Component<WebBaseProps, WebBaseState> {
                 container: this.props.containerId,
                 map: this.map
             });
+            if ( this.view.type === "3d" && this.props.widgets.compassWidget) {
+                // if scene and has compass widget custom -> remove default compass widget
+                this.view.ui.components = ["attribution", "navigation-toggle", "zoom"];
+            }
             return this.loadWidgets(this.view as any);
         }).then(() => {
             this.view.container = this.props.containerId as any;
             this.setState({ status: "loaded" });
-        }).otherwise((err) => {
+        }).catch((err: any) => {
             this.setState({ status: "failed" });
         });
     }
 
     private loadWidgets(view: __esri.MapView) {
-        const positions = {
-            "bottom-left": true,
-            "bottom-right": true,
-            "top-left": true,
-            "top-right": true
-        };
-        const modules = Object.keys(this.props.widgets).reduce((p, c, i) => {
-            if (positions[this.props.widgets[c]]) {
-                p.push({
-                    module: widgetMapping[c],
-                    position: this.props.widgets[c]
-                } as never); // typescript is weird
+        const modules: UIPosition[] = Object.keys(this.props.widgets).reduce((p, c, i) => {
+            if (this.props.widgets[c] && widgetMapping[c]) {
+                let ui = typeof this.props.widgets[c] === "string" ?
+                    {
+                        module: widgetMapping[c],
+                        position: this.props.widgets[c]
+                    } :
+                    {
+                        module: widgetMapping[c],
+                        ...this.props.widgets[c] as UIPosition
+                    };
+                p.push(ui);
             }
             return p;
-        },                                                     []);
+        },                                                                    []);
         let constructorKey: object = {};
         return promiseUtils.create(
             (resolve, reject) => { 
                 // tslint:disable-next-line: max-line-length
-                require(["esri/widgets/Compass", "esri/widgets/Home", "esri/widgets/Legend", "esri/widgets/Locate", "esri/widgets/Search", "esri/widgets/BasemapGallery", "esri/widgets/Expand"], 
-                        (Compass, Home, Legend, Locate, Search, BasemapGallery, Expand) => {
+                require(["esri/widgets/Compass", "esri/widgets/Home", "esri/widgets/Legend", "esri/widgets/Locate", "esri/widgets/Search", "esri/widgets/BasemapGallery", "esri/widgets/Expand", "esri/widgets/BasemapToggle"], 
+                        (Compass, Home, Legend, Locate, Search, BasemapGallery, Expand, BasemapToggle) => {
                             constructorKey = {
                                 "esri/widgets/Compass": Compass, 
                                 "esri/widgets/Home": Home, 
@@ -156,15 +161,19 @@ export class WebBase extends Component<WebBaseProps, WebBaseState> {
                                 "esri/widgets/Locate": Locate, 
                                 "esri/widgets/Search": Search, 
                                 "esri/widgets/BasemapGallery": BasemapGallery, 
-                                "esri/widgets/Expand": Expand
+                                "esri/widgets/Expand": Expand,
+                                "esri/widgets/BasemapToggle": BasemapToggle
                             };
-                            return resolve([Compass, Home, Legend, Locate, Search, BasemapGallery, Expand]);
+                            return resolve([Compass, Home, Legend, Locate, Search, BasemapGallery, Expand, BasemapToggle]);
                         }
                 ); 
-            }).then(([Compass, Home, Legend, Locate, Search, BasemapGallery, Expand]) => {
+            }).then(([Compass, Home, Legend, Locate, Search, BasemapGallery, Expand, BasemapToggle]) => {
                 modules.forEach((mod) => {
                     const constructor: any = constructorKey[mod["module"]];
                     let widget = new constructor({ view });
+                    let position: string | __esri.UIAddPosition = mod["index"] ? 
+                        { position: mod["position"], index: mod["index"] } : 
+                        mod["position"];
                     if ( mod["module"] === "esri/widgets/Legend" || mod["module"] === "esri/widgets/BasemapGallery" ) {
                         const tooltip = widget.label;
                         const group = ( (mod["position"] as string).indexOf('left') < 0 ) ? "right" : "left";
@@ -177,13 +186,19 @@ export class WebBase extends Component<WebBaseProps, WebBaseState> {
                             group: group
                         });
                     }
+                    if ( mod["module"] === "esri/widgets/BasemapToggle" ) {
+                        widget = new BasemapToggle({
+                            view,
+                            nextBasemap: this.props.widgets.basemapToggleWidgetNext
+                        });
+                    }
                     if (widget.activeLayerInfos) {
                         widget.watch("activeLayerInfos.length", () => {
-                            view.ui.add(widget, mod["position"]);
+                            view.ui.add(widget, position);
                         });
                         return;
                     }
-                    view.ui.add(widget, mod["position"]);
+                    view.ui.add(widget, position);
 
                 });
                 return promiseUtils.resolve();

@@ -1,0 +1,144 @@
+{ 
+    "group": {
+        "group": {
+            "defaultValue": "",
+            "express": true
+        }
+    },
+    "galleryAbout": {
+        "title": {
+            "defaultValue": "Category Gallery",
+            "express": true
+        },
+        "headHTML": { 
+            "defaultValue": ""
+        }
+    }, 
+    "galleryInteractivity": {
+        "galleryDisplay": {
+            "galleryDisplay": {
+                "filterPaneDefault": { 
+                    "defaultValue": false,
+                    "express": true
+                },
+                "allowedItemTypes": { 
+                    "defaultValue": "['Web Map', 'CityEngine Web Scene', 'Web Scene', '360 VR Experience', 'Pro Map', 'Feature Service', 'Map Service', 'Image Service', 'KML', 'KML Collection', 'WFS', 'WMTS', 'Feature Collection', 'Feature Collection Template', 'Vector Tile Service', 'Scene Service', 'Relational Database Connection', 'Web Mapping Application', 'StoryMap', 'Mobile Application', 'Operations Dashboard Add In', 'Native Application', 'Native Application Template', 'Native Application Installer', 'Workforce Project', 'Form', 'Insights Workbook', 'Insights Model', 'Insights Page', 'Dashboard', 'Hub Initiative', 'Hub Site Application', 'Hub Page', 'AppBuilder Widget Package', 'Symbol Set', 'Color Set', 'Shapefile', 'File Geodatabase', 'CSV', 'CAD Drawing', 'Service Definition', 'Microsoft Word', 'Microsoft Powerpoint', 'Microsoft Excel', 'PDF', 'Image', 'Visio Document', 'iWork Keynote', 'iWork Pages', 'iWork Numbers', 'Report Template', 'Statistical Data Collection', 'Map Document', 'Map Package', 'Mobile Basemap Package', 'Mobile Map Package', 'Tile Package', 'Vector Tile Package', 'Project Package', 'Task File', 'ArcPad Package', 'Explorer Map', 'Document Link', 'Globe Document', 'Scene Document', 'Published Map', 'Map Template', 'Windows Mobile Package', 'Pro Map', 'Layout', 'Project Template', 'Layer', 'Layer Package', 'Explorer Layer', 'Scene Package', 'Image Collection', 'Desktop Style', 'Geoprocessing Package', 'Geoprocessing Package (Pro version)', 'Geoprocessing Sample', 'Locator Package', 'Rule Package', 'Raster function template', 'ArcGIS Pro Configuration', 'Workflow Manager Package', 'Desktop Application', 'Desktop Application Template', 'Code Sample', 'Desktop Add In', 'Explorer Add In', 'ArcGIS Pro Add In', 'Geometry Service', 'Geocoding Service', 'Network Analysis Service', 'Geoprocessing Service', 'Workflow Manager Service', 'Application', 'Big Data File Share', 'Web Tool', 'Notebook', 'Deep Learning Package', 'Web Experience', 'Web Experience Template', 'Feed']"
+                },
+                "resultsPerQuery": { 
+                    "defaultValue": 16
+                },
+                "showSignInBtn": { 
+                    "defaultValue": false
+                }
+            }
+        },
+        "contentFiltering": {
+            "contentFiltering": {
+                "filters": { 
+                    "defaultValue": ["categories", "itemType", "tags"],
+                    "express": true
+                },
+                "filtersDefault": { 
+                    "defaultValue": []
+                },
+                "availableItemTypeFilters": { 
+                    "defaultValue": ["maps", "layers", "scenes", "apps", "files"]
+                },
+                "useOrgCategories": { 
+                    "defaultValue": false,
+                    "express": true
+                }
+            }
+        },
+        "itemCardDisplay": {
+            "itemCardDisplay": {
+                "showItemType": {
+                    "defaultValue": true,
+                    "express": true
+                },
+                "showItemOwner": {
+                    "defaultValue": true,
+                    "express": true
+                },
+                "showItemInfo": {
+                    "defaultValue": true,
+                    "express": true
+                },
+                "showItemDetails": {
+                    "defaultValue": true,
+                    "express": true
+                },
+                "showItemToolTip": {
+                    "defaultValue": false
+                },
+                "itemSummaryMaxChar": {
+                    "defaultValue": 250
+                }
+            }
+        },
+        "map": {
+            "map": {
+                "defaultBasemap": { 
+                    "defaultValue": "streets-vector"
+                },
+                "compassWidget": { 
+                    "defaultValue": false,
+                    "compassWidgetPosition": {
+                        "defaultValue": "top-right"
+                    }
+                },
+                "basemapToggle": {
+                    "defaultValue": false,
+                    "basemapTogglePosition": {
+                        "defaultValue": "bottom-right"
+                    },
+                    "nextBasemap": {
+                        "defaultValue": "topo"
+                    }
+                },
+                "search": {
+                    "defaultValue": true,
+                    "searchPosition": {
+                        "defaultValue": "top-right"
+                    }
+                },
+                "locateWidget": { 
+                    "defaultValue": false,
+                    "locateWidgetPosition": {
+                        "defaultValue": "bottom-right"
+                    }
+                },
+                "legend": {
+                    "defaultValue": false,
+                    "legendPosition": {
+                        "defaultValue": "bottom-left"
+                    }
+                },
+                "home": {
+                    "defaultValue": false,
+                    "homePosition": {
+                        "defaultValue": "top-left"
+                    }
+                }
+            }
+        }
+    },
+    "galleryTheme": {
+        "galleryLayout": {
+            "galleryLayout": {
+                "displayDefault": { 
+                    "defaultValue": "grid",
+                    "express": true
+                },
+                "customCSS": {
+                    "defaultValue": ""
+                }
+            }
+        },
+        "positionManager": {
+            "positionManager": {
+                "defaultValue": ""
+            }
+        }
+    } 
+} 

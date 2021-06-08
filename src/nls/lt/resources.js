@@ -239,8 +239,13 @@ define({
     "viewApp": "Peržiūrėti aplikaciją",
     "viewInMap": "Peržiūrėti žemėlapyje",
     "viewInScene": "Peržiūrėti scenoje",
+    "view": "Peržiūrėti",
     "download": "Atsisiųsti",
     "openPdf": "Atidaryti kaip PDF",
+    "open": "Atverti",
+    "openDoc": "Atviras dokumentas",
+    "openTab": "Atidaryti naujame skirtuke",
+    "openViewer": "Į_Open in Map Viewer___________________š",
     "addFavorite": "Pridėti į mėgstamiausius",
     "removeFavorite": "Šalinti iš mėgstamiausių"
   },
@@ -256,5 +261,10 @@ define({
       "failed": "Elemento įkelti nepavyko.",
       "sorry": "Deja, kažkas įvyko įkeliant prašomą elementą."
     }
+  },
+  "share": {
+    "shareGallery": "Į_Share gallery______________š",
+    "shareFiltered": "Į_Share filtered gallery_______________________š",
+    "tooltip": "Į_URL copied to you clipboard____________________________š"
   }
 });

@@ -1,4 +1,4 @@
-import * as i18n from "dojo/i18n!../../../../nls/resources";
+import i18n = require("dojo/i18n!../../../../nls/resources");
 import { Component, H, connect, ComponentProps } from "../../../../Component";
 import {
     CLEAR_ALL_FILTERS,
@@ -15,6 +15,7 @@ import {
 import FilterController, { FilterControllerProps } from "../../../Dropdowns/FilterController";
 import { FilterGalleryState } from "../../../../_reducer";
 import { FilterGalleryStore } from "../../../..";
+import ioQuery = require("dojo/io-query");
 
 const generalUpdateActions = {
     itemType: updateItemTypeFilter(),
@@ -142,16 +143,19 @@ export class ActiveFilters extends Component<ActiveFilterProps> {
     private handleRemoveGeneralFilter(e: any) {
         this.props.dispatch(generalUpdateActions[e.target.value]);
         this.props.dispatch(search(e.target.value === "folder"));
+        this.handleToggleUrl(e.target.value, "");
     }
 
     private handleClearAll() {
         this.props.dispatch({ type: CLEAR_ALL_FILTERS });
         this.props.dispatch(search());
+        this.handleClearAllUrlParams();
     }
 
     private handleRemoveGroupCategoriesFilter(e: any) {
         this.props.dispatch(updateCategoriesFilter());
         this.props.dispatch(search());
+        this.handleToggleUrl("categories", "");
     }
 
     private handleRemoveTagsFilter(e: any) {
@@ -161,11 +165,47 @@ export class ActiveFilters extends Component<ActiveFilterProps> {
             delete newTags[e.target.value];
             if (Object.keys(newTags).length > 0) {
                 this.props.dispatch(updateTagsFilter(newTags));
+                this.handleToggleUrl("tags", Object.keys(newTags).toString());
             } else {
                 this.props.dispatch(updateTagsFilter());
+                this.handleToggleUrl("tags", "");
             }
             this.props.dispatch(search());
         }
+    }
+
+    private handleToggleUrl(param: string, value: string) {
+        const newSearch = this.handleUrlParamSwitch(param, value);
+        const newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + "?" + newSearch;
+        window.history.pushState({ path: newurl }, "", newurl);
+    }
+
+    private handleUrlParamSwitch(param: string, value: string): string {
+        // const url = window.location.search;
+        const query = ioQuery.queryToObject(decodeURI(window.location.search.slice(1)));
+        query[param] = value;
+        if (value === "") {
+            delete query[param];
+        }
+        return ioQuery.objectToQuery(query);
+    }
+
+    private handleUrlParamClear(): string {
+        // const url = window.location.search;
+        const query = ioQuery.queryToObject(decodeURI(window.location.search.slice(1)));
+        const filters = ["categories", "itemType", "shared", "status", "tags"];
+        for (const param in query) {
+            if (filters.indexOf(param) !== -1) {
+                delete query[param];
+            }
+        }
+        return ioQuery.objectToQuery(query);
+    }
+
+    private handleClearAllUrlParams() {
+        const newSearch = this.handleUrlParamClear();
+        const newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + "?" + newSearch;
+        window.history.pushState({ path: newurl }, "", newurl);
     }
 }
 

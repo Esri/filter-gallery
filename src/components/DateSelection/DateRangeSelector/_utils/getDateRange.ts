@@ -1,5 +1,5 @@
-import * as componentI18n from "dojo/i18n!../../../../nls/resources";
-import * as dojoDate from "dojo/date/locale";
+import componentI18n = require("dojo/i18n!../../../../nls/resources");
+import dojoDate = require("dojo/date/locale");
 
 export default (optionValue: string, customRange?: { start: number, end: number }) => {
     const day = 86400000; // milliseconds

@@ -60,7 +60,7 @@ define({
       "numviews": "Nombre de vues",
       "avgrating": "Évaluation",
       "ascending": {
-        "relevance": "Du moins au plus pertinent",
+        "relevance": "Du moins pertinent au plus pertinent",
         "title": "Alphabétique",
         "owner": "Alphabétique",
         "created": "Le moins récent",
@@ -72,8 +72,8 @@ define({
         "relevance": "Du plus pertinent au moins pertinent",
         "title": "Alphabétique inverse",
         "owner": "Alphabétique inverse",
-        "created": "La plus récente",
-        "modified": "La plus récente",
+        "created": "Le plus récent",
+        "modified": "Le plus récent",
         "numviews": "Plus vers moins",
         "avgrating": "Du mieux évalué au moins bien évalué"
       }
@@ -84,7 +84,7 @@ define({
       "itemType": "Type d’élément",
       "filters": {
         "maps": "Cartes",
-        "webMaps": "Cartes web",
+        "webMaps": "Cartes Web",
         "mapFiles": "Fichiers de cartes",
         "layers": "Couches",
         "featureLayers": "Couches d'entités",
@@ -96,7 +96,7 @@ define({
         "layerFiles": "Fichiers de couches",
         "scenes": "Scènes",
         "apps": "Applications",
-        "webApps": "Applications web",
+        "webApps": "Applications Web",
         "mobileApps": "Applications mobiles",
         "desktopApps": "Applications bureautiques",
         "tools": "Outils",
@@ -109,7 +109,7 @@ define({
         "documents": "Documents",
         "images": "Images",
         "pdfs": "PDF",
-        "webTools": "Outils web",
+        "webTools": "Outils Web",
         "notebooks": "Notebooks"
       }
     },
@@ -147,15 +147,15 @@ define({
       "browse": "Parcourir",
       "search": "Rechercher"
     },
-    "resultCount": "Éléments:",
+    "resultCount": "Éléments :",
     "searchPlaceholders": {
       "generic": "Saisir les termes de la recherche"
     },
     "filterChips": {
       "mapArea": "Dans la zone de la carte",
       "type": "Type",
-      "dateModified": "Modifié",
-      "dateCreated": "Créé",
+      "dateModified": "Modification",
+      "dateCreated": "Création",
       "access": "Partagé",
       "group": "Groupe",
       "folder": "Dossier",
@@ -239,8 +239,13 @@ define({
     "viewApp": "Afficher l'application",
     "viewInMap": "Afficher sur la carte",
     "viewInScene": "Afficher dans la scène",
+    "view": "Afficher",
     "download": "Télécharger",
     "openPdf": "Ouvrir en PDF",
+    "open": "Ouvrir",
+    "openDoc": "Ouvrir un document",
+    "openTab": "Ouvrir dans un nouvel onglet",
+    "openViewer": "æ_Open in Map Viewer___________________Â",
     "addFavorite": "Ajouter aux favoris",
     "removeFavorite": "Supprimer des favoris"
   },
@@ -256,5 +261,10 @@ define({
       "failed": "Echec de chargement de l’élément.",
       "sorry": "Désolé, un problème est survenu lors du chargement de l’élément demandé."
     }
+  },
+  "share": {
+    "shareGallery": "æ_Share gallery______________Â",
+    "shareFiltered": "æ_Share filtered gallery_______________________Â",
+    "tooltip": "æ_URL copied to you clipboard____________________________Â"
   }
 });

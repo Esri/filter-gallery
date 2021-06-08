@@ -239,8 +239,13 @@ define({
     "viewApp": "عرض التطبيق",
     "viewInMap": "عرض في الخريطة",
     "viewInScene": "عرض في المشهد",
+    "view": "عرض",
     "download": "تنزيل",
     "openPdf": "فتح في PDF",
+    "open": "فتح",
+    "openDoc": "فتح مستند",
+    "openTab": "فتح في علامة تبويب جديدة",
+    "openViewer": "بيت_Open in Map Viewer___________________لاحقة",
     "addFavorite": "إضافة إلى المفضلات",
     "removeFavorite": "إزالة من المفضلات"
   },
@@ -256,5 +261,10 @@ define({
       "failed": "فشل تحميل العنصر.",
       "sorry": "عذرًا، حدث خطأ ما أثناء تحميل العنصر المطلوب."
     }
+  },
+  "share": {
+    "shareGallery": "بيت_Share gallery______________لاحقة",
+    "shareFiltered": "بيت_Share filtered gallery_______________________لاحقة",
+    "tooltip": "بيت_URL copied to you clipboard____________________________لاحقة"
   }
 });

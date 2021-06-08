@@ -239,8 +239,13 @@ define({
     "viewApp": "Переглянути додаток",
     "viewInMap": "Переглянути на карті",
     "viewInScene": "Переглянути на сцені",
+    "view": "Огляд",
     "download": "Завантажити",
     "openPdf": "Відкрити в PDF",
+    "open": "Відкрити",
+    "openDoc": "Відкрити документ",
+    "openTab": "Відкрити у новій вкладці",
+    "openViewer": "ґ_Open in Map Viewer___________________Ї",
     "addFavorite": "Додати до обраного",
     "removeFavorite": "Вилучити з обраного"
   },
@@ -256,5 +261,10 @@ define({
       "failed": "Не вдалося завантажити елемент.",
       "sorry": "Вибачте, щось пішло не так під час завантаження запитаного елемента."
     }
+  },
+  "share": {
+    "shareGallery": "ґ_Share gallery______________Ї",
+    "shareFiltered": "ґ_Share filtered gallery_______________________Ї",
+    "tooltip": "ґ_URL copied to you clipboard____________________________Ї"
   }
 });

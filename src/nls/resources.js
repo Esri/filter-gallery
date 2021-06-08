@@ -4,6 +4,14 @@ define({
         appFailed: "Failed to load the app.",
         noAuth: "Your account is not licensed to use Configurable Apps that are not public. Please ask your organization administrator to assign you a user type that includes Essential Apps or an add-on Essential Apps license.",
         notLicensed: "Not Licensed",
+        error: "Error",
+        originError: {
+            message: "The application you are trying to access does not originate from the URL you provided",
+            close: "Close",
+            options: "Advanced options",
+            linkMessage: "Proceed to"
+        },
+        analyticsOptIn: "Opt in",
         badges: {
             authoritative: "Authoritative", // arcgisonline.filters.authoritative
             deleted: "Deleted",
@@ -240,8 +248,13 @@ define({
             viewApp: "View App",
             viewInMap: "View in Map",
             viewInScene: "View in Scene",
+            view: "View",
             download: "Download",
             openPdf: "Open in PDF",
+            open: "Open",
+            openDoc: "Open Document",
+            openTab: "Open in new tab",
+            openViewer: "Open in Map Viewer",
             addFavorite: "Add to Favorites",
             removeFavorite: "Remove from Favorites"
         },
@@ -257,6 +270,11 @@ define({
                 "failed": "The item failed to load.",
                 "sorry": "Sorry, something went wrong loading the requested item."
             }
+        }, 
+        share: {
+            shareGallery: "Share gallery",
+            shareFiltered: "Share filtered gallery",
+            tooltip: "URL copied to you clipboard"
         }
     }),
     "ar": 1,
@@ -286,6 +304,8 @@ define({
     "pt-pt": 1,
     "ro": 1,
     "ru": 1,
+    "sk": 1,
+    "sl": 1,
     "sr": 1,
     "sv": 1,
     "th": 1,

@@ -239,8 +239,13 @@ define({
     "viewApp": "Alkalmazás megtekintése",
     "viewInMap": "Megtekintés a térképen",
     "viewInScene": "Megtekintés a 3D térképen",
+    "view": "Nézet",
     "download": "Letöltés",
     "openPdf": "Megnyitás PDF-ben",
+    "open": "Megnyitva",
+    "openDoc": "Dokumentum megnyitása",
+    "openTab": "Megnyitás új fülön",
+    "openViewer": "í_Open in Map Viewer___________________ő",
     "addFavorite": "Hozzáadás a kedvencekhez",
     "removeFavorite": "Eltávolítás a kedvencek közül"
   },
@@ -256,5 +261,10 @@ define({
       "failed": "Nem sikerült betölteni az elemet.",
       "sorry": "Sajnáljuk, hiba történt a kért elem betöltésekor."
     }
+  },
+  "share": {
+    "shareGallery": "í_Share gallery______________ő",
+    "shareFiltered": "í_Share filtered gallery_______________________ő",
+    "tooltip": "í_URL copied to you clipboard____________________________ő"
   }
 });

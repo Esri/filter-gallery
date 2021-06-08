@@ -239,8 +239,13 @@ define({
     "viewApp": "Ver aplicación",
     "viewInMap": "Ver en el mapa",
     "viewInScene": "Ver en la escena",
+    "view": "Vista",
     "download": "Descargar",
     "openPdf": "Abrir en PDF",
+    "open": "Abierto",
+    "openDoc": "Abrir documento",
+    "openTab": "Abrir en una nueva pestaña",
+    "openViewer": "á_Open in Map Viewer___________________Ó",
     "addFavorite": "Agregar a favoritos",
     "removeFavorite": "Quitar de favoritos"
   },
@@ -256,5 +261,10 @@ define({
       "failed": "Error al cargar el elemento.",
       "sorry": "Lo sentimos. Se ha producido un error al cargar el elemento solicitado."
     }
+  },
+  "share": {
+    "shareGallery": "á_Share gallery______________Ó",
+    "shareFiltered": "á_Share filtered gallery_______________________Ó",
+    "tooltip": "á_URL copied to you clipboard____________________________Ó"
   }
 });

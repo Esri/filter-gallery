@@ -239,8 +239,13 @@ define({
     "viewApp": "Visualitza l'aplicació",
     "viewInMap": "Visualitza-ho al mapa",
     "viewInScene": "Visualitza-ho a l'escena",
+    "view": "Visualitza",
     "download": "Baixa",
     "openPdf": "Obre-ho en un PDF",
+    "open": "Obre",
+    "openDoc": "Obre el document",
+    "openTab": "Obre-ho en una pestanya nova",
+    "openViewer": "ó_Open in Map Viewer___________________à",
     "addFavorite": "Afegeix als favorits",
     "removeFavorite": "Elimina dels favorits"
   },
@@ -256,5 +261,10 @@ define({
       "failed": "No s'ha pogut carregar l'element.",
       "sorry": "S'ha produït algun problema en carregar l'element sol·licitat."
     }
+  },
+  "share": {
+    "shareGallery": "ó_Share gallery______________à",
+    "shareFiltered": "ó_Share filtered gallery_______________________à",
+    "tooltip": "ó_URL copied to you clipboard____________________________à"
   }
 });

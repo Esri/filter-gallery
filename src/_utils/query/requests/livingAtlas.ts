@@ -1,4 +1,4 @@
-import * as Deferred from "dojo/Deferred";
+import Deferred = require("dojo/Deferred");
 import {
     fetchGroupByQuery,
     fetchGroupCategorySchema,
@@ -73,7 +73,8 @@ export const fetchAllLivingAtlasInfo = (
     }
 
     function handleLASchemaSuccess(response: any) {
-        livingAtlasCategoryTypeKeywords = response.categorySchema[0].source.split(".")[1];
+        livingAtlasCategoryTypeKeywords = response.categorySchema[0].source ? 
+            response.categorySchema[0].source.split(".")[1] : "";
         fetchGroupByQuery(request, portal, defaultSelf.contentCategorySetsGroupQuery)
             .then(handleCategorySetsGroupSuccess, handleLivingAtlasError);
 

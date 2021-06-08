@@ -239,8 +239,13 @@ define({
     "viewApp": "Vis app",
     "viewInMap": "Vis i kart",
     "viewInScene": "Vis i scene",
+    "view": "Vis",
     "download": "Last ned",
     "openPdf": "Åpne i PDF",
+    "open": "Åpne",
+    "openDoc": "Åpne dokument",
+    "openTab": "Åpne i en ny fane",
+    "openViewer": "å_Open in Map Viewer___________________ø",
     "addFavorite": "Legg til i favoritter",
     "removeFavorite": "Fjern fra favoritter"
   },
@@ -256,5 +261,10 @@ define({
       "failed": "Elementet ble ikke lastet inn.",
       "sorry": "Beklager, men det oppstod en feil under lasting av forespurt element."
     }
+  },
+  "share": {
+    "shareGallery": "å_Share gallery______________ø",
+    "shareFiltered": "å_Share filtered gallery_______________________ø",
+    "tooltip": "å_URL copied to you clipboard____________________________ø"
   }
 });

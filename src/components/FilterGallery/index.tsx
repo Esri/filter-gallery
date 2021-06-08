@@ -1,4 +1,4 @@
-import * as i18n from "dojo/i18n!../../nls/resources";
+import i18n = require("dojo/i18n!../../nls/resources");
 
 import { Component, H, connect } from "../../Component";
 import Header from "./Header";
@@ -7,6 +7,7 @@ import { FilterGalleryStore } from "../..";
 import Overlay from "../Modals/Overlay";
 import Viewer from "./Viewer";
 import LoaderBars from "../Loaders/LoaderBars";
+import { OriginError } from "../../_actions";
 
 export interface RootComponentProps {
     key: string;
@@ -15,6 +16,7 @@ export interface RootComponentProps {
     viewerClosing: boolean;
     title: string;
     headHTML?: string;
+    err?: OriginError;
 }
 
 export class RootComponent extends Component<RootComponentProps> {
@@ -46,7 +48,23 @@ export class RootComponent extends Component<RootComponentProps> {
                     </div>
                 </main>
             );
-        }
+        } else if (this.props.portalStatus === "originother") {
+            // Redirect to unsupported page
+            document.location.href = `./shared/origin/index.html?appUrl=${this.props.err?.appUrl}`; 
+            // return (
+            //     <main class="fg__container">
+            //         <div key="no-auth-container" class="fg__no-js-text">
+            //             <h3>{i18n.error}</h3>
+            //             <p>{i18n.originError.message}</p>
+            //             <details>
+            //             <summary>{i18n.originError.options}</summary>
+            //             {i18n.originError.linkMessage}
+            //             <a href={this.props.err?.appUrl}>{this.props.err?.appUrl}</a>
+            //             </details>
+            //         </div>
+            //     </main>
+            // );
+        } 
 
         return (
             <main class="fg__container">

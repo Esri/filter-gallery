@@ -110,7 +110,7 @@ define({
         "images": "Attēli",
         "pdfs": "PDF faili",
         "webTools": "Tīmekļa rīki",
-        "notebooks": "Piezīmju grāmatiņas"
+        "notebooks": "Notebooks"
       }
     },
     "date": {
@@ -131,7 +131,7 @@ define({
       "options": {
         "authoritative": "Autoritatīvs",
         "deprecated": "Novecojis",
-        "premium": "Augstākā līmeņa"
+        "premium": "Premium"
       }
     },
     "tags": {
@@ -147,7 +147,7 @@ define({
       "browse": "Pārlūkot",
       "search": "Meklēt"
     },
-    "resultCount": "vienības:",
+    "resultCount": "Vienības:",
     "searchPlaceholders": {
       "generic": "Ievadiet meklēšanas kritērijus"
     },
@@ -239,8 +239,13 @@ define({
     "viewApp": "Skatīt lietotni",
     "viewInMap": "Skatīt kartē",
     "viewInScene": "Skatīt scēnā",
+    "view": "Skatīt",
     "download": "Lejupielādēt",
     "openPdf": "Atvērt PDF formātā",
+    "open": "Atvērt",
+    "openDoc": "Atvērt dokumentu",
+    "openTab": "Atvērt jaunā cilnē",
+    "openViewer": "ķ_Open in Map Viewer___________________ū",
     "addFavorite": "Pievienot favorītiem",
     "removeFavorite": "Noņemt no favorītiem"
   },
@@ -256,5 +261,10 @@ define({
       "failed": "Vienību neizdevās ielādēt.",
       "sorry": "Diemžēl radās kļūda, ielādējot pieprasīto vienību."
     }
+  },
+  "share": {
+    "shareGallery": "ķ_Share gallery______________ū",
+    "shareFiltered": "ķ_Share filtered gallery_______________________ū",
+    "tooltip": "ķ_URL copied to you clipboard____________________________ū"
   }
 });

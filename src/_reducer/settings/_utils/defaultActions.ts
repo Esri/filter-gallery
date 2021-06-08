@@ -1,5 +1,5 @@
-import * as i18n from "dojo/i18n!../../../nls/resources";
-import * as ioQuery from "dojo/io-query";
+import i18n = require("dojo/i18n!../../../nls/resources");
+import ioQuery = require("dojo/io-query");
 import { CustomAction } from "../config";
 import { Pojo } from "../../../Component";
 import { FilterGalleryState } from "../..";
@@ -71,11 +71,15 @@ const defaultActions: CustomAction[] = [
     onAction: () => { },
     icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1 1h8v1H2v12h12V7h1v8H1zm7.325 7.382L14 2.707V5h1V1h-4v1h2.293L7.618 7.675z"/><path fill="none" d="M0 0h16v16H0z"/></svg>',
     href: (item: Pojo, state: FilterGalleryState) =>
-      `${state.settings.utils.portal.restUrl}/content/items/${item.id}/data`,
+      `${state.settings.utils.portal.restUrl}/content/items/${item.id}/data${
+        state.settings.utils.portal.credential ?
+            `?token=${state.settings.utils.portal.credential.token}` :
+            ""
+    }`,
     target: "_blank"
   },
   {
-    name: i18n.dropdowns.contentViews.view, // Placeholder for 8.2 string addition
+    name: i18n.actions.openDoc,
     allowed: (item: Pojo) => item.type === "Document Link",    
     asynchronous: false,
     onAction: () => { },
@@ -84,15 +88,60 @@ const defaultActions: CustomAction[] = [
     target: "_blank"
   },
   {
+    name: i18n.actions.openTab, 
+    allowed: (item: Pojo) => item.type === "Dashboard",    
+    asynchronous: false,
+    onAction: () => { },
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1 1h8v1H2v12h12V7h1v8H1zm7.325 7.382L14 2.707V5h1V1h-4v1h2.293L7.618 7.675z"/><path fill="none" d="M0 0h16v16H0z"/></svg>',
+    href: (item: Pojo, state: FilterGalleryState) => {
+      const portalUrl = !!state.settings.utils.portal.credential ? state.settings.utils.portal.baseUrl : `https://${state.settings.utils.portal.portalHostname}`
+      const url = portalUrl + "/apps/opsdashboard/index.html#/" + item.id;
+      return url;
+    },
+    target: "_blank"
+  }, 
+  {
+    name: i18n.actions.openTab, 
+    allowed: (item: Pojo) => item.type === "Hub Site Application",    
+    asynchronous: false,
+    onAction: () => { },
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1 1h8v1H2v12h12V7h1v8H1zm7.325 7.382L14 2.707V5h1V1h-4v1h2.293L7.618 7.675z"/><path fill="none" d="M0 0h16v16H0z"/></svg>',
+    href: (item: Pojo) => item.url,
+    target: "_blank"
+  },
+  {
+    name: i18n.actions.openTab, 
+    allowed: (item: Pojo) => item.type === "Web Experience" && item.typeKeywords.includes("status: Published"),    
+    asynchronous: false,
+    onAction: () => { },
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1 1h8v1H2v12h12V7h1v8H1zm7.325 7.382L14 2.707V5h1V1h-4v1h2.293L7.618 7.675z"/><path fill="none" d="M0 0h16v16H0z"/></svg>',
+    href: (item: Pojo, state: FilterGalleryState) => {
+      const portal: string = state.settings.utils.portal.baseUrl;
+      const base = portal.indexOf("mapsdevext.arcgis.com") !== -1 ?
+                      "https://experiencedev.arcgis.com/experience/" :
+                      portal.indexOf("mapsqa.arcgis.com") !== -1 ?
+                        "https://experienceqa.arcgis.com/experience/" :
+                        "https://experience.arcgis.com/experience/";
+      const url = base + item.id;
+      return url;
+    },
+    target: "_blank"
+  },
+  {
     name: i18n.actions.download,
     allowed: (item: Pojo) => [
-      "CSV"
+      "CSV",
+      "Deep Learning Package"
     ].indexOf(item.type) > -1,
     asynchronous: false,
     onAction: () => { },
     icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M16 7.621A3.3 3.3 0 0 1 13.063 11H13v-1h.063A2.337 2.337 0 0 0 15 7.621a2.508 2.508 0 0 0-1.705-2.396l-.592-.196-.085-.618A3.808 3.808 0 0 0 8.988 1a3.652 3.652 0 0 0-3.205 2.039l-.37.714-.778-.21a1.592 1.592 0 0 0-.42-.067A1.34 1.34 0 0 0 2.86 4.75l-.04.56-.498.257A2.419 2.419 0 0 0 1 7.72 2.24 2.24 0 0 0 3 10h1v1H3a3.225 3.225 0 0 1-3-3.28 3.428 3.428 0 0 1 1.863-3.041 2.331 2.331 0 0 1 2.353-2.203 2.588 2.588 0 0 1 .68.101A4.64 4.64 0 0 1 8.988 0a4.788 4.788 0 0 1 4.622 4.275A3.515 3.515 0 0 1 16 7.621zm-7 5.656V6H8v7.277l-1.602-1.602-.707.707 2.809 2.81 2.81-2.81-.708-.707z"/></svg>',
     href: (item: Pojo, state: FilterGalleryState) =>
-      `${state.settings.utils.portal.restUrl}/content/items/${item.id}/data`,
+      `${state.settings.utils.portal.restUrl}/content/items/${item.id}/data${
+        state.settings.utils.portal.credential ?
+            `?token=${state.settings.utils.portal.credential.token}` :
+            ""
+    }`,
     target: "_blank"
   },
   {

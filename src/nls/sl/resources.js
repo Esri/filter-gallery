@@ -239,8 +239,13 @@ define({
     "viewApp": "Ogled aplikacije",
     "viewInMap": "Pogled na karti",
     "viewInScene": "Pogled v prizoru",
+    "view": "Ogled",
     "download": "Prenos",
     "openPdf": "Odpri v PDF",
+    "open": "Odpri",
+    "openDoc": "Odpri dokument",
+    "openTab": "Odpri v novem zavihku",
+    "openViewer": "Š_Open in Map Viewer___________________č",
     "addFavorite": "Dodaj med priljubljene",
     "removeFavorite": "Odstrani iz priljubljenih"
   },
@@ -256,5 +261,10 @@ define({
       "failed": "Elementa ni bilo mogoče naložiti.",
       "sorry": "Oprostite, med nalaganjem zahtevanega elementa je prišlo do težav."
     }
+  },
+  "share": {
+    "shareGallery": "Š_Share gallery______________č",
+    "shareFiltered": "Š_Share filtered gallery_______________________č",
+    "tooltip": "Š_URL copied to you clipboard____________________________č"
   }
 });

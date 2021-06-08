@@ -1,6 +1,6 @@
-import * as i18n from "dojo/i18n!../../nls/resources";
+import i18n = require("dojo/i18n!../../nls/resources");
 import { Component, H, Pojo } from "../../Component";
-import * as dojoDate from "dojo/date/locale";
+import dojoDate = require("dojo/date/locale");
 
 import AuthoritativeBadge from "../Badges/Authoritative";
 import DeprecatedBadge from "../Badges/Deprecated";
@@ -106,7 +106,7 @@ export default class AnalysisCard extends Component<ListCardProps> {
                     key={action.name}
                     id={action.id ? `${action.id}-${item.id}` : undefined}
                     class="card-lc__side-action"
-                    onclick={action.href ? undefined : this.handleCustomActionClick}
+                    onclick={undefined}
                     title={action.name}
                     value={index}
                     href={action.href ? action.href(this.props.item, this.props.stateTree) : undefined}
@@ -120,7 +120,7 @@ export default class AnalysisCard extends Component<ListCardProps> {
                         key={action.name}
                         id={action.id ? `${action.id}-${item.id}` : undefined}
                         class="card-lc__side-action-btn card-lc__side-action"
-                        onclick={action.href ? undefined : this.handleCustomActionClick}
+                        onclick={this.handleCustomActionClick}
                         title={action.name}
                         value={index}
                     >
@@ -191,6 +191,7 @@ export default class AnalysisCard extends Component<ListCardProps> {
                                 : ``}
                                 <span
                                     class="card-lc__author-text"
+                                    key="itemAuthor"
                                 >
                                     {baseConfig.showItemType ? `${item.displayName} ` : ``} 
                                     {baseConfig.showItemOwner ? `${i18n.itemCards.by}` : ``}
@@ -212,12 +213,12 @@ export default class AnalysisCard extends Component<ListCardProps> {
                             </div>
                             {baseConfig.showItemInfo ?
                                 ([
-                                    (<span class="card-lc__info-bullet">•</span>),
-                                    (<span class="card-lc__info-string">{infoString}</span>)
+                                    (<span class="card-lc__info-bullet" key="showItemInfoBullet">•</span>),
+                                    (<span class="card-lc__info-string" key="showItemInfo">{infoString}</span>)
                                 ]) : ``}
                         </div>
                         <p class="card-lc__snippet">
-                            <span class="card-lc__snippet-text">{itemSummaryMaxChar < 250 && item.snippet && item.snippet.length > itemSummaryMaxChar ? 
+                            <span class="card-lc__snippet-text" key="itemSummaryMaxChar">{itemSummaryMaxChar < 250 && item.snippet && item.snippet.length > itemSummaryMaxChar ? 
                                                                 item.snippet.substring(0, itemSummaryMaxChar) + `...` :
                                                                 item.snippet}{` `}</span>
                             {baseConfig.showItemToolTip && item.snippet ?

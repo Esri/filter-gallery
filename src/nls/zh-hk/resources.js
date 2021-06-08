@@ -239,8 +239,13 @@ define({
     "viewApp": "檢視應用程式",
     "viewInMap": "在地圖中檢視",
     "viewInScene": "在場景中檢視",
+    "view": "查看",
     "download": "下載",
     "openPdf": "在 PDF 中開啟",
+    "open": "開啟",
+    "openDoc": "開啟文件",
+    "openTab": "在新頁籤中開啟",
+    "openViewer": "試_Open in Map Viewer___________________驗",
     "addFavorite": "新增到我的最愛",
     "removeFavorite": "從我的最愛中移除"
   },
@@ -256,5 +261,10 @@ define({
       "failed": "無法載入項目。",
       "sorry": "很抱歉，載入請求的項目時發生了一些錯誤。"
     }
+  },
+  "share": {
+    "shareGallery": "試_Share gallery______________驗",
+    "shareFiltered": "試_Share filtered gallery_______________________驗",
+    "tooltip": "試_URL copied to you clipboard____________________________驗"
   }
 });

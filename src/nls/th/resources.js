@@ -239,8 +239,13 @@ define({
     "viewApp": "แสดงแอป",
     "viewInMap": "ดูในแผนที่",
     "viewInScene": "ดูในซีน",
+    "view": "วิว",
     "download": "ดาวน์โหลด",
     "openPdf": "เปิดใน PDF",
+    "open": "เปิด",
+    "openDoc": "เปิดเอกสาร",
+    "openTab": "เปิดในแท็บใหม่",
+    "openViewer": "ก้_Open in Map Viewer___________________ษฺ",
     "addFavorite": "เพิ่มไปยังรายการโปรด",
     "removeFavorite": "นำออกจากรายการโปรด"
   },
@@ -256,5 +261,10 @@ define({
       "failed": "ไม่สามารถโหลดรายการได้",
       "sorry": "ขออภัย เกิดข้อผิดพลาดในการโหลดรายการที่ขอ"
     }
+  },
+  "share": {
+    "shareGallery": "ก้_Share gallery______________ษฺ",
+    "shareFiltered": "ก้_Share filtered gallery_______________________ษฺ",
+    "tooltip": "ก้_URL copied to you clipboard____________________________ษฺ"
   }
 });

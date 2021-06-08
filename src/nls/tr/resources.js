@@ -239,8 +239,13 @@ define({
     "viewApp": "Uygulamayı Görüntüle",
     "viewInMap": "Haritada Görüntüle",
     "viewInScene": "Sahnede Görüntüle",
+    "view": "Görüntüle",
     "download": "İndir",
     "openPdf": "PDF'te Aç",
+    "open": "Aç",
+    "openDoc": "Belgeyi Aç",
+    "openTab": "Yeni sekmede aç",
+    "openViewer": "ı_Open in Map Viewer___________________İ",
     "addFavorite": "Sık Kullanılanlara Ekle",
     "removeFavorite": "Sık Kullanılanlardan Kaldır"
   },
@@ -256,5 +261,10 @@ define({
       "failed": "Öğe yüklenemedi.",
       "sorry": "Üzgünüz, istenen öğe yüklenirken bir şey ters gitti."
     }
+  },
+  "share": {
+    "shareGallery": "ı_Share gallery______________İ",
+    "shareFiltered": "ı_Share filtered gallery_______________________İ",
+    "tooltip": "ı_URL copied to you clipboard____________________________İ"
   }
 });

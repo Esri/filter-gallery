@@ -239,8 +239,13 @@ define({
     "viewApp": "Lihat Aplikasi",
     "viewInMap": "Lihat di Peta",
     "viewInScene": "Lihat di Scene",
+    "view": "Lihat",
     "download": "Unduh",
     "openPdf": "Buka di PDF",
+    "open": "Buka",
+    "openDoc": "Buka Dokumen",
+    "openTab": "Buka di tab baru",
+    "openViewer": "ng_Open in Map Viewer___________________ny",
     "addFavorite": "Tambahkan ke Favorit",
     "removeFavorite": "Hapus dari Favorit"
   },
@@ -256,5 +261,10 @@ define({
       "failed": "Item gagal dimuat.",
       "sorry": "Maaf, ada kesalahan saat memuat item yang diminta."
     }
+  },
+  "share": {
+    "shareGallery": "ng_Share gallery______________ny",
+    "shareFiltered": "ng_Share filtered gallery_______________________ny",
+    "tooltip": "ng_URL copied to you clipboard____________________________ny"
   }
 });

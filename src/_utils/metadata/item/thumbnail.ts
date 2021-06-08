@@ -14,6 +14,12 @@ export const getItemThumbnail = (portal: Pojo, item: Pojo) => {
                 `?token=${portal.credential.token}` :
                 ""
         }`;
+    } else if (item.type === "Image") {
+        thumbURI = `${portal.restUrl}/content/items/${item.id}/data/${
+            portal.credential ?
+                `?token=${portal.credential.token}` :
+                ""
+        }`;
     }
     return thumbURI;
 };

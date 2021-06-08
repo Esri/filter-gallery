@@ -1,4 +1,4 @@
-import * as i18n from "dojo/i18n!../../nls/resources";
+import i18n = require("dojo/i18n!../../nls/resources");
 import { Component, H, connect, Pojo } from "../../../Component";
 
 import { FilterGalleryStore } from "../../..";
@@ -193,7 +193,7 @@ export class SearchArea extends Component<SearchAreaProps> {
                     type="search"
                     oninput={this.handleSearchChange}
                     onkeydown={this.handleSearchKeyDown}
-                    value={this.props.searchString}
+                    value={this.props.searchString || this.props.previousSearchString}
                     placeholder={placeholder}
                     title={i18n.gallery.header.search}
                     aria-label={i18n.gallery.header.search}

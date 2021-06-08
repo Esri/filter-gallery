@@ -1,4 +1,4 @@
-import { Component, H, ComponentProps } from "../../Component";
+import { Component, H, ComponentProps, JSX } from "../../Component";
 
 export interface BasicDropdownProps extends ComponentProps {
     /**
@@ -59,7 +59,7 @@ export default class BasicDropdown extends Component<BasicDropdownProps, BasicDr
         }
 
         const button = this.props.children[0];
-        let dropdown = null;
+        let dropdown: JSX.Element | null = null;
         if (active) {
             dropdown = this.props.children[1];
         }

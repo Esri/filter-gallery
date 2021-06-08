@@ -32,13 +32,19 @@ export default (state: SectionState = initialState, action: Action) => {
                 status: "loading" as SectionState["status"]
             };
         case UPDATE_SECTION_INFO_SUCCESS:
+            let schema = action.payload.schema;
+            const group = Object.keys(state.group).length !== 0 ? state.group : action.payload.group;
+            if (group.owner === "Esri_LivingAtlas") { 
+                schema[0].categories = action.payload.livingAtlas.schema[0].categories;
+                schema[1].categories = action.payload.livingAtlas.schema[1].categories;
+            }
             return {
                 ...state,
                 group: action.payload.group,
                 schema: {
-                    displayName: state.group.title,
-                    value: state.group.id,
-                    children: formatRecursive(action.payload.schema)
+                    displayName: group.title,
+                    value: group.id,
+                    children: formatRecursive(schema)
                 },
                 sort: {
                     field: action.payload.group.sortField ? action.payload.group.sortField : "relevance",

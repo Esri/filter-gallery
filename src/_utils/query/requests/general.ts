@@ -1,4 +1,4 @@
-import * as all from "dojo/promise/all";
+import all = require("dojo/promise/all");
 import { Pojo } from "../../../Component";
 export type Request = (url: string, options?: Pojo) => dojo.Deferred<any>;
 

@@ -239,8 +239,13 @@ define({
     "viewApp": "Näytä sovellus",
     "viewInMap": "Näytä kartalla",
     "viewInScene": "Näytä maisemassa",
+    "view": "Tarkastele",
     "download": "Lataa",
     "openPdf": "Avaa PDF-muodossa",
+    "open": "Avattu",
+    "openDoc": "Avaa tiedosto",
+    "openTab": "Avaa uudessa välilehdessä",
+    "openViewer": "Å_Open in Map Viewer___________________ö",
     "addFavorite": "Lisää suosikkeihin",
     "removeFavorite": "Poista suosikeista"
   },
@@ -256,5 +261,10 @@ define({
       "failed": "Kohteen lataus epäonnistui.",
       "sorry": "Pyydetyn kohteen latauksessa tapahtui virhe."
     }
+  },
+  "share": {
+    "shareGallery": "Å_Share gallery______________ö",
+    "shareFiltered": "Å_Share filtered gallery_______________________ö",
+    "tooltip": "Å_URL copied to you clipboard____________________________ö"
   }
 });

@@ -1,4 +1,4 @@
-import * as componentI18n from "dojo/i18n!../../nls/resources";
+import componentI18n = require("dojo/i18n!../../nls/resources");
 
 import { Component, H } from "../../Component";
 
@@ -56,6 +56,11 @@ export interface StatusFilterState {
     options: ToggleOption[];
 }
 
+export const StatusFilterOptions = [
+    { value: "authoritative", displayName: componentI18n.filters.status.options.authoritative },
+    { value: "deprecated", displayName: componentI18n.filters.status.options.deprecated }
+];
+
 /**
  * A filter accordion for content status.
  */
@@ -64,10 +69,7 @@ export default class StatusFilter extends Component<StatusFilterProps, StatusFil
         super(props);
 
         this.state = {
-            options: [
-                { value: "authoritative", displayName: componentI18n.filters.status.options.authoritative },
-                { value: "deprecated", displayName: componentI18n.filters.status.options.deprecated }
-            ]
+            options: StatusFilterOptions
         };
 
         this.mapOptionsToToggles = this.mapOptionsToToggles.bind(this);

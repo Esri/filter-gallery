@@ -1,7 +1,8 @@
 import { Action, ofType, combineEpics } from "../Component";
 import { Subject, of } from "rxjs";
 import { FilterGalleryState } from "../_reducer";
-import { LOAD_PORTAL, LOAD_PORTAL_SUCCESS, LOAD_PORTAL_FAILED, AUTHENTICATION_FAILED } from "../_actions";
+import { LOAD_PORTAL, LOAD_PORTAL_SUCCESS, LOAD_PORTAL_FAILED, 
+    AUTHENTICATION_FAILED, ORIGIN_FAILED, OriginError } from "../_actions";
 import { switchMap, map, catchError, tap } from "rxjs/operators";
 
 import { fromDeferred } from "../_utils";
@@ -10,16 +11,24 @@ export const baseEpic = (action$: Subject<Action>, getState: () => FilterGallery
     ofType(LOAD_PORTAL),
     switchMap(() => {
         const base = getState().settings.utils.base;
-        return fromDeferred(base.load() as any).pipe(
+        return fromDeferred(
+            base.load().then(
+                () => {
+                    base.loadConfig();
+                    return base;
+                }
+            ) as any).pipe(
             switchMap(() => fromDeferred(base.portal.load()).pipe(
                 map(() => ({ type: LOAD_PORTAL_SUCCESS, payload: base })),
                 catchError((err) => {
                     return of({ type: LOAD_PORTAL_FAILED, payload: err });
                 })
             )),
-            catchError((err: Error) => {
+            catchError((err: Error | OriginError) => {
                 if (err === "identity-manager:not-authorized" as any as Error) {
-                    return of({ type: AUTHENTICATION_FAILED, payload: err })
+                    return of({ type: AUTHENTICATION_FAILED, payload: err });
+                } else if  ((err as OriginError).error === "application:origin-other") {
+                    return of({ type: ORIGIN_FAILED, payload: (err as OriginError) });
                 }
                 return of({ type: LOAD_PORTAL_FAILED, payload: err });
             })

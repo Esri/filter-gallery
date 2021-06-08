@@ -239,8 +239,13 @@ define({
     "viewApp": "Προβολή εφαρμογής",
     "viewInMap": "Προβολή στον χάρτη",
     "viewInScene": "Προβολή στη 3D προβολή",
+    "view": "Προβολή",
     "download": "Λήψη",
     "openPdf": "Άνοιγμα σε PDF",
+    "open": "Άνοιγμα",
+    "openDoc": "Άνοιγμα εγγράφου",
+    "openTab": "Άνοιγμα σε νέα καρτέλα",
+    "openViewer": "Đ_Open in Map Viewer___________________ớ",
     "addFavorite": "Προσθήκη στα Αγαπημένα",
     "removeFavorite": "Κατάργηση από τα Αγαπημένα"
   },
@@ -256,5 +261,10 @@ define({
       "failed": "Αποτυχία φόρτωσης του αντικειμένου.",
       "sorry": "Συγγνώμη, κατά τη φόρτωση του ζητούμενου αντικειμένου παρουσιάστηκε κάποιο πρόβλημα."
     }
+  },
+  "share": {
+    "shareGallery": "Đ_Share gallery______________ớ",
+    "shareFiltered": "Đ_Share filtered gallery_______________________ớ",
+    "tooltip": "Đ_URL copied to you clipboard____________________________ớ"
   }
 });

@@ -1,4 +1,4 @@
-import * as i18n from "dojo/i18n!../../nls";
+import i18n = require("dojo/i18n!../../nls");
 
 import { Pojo, Action } from "../../Component";
 import { allItemTypes, ItemType, ItemTypeFilter } from "../../_utils";
@@ -231,7 +231,8 @@ export interface ConfigState {
         legendWidget: string;
         locateWidget: string;
         searchWidget: string;
-        basemapGalleryWidget: string;
+        basemapGalleryWidget?: string;
+        basemapToggleWidget?: string;
     };
 
     /**
@@ -286,6 +287,8 @@ export const initialState: ConfigState = {
         "scenes",
         "apps",
         "webApps",
+        "experienceApps",
+        "storyMaps",
         "mobileApps",
         "desktopApps",
         "tools",
@@ -298,6 +301,8 @@ export const initialState: ConfigState = {
         "documents",
         "images",
         "pdfs",
+        "csvs",
+        "webTools",
         "notebooks"
     ],
     customActions: defaultActions,
@@ -338,8 +343,8 @@ export const initialState: ConfigState = {
 export default (state: ConfigState = initialState, action: Action) => {
     switch (action.type) {
         case LOAD_PORTAL_SUCCESS:
-            const { config } = action.payload;
-
+            let { config, portal } = action.payload;
+            
             // Inject custom stylesheet if provided
             if (config.customCSS && config.customCSS.length > 0) {
                 const customStyle = document.createElement("style");
@@ -352,6 +357,7 @@ export default (state: ConfigState = initialState, action: Action) => {
             var dirNode = document.getElementsByTagName("html")[0];
             dirNode.setAttribute("dir", action.payload.direction);
 
+            let filters = config.filters ? config.filters : [];
             return {
                 ...state,
                 url: config.portalUrl,
@@ -360,27 +366,28 @@ export default (state: ConfigState = initialState, action: Action) => {
                 allowedItemTypes: config.allowedItemTypes,
                 defaultBasemap: config.defaultBasemap,
                 widgets: {
-                    "compassWidget": config.compassWidget,
-                    "homeWidget": config.homeWidget,
-                    "legendWidget": config.legendWidget,
-                    "locateWidget": config.locateWidget,
-                    "searchWidget": config.searchWidget,
-                    "basemapGalleryWidget": config.basemapGalleryWidget,
+                    "compassWidget": config.compassWidget ? config.compassWidgetPosition : undefined,
+                    "homeWidget": config.home ? config.homePosition : undefined,
+                    "legendWidget": config.legend ? config.legendPosition : undefined,
+                    "locateWidget": config.locateWidget ? config.locateWidgetPosition : undefined,
+                    "searchWidget": config.search ? config.searchPosition : undefined,
+                    "basemapToggleWidget": config.basemapToggle ? config.basemapTogglePosition : undefined,
+                    "basemapToggleWidgetNext": config.basemapToggle ? config.nextBasemap : undefined,
                 },
                 useOrgCategories: config.useOrgCategories,
                 sortOptions: config.sortOptions,
                 availableItemTypeFilters: config.availableItemTypeFilters,
-                headHTML: config.headHTML.length > 0 ? config.headHTML : undefined,
+                headHTML: config.headHTML?.length > 0 ? config.headHTML : undefined,
                 section: {
                     name: "doesn't matter!",
                     baseQuery: "",
-                    filters: config.filters.map(
+                    filters: filters.map(
                         (filter: string) =>
                             filter === "categories" ? ({
                                 name: "Categories",
                                 path: ["categories"]
                             }) : filter
-                    ),
+                    ) as any,
                     id: config.group
                 },
                 filtersDefault: config.filtersDefault,

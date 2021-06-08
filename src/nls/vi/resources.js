@@ -239,8 +239,13 @@ define({
     "viewApp": "Xem Ứng dụng",
     "viewInMap": "Xem trên Bản đồ",
     "viewInScene": "Xem trên Scene",
+    "view": "Xem",
     "download": "Tải xuống",
     "openPdf": "Mở bằng PDF",
+    "open": "Mở",
+    "openDoc": "Mở Tài liệu",
+    "openTab": "Mở trong tab mới",
+    "openViewer": "Đ_Open in Map Viewer___________________ớ",
     "addFavorite": "Thêm vào mục Yêu thích",
     "removeFavorite": "Gỡ bỏ khỏi mục Yêu thích"
   },
@@ -256,5 +261,10 @@ define({
       "failed": "Tải mục thất bại.",
       "sorry": "Rất tiếc, có lỗi khi tải mục yêu cầu."
     }
+  },
+  "share": {
+    "shareGallery": "Đ_Share gallery______________ớ",
+    "shareFiltered": "Đ_Share filtered gallery_______________________ớ",
+    "tooltip": "Đ_URL copied to you clipboard____________________________ớ"
   }
 });

@@ -239,8 +239,13 @@ define({
     "viewApp": "앱 보기",
     "viewInMap": "맵에서 보기",
     "viewInScene": "씬에서 보기",
+    "view": "보기",
     "download": "다음을 다운로드합니다.",
     "openPdf": "PDF로 열기",
+    "open": "개설",
+    "openDoc": "문서 열기",
+    "openTab": "새 탭에서 열기",
+    "openViewer": "한_Open in Map Viewer___________________빠",
     "addFavorite": "즐겨찾기에 추가하세요",
     "removeFavorite": "즐겨찾기에서 제거"
   },
@@ -256,5 +261,10 @@ define({
       "failed": "항목을 불러오는 데 실패했습니다.",
       "sorry": "죄송합니다. 요청한 항목을 불러오는 중 오류가 발생했습니다."
     }
+  },
+  "share": {
+    "shareGallery": "한_Share gallery______________빠",
+    "shareFiltered": "한_Share filtered gallery_______________________빠",
+    "tooltip": "한_URL copied to you clipboard____________________________빠"
   }
 });
