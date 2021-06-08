@@ -48,6 +48,7 @@
     "webpack-node-externals": "^2.5.2"
   },
   "dependencies": {
+    "@esri/application-base-js": "0.0.31",
     "maquette": "^3.3.1",
     "rxjs": "^6.3.3"
   }
