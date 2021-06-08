@@ -2,7 +2,6 @@ node_modules
 .nyc_output
 test-results.xml
 coverage
-dist
 arcgis-components
 configurationParams.json
 package-lock.json
