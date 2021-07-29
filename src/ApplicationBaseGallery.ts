@@ -56,7 +56,7 @@ async function createTelemetry(config, portal) {
     // add alert to container
     const appName = config.telemetry?.name || "filter-gallery";
     const _telemetry = await Telemetry.init({ portal, config, appName });
-    _telemetry?.logPageView();
+    _telemetry?.logPageView(`${window.location.pathname}${window.location.search}`);
 }
 function _handleTelemetry(appConfig, portal) {
     // Wait until both are defined 
