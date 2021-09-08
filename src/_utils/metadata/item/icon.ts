@@ -111,8 +111,10 @@ export const getItemIcon = (imgDir: string, type: string, typeKeywords: string[]
       imgName = "report-template";
     } else if (itemType === "statistical data collection") {
       imgName = "statisticaldatacollection";
-    } else if (itemType === "insights workbook") {
+    } else if (itemType === "insights workbook") { 
       imgName = "workbook";
+    } else if (itemType === "insights workbook package") { 
+      imgName = "insightsworkbookpackage";
     } else if (itemType === "insights model") {
       imgName = "insightsmodel";
     } else if (itemType === "insights page") {

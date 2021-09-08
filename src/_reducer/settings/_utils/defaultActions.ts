@@ -131,7 +131,8 @@ const defaultActions: CustomAction[] = [
     name: i18n.actions.download,
     allowed: (item: Pojo) => [
       "CSV",
-      "Deep Learning Package"
+      "Deep Learning Package",
+      "Insights Workbook Package"
     ].indexOf(item.type) > -1,
     asynchronous: false,
     onAction: () => { },
