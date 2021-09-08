@@ -1,5 +1,6 @@
-import { CHANGE_SORT_ORDER, CHANGE_SORT_FIELD, UPDATE_SECTION_INFO_SUCCESS } from "../../_actions";
+import { CHANGE_SORT_ORDER, CHANGE_SORT_FIELD, UPDATE_SECTION_INFO_SUCCESS, LOAD_PORTAL_SUCCESS } from "../../_actions";
 import { Action } from "../../Component";
+import ActionBase from "esri/support/actions/ActionBase";
 
 export interface SortState {
     field: "relevance" | "title" | "created" | "type" | "owner" | "modified" | "avgrating" | "numcomments" | "numviews";
@@ -43,9 +44,14 @@ export default (state: SortState = initialState, action: Action): SortState => {
                 order: defaultSortDirection[field] ? defaultSortDirection[field] : state.order
             };
         case UPDATE_SECTION_INFO_SUCCESS:
+            console.log("UPDATE", action.payload);
             return {
-                field: action.payload.sortField ? action.payload.sortField : "relevance",
-                order: action.payload.sortOrder ? action.payload.sortOrder : "desc"
+                field: action.payload.sortField 
+                    ? action.payload.sortField 
+                    : (action.payload.group.sortField ? action.payload.group.sortField : "relevance"),
+                order: action.payload.sortOrder 
+                    ? action.payload.sortOrder 
+                    : (action.payload.group.sortOrder ? action.payload.group.sortOrder : "desc")
             };
         default:
             return state;
