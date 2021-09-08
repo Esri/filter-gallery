@@ -44,7 +44,6 @@ export default (state: SortState = initialState, action: Action): SortState => {
                 order: defaultSortDirection[field] ? defaultSortDirection[field] : state.order
             };
         case UPDATE_SECTION_INFO_SUCCESS:
-            console.log("UPDATE", action.payload);
             return {
                 field: action.payload.sortField 
                     ? action.payload.sortField 
