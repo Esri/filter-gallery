@@ -113,7 +113,7 @@ export default class AnalysisCard extends Component<ListCardProps> {
                     target={action.target ? action.target : undefined}
                     data-event="track-component" 
                     data-component-name="Custom action on card"
-                    data-component-link={action.name} 
+                    data-component-link={item.id} 
                     data-component-link-type="button"
                 >
                     <span class="card-lc__custom-action-text" value={index}>{action.name}</span>
@@ -129,7 +129,7 @@ export default class AnalysisCard extends Component<ListCardProps> {
                         value={index}
                         data-event="track-component" 
                         data-component-name="Custom action on card"
-                        data-component-link={action.name} 
+                        data-component-link={item.id} 
                         data-component-link-type="button"
                     >
                         <span class="card-lc__custom-action-text" value={index}>{action.name}</span>
@@ -181,7 +181,7 @@ export default class AnalysisCard extends Component<ListCardProps> {
                                         target={primaryAction.target ? primaryAction.target : undefined}
                                         data-event="track-component" 
                                         data-component-name="Primary action on card"
-                                        data-component-link={primaryAction.name} 
+                                        data-component-link={item.id} 
                                         data-component-link-type="button"
                                     >
                                         {thumbnail}
@@ -219,7 +219,7 @@ export default class AnalysisCard extends Component<ListCardProps> {
                                             target="_blank"
                                             data-event="track-component" 
                                             data-component-name="Owner name on card"
-                                            data-component-link={` ${this.props.organization ? this.props.organization.name : item.owner}`} 
+                                            data-component-link={`${item.id}-${this.props.organization ? this.props.organization.name : item.owner}`} 
                                             data-component-link-type="button"
                                         >
                                             {` ${this.props.organization ? this.props.organization.name : item.owner}`}
@@ -260,7 +260,7 @@ export default class AnalysisCard extends Component<ListCardProps> {
                                     target="_blank"
                                     data-event="track-component" 
                                     data-component-name="Item details link on card"
-                                    data-component-link="Show item details" 
+                                    data-component-link={`${item.id}-show_item_details`}
                                     data-component-link-type="button"
                                 >
                                     {i18n.itemCards.viewItem}
