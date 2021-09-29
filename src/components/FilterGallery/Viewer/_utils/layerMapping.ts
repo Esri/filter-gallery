@@ -3,5 +3,6 @@ export default {
     "Vector Tile Service": "esri/layers/VectorTileLayer",
     "Map Service": "esri/layers/MapImageLayer",
     "Image Service": "esri/layers/ImageryLayer",
-    "Scene Service": "esri/layers/SceneLayer"
+    "Scene Service": "esri/layers/SceneLayer",
+    "OGCFeatureServer": "esri/layers/OGCFeatureLayer"
 };

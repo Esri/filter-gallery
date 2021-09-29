@@ -41,7 +41,8 @@ const defaultActions: CustomAction[] = [
       "Feature Service",
       "Vector Tile Service",
       "Map Service",
-      "Image Service"
+      "Image Service",
+      "OGCFeatureServer"
     ].indexOf(item.type) > -1,
     asynchronous: false,
     onAction: () => { },

@@ -45,6 +45,8 @@ export const getItemDisplayName = (item: Pojo) => {
         displayName = itemType.replace(/(add in)/ig, "Add-In");
     } else if (itemType === "datastore catalog service") {
         displayName = "Big Data File Share";
+    } else if (itemType === "OGCFeatureServer") {
+        displayName = "OGC Feature Layer";
     }
 
     return displayName;

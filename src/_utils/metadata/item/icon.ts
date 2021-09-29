@@ -17,9 +17,9 @@ export const getItemIcon = (imgDir: string, type: string, typeKeywords: string[]
     let isTable = false;
     let imgName;
 
-    if (itemType.indexOf("service") > 0 || itemType === "feature collection" || itemType === "kml" || itemType === "wms" || itemType === "wmts" || itemType === "wfs") {
+    if (itemType.indexOf("service") > 0 || itemType === "feature collection" || itemType === "kml" || itemType === "wms" || itemType === "wmts" || itemType === "wfs" || itemType === "ogcfeatureserver") {
       let isHosted = typeKeywords.indexOf("Hosted Service") > -1;
-      if (itemType === "feature service" || itemType === "feature collection" || itemType === "kml" || itemType === "wfs") {
+      if (itemType === "feature service" || itemType === "feature collection" || itemType === "kml" || itemType === "wfs" || itemType === "ogcfeatureserver") {
         isTable = typeKeywords.indexOf("Table") > -1;
         isRouteLayer = typeKeywords.indexOf("Route Layer") > -1;
         isMarkupLayer = typeKeywords.indexOf("Markup") > -1;
