@@ -272,6 +272,7 @@ define({
             }
         }, 
         share: {
+            share: "Share",
             shareGallery: "Share gallery",
             shareFiltered: "Share filtered gallery",
             tooltip: "URL copied to you clipboard"
