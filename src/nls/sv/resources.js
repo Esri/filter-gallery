@@ -271,6 +271,7 @@ define({
     }
   },
   "share": {
+    "share": "Å_Share___________ö",
     "shareGallery": "Dela galleri",
     "shareFiltered": "Dela filtrerat galleri",
     "tooltip": "URL kopierades till Urklipp"

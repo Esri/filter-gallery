@@ -271,6 +271,7 @@ define({
     }
   },
   "share": {
+    "share": "須_Share___________鷗",
     "shareGallery": "ギャラリーの共有",
     "shareFiltered": "フィルタリングされたギャラリーの共有",
     "tooltip": "URL がクリップボードにコピーされました"

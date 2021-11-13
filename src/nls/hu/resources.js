@@ -271,6 +271,7 @@ define({
     }
   },
   "share": {
+    "share": "í_Share___________ő",
     "shareGallery": "Galéria megosztása",
     "shareFiltered": "Szűrt galéria megosztása",
     "tooltip": "URL a vágólapra másolva"

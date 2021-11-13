@@ -271,6 +271,7 @@ define({
     }
   },
   "share": {
+    "share": "ng_Share___________ny",
     "shareGallery": "Bagikan galeri",
     "shareFiltered": "Bagikan galeri yang difilter",
     "tooltip": "URL disalin ke clipboard Anda"

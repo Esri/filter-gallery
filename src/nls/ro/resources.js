@@ -271,6 +271,7 @@ define({
     }
   },
   "share": {
+    "share": "Ă_Share___________ș",
     "shareGallery": "Partajați galeria",
     "shareFiltered": "Partajați galeria filtrată",
     "tooltip": "URL copiat pe clipboard-ul dvs."

@@ -271,6 +271,7 @@ define({
     }
   },
   "share": {
+    "share": "ı_Share___________İ",
     "shareGallery": "Galeriyi paylaş",
     "shareFiltered": "Filtrelenen galeriyi paylaş",
     "tooltip": "URL panonuza kopyalandı"

@@ -271,6 +271,7 @@ define({
     }
   },
   "share": {
+    "share": "Š_Share___________č",
     "shareGallery": "Deli galerijo",
     "shareFiltered": "Deli filtrirano galerijo",
     "tooltip": "URL kopiran v vaše odložišče"

@@ -271,6 +271,7 @@ define({
     }
   },
   "share": {
+    "share": "Ĳ_Share___________ä",
     "shareGallery": "Galerij delen",
     "shareFiltered": "Gefilterde galerij delen",
     "tooltip": "URL gekopieerd naar uw klembord"

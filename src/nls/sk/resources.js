@@ -271,6 +271,7 @@ define({
     }
   },
   "share": {
+    "share": "ĺ_Share___________ľ",
     "shareGallery": "Zdieľaná galéria",
     "shareFiltered": "Zdieľať filtrovanú galériu",
     "tooltip": "URL skopírovaná do vašej schránky"
