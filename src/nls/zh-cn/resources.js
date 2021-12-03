@@ -271,7 +271,7 @@ define({
     }
   },
   "share": {
-    "share": "试_Share___________验",
+    "share": "Share",
     "shareGallery": "共享图库",
     "shareFiltered": "共享已过滤的图库",
     "tooltip": "已复制到剪贴板的 URL"

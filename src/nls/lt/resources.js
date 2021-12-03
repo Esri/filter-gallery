@@ -271,7 +271,7 @@ define({
     }
   },
   "share": {
-    "share": "Į_Share___________š",
+    "share": "Share",
     "shareGallery": "Bendrinti galeriją",
     "shareFiltered": "Bendrinti filtruotą galeriją",
     "tooltip": "URL nukopijuotas į iškarpinę"

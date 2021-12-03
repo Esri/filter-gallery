@@ -271,7 +271,7 @@ define({
     }
   },
   "share": {
-    "share": "ł_Share___________ą",
+    "share": "Share",
     "shareGallery": "Udostępnij galerię",
     "shareFiltered": "Udostępnij przefiltrowaną galerię",
     "tooltip": "Adres URL został skopiowany do schowka"

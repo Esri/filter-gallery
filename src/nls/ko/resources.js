@@ -271,7 +271,7 @@ define({
     }
   },
   "share": {
-    "share": "한_Share___________빠",
+    "share": "Share",
     "shareGallery": "갤러리 공유",
     "shareFiltered": "필터링된 갤러리 공유",
     "tooltip": "클립보드에 복사된 URL"

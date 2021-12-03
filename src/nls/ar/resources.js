@@ -271,7 +271,7 @@ define({
     }
   },
   "share": {
-    "share": "بيت_Share___________لاحقة",
+    "share": "Share",
     "shareGallery": "مشاركة معرض الصور",
     "shareFiltered": "مشاركة معرض الصور الذي تمت تصفيته",
     "tooltip": "تم نسخ URL إلى الحافظة الخاصة بك"

@@ -271,7 +271,7 @@ define({
     }
   },
   "share": {
-    "share": "Č_Share___________ž",
+    "share": "Share",
     "shareGallery": "Podijeli galeriju",
     "shareFiltered": "Podijeli filtriranu galeriju",
     "tooltip": "URL kopiran u međuspremnik."

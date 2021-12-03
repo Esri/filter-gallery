@@ -271,7 +271,7 @@ define({
     }
   },
   "share": {
-    "share": "ก้_Share___________ษฺ",
+    "share": "Share",
     "shareGallery": "แชร์แกลเลอรี",
     "shareFiltered": "แชร์แกลเลอรีที่กรอง",
     "tooltip": "คัดลอก URL ไปยังคลิปบอร์ดของคุณแล้ว"

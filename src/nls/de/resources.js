@@ -271,7 +271,7 @@ define({
     }
   },
   "share": {
-    "share": "ä_Share___________Ü",
+    "share": "Share",
     "shareGallery": "Galerie freigeben",
     "shareFiltered": "Gefilterte Galerie freigeben",
     "tooltip": "URL wurde in Zwischenablage kopiert"

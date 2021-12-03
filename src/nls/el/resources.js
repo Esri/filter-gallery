@@ -271,7 +271,7 @@ define({
     }
   },
   "share": {
-    "share": "Đ_Share___________ớ",
+    "share": "Share",
     "shareGallery": "Kοινοποίηση Γκαλερί",
     "shareFiltered": "Κοινοποίηση γκαλερί με φιλτράρισμα",
     "tooltip": "Έγινε αντιγραφή URL στο πρόχειρό σας"

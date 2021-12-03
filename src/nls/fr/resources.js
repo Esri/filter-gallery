@@ -271,7 +271,7 @@ define({
     }
   },
   "share": {
-    "share": "æ_Share___________Â",
+    "share": "Share",
     "shareGallery": "Partager la bibliothèque",
     "shareFiltered": "Partager la bibliothèque filtrée",
     "tooltip": "URL copiée dans le Presse-papiers"

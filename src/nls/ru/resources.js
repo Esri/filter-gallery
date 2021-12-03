@@ -271,7 +271,7 @@ define({
     }
   },
   "share": {
-    "share": "Ж_Share___________Я",
+    "share": "Share",
     "shareGallery": "Опубликовать галерею",
     "shareFiltered": "Опубликовать галерею с фильтрами",
     "tooltip": "Этот URL был скопирован в буфер обмена."

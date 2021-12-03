@@ -271,7 +271,7 @@ define({
     }
   },
   "share": {
-    "share": "ø_Share___________å",
+    "share": "Share",
     "shareGallery": "Del galleri",
     "shareFiltered": "Del filtreret galleri",
     "tooltip": "URL er blevet kopieret til udklipsholderen"
