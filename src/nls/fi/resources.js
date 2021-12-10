@@ -271,7 +271,7 @@ define({
     }
   },
   "share": {
-    "share": "Share",
+    "share": "Jaa",
     "shareGallery": "Jaa galleria",
     "shareFiltered": "Jaa suodatettu galleria",
     "tooltip": "URL-osoite on kopioitu leikepöydälle"

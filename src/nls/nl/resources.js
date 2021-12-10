@@ -271,7 +271,7 @@ define({
     }
   },
   "share": {
-    "share": "Share",
+    "share": "Delen",
     "shareGallery": "Galerij delen",
     "shareFiltered": "Gefilterde galerij delen",
     "tooltip": "URL gekopieerd naar uw klembord"

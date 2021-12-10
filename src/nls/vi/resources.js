@@ -271,7 +271,7 @@ define({
     }
   },
   "share": {
-    "share": "Share",
+    "share": "Chia sẻ",
     "shareGallery": "Chia sẻ bộ sưu tập",
     "shareFiltered": "Chia sẻ bộ sưu tập đã được lọc",
     "tooltip": "URL đã được sao chép vào bảng tạm của bạn"

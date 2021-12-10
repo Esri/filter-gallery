@@ -271,7 +271,7 @@ define({
     }
   },
   "share": {
-    "share": "Share",
+    "share": "分享",
     "shareGallery": "分享圖庫",
     "shareFiltered": "分享篩選的圖庫",
     "tooltip": "已將 URL 複製到剪貼簿"

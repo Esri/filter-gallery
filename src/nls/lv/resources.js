@@ -271,7 +271,7 @@ define({
     }
   },
   "share": {
-    "share": "Share",
+    "share": "Koplietot",
     "shareGallery": "Koplietot galeriju",
     "shareFiltered": "Koplietot filtrēto galeriju",
     "tooltip": "Vietrādis URL ir iekopēts jūsu starpliktuvē"

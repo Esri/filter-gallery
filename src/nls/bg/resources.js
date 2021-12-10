@@ -271,7 +271,7 @@ define({
     }
   },
   "share": {
-    "share": "Share",
+    "share": "Споделяне",
     "shareGallery": "Споделяне на галерия",
     "shareFiltered": "Споделяне на филтрирана галерия",
     "tooltip": "URL адресът е копиран в клипборда ви"

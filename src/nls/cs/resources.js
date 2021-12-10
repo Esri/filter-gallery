@@ -271,7 +271,7 @@ define({
     }
   },
   "share": {
-    "share": "Share",
+    "share": "Sdílet",
     "shareGallery": "Sdílet galerii",
     "shareFiltered": "Sdílet vyfiltrovanou galerii",
     "tooltip": "Adresa URL byla zkopírována do schránky"

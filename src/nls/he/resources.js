@@ -271,7 +271,7 @@ define({
     }
   },
   "share": {
-    "share": "Share",
+    "share": "שתף",
     "shareGallery": "שתף גלריה",
     "shareFiltered": "שתף גלריה מסוננת",
     "tooltip": "כתובת ה-URL הועתקה ללוח שלך"

@@ -271,7 +271,7 @@ define({
     }
   },
   "share": {
-    "share": "Share",
+    "share": "共有",
     "shareGallery": "ギャラリーの共有",
     "shareFiltered": "フィルタリングされたギャラリーの共有",
     "tooltip": "URL がクリップボードにコピーされました"

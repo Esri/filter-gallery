@@ -271,7 +271,7 @@ define({
     }
   },
   "share": {
-    "share": "Share",
+    "share": "Bagikan",
     "shareGallery": "Bagikan galeri",
     "shareFiltered": "Bagikan galeri yang difilter",
     "tooltip": "URL disalin ke clipboard Anda"

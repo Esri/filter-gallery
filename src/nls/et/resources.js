@@ -271,7 +271,7 @@ define({
     }
   },
   "share": {
-    "share": "Share",
+    "share": "Jagamine",
     "shareGallery": "Jaga galeriid",
     "shareFiltered": "Jaga filtreeritud galeriid",
     "tooltip": "URL on kopeeritud teie lõikelauale"
