@@ -168,9 +168,9 @@ export interface ConfigState {
     /**
      * Array of strings representing the item type filters that should be available in the UI.
      * - Options: `maps`, `webMaps`, `mapFiles`, `layers`, `featureLayers`, `tileLayers`, `mapImageLayers`,
-     * `imageryLayers`, `sceneLayers`, `tables`, `layerFiles`, `scenes`, `apps`, `webApps`, `mobileApps`, `desktopApps`,
-     * `tools`, `locators`, `geodatabaseAccess`, `geometricOperations`, `geoprocessingTasks`, `networkAnalysis`,
-     * `files`, `documents`, `images`, `pdfs`, `notebooks`.
+     * `imageryLayers`, `sceneLayers`, `tables`, `layerFiles`, `scenes`, `apps`, `webApps`, `instantApps`, `mobileApps`,
+     * `desktopApps`, `tools`, `locators`, `geodatabaseAccess`, `geometricOperations`, `geoprocessingTasks`,
+     *  `networkAnalysis`, `files`, `documents`, `images`, `pdfs`, `notebooks`.
      * @type {array}
      * @default all
      */
@@ -287,6 +287,7 @@ export const initialState: ConfigState = {
         "scenes",
         "apps",
         "webApps",
+        "instantApps",
         "experienceApps",
         "storyMaps",
         "mobileApps",

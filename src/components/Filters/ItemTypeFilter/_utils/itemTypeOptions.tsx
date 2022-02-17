@@ -30,8 +30,10 @@ export default [
         displayName: componentI18n.filters.itemType.filters.apps,
         children: [
             { value: "webApps", displayName: componentI18n.filters.itemType.filters.webApps },
+            { value: "instantApps", displayName: componentI18n.filters.itemType.filters.instantApps },
             { value: "mobileApps", displayName: componentI18n.filters.itemType.filters.mobileApps },
-            { value: "desktopApps", displayName: componentI18n.filters.itemType.filters.desktopApps }
+            { value: "desktopApps", displayName: componentI18n.filters.itemType.filters.desktopApps },
+            { value: "storyMaps", displayName: componentI18n.filters.itemType.filters.storyMaps }
         ]
     },
     {

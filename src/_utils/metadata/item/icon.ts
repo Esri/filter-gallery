@@ -75,6 +75,8 @@ export const getItemIcon = (imgDir: string, type: string, typeKeywords: string[]
       imgName = "maps";
     } else if (itemType === "web scene") {
       imgName = typeKeywords.indexOf("ViewingMode-Local") > -1 ? "webscenelocal": "websceneglobal";
+    } else if (itemType === "web mapping application" && typeKeywords?.indexOf("configurableApp") > -1) { 
+      imgName = "instantapps";
     } else if (itemType === "web mapping application" || itemType === "mobile application" || itemType === "application" ||
       itemType === "operation view" || itemType === "desktop application") {
       imgName = "apps";
