@@ -33,7 +33,7 @@ export const defaultSortDirection = {
 export default (state: SortState = initialState, action: Action): SortState => {
     switch (action.type) {
         case LOAD_PORTAL_SUCCESS:
-            const defaultField = action.payload.config.sortDefault;
+            const defaultField = action.payload.config?.sortDefault || state.field;
             return {
                 ...state,
                 field: defaultField,
