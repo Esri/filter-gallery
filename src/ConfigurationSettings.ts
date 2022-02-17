@@ -47,6 +47,9 @@ class ConfigurationSettings extends Accessor {
     displayDefault: string;
 
     @property()
+    sortDefault: string;
+
+    @property()
     headHTML: string;
 
     @property()

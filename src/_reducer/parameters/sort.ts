@@ -32,6 +32,13 @@ export const defaultSortDirection = {
 
 export default (state: SortState = initialState, action: Action): SortState => {
     switch (action.type) {
+        case LOAD_PORTAL_SUCCESS:
+            const defaultField = action.payload.config.sortDefault;
+            return {
+                ...state,
+                field: defaultField,
+                order: defaultSortDirection[defaultField] ? defaultSortDirection[defaultField] : state.order
+            };
         case CHANGE_SORT_ORDER:
             return {
                 ...state,
@@ -45,12 +52,9 @@ export default (state: SortState = initialState, action: Action): SortState => {
             };
         case UPDATE_SECTION_INFO_SUCCESS:
             return {
-                field: action.payload.sortField 
-                    ? action.payload.sortField 
-                    : (action.payload.group.sortField ? action.payload.group.sortField : "relevance"),
-                order: action.payload.sortOrder 
-                    ? action.payload.sortOrder 
-                    : (action.payload.group.sortOrder ? action.payload.group.sortOrder : "desc")
+                ...state,
+                field: action.payload?.sortField || state.field,
+                order: action.payload?.sortOrder || state.order
             };
         default:
             return state;
