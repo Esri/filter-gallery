@@ -107,6 +107,8 @@ define({
         "webApps": "Webapps",
         "mobileApps": "Mobile apps",
         "desktopApps": "Desktop-apps",
+        "instantApps": "ø_Instant Apps_____________å",
+        "storyMaps": "ø_Story Maps_____________________å",
         "tools": "Værktøjer",
         "locators": "Lokatorer",
         "geodatabaseAccess": "Geodatabase-adgang",
@@ -234,7 +236,28 @@ define({
     "created": "Oprettet",
     "updated": "Opdateret",
     "viewCount": "Visningstælling",
-    "rating": "Vurdering"
+    "rating": "Vurdering",
+    "itemType": {
+      "table": "ø_Table___________å",
+      "routeLayer": "ø_Route Layer____________å",
+      "markup": "ø_Markup_____________å",
+      "featureLayer": "ø_Feature Layer______________å",
+      "elevationLayer": "ø_Elevation Layer________________å",
+      "imageryLayer": "ø_Imagery Layer______________å",
+      "sceneLayer": "ø_Scene Layer____________å",
+      "sceneLayerPackage": "ø_Scene Layer Package____________________å",
+      "locator": "ø_Locator_______________å",
+      "microsoftPowerPoint": "ø_Microsoft PowerPoint_____________________å",
+      "geoJSON": "ø_GeoJSON_______________å",
+      "globeLayer": "ø_Globe Layer____________å",
+      "tileLayer": "ø_Tile Layer_____________________å",
+      "netCDF": "ø_NetCDF_____________å",
+      "mapImageLayer": "ø_Map Image Layer________________å",
+      "addIn": "ø_Add-In_____________å",
+      "bigDataFileShare": "ø_Big Data File Share____________________å",
+      "ogcFeatureLayer": "ø_OGC Feature Layer__________________å",
+      "instantApp": "ø_Instant App____________å"
+    }
   },
   "pager": {
     "previous": "Forrige",

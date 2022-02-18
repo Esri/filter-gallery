@@ -107,6 +107,8 @@ define({
         "webApps": "Aplicacions web",
         "mobileApps": "Aplicacions mòbils",
         "desktopApps": "Aplicacions d'escriptori",
+        "instantApps": "ó_Instant Apps_____________à",
+        "storyMaps": "ó_Story Maps_____________________à",
         "tools": "Eines",
         "locators": "Localitzadors",
         "geodatabaseAccess": "Accés a la geobase de dades",
@@ -234,7 +236,28 @@ define({
     "created": "Creat",
     "updated": "Actualitzat",
     "viewCount": "Recompte de visualitzacions",
-    "rating": "Qualificació"
+    "rating": "Qualificació",
+    "itemType": {
+      "table": "ó_Table___________à",
+      "routeLayer": "ó_Route Layer____________à",
+      "markup": "ó_Markup_____________à",
+      "featureLayer": "ó_Feature Layer______________à",
+      "elevationLayer": "ó_Elevation Layer________________à",
+      "imageryLayer": "ó_Imagery Layer______________à",
+      "sceneLayer": "ó_Scene Layer____________à",
+      "sceneLayerPackage": "ó_Scene Layer Package____________________à",
+      "locator": "ó_Locator_______________à",
+      "microsoftPowerPoint": "ó_Microsoft PowerPoint_____________________à",
+      "geoJSON": "ó_GeoJSON_______________à",
+      "globeLayer": "ó_Globe Layer____________à",
+      "tileLayer": "ó_Tile Layer_____________________à",
+      "netCDF": "ó_NetCDF_____________à",
+      "mapImageLayer": "ó_Map Image Layer________________à",
+      "addIn": "ó_Add-In_____________à",
+      "bigDataFileShare": "ó_Big Data File Share____________________à",
+      "ogcFeatureLayer": "ó_OGC Feature Layer__________________à",
+      "instantApp": "ó_Instant App____________à"
+    }
   },
   "pager": {
     "previous": "Anterior",

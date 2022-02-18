@@ -107,6 +107,8 @@ define({
         "webApps": "Internetinės programėlės",
         "mobileApps": "Mobilios programėlės",
         "desktopApps": "Kompiuterio programos",
+        "instantApps": "Į_Instant Apps_____________š",
+        "storyMaps": "Į_Story Maps_____________________š",
         "tools": "Įrankiai",
         "locators": "Lokatoriai",
         "geodatabaseAccess": "Prieiga prie geoduomenų bazės",
@@ -234,7 +236,28 @@ define({
     "created": "Sukurta",
     "updated": "Atnaujinta",
     "viewCount": "Peržiūrų skaičius",
-    "rating": "Vertinimas"
+    "rating": "Vertinimas",
+    "itemType": {
+      "table": "Į_Table___________š",
+      "routeLayer": "Į_Route Layer____________š",
+      "markup": "Į_Markup_____________š",
+      "featureLayer": "Į_Feature Layer______________š",
+      "elevationLayer": "Į_Elevation Layer________________š",
+      "imageryLayer": "Į_Imagery Layer______________š",
+      "sceneLayer": "Į_Scene Layer____________š",
+      "sceneLayerPackage": "Į_Scene Layer Package____________________š",
+      "locator": "Į_Locator_______________š",
+      "microsoftPowerPoint": "Į_Microsoft PowerPoint_____________________š",
+      "geoJSON": "Į_GeoJSON_______________š",
+      "globeLayer": "Į_Globe Layer____________š",
+      "tileLayer": "Į_Tile Layer_____________________š",
+      "netCDF": "Į_NetCDF_____________š",
+      "mapImageLayer": "Į_Map Image Layer________________š",
+      "addIn": "Į_Add-In_____________š",
+      "bigDataFileShare": "Į_Big Data File Share____________________š",
+      "ogcFeatureLayer": "Į_OGC Feature Layer__________________š",
+      "instantApp": "Į_Instant App____________š"
+    }
   },
   "pager": {
     "previous": "Atgal",

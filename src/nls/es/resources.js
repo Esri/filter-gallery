@@ -107,6 +107,8 @@ define({
         "webApps": "Aplicaciones web",
         "mobileApps": "Aplicaciones móviles",
         "desktopApps": "Aplicaciones de escritorio",
+        "instantApps": "á_Instant Apps_____________Ó",
+        "storyMaps": "á_Story Maps_____________________Ó",
         "tools": "Herramientas",
         "locators": "Localizadores",
         "geodatabaseAccess": "Acceso a la geodatabase",
@@ -234,7 +236,28 @@ define({
     "created": "Creada",
     "updated": "Actualizada",
     "viewCount": "Recuento de vistas",
-    "rating": "Calificación"
+    "rating": "Calificación",
+    "itemType": {
+      "table": "á_Table___________Ó",
+      "routeLayer": "á_Route Layer____________Ó",
+      "markup": "á_Markup_____________Ó",
+      "featureLayer": "á_Feature Layer______________Ó",
+      "elevationLayer": "á_Elevation Layer________________Ó",
+      "imageryLayer": "á_Imagery Layer______________Ó",
+      "sceneLayer": "á_Scene Layer____________Ó",
+      "sceneLayerPackage": "á_Scene Layer Package____________________Ó",
+      "locator": "á_Locator_______________Ó",
+      "microsoftPowerPoint": "á_Microsoft PowerPoint_____________________Ó",
+      "geoJSON": "á_GeoJSON_______________Ó",
+      "globeLayer": "á_Globe Layer____________Ó",
+      "tileLayer": "á_Tile Layer_____________________Ó",
+      "netCDF": "á_NetCDF_____________Ó",
+      "mapImageLayer": "á_Map Image Layer________________Ó",
+      "addIn": "á_Add-In_____________Ó",
+      "bigDataFileShare": "á_Big Data File Share____________________Ó",
+      "ogcFeatureLayer": "á_OGC Feature Layer__________________Ó",
+      "instantApp": "á_Instant App____________Ó"
+    }
   },
   "pager": {
     "previous": "Anterior",

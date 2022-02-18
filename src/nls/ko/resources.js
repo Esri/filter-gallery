@@ -107,6 +107,8 @@ define({
         "webApps": "웹 앱",
         "mobileApps": "모바일 앱",
         "desktopApps": "데스크톱 앱",
+        "instantApps": "한_Instant Apps_____________빠",
+        "storyMaps": "한_Story Maps_____________________빠",
         "tools": "도구",
         "locators": "로케이터",
         "geodatabaseAccess": "지오데이터베이스 액세스",
@@ -234,7 +236,28 @@ define({
     "created": "생성",
     "updated": "업데이트",
     "viewCount": "조회 수",
-    "rating": "평점"
+    "rating": "평점",
+    "itemType": {
+      "table": "한_Table___________빠",
+      "routeLayer": "한_Route Layer____________빠",
+      "markup": "한_Markup_____________빠",
+      "featureLayer": "한_Feature Layer______________빠",
+      "elevationLayer": "한_Elevation Layer________________빠",
+      "imageryLayer": "한_Imagery Layer______________빠",
+      "sceneLayer": "한_Scene Layer____________빠",
+      "sceneLayerPackage": "한_Scene Layer Package____________________빠",
+      "locator": "한_Locator_______________빠",
+      "microsoftPowerPoint": "한_Microsoft PowerPoint_____________________빠",
+      "geoJSON": "한_GeoJSON_______________빠",
+      "globeLayer": "한_Globe Layer____________빠",
+      "tileLayer": "한_Tile Layer_____________________빠",
+      "netCDF": "한_NetCDF_____________빠",
+      "mapImageLayer": "한_Map Image Layer________________빠",
+      "addIn": "한_Add-In_____________빠",
+      "bigDataFileShare": "한_Big Data File Share____________________빠",
+      "ogcFeatureLayer": "한_OGC Feature Layer__________________빠",
+      "instantApp": "한_Instant App____________빠"
+    }
   },
   "pager": {
     "previous": "이전",

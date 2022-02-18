@@ -107,6 +107,8 @@ define({
         "webApps": "Web Uygulamaları",
         "mobileApps": "Mobil Uygulamalar",
         "desktopApps": "Masaüstü Uygulamaları",
+        "instantApps": "ı_Instant Apps_____________İ",
+        "storyMaps": "ı_Story Maps_____________________İ",
         "tools": "Araçlar",
         "locators": "Bulucular",
         "geodatabaseAccess": "Coğrafi Veri Tabanı Erişimi",
@@ -234,7 +236,28 @@ define({
     "created": "Oluşturulma",
     "updated": "Güncellendi",
     "viewCount": "Sayımları Görüntüle",
-    "rating": "Derecelendirme"
+    "rating": "Derecelendirme",
+    "itemType": {
+      "table": "ı_Table___________İ",
+      "routeLayer": "ı_Route Layer____________İ",
+      "markup": "ı_Markup_____________İ",
+      "featureLayer": "ı_Feature Layer______________İ",
+      "elevationLayer": "ı_Elevation Layer________________İ",
+      "imageryLayer": "ı_Imagery Layer______________İ",
+      "sceneLayer": "ı_Scene Layer____________İ",
+      "sceneLayerPackage": "ı_Scene Layer Package____________________İ",
+      "locator": "ı_Locator_______________İ",
+      "microsoftPowerPoint": "ı_Microsoft PowerPoint_____________________İ",
+      "geoJSON": "ı_GeoJSON_______________İ",
+      "globeLayer": "ı_Globe Layer____________İ",
+      "tileLayer": "ı_Tile Layer_____________________İ",
+      "netCDF": "ı_NetCDF_____________İ",
+      "mapImageLayer": "ı_Map Image Layer________________İ",
+      "addIn": "ı_Add-In_____________İ",
+      "bigDataFileShare": "ı_Big Data File Share____________________İ",
+      "ogcFeatureLayer": "ı_OGC Feature Layer__________________İ",
+      "instantApp": "ı_Instant App____________İ"
+    }
   },
   "pager": {
     "previous": "Önceki",

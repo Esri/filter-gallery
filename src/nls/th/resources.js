@@ -107,6 +107,8 @@ define({
         "webApps": "เว็บแอพ",
         "mobileApps": "แอปบนมือถือ",
         "desktopApps": "แอพเดสก์ท็อป",
+        "instantApps": "ก้_Instant Apps_____________ษฺ",
+        "storyMaps": "ก้_Story Maps_____________________ษฺ",
         "tools": "เครื่องมือ",
         "locators": "เครื่องระบตำแหน่ง",
         "geodatabaseAccess": "การเข้าถึง Geodatabase",
@@ -234,7 +236,28 @@ define({
     "created": "สร้าง",
     "updated": "อัพเดท",
     "viewCount": "นับจำนวนครั้ง",
-    "rating": "อันดับ"
+    "rating": "อันดับ",
+    "itemType": {
+      "table": "ก้_Table___________ษฺ",
+      "routeLayer": "ก้_Route Layer____________ษฺ",
+      "markup": "ก้_Markup_____________ษฺ",
+      "featureLayer": "ก้_Feature Layer______________ษฺ",
+      "elevationLayer": "ก้_Elevation Layer________________ษฺ",
+      "imageryLayer": "ก้_Imagery Layer______________ษฺ",
+      "sceneLayer": "ก้_Scene Layer____________ษฺ",
+      "sceneLayerPackage": "ก้_Scene Layer Package____________________ษฺ",
+      "locator": "ก้_Locator_______________ษฺ",
+      "microsoftPowerPoint": "ก้_Microsoft PowerPoint_____________________ษฺ",
+      "geoJSON": "ก้_GeoJSON_______________ษฺ",
+      "globeLayer": "ก้_Globe Layer____________ษฺ",
+      "tileLayer": "ก้_Tile Layer_____________________ษฺ",
+      "netCDF": "ก้_NetCDF_____________ษฺ",
+      "mapImageLayer": "ก้_Map Image Layer________________ษฺ",
+      "addIn": "ก้_Add-In_____________ษฺ",
+      "bigDataFileShare": "ก้_Big Data File Share____________________ษฺ",
+      "ogcFeatureLayer": "ก้_OGC Feature Layer__________________ษฺ",
+      "instantApp": "ก้_Instant App____________ษฺ"
+    }
   },
   "pager": {
     "previous": "ก่อนหน้า",

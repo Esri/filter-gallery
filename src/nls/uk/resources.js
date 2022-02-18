@@ -107,6 +107,8 @@ define({
         "webApps": "Веб-додатки",
         "mobileApps": "Мобільні додатки",
         "desktopApps": "Додатки для настільних систем",
+        "instantApps": "ґ_Instant Apps_____________Ї",
+        "storyMaps": "ґ_Story Maps_____________________Ї",
         "tools": "Інструменти",
         "locators": "Локатори",
         "geodatabaseAccess": "Доступ до бази геоданих",
@@ -234,7 +236,28 @@ define({
     "created": "Створено",
     "updated": "Оновлено",
     "viewCount": "Лічильник оглядів",
-    "rating": "Рейтинг"
+    "rating": "Рейтинг",
+    "itemType": {
+      "table": "ґ_Table___________Ї",
+      "routeLayer": "ґ_Route Layer____________Ї",
+      "markup": "ґ_Markup_____________Ї",
+      "featureLayer": "ґ_Feature Layer______________Ї",
+      "elevationLayer": "ґ_Elevation Layer________________Ї",
+      "imageryLayer": "ґ_Imagery Layer______________Ї",
+      "sceneLayer": "ґ_Scene Layer____________Ї",
+      "sceneLayerPackage": "ґ_Scene Layer Package____________________Ї",
+      "locator": "ґ_Locator_______________Ї",
+      "microsoftPowerPoint": "ґ_Microsoft PowerPoint_____________________Ї",
+      "geoJSON": "ґ_GeoJSON_______________Ї",
+      "globeLayer": "ґ_Globe Layer____________Ї",
+      "tileLayer": "ґ_Tile Layer_____________________Ї",
+      "netCDF": "ґ_NetCDF_____________Ї",
+      "mapImageLayer": "ґ_Map Image Layer________________Ї",
+      "addIn": "ґ_Add-In_____________Ї",
+      "bigDataFileShare": "ґ_Big Data File Share____________________Ї",
+      "ogcFeatureLayer": "ґ_OGC Feature Layer__________________Ї",
+      "instantApp": "ґ_Instant App____________Ї"
+    }
   },
   "pager": {
     "previous": "Назад",

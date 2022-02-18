@@ -107,6 +107,8 @@ define({
         "webApps": "Webové aplikácie",
         "mobileApps": "Mobilné aplikácie",
         "desktopApps": "Desktopové aplikácie",
+        "instantApps": "ĺ_Instant Apps_____________ľ",
+        "storyMaps": "ĺ_Story Maps_____________________ľ",
         "tools": "Nástroje",
         "locators": "Lokátor",
         "geodatabaseAccess": "Prístup do geodatabázy",
@@ -234,7 +236,28 @@ define({
     "created": "Vytvorené",
     "updated": "Aktualizované",
     "viewCount": "Počet zobrazení",
-    "rating": "Hodnotenie"
+    "rating": "Hodnotenie",
+    "itemType": {
+      "table": "ĺ_Table___________ľ",
+      "routeLayer": "ĺ_Route Layer____________ľ",
+      "markup": "ĺ_Markup_____________ľ",
+      "featureLayer": "ĺ_Feature Layer______________ľ",
+      "elevationLayer": "ĺ_Elevation Layer________________ľ",
+      "imageryLayer": "ĺ_Imagery Layer______________ľ",
+      "sceneLayer": "ĺ_Scene Layer____________ľ",
+      "sceneLayerPackage": "ĺ_Scene Layer Package____________________ľ",
+      "locator": "ĺ_Locator_______________ľ",
+      "microsoftPowerPoint": "ĺ_Microsoft PowerPoint_____________________ľ",
+      "geoJSON": "ĺ_GeoJSON_______________ľ",
+      "globeLayer": "ĺ_Globe Layer____________ľ",
+      "tileLayer": "ĺ_Tile Layer_____________________ľ",
+      "netCDF": "ĺ_NetCDF_____________ľ",
+      "mapImageLayer": "ĺ_Map Image Layer________________ľ",
+      "addIn": "ĺ_Add-In_____________ľ",
+      "bigDataFileShare": "ĺ_Big Data File Share____________________ľ",
+      "ogcFeatureLayer": "ĺ_OGC Feature Layer__________________ľ",
+      "instantApp": "ĺ_Instant App____________ľ"
+    }
   },
   "pager": {
     "previous": "Predchádzajúci",

@@ -107,6 +107,8 @@ define({
         "webApps": "Aplicaţii Web",
         "mobileApps": "Aplicaţii mobile",
         "desktopApps": "Aplicaţii desktop",
+        "instantApps": "Ă_Instant Apps_____________ș",
+        "storyMaps": "Ă_Story Maps_____________________ș",
         "tools": "Instrumente",
         "locators": "Localizatoare",
         "geodatabaseAccess": "Acces la bază de date geografice",
@@ -234,7 +236,28 @@ define({
     "created": "Creat(ă)",
     "updated": "Actualizat",
     "viewCount": "Vizualizare valori",
-    "rating": "Calificativ"
+    "rating": "Calificativ",
+    "itemType": {
+      "table": "Ă_Table___________ș",
+      "routeLayer": "Ă_Route Layer____________ș",
+      "markup": "Ă_Markup_____________ș",
+      "featureLayer": "Ă_Feature Layer______________ș",
+      "elevationLayer": "Ă_Elevation Layer________________ș",
+      "imageryLayer": "Ă_Imagery Layer______________ș",
+      "sceneLayer": "Ă_Scene Layer____________ș",
+      "sceneLayerPackage": "Ă_Scene Layer Package____________________ș",
+      "locator": "Ă_Locator_______________ș",
+      "microsoftPowerPoint": "Ă_Microsoft PowerPoint_____________________ș",
+      "geoJSON": "Ă_GeoJSON_______________ș",
+      "globeLayer": "Ă_Globe Layer____________ș",
+      "tileLayer": "Ă_Tile Layer_____________________ș",
+      "netCDF": "Ă_NetCDF_____________ș",
+      "mapImageLayer": "Ă_Map Image Layer________________ș",
+      "addIn": "Ă_Add-In_____________ș",
+      "bigDataFileShare": "Ă_Big Data File Share____________________ș",
+      "ogcFeatureLayer": "Ă_OGC Feature Layer__________________ș",
+      "instantApp": "Ă_Instant App____________ș"
+    }
   },
   "pager": {
     "previous": "Anterior",
