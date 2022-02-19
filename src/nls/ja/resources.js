@@ -107,6 +107,8 @@ define({
         "webApps": "Web アプリケーション",
         "mobileApps": "モバイル アプリケーション",
         "desktopApps": "デスクトップ アプリケーション",
+        "instantApps": "須_Instant Apps_____________鷗",
+        "storyMaps": "須_Story Maps_____________________鷗",
         "tools": "ツール",
         "locators": "ロケーター",
         "geodatabaseAccess": "ジオデータベース アクセス",
@@ -234,7 +236,28 @@ define({
     "created": "作成日",
     "updated": "更新日",
     "viewCount": "閲覧数",
-    "rating": "評価"
+    "rating": "評価",
+    "itemType": {
+      "table": "須_Table___________鷗",
+      "routeLayer": "須_Route Layer____________鷗",
+      "markup": "須_Markup_____________鷗",
+      "featureLayer": "須_Feature Layer______________鷗",
+      "elevationLayer": "須_Elevation Layer________________鷗",
+      "imageryLayer": "須_Imagery Layer______________鷗",
+      "sceneLayer": "須_Scene Layer____________鷗",
+      "sceneLayerPackage": "須_Scene Layer Package____________________鷗",
+      "locator": "須_Locator_______________鷗",
+      "microsoftPowerPoint": "須_Microsoft PowerPoint_____________________鷗",
+      "geoJSON": "須_GeoJSON_______________鷗",
+      "globeLayer": "須_Globe Layer____________鷗",
+      "tileLayer": "須_Tile Layer_____________________鷗",
+      "netCDF": "須_NetCDF_____________鷗",
+      "mapImageLayer": "須_Map Image Layer________________鷗",
+      "addIn": "須_Add-In_____________鷗",
+      "bigDataFileShare": "須_Big Data File Share____________________鷗",
+      "ogcFeatureLayer": "須_OGC Feature Layer__________________鷗",
+      "instantApp": "須_Instant App____________鷗"
+    }
   },
   "pager": {
     "previous": "前へ",

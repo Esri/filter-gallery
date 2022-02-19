@@ -107,6 +107,8 @@ define({
         "webApps": "Veebirakendused",
         "mobileApps": "Mobiilirakendused",
         "desktopApps": "Töölauarakendused",
+        "instantApps": "Š_Instant Apps_____________ä",
+        "storyMaps": "Š_Story Maps_____________________ä",
         "tools": "Töövahendid",
         "locators": "Lokaatorid",
         "geodatabaseAccess": "Geoandmebaasile ligipääs",
@@ -234,7 +236,28 @@ define({
     "created": "Koostatud",
     "updated": "Uuendatud",
     "viewCount": "Vaatamiste arv",
-    "rating": "Hinnang"
+    "rating": "Hinnang",
+    "itemType": {
+      "table": "Š_Table___________ä",
+      "routeLayer": "Š_Route Layer____________ä",
+      "markup": "Š_Markup_____________ä",
+      "featureLayer": "Š_Feature Layer______________ä",
+      "elevationLayer": "Š_Elevation Layer________________ä",
+      "imageryLayer": "Š_Imagery Layer______________ä",
+      "sceneLayer": "Š_Scene Layer____________ä",
+      "sceneLayerPackage": "Š_Scene Layer Package____________________ä",
+      "locator": "Š_Locator_______________ä",
+      "microsoftPowerPoint": "Š_Microsoft PowerPoint_____________________ä",
+      "geoJSON": "Š_GeoJSON_______________ä",
+      "globeLayer": "Š_Globe Layer____________ä",
+      "tileLayer": "Š_Tile Layer_____________________ä",
+      "netCDF": "Š_NetCDF_____________ä",
+      "mapImageLayer": "Š_Map Image Layer________________ä",
+      "addIn": "Š_Add-In_____________ä",
+      "bigDataFileShare": "Š_Big Data File Share____________________ä",
+      "ogcFeatureLayer": "Š_OGC Feature Layer__________________ä",
+      "instantApp": "Š_Instant App____________ä"
+    }
   },
   "pager": {
     "previous": "Eelmine",

@@ -107,6 +107,8 @@ define({
         "webApps": "Web εφαρμογές",
         "mobileApps": "Εφαρμογές για κινητά",
         "desktopApps": "Εφαρμογές για υπολογιστές",
+        "instantApps": "Đ_Instant Apps_____________ớ",
+        "storyMaps": "Đ_Story Maps_____________________ớ",
         "tools": "Εργαλεία",
         "locators": "Εργαλεία εντοπισμού",
         "geodatabaseAccess": "Πρόσβαση σε Geodatabase",
@@ -234,7 +236,28 @@ define({
     "created": "Δημιουργημένο",
     "updated": "Ενημερώθηκε",
     "viewCount": "Προβολή αριθμού",
-    "rating": "Αξιολόγηση"
+    "rating": "Αξιολόγηση",
+    "itemType": {
+      "table": "Đ_Table___________ớ",
+      "routeLayer": "Đ_Route Layer____________ớ",
+      "markup": "Đ_Markup_____________ớ",
+      "featureLayer": "Đ_Feature Layer______________ớ",
+      "elevationLayer": "Đ_Elevation Layer________________ớ",
+      "imageryLayer": "Đ_Imagery Layer______________ớ",
+      "sceneLayer": "Đ_Scene Layer____________ớ",
+      "sceneLayerPackage": "Đ_Scene Layer Package____________________ớ",
+      "locator": "Đ_Locator_______________ớ",
+      "microsoftPowerPoint": "Đ_Microsoft PowerPoint_____________________ớ",
+      "geoJSON": "Đ_GeoJSON_______________ớ",
+      "globeLayer": "Đ_Globe Layer____________ớ",
+      "tileLayer": "Đ_Tile Layer_____________________ớ",
+      "netCDF": "Đ_NetCDF_____________ớ",
+      "mapImageLayer": "Đ_Map Image Layer________________ớ",
+      "addIn": "Đ_Add-In_____________ớ",
+      "bigDataFileShare": "Đ_Big Data File Share____________________ớ",
+      "ogcFeatureLayer": "Đ_OGC Feature Layer__________________ớ",
+      "instantApp": "Đ_Instant App____________ớ"
+    }
   },
   "pager": {
     "previous": "Προηγούμενο",

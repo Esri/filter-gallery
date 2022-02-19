@@ -107,6 +107,8 @@ define({
         "webApps": "Web 应用程序",
         "mobileApps": "移动应用程序",
         "desktopApps": "桌面应用程序",
+        "instantApps": "试_Instant Apps_____________验",
+        "storyMaps": "试_Story Maps_____________________验",
         "tools": "工具",
         "locators": "定位器",
         "geodatabaseAccess": "地理数据库访问",
@@ -234,7 +236,28 @@ define({
     "created": "创建日期",
     "updated": "已更新",
     "viewCount": "查看计数",
-    "rating": "评级"
+    "rating": "评级",
+    "itemType": {
+      "table": "试_Table___________验",
+      "routeLayer": "试_Route Layer____________验",
+      "markup": "试_Markup_____________验",
+      "featureLayer": "试_Feature Layer______________验",
+      "elevationLayer": "试_Elevation Layer________________验",
+      "imageryLayer": "试_Imagery Layer______________验",
+      "sceneLayer": "试_Scene Layer____________验",
+      "sceneLayerPackage": "试_Scene Layer Package____________________验",
+      "locator": "试_Locator_______________验",
+      "microsoftPowerPoint": "试_Microsoft PowerPoint_____________________验",
+      "geoJSON": "试_GeoJSON_______________验",
+      "globeLayer": "试_Globe Layer____________验",
+      "tileLayer": "试_Tile Layer_____________________验",
+      "netCDF": "试_NetCDF_____________验",
+      "mapImageLayer": "试_Map Image Layer________________验",
+      "addIn": "试_Add-In_____________验",
+      "bigDataFileShare": "试_Big Data File Share____________________验",
+      "ogcFeatureLayer": "试_OGC Feature Layer__________________验",
+      "instantApp": "试_Instant App____________验"
+    }
   },
   "pager": {
     "previous": "上一步",

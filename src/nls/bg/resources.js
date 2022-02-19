@@ -107,6 +107,8 @@ define({
         "webApps": "Уеб приложения",
         "mobileApps": "Мобилни приложения",
         "desktopApps": "Настолни приложения",
+        "instantApps": "й_Instant Apps_____________й",
+        "storyMaps": "й_Story Maps_____________________й",
         "tools": "Инструменти",
         "locators": "Локатори",
         "geodatabaseAccess": "Достъп до геобаза данни",
@@ -234,7 +236,28 @@ define({
     "created": "Създадено",
     "updated": "Актуализирано",
     "viewCount": "Брой прегледи",
-    "rating": "Оценка"
+    "rating": "Оценка",
+    "itemType": {
+      "table": "й_Table___________й",
+      "routeLayer": "й_Route Layer____________й",
+      "markup": "й_Markup_____________й",
+      "featureLayer": "й_Feature Layer______________й",
+      "elevationLayer": "й_Elevation Layer________________й",
+      "imageryLayer": "й_Imagery Layer______________й",
+      "sceneLayer": "й_Scene Layer____________й",
+      "sceneLayerPackage": "й_Scene Layer Package____________________й",
+      "locator": "й_Locator_______________й",
+      "microsoftPowerPoint": "й_Microsoft PowerPoint_____________________й",
+      "geoJSON": "й_GeoJSON_______________й",
+      "globeLayer": "й_Globe Layer____________й",
+      "tileLayer": "й_Tile Layer_____________________й",
+      "netCDF": "й_NetCDF_____________й",
+      "mapImageLayer": "й_Map Image Layer________________й",
+      "addIn": "й_Add-In_____________й",
+      "bigDataFileShare": "й_Big Data File Share____________________й",
+      "ogcFeatureLayer": "й_OGC Feature Layer__________________й",
+      "instantApp": "й_Instant App____________й"
+    }
   },
   "pager": {
     "previous": "Предишна",

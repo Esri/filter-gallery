@@ -107,6 +107,8 @@ define({
         "webApps": "Webes alkalmazások",
         "mobileApps": "Mobilalkalmazások",
         "desktopApps": "Asztali alkalmazások",
+        "instantApps": "í_Instant Apps_____________ő",
+        "storyMaps": "í_Story Maps_____________________ő",
         "tools": "Eszközök",
         "locators": "Keresők",
         "geodatabaseAccess": "Geoadatbázis-hozzáférés",
@@ -234,7 +236,28 @@ define({
     "created": "Létrehozva",
     "updated": "Frissítve",
     "viewCount": "Megtekintések száma",
-    "rating": "Értékelés"
+    "rating": "Értékelés",
+    "itemType": {
+      "table": "í_Table___________ő",
+      "routeLayer": "í_Route Layer____________ő",
+      "markup": "í_Markup_____________ő",
+      "featureLayer": "í_Feature Layer______________ő",
+      "elevationLayer": "í_Elevation Layer________________ő",
+      "imageryLayer": "í_Imagery Layer______________ő",
+      "sceneLayer": "í_Scene Layer____________ő",
+      "sceneLayerPackage": "í_Scene Layer Package____________________ő",
+      "locator": "í_Locator_______________ő",
+      "microsoftPowerPoint": "í_Microsoft PowerPoint_____________________ő",
+      "geoJSON": "í_GeoJSON_______________ő",
+      "globeLayer": "í_Globe Layer____________ő",
+      "tileLayer": "í_Tile Layer_____________________ő",
+      "netCDF": "í_NetCDF_____________ő",
+      "mapImageLayer": "í_Map Image Layer________________ő",
+      "addIn": "í_Add-In_____________ő",
+      "bigDataFileShare": "í_Big Data File Share____________________ő",
+      "ogcFeatureLayer": "í_OGC Feature Layer__________________ő",
+      "instantApp": "í_Instant App____________ő"
+    }
   },
   "pager": {
     "previous": "Előző",

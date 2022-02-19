@@ -107,6 +107,8 @@ define({
         "webApps": "Spletne aplikacije",
         "mobileApps": "Mobilne aplikacije",
         "desktopApps": "Namizne aplikacije",
+        "instantApps": "Š_Instant Apps_____________č",
+        "storyMaps": "Š_Story Maps_____________________č",
         "tools": "Orodja",
         "locators": "Lokatorji",
         "geodatabaseAccess": "Dostop do geopodatkovne baze",
@@ -234,7 +236,28 @@ define({
     "created": "Ustvarjeno",
     "updated": "Posodobljeno",
     "viewCount": "Števec ogledov",
-    "rating": "Ocena"
+    "rating": "Ocena",
+    "itemType": {
+      "table": "Š_Table___________č",
+      "routeLayer": "Š_Route Layer____________č",
+      "markup": "Š_Markup_____________č",
+      "featureLayer": "Š_Feature Layer______________č",
+      "elevationLayer": "Š_Elevation Layer________________č",
+      "imageryLayer": "Š_Imagery Layer______________č",
+      "sceneLayer": "Š_Scene Layer____________č",
+      "sceneLayerPackage": "Š_Scene Layer Package____________________č",
+      "locator": "Š_Locator_______________č",
+      "microsoftPowerPoint": "Š_Microsoft PowerPoint_____________________č",
+      "geoJSON": "Š_GeoJSON_______________č",
+      "globeLayer": "Š_Globe Layer____________č",
+      "tileLayer": "Š_Tile Layer_____________________č",
+      "netCDF": "Š_NetCDF_____________č",
+      "mapImageLayer": "Š_Map Image Layer________________č",
+      "addIn": "Š_Add-In_____________č",
+      "bigDataFileShare": "Š_Big Data File Share____________________č",
+      "ogcFeatureLayer": "Š_OGC Feature Layer__________________č",
+      "instantApp": "Š_Instant App____________č"
+    }
   },
   "pager": {
     "previous": "Nazaj",

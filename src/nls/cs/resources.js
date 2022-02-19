@@ -107,6 +107,8 @@ define({
         "webApps": "Webové aplikace",
         "mobileApps": "Mobilní aplikace",
         "desktopApps": "Desktopové aplikace",
+        "instantApps": "Ř_Instant Apps_____________ů",
+        "storyMaps": "Ř_Story Maps_____________________ů",
         "tools": "Nástroje",
         "locators": "Lokátory",
         "geodatabaseAccess": "Geodatabázový přístup",
@@ -234,7 +236,28 @@ define({
     "created": "Vytvořeno",
     "updated": "Aktualizováno",
     "viewCount": "Počty zobrazení",
-    "rating": "Hodnocení"
+    "rating": "Hodnocení",
+    "itemType": {
+      "table": "Ř_Table___________ů",
+      "routeLayer": "Ř_Route Layer____________ů",
+      "markup": "Ř_Markup_____________ů",
+      "featureLayer": "Ř_Feature Layer______________ů",
+      "elevationLayer": "Ř_Elevation Layer________________ů",
+      "imageryLayer": "Ř_Imagery Layer______________ů",
+      "sceneLayer": "Ř_Scene Layer____________ů",
+      "sceneLayerPackage": "Ř_Scene Layer Package____________________ů",
+      "locator": "Ř_Locator_______________ů",
+      "microsoftPowerPoint": "Ř_Microsoft PowerPoint_____________________ů",
+      "geoJSON": "Ř_GeoJSON_______________ů",
+      "globeLayer": "Ř_Globe Layer____________ů",
+      "tileLayer": "Ř_Tile Layer_____________________ů",
+      "netCDF": "Ř_NetCDF_____________ů",
+      "mapImageLayer": "Ř_Map Image Layer________________ů",
+      "addIn": "Ř_Add-In_____________ů",
+      "bigDataFileShare": "Ř_Big Data File Share____________________ů",
+      "ogcFeatureLayer": "Ř_OGC Feature Layer__________________ů",
+      "instantApp": "Ř_Instant App____________ů"
+    }
   },
   "pager": {
     "previous": "Předchozí",

@@ -107,6 +107,8 @@ define({
         "webApps": "Web-apps",
         "mobileApps": "Mobiele apps",
         "desktopApps": "Desktopapps",
+        "instantApps": "Ĳ_Instant Apps_____________ä",
+        "storyMaps": "Ĳ_Story Maps_____________________ä",
         "tools": "Tools",
         "locators": "Locators",
         "geodatabaseAccess": "Geodatabase-toegang",
@@ -234,7 +236,28 @@ define({
     "created": "Gemaakt",
     "updated": "Bijgewerkt",
     "viewCount": "Aantal keer bekeken",
-    "rating": "Beoordeling"
+    "rating": "Beoordeling",
+    "itemType": {
+      "table": "Ĳ_Table___________ä",
+      "routeLayer": "Ĳ_Route Layer____________ä",
+      "markup": "Ĳ_Markup_____________ä",
+      "featureLayer": "Ĳ_Feature Layer______________ä",
+      "elevationLayer": "Ĳ_Elevation Layer________________ä",
+      "imageryLayer": "Ĳ_Imagery Layer______________ä",
+      "sceneLayer": "Ĳ_Scene Layer____________ä",
+      "sceneLayerPackage": "Ĳ_Scene Layer Package____________________ä",
+      "locator": "Ĳ_Locator_______________ä",
+      "microsoftPowerPoint": "Ĳ_Microsoft PowerPoint_____________________ä",
+      "geoJSON": "Ĳ_GeoJSON_______________ä",
+      "globeLayer": "Ĳ_Globe Layer____________ä",
+      "tileLayer": "Ĳ_Tile Layer_____________________ä",
+      "netCDF": "Ĳ_NetCDF_____________ä",
+      "mapImageLayer": "Ĳ_Map Image Layer________________ä",
+      "addIn": "Ĳ_Add-In_____________ä",
+      "bigDataFileShare": "Ĳ_Big Data File Share____________________ä",
+      "ogcFeatureLayer": "Ĳ_OGC Feature Layer__________________ä",
+      "instantApp": "Ĳ_Instant App____________ä"
+    }
   },
   "pager": {
     "previous": "Vorige",

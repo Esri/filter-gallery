@@ -107,6 +107,8 @@ define({
         "webApps": "אפליקציות אינטרנט",
         "mobileApps": "אפליקציות למכשירים ניידים",
         "desktopApps": "אפליקציות למחשבים שולחניים",
+        "instantApps": "כן_Instant Apps_____________ש",
+        "storyMaps": "כן_Story Maps_____________________ש",
         "tools": "כלים",
         "locators": "מגדירי עיגון כתובות",
         "geodatabaseAccess": "גישה ל- Geodatabase",
@@ -234,7 +236,28 @@ define({
     "created": "נוצר",
     "updated": "עודכן",
     "viewCount": "הצג ספירה",
-    "rating": "דירוג"
+    "rating": "דירוג",
+    "itemType": {
+      "table": "כן_Table___________ש",
+      "routeLayer": "כן_Route Layer____________ש",
+      "markup": "כן_Markup_____________ש",
+      "featureLayer": "כן_Feature Layer______________ש",
+      "elevationLayer": "כן_Elevation Layer________________ש",
+      "imageryLayer": "כן_Imagery Layer______________ש",
+      "sceneLayer": "כן_Scene Layer____________ש",
+      "sceneLayerPackage": "כן_Scene Layer Package____________________ש",
+      "locator": "כן_Locator_______________ש",
+      "microsoftPowerPoint": "כן_Microsoft PowerPoint_____________________ש",
+      "geoJSON": "כן_GeoJSON_______________ש",
+      "globeLayer": "כן_Globe Layer____________ש",
+      "tileLayer": "כן_Tile Layer_____________________ש",
+      "netCDF": "כן_NetCDF_____________ש",
+      "mapImageLayer": "כן_Map Image Layer________________ש",
+      "addIn": "כן_Add-In_____________ש",
+      "bigDataFileShare": "כן_Big Data File Share____________________ש",
+      "ogcFeatureLayer": "כן_OGC Feature Layer__________________ש",
+      "instantApp": "כן_Instant App____________ש"
+    }
   },
   "pager": {
     "previous": "קודם",

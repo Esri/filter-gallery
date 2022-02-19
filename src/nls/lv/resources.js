@@ -107,6 +107,8 @@ define({
         "webApps": "Web lietotnes",
         "mobileApps": "Mobilās lietotnes",
         "desktopApps": "Darbvirsmas lietotnes",
+        "instantApps": "ķ_Instant Apps_____________ū",
+        "storyMaps": "ķ_Story Maps_____________________ū",
         "tools": "Rīki",
         "locators": "Lokators",
         "geodatabaseAccess": "Ģeodatubāzes piekļuve",
@@ -234,7 +236,28 @@ define({
     "created": "Izveidots",
     "updated": "Atjaunināts",
     "viewCount": "Skatīt kontu",
-    "rating": "Novērtējums"
+    "rating": "Novērtējums",
+    "itemType": {
+      "table": "ķ_Table___________ū",
+      "routeLayer": "ķ_Route Layer____________ū",
+      "markup": "ķ_Markup_____________ū",
+      "featureLayer": "ķ_Feature Layer______________ū",
+      "elevationLayer": "ķ_Elevation Layer________________ū",
+      "imageryLayer": "ķ_Imagery Layer______________ū",
+      "sceneLayer": "ķ_Scene Layer____________ū",
+      "sceneLayerPackage": "ķ_Scene Layer Package____________________ū",
+      "locator": "ķ_Locator_______________ū",
+      "microsoftPowerPoint": "ķ_Microsoft PowerPoint_____________________ū",
+      "geoJSON": "ķ_GeoJSON_______________ū",
+      "globeLayer": "ķ_Globe Layer____________ū",
+      "tileLayer": "ķ_Tile Layer_____________________ū",
+      "netCDF": "ķ_NetCDF_____________ū",
+      "mapImageLayer": "ķ_Map Image Layer________________ū",
+      "addIn": "ķ_Add-In_____________ū",
+      "bigDataFileShare": "ķ_Big Data File Share____________________ū",
+      "ogcFeatureLayer": "ķ_OGC Feature Layer__________________ū",
+      "instantApp": "ķ_Instant App____________ū"
+    }
   },
   "pager": {
     "previous": "Iepriekšējais",

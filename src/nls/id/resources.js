@@ -107,6 +107,8 @@ define({
         "webApps": "Aplikasi Web",
         "mobileApps": "Aplikasi Mobile",
         "desktopApps": "Aplikasi Desktop",
+        "instantApps": "ng_Instant Apps_____________ny",
+        "storyMaps": "ng_Story Maps_____________________ny",
         "tools": "Alat",
         "locators": "Penentu Lokasi",
         "geodatabaseAccess": "Akses Geodatabase",
@@ -234,7 +236,28 @@ define({
     "created": "Dibuat",
     "updated": "Diperbarui",
     "viewCount": "Jumlah Tampilan",
-    "rating": "Peringkat"
+    "rating": "Peringkat",
+    "itemType": {
+      "table": "ng_Table___________ny",
+      "routeLayer": "ng_Route Layer____________ny",
+      "markup": "ng_Markup_____________ny",
+      "featureLayer": "ng_Feature Layer______________ny",
+      "elevationLayer": "ng_Elevation Layer________________ny",
+      "imageryLayer": "ng_Imagery Layer______________ny",
+      "sceneLayer": "ng_Scene Layer____________ny",
+      "sceneLayerPackage": "ng_Scene Layer Package____________________ny",
+      "locator": "ng_Locator_______________ny",
+      "microsoftPowerPoint": "ng_Microsoft PowerPoint_____________________ny",
+      "geoJSON": "ng_GeoJSON_______________ny",
+      "globeLayer": "ng_Globe Layer____________ny",
+      "tileLayer": "ng_Tile Layer_____________________ny",
+      "netCDF": "ng_NetCDF_____________ny",
+      "mapImageLayer": "ng_Map Image Layer________________ny",
+      "addIn": "ng_Add-In_____________ny",
+      "bigDataFileShare": "ng_Big Data File Share____________________ny",
+      "ogcFeatureLayer": "ng_OGC Feature Layer__________________ny",
+      "instantApp": "ng_Instant App____________ny"
+    }
   },
   "pager": {
     "previous": "Sebelumnya",
