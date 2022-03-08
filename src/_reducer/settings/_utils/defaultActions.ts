@@ -171,7 +171,60 @@ const defaultActions: CustomAction[] = [
       dispatch(removeFromFavorites(item));
     },
     icon: '<svg width="16" height="16" viewBox="0 0 32 32"><path fill="#fad817" d="M16.043.367L19.813 12H32l-9.859 7.172 3.789 11.625-9.887-7.193-9.889 7.193 3.787-11.625L0 12h12.271z" /></svg>'
-  }
+  },
+  {
+    name: i18n.actions.openViewer,
+    allowed: (item: Pojo) => _canOpenInNewMapViewer(item),
+    asynchronous: false,
+    onAction: () => { },
+    icon: '<svg class="svg" height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2 2v20h20V2zm19 17.194l-5.604-1.6L10.837 3H21zM3 3h6.789l2.457 7.864L3 12.845zm0 18v-7.154a1.03 1.03 0 0 0 .21-.022l9.336-2.001 2.058 6.583L21 20.234V21z" opacity="1"></path><path d="M21 19.194l-5.604-1.6L10.837 3H21v16.194z" opacity=".5"></path><path d="M3 21v-7.154a1.03 1.03 0 0 0 .21-.022l9.336-2.001 2.058 6.583L21 20.234V21z" opacity=".2"></path></svg>',
+    href: (item: Pojo, state: FilterGalleryState) => {
+      const portalUrl = !!state.settings.utils.portal.credential ? state.settings.utils.portal.baseUrl : `https://${state.settings.utils.portal.portalHostname}`;
+      const itemTypeParam = item.type === "Web Map" ? "webmap=" : "layers=";
+      const url = portalUrl + "/apps/mapviewer/index.html?" + itemTypeParam + item.id;
+      return url;
+    },
+    target: "_blank"
+  },
 ];
 
 export default defaultActions;
+
+const _canOpenInNewMapViewer = (item: Pojo): boolean => {
+  const { type } = item;
+  const supportedLayerTypes = {
+    "Feature Service": 1,
+    "Map Service": 1,
+    "Vector Tile Service": 1,
+    "Image Service": 1,
+    "Imagery Layer": 1,
+    "KML": 1,
+    "OGCFeatureServer": 1,
+    "WFS": 1,
+    "WMS": 1,
+    "WMTS": 1
+  };
+  if (type === "Web Map") {
+    return true;
+  } else if (type in supportedLayerTypes && _canOpenServiceInNewMapViewer(item)) {
+    return true;
+  } 
+  return false;
+};
+
+const _canOpenServiceInNewMapViewer = (item: Pojo): boolean => {
+  const { type, isTable, typeKeywords } = item;
+  const eligibleType = [
+    "Map Service",
+    "Vector Tile Service",
+    "Imagery Layer",
+    "Image Service",
+    "Feature Service",
+    "KML",
+    "WFS",
+    "WMS",
+    "WMTS",
+    "OGCFeatureServer"
+  ];
+  return isTable || eligibleType.indexOf(type) > -1 || typeKeywords.indexOf("Hosted Service") > -1;
+};
