@@ -19,6 +19,7 @@ export const LOAD_PORTAL_FAILED = "LOAD_PORTAL_FAILED";
 export const AUTHENTICATION_FAILED = "AUTHENTICATION_FAILED";
 export const ORIGIN_FAILED = "ORIGIN_FAILED";
 export const loadPortal = () => ({ type: LOAD_PORTAL });
+export const loadPortalThenUpdateSection = () => ({ type: LOAD_PORTAL, payload: {updateSection: true} });
 
 export interface OriginError {
     error: string;

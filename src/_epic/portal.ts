@@ -9,8 +9,9 @@ import { fromDeferred } from "../_utils";
 
 export const baseEpic = (action$: Subject<Action>, getState: () => FilterGalleryState) => action$.pipe(
     ofType(LOAD_PORTAL),
-    switchMap(() => {
+    switchMap((action) => {
         const base = getState().settings.utils.base;
+        const updateSection = action.payload?.updateSection || false;
         return fromDeferred(
             base.load().then(
                 () => {
@@ -19,7 +20,7 @@ export const baseEpic = (action$: Subject<Action>, getState: () => FilterGallery
                 }
             ) as any).pipe(
             switchMap(() => fromDeferred(base.portal.load()).pipe(
-                map(() => ({ type: LOAD_PORTAL_SUCCESS, payload: base })),
+                map(() => ({ type: LOAD_PORTAL_SUCCESS, payload: {...base, updateSection} })),
                 catchError((err) => {
                     return of({ type: LOAD_PORTAL_FAILED, payload: err });
                 })
