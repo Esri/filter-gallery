@@ -104,6 +104,11 @@
 .card-lc__snippet {
     @include font-size(-2);
     margin-bottom: 0;
+    display: block;
+}
+
+.card-lc__snippet-tooltip.tooltip {
+    position: absolute;
 }
 
 .card-lc__sub-container {

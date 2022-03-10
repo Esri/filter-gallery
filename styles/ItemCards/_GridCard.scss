@@ -109,6 +109,10 @@
     overflow: hidden;
 }
 
+.card-gc__snippet-tooltip.tooltip {
+    position: absolute;
+}
+
 .card-gc__sub-container {
     @include padding-leader(0.25);
     @include padding-trailer(0.25);
