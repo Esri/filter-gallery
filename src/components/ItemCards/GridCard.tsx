@@ -214,19 +214,28 @@ export default class GridCard extends Component<GridCardProps> {
                             {baseConfig.showItemInfo ?
                                 ([
                                     (<span class="card-gc__info-bullet" key="showItemInfoBullet">•</span>),
-                                    (<span class="card-gc__info-string"key="showItemInfo">{infoString}</span>)
+                                    (<span class="card-gc__info-string" key="showItemInfo">{infoString}</span>)
                                 ]) : ``}
                         </div>
-                        <span class="card-gc__snippet" key="itemSummary">{itemSummaryMaxChar < 250 && item.snippet && item.snippet.length > itemSummaryMaxChar ? 
-                                                        item.snippet.substring(0, itemSummaryMaxChar) + `...` :
-                                                        item.snippet}{` `}</span>
+                        {itemSummaryMaxChar < 250 && item.snippet && item.snippet.length > itemSummaryMaxChar ? 
+                            (<span class="card-gc__snippet" key="itemSummary">
+                                    {item.snippet.substring(0, itemSummaryMaxChar)} 
+                                    {baseConfig.showItemToolTip ? 
+                                        (<span class="card-gc__snippet-tooltip tooltip tooltip-multiline tooltip-top" tooltip={item.snippet.replace(/<\/?[^>]+(>|$)/g, "")}>...</span>) :
+                                        (<span>...</span>) 
+                                    }
+                            </span>) :
+                            (<span class="card-gc__snippet" key="itemSummary">
+                                {item.snippet}
+                            </span>)
+                        }{` `}
                         {baseConfig.showItemToolTip && item.snippet ?
                             (<IconButton
                                 key="grid-info-tooltip-btn"
                                 active={false}
                                 handleClick={e => e.preventDefault()}
                             >
-                                <div class="grid-info-tooltip-btn-body tooltip tooltip-multiline tooltip-left" tooltip={item.snippet.replace(/<\/?[^>]+(>|$)/g, "")}>
+                                <div class="grid-info-tooltip-btn-body tooltip tooltip-multiline tooltip-top" tooltip={item.snippet.replace(/<\/?[^>]+(>|$)/g, "")}>
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
                                     <path d="M7.5 0A7.5 7.5 0 1 0 15 7.5 7.509 7.509 0 0 0 7.5 0zm.001 14.1A6.6 6.6 0 1 1 14.1 7.5a6.608 6.608 0 0 1-6.599 6.6zM7.5 5.5a1 1 0 1 1 1-1 1.002 1.002 0 0 1-1 1zM7 7h1v5H7zm2 5H6v-1h3z"/>
                                 </svg>
