@@ -218,7 +218,7 @@ export default class AnalysisCard extends Component<ListCardProps> {
                                 ]) : ``}
                         </div>
                         <p class="card-lc__snippet">
-                            {itemSummaryMaxChar < 250 && item.snippet && item.snippet.length > itemSummaryMaxChar ? 
+                            {item.snippet && item.snippet.length > itemSummaryMaxChar ? 
                                 (<span class="card-lc__snippet" key="itemSummary">
                                         {item.snippet.substring(0, itemSummaryMaxChar)} 
                                         {baseConfig.showItemToolTip ? 
