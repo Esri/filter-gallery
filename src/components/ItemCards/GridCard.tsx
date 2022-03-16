@@ -217,7 +217,7 @@ export default class GridCard extends Component<GridCardProps> {
                                     (<span class="card-gc__info-string" key="showItemInfo">{infoString}</span>)
                                 ]) : ``}
                         </div>
-                        {itemSummaryMaxChar < 250 && item.snippet && item.snippet.length > itemSummaryMaxChar ? 
+                        {item.snippet && item.snippet.length > itemSummaryMaxChar ? 
                             (<span class="card-gc__snippet" key="itemSummary">
                                     {item.snippet.substring(0, itemSummaryMaxChar)} 
                                     {baseConfig.showItemToolTip ? 
