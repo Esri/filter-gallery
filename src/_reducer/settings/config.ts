@@ -247,6 +247,12 @@ export interface ConfigState {
      * @type {string}
      */
     url: string;
+    
+     /**
+     * oauthappid
+     * @type {string}
+     */
+      oauthappid: string;
 
     /**
      * If enabled, will use the categories for the configuring organization rather than the group.
@@ -338,6 +344,7 @@ export const initialState: ConfigState = {
         basemapGalleryWidget: ""
     },
     url: "https://devext.arcgis.com",
+    oauthappid: "arcgisWebApps",
     useOrgCategories: false
 };
 
@@ -362,6 +369,7 @@ export default (state: ConfigState = initialState, action: Action) => {
             return {
                 ...state,
                 url: config.portalUrl,
+                oauthappid: config.oauthappid,
                 dialogTitle: config.title,
                 resultsPerQuery: config.resultsPerQuery,
                 allowedItemTypes: config.allowedItemTypes,
