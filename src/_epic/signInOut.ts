@@ -32,8 +32,8 @@ export const signOutEpic = (action$: Subject<Action>, getState: () => FilterGall
         portal.authMode = "anonymous";
 
         localStorage.removeItem("_AGO_SESSION_");
-        const mpUrl = new URL("../", window.location.href).href;
-        window.location.href = `${portal.restUrl}/oauth2/signout?client_id=${state.settings.config.oauthappid}&redirect_uri=${mpUrl}`;
+        const rdUrl = window.location.href;
+        window.location.href = `${portal.restUrl}/oauth2/signout?client_id=${state.settings.config.oauthappid}&redirect_uri=${rdUrl}`;
 
         return fromDeferred(portal.load() as any).pipe(
             map(() => ({ type: SIGNED_OUT, payload: portal })),
