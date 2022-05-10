@@ -24,6 +24,8 @@ module.exports = {
         new CopyWebpackPlugin([
             { from: "src/pwa/webapp.manifest", to: "webapp.manifest" },
             { from: "src/pwa/images", to: "images" }
+            // { from: "styles", to: "styles" }
+            // { from: "shared", to: "shared" }
         ])
     ],
 }

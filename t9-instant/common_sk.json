@@ -1,0 +1,85 @@
+{
+  "copyClipboard": "Kopírovať do schránky",
+  "error": "Chyba",
+  "close": "Zatvoriť",
+  "clear": "Vyčistiť",
+  "expand": "Rozbaliť",
+  "collapse": "Zbaliť",
+  "originError": {
+    "message": "Aplikácia, ku ktorej sa snažíte pristúpiť, nepochádza z URL, ktorú ste poskytli",
+    "close": "Zatvoriť",
+    "options": "Rozšírené možnosti",
+    "linkMessage": "Pokračovať na"
+  },
+  "licenseError": {
+    "message": "Váš účet nezahŕňa licenciu na použitie Konfigurovateľných aplikácií, ktoré nie sú verejné. Požiadajte správcu vašej organizácie, aby vám priradil typ používateľa, ktorý zahŕňa Esenciálne aplikácie alebo doplnkovú licenciu Esenciálnych aplikácií",
+    "title": "Nelicencované"
+  },
+  "analyticsOptIn": "Prihlásiť sa",
+  "tools": {
+    "export": "Exportovať do PDF",
+    "legend": "Otvoriť legendu",
+    "layerList": "Otvoriť zoznam vrstiev",
+    "search": "Otvoriť vyhľadávanie",
+    "print": "Otvoriť tlač",
+    "bookmarks": "Otvoriť záložky",
+    "time": "Otvoriť čas",
+    "overviewMap": "Otvoriť prehľadovú mapu",
+    "elevationProfile": "Otvoriť výškový profil",
+    "table": "Otvoriť tabuľku",
+    "screenshot": "Otvoriť snímku obrazovky",
+    "splash": "Otvoriť úvodný panel",
+    "hoverPopupTip": "Pripnúť kliknutím do mapy",
+    "close": {
+      "legend": "Zatvoriť legendu",
+      "layerList": "Zatvoriť zoznam vrstiev",
+      "search": "Zatvoriť vyhľadávanie",
+      "print": "Zatvoriť tlač",
+      "bookmarks": "Zatvoriť záložky",
+      "time": "Zatvoriť čas",
+      "overviewMap": "Zatvoriť prehľadovú mapu",
+      "elevationProfile": "Zatvoriť výškový profil",
+      "table": "Zatvoriť tabuľku",
+      "screenshot": "Zatvoriť snímku obrazovky",
+      "splash": "Zatvoriť úvodný panel",
+      "cluster": "Prehľadať prvky"
+    }
+  },
+  "export": {
+    "results": "Výsledky",
+    "resultsAndMap": "Výsledok a mapa",
+    "tip": "Vytlačiť alebo uložiť ako PDF"
+  },
+  "mapScroll": {
+    "enableMessage": "Povoliť posun mapy",
+    "disableMessage": "Zakázať posúvanie mapy"
+  },
+  "generalShortcuts": {
+    "menu": "menu skratiek",
+    "shortcut": "Skratka",
+    "action": "Akcia",
+    "title": "Vybrať mapu",
+    "label": "Klávesové skratky"
+  },
+  "shortcutsMapView": {
+    "arrowKeys": "Klávesy so šípkami",
+    "nudge": "Posunúť doľava, doprava, hore alebo dole",
+    "N": "Nastaviť na sever",
+    "A": "Otočiť proti smeru hodinových ručičiek",
+    "D": "Otočíť v smere hodinových ručičiek",
+    "plus": "Priblížiť na stred",
+    "minus": "Oddialiť na stred"
+  },
+  "shortcutsSceneView": {
+    "P": "Presunúť kameru do kolmého zobrazenia vzhľadom k dátam zobrazeným v mape",
+    "N": "Nastaviť mapu na sever",
+    "W": "Nakloniť kameru nahor",
+    "A": "Rotovať kameru proti smeru hodinových ručičiek",
+    "D": "Rotovať kameru v smere hodinových ručičiek",
+    "S": "Nakloniť kameru nadol",
+    "globalCommands": {
+      "J": "Posunúť nadol bližšie k mape",
+      "U": "Posunúť nahor vyššie od mapy"
+    }
+  }
+}

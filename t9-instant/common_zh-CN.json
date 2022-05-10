@@ -1,0 +1,85 @@
+{
+  "copyClipboard": "复制到剪贴板",
+  "error": "错误",
+  "close": "关闭",
+  "clear": "清除",
+  "expand": "展开",
+  "collapse": "折叠",
+  "originError": {
+    "message": "您正在尝试访问的应用程序并非源自您已提供的 URL",
+    "close": "关闭",
+    "options": "高级选项",
+    "linkMessage": "继续"
+  },
+  "licenseError": {
+    "message": "您的帐户无权使用非公共的可配置应用程序。 请联系您的组织管理员为您分配包含基本应用程序或附加基本应用程序许可的用户类型。",
+    "title": "未经许可"
+  },
+  "analyticsOptIn": "选择同意",
+  "tools": {
+    "export": "导出至 PDF",
+    "legend": "打开图例",
+    "layerList": "打开图层列表",
+    "search": "打开搜索",
+    "print": "打开打印",
+    "bookmarks": "打开书签",
+    "time": "打开时间",
+    "overviewMap": "打开总览图",
+    "elevationProfile": "打开高程剖面图",
+    "table": "打开表",
+    "screenshot": "打开屏幕截图",
+    "splash": "打开简介面板",
+    "hoverPopupTip": "单击地图以放置图钉",
+    "close": {
+      "legend": "关闭图例",
+      "layerList": "关闭图层列表",
+      "search": "关闭搜索",
+      "print": "关闭打印",
+      "bookmarks": "关闭书签",
+      "time": "关闭时间",
+      "overviewMap": "关闭总览图",
+      "elevationProfile": "关闭高程剖面图",
+      "table": "关闭表格",
+      "screenshot": "关闭屏幕截图",
+      "splash": "关闭简介面板",
+      "cluster": "浏览要素"
+    }
+  },
+  "export": {
+    "results": "结果",
+    "resultsAndMap": "结果和地图",
+    "tip": "打印或另存为 PDF"
+  },
+  "mapScroll": {
+    "enableMessage": "启用地图滚动",
+    "disableMessage": "禁用地图滚动"
+  },
+  "generalShortcuts": {
+    "menu": "快捷方式菜单",
+    "shortcut": "快捷方式",
+    "action": "操作",
+    "title": "选择地图",
+    "label": "键盘快捷键"
+  },
+  "shortcutsMapView": {
+    "arrowKeys": "方向键",
+    "nudge": "向左、向右、向上或向下微移",
+    "N": "调整以指向北方",
+    "A": "逆时针旋转",
+    "D": "顺时针旋转",
+    "plus": "在中心位置放大",
+    "minus": "在中心位置缩小"
+  },
+  "shortcutsSceneView": {
+    "P": "移动照相机，使其垂直于地图中显示的数据",
+    "N": "调整地图以指向北方",
+    "W": "向上倾斜照相机",
+    "A": "逆时针旋转照相机",
+    "D": "顺时针旋转照相机",
+    "S": "向下倾斜照相机",
+    "globalCommands": {
+      "J": "沿靠近地图的方向下移",
+      "U": "沿远离地图的方向上移"
+    }
+  }
+}

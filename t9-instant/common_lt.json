@@ -1,0 +1,85 @@
+{
+  "copyClipboard": "Kopijuoti į iškarpinę",
+  "error": "Klaida",
+  "close": "Uždaryti",
+  "clear": "Valyti",
+  "expand": "Išskleisti",
+  "collapse": "Suskleisti",
+  "originError": {
+    "message": "Aplikacija, kurią bandote pasiekti, nėra pasiekiama naudojant jūsų nurodytą URL",
+    "close": "Uždaryti",
+    "options": "Papildomi nustatymai",
+    "linkMessage": "Tęsti pereinant į"
+  },
+  "licenseError": {
+    "message": "Jūsų paskyra nelicencijuota naudoti ne viešas konfigūruojamas aplikacijas. Kreipkitės į organizacijos administratorių, kad paskirtų jums naudotojo tipą, kuris turi svarbiausias aplikacijas arba suteiktų jums papildomą svarbiausių aplikacijų licenciją.",
+    "title": "Nelicencijuota"
+  },
+  "analyticsOptIn": "Sutikti",
+  "tools": {
+    "export": "Eksportuoti į PDF",
+    "legend": "Atidaryti legendą",
+    "layerList": "Atidaryti sluoksnių sąrašą",
+    "search": "Atidaryti paiešką",
+    "print": "Atidaryti spausdinimą",
+    "bookmarks": "Atidaryti žymes",
+    "time": "Atidaryti laiką",
+    "overviewMap": "Atidaryti žemėlapio apžvalgą",
+    "elevationProfile": "Atidaryti aukščių profilį",
+    "table": "Atidaryti lentelę",
+    "screenshot": "Atidaryti ekrano vaizdą",
+    "splash": "Atidaryti įvado skydelį",
+    "hoverPopupTip": "Norėdami padėti smeigtuką, spustelėkite žemėlapyje",
+    "close": {
+      "legend": "Uždaryti legendą",
+      "layerList": "Uždaryti sluoksnių sąrašą",
+      "search": "Uždaryti paiešką",
+      "print": "Uždaryti spausdinimą",
+      "bookmarks": "Uždaryti žymes",
+      "time": "Uždaryti laiką",
+      "overviewMap": "Uždaryti žemėlapio apžvalgą",
+      "elevationProfile": "Uždaryti aukščių profilį",
+      "table": "Uždaryti lentelę",
+      "screenshot": "Uždaryti ekrano vaizdą",
+      "splash": "Uždaryti įvado skydelį",
+      "cluster": "Naršyti elementus"
+    }
+  },
+  "export": {
+    "results": "Rezultatai",
+    "resultsAndMap": "Rezultatai ir žemėlapis",
+    "tip": "Spausdinti arba įrašyti kaip PDF"
+  },
+  "mapScroll": {
+    "enableMessage": "Įjungti žemėlapio slinkimą",
+    "disableMessage": "Išjungti žemėlapio slinkimą"
+  },
+  "generalShortcuts": {
+    "menu": "sparčiųjų klavišų meniu",
+    "shortcut": "Spartieji klavišai",
+    "action": "Veiksmas",
+    "title": "Pasirinkti žemėlapį",
+    "label": "Spartieji klavišai"
+  },
+  "shortcutsMapView": {
+    "arrowKeys": "Rodyklių mygtukai",
+    "nudge": "Stumtelėti kairėn, dešnėn, aukštyn arba žemyn",
+    "N": "Pakoreguoti, kad būtų nukreipta į šiaurę",
+    "A": "Pasukti prieš laikrodžio rodyklę",
+    "D": "Pasukti pagal laikrodžio rodyklę",
+    "plus": "Pritraukti prie centro",
+    "minus": "Atitraukti nuo centro"
+  },
+  "shortcutsSceneView": {
+    "P": "Perkelkite fotoaparatą, kad jis būtų rodomas statmenai žemėlapyje rodomų duomenų atžvilgiu",
+    "N": "Pakoreguoti žemėlapį, kad būtų nukreiptas į šiaurę",
+    "W": "Pakreipti fotoaparatą į viršų",
+    "A": "Pasukti fotoaparatą prieš laikrodžio rodyklę",
+    "D": "Pasukti fotoaparatą pagal laikrodžio rodyklę",
+    "S": "Pakreipti fotoaparatą į apačią",
+    "globalCommands": {
+      "J": "Nuleisti žemyn, arčiau prie žemėlapio",
+      "U": "Pakelti aukštyn, aukščiau nuo žemėlapio"
+    }
+  }
+}

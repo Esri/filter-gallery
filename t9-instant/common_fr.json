@@ -1,0 +1,85 @@
+{
+  "copyClipboard": "Copier vers le Presse-papiers",
+  "error": "Erreur",
+  "close": "Fermer",
+  "clear": "Effacer",
+  "expand": "Développer",
+  "collapse": "Réduire",
+  "originError": {
+    "message": "L’application à laquelle vous essayez d’accéder n’est pas disponible à l’URL que vous avez indiquée",
+    "close": "Fermer",
+    "options": "Options avancées",
+    "linkMessage": "Poursuivre vers"
+  },
+  "licenseError": {
+    "message": "La licence de votre compte ne permet pas d’utiliser des applications configurables non publiques. Demandez à l’administrateur de votre organisation de vous attribuer un type d’utilisateur qui inclut une licence Essential Apps ou une licence Essential Apps additionnelle.",
+    "title": "Pas de licence"
+  },
+  "analyticsOptIn": "Accepter",
+  "tools": {
+    "export": "Exporter au format PDF",
+    "legend": "Ouvrir Légende",
+    "layerList": "Ouvrir Liste des couches",
+    "search": "Ouvrir Rechercher",
+    "print": "Ouvrir Imprimer",
+    "bookmarks": "Ouvrir Géosignets",
+    "time": "Ouvrir Temps",
+    "overviewMap": "Ouvrir Carte globale",
+    "elevationProfile": "Ouvrir Profil d’élévation",
+    "table": "Ouvrir Table",
+    "screenshot": "Ouvrir Capture d’écran",
+    "splash": "Ouvrir Volet de présentation",
+    "hoverPopupTip": "Cliquer sur la carte pour ajouter une épingle",
+    "close": {
+      "legend": "Fermer Légende",
+      "layerList": "Fermer Liste des couches",
+      "search": "Fermer Rechercher",
+      "print": "Fermer Imprimer",
+      "bookmarks": "Fermer Géosignets",
+      "time": "Fermer Temps",
+      "overviewMap": "Fermer Carte globale",
+      "elevationProfile": "Fermer Profil d’élévation",
+      "table": "Fermer Table",
+      "screenshot": "Fermer Capture d’écran",
+      "splash": "Fermer Volet de présentation",
+      "cluster": "Parcourir les entités"
+    }
+  },
+  "export": {
+    "results": "Résultats",
+    "resultsAndMap": "Résultats et carte",
+    "tip": "Imprimer ou enregistrer au format PDF"
+  },
+  "mapScroll": {
+    "enableMessage": "Activer le défilement de la carte",
+    "disableMessage": "Désactiver le défilement de la carte"
+  },
+  "generalShortcuts": {
+    "menu": "menu Raccourcis",
+    "shortcut": "Raccourci",
+    "action": "Action",
+    "title": "Sélectionner la carte",
+    "label": "Raccourcis clavier"
+  },
+  "shortcutsMapView": {
+    "arrowKeys": "Touches de direction",
+    "nudge": "Repositionner à gauche, à droite, en haut ou en bas",
+    "N": "Ajuster pour pointer vers le nord",
+    "A": "Rotation anti-horaire",
+    "D": "Rotation horaire",
+    "plus": "Zoom avant au centre",
+    "minus": "Zoom arrière au centre"
+  },
+  "shortcutsSceneView": {
+    "P": "Placer la caméra perpendiculairement aux données affichées dans la carte",
+    "N": "Ajuster la carte pour qu’elle pointe vers le nord",
+    "W": "Incliner la caméra vers le haut",
+    "A": "Rotation anti-horaire de la caméra",
+    "D": "Rotation horaire de la caméra",
+    "S": "Incliner la caméra vers le bas",
+    "globalCommands": {
+      "J": "Déplacer vers le bas en se rapprochant de la carte",
+      "U": "Déplacer vers le haut en s'éloignant de la carte"
+    }
+  }
+}

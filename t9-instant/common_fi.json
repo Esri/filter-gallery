@@ -1,0 +1,85 @@
+{
+  "copyClipboard": "Kopioi leikepöydälle",
+  "error": "Virhe",
+  "close": "Tallennettu",
+  "clear": "Tyhjennä",
+  "expand": "Laajenna",
+  "collapse": "Kutista",
+  "originError": {
+    "message": "Sovellus, jota yrität käyttää, ei ole peräisin määrittämästäsi URL-osoitteesta",
+    "close": "Tallennettu",
+    "options": "Lisäasetukset",
+    "linkMessage": "Jatka kohteeseen"
+  },
+  "licenseError": {
+    "message": "Tiliäsi ei ole lisensoitu käyttämään muunneltavissa olevia sovelluksia, jotka eivät ole julkisia. Pyydä organisaatiosi pääkäyttäjää määrittämään sinulle käyttäjätyyppi, joka sisältää keskeiset sovellukset tai keskeisten sovellusten lisäosan lisenssin.",
+    "title": "Ei lisenssiä"
+  },
+  "analyticsOptIn": "Valitse",
+  "tools": {
+    "export": "Vie PDF-muotoon",
+    "legend": "Avaa selite",
+    "layerList": "Avaa karttatasoluettelo",
+    "search": "Avaa haku",
+    "print": "Avaa tulostus",
+    "bookmarks": "Avaa kirjanmerkit",
+    "time": "Avaa aika",
+    "overviewMap": "Avaa yleiskatsauskartta",
+    "elevationProfile": "Avaa korkeusprofiili",
+    "table": "Avaa taulukko",
+    "screenshot": "Avaa näyttökuva",
+    "splash": "Avaa johdantoruutu",
+    "hoverPopupTip": "Kiinnitä napsauttamalla karttaa",
+    "close": {
+      "legend": "Sulje selite",
+      "layerList": "Sulje karttatasoluettelo",
+      "search": "Sulje haku",
+      "print": "Sulje tulostus",
+      "bookmarks": "Sulje kirjanmerkit",
+      "time": "Sulje aika",
+      "overviewMap": "Sulje yleiskatsauskartta",
+      "elevationProfile": "Sulje korkeusprofiili",
+      "table": "Sulje taulu",
+      "screenshot": "Sulje näyttökuva",
+      "splash": "Sulje Johdanto-ruutu",
+      "cluster": "Selaa kohteita"
+    }
+  },
+  "export": {
+    "results": "Tulokset",
+    "resultsAndMap": "Tulokset ja kartta",
+    "tip": "Tulosta tai tallenna PDF-tiedostona"
+  },
+  "mapScroll": {
+    "enableMessage": "Ota kartan vieritys käyttöön",
+    "disableMessage": "Poista kartan vieritys käytöstä"
+  },
+  "generalShortcuts": {
+    "menu": "pikavalikko",
+    "shortcut": "Pikavalinta",
+    "action": "Toiminto",
+    "title": "Valitse kartta",
+    "label": "Pikanäppäimet"
+  },
+  "shortcutsMapView": {
+    "arrowKeys": "Nuolinäppäimet",
+    "nudge": "Säädä vasemmalle, oikealle, ylös tai alas",
+    "N": "Säädä osoittamaan pohjoiseen",
+    "A": "Kierrä vastapäivään",
+    "D": "Kierrä myötäpäivään",
+    "plus": "Tarkenna keskikohtaan",
+    "minus": "Loitonna keskikohdasta"
+  },
+  "shortcutsSceneView": {
+    "P": "Siirrä kameraa siten, että se on kohtisuorassa kartassa näytettävään aineistoon nähden",
+    "N": "Säädä kartta osoittamaan pohjoiseen",
+    "W": "Kallista kameraa ylöspäin",
+    "A": "Kierrä kameraa vastapäivään",
+    "D": "Kierrä kameraa myötäpäivään",
+    "S": "Kallista kameraa alaspäin",
+    "globalCommands": {
+      "J": "Siirrä alaspäin lähemmäs karttaa",
+      "U": "Siirrä ylöspäin etäämmälle kartasta"
+    }
+  }
+}

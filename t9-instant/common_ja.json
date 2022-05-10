@@ -1,0 +1,85 @@
+{
+  "copyClipboard": "クリップボードにコピー",
+  "error": "エラー",
+  "close": "閉じる",
+  "clear": "解除",
+  "expand": "展開",
+  "collapse": "折りたたむ",
+  "originError": {
+    "message": "アクセスしようとしているアプリケーションは、指定した URL からのものではありません。",
+    "close": "閉じる",
+    "options": "高度なオプション",
+    "linkMessage": "進む"
+  },
+  "licenseError": {
+    "message": "パブリックでないテンプレートを使用するためのライセンスがアカウントに付与されていません。 組織の管理者に Essential Apps またはアドオン Essential Apps ライセンスを含むユーザー タイプを割り当てるよう依頼してください。",
+    "title": "ライセンスがありません。"
+  },
+  "analyticsOptIn": "オプト イン",
+  "tools": {
+    "export": "PDF にエクスポート",
+    "legend": "凡例を開く",
+    "layerList": "レイヤー リストを開く",
+    "search": "検索を開く",
+    "print": "印刷を開く",
+    "bookmarks": "ブックマークを開く",
+    "time": "時間を開く",
+    "overviewMap": "概観図を開く",
+    "elevationProfile": "標高断面を開く",
+    "table": "テーブルを開く",
+    "screenshot": "スクリーンショットを開く",
+    "splash": "概要パネルを開く",
+    "hoverPopupTip": "マップをクリックしてピンを置く",
+    "close": {
+      "legend": "凡例を閉じる",
+      "layerList": "レイヤー リストを閉じる",
+      "search": "検索を閉じる",
+      "print": "印刷を閉じる",
+      "bookmarks": "ブックマークを閉じる",
+      "time": "時間を閉じる",
+      "overviewMap": "概観図を閉じる",
+      "elevationProfile": "標高断面を閉じる",
+      "table": "テーブルを閉じる",
+      "screenshot": "スクリーンショットを閉じる",
+      "splash": "概要パネルを閉じる",
+      "cluster": "フィーチャの参照"
+    }
+  },
+  "export": {
+    "results": "結果",
+    "resultsAndMap": "結果とマップ",
+    "tip": "PDF として印刷または保存"
+  },
+  "mapScroll": {
+    "enableMessage": "マップのスクロールの有効化",
+    "disableMessage": "マップのスクロールの無効化"
+  },
+  "generalShortcuts": {
+    "menu": "ショートカット メニュー",
+    "shortcut": "ショートカット",
+    "action": "操作",
+    "title": "マップの選択",
+    "label": "キーボード ショートカット"
+  },
+  "shortcutsMapView": {
+    "arrowKeys": "矢印キー",
+    "nudge": "上下左右に微調整",
+    "N": "北を指すよう調整",
+    "A": "反時計回りに回転",
+    "D": "時計回りに回転",
+    "plus": "中心にズーム イン",
+    "minus": "中心からズーム アウト"
+  },
+  "shortcutsSceneView": {
+    "P": "カメラを移動して、マップに表示されているデータに対して垂直にします",
+    "N": "マップが北を指すよう調整",
+    "W": "カメラを上に傾ける",
+    "A": "カメラを反時計回りに回転",
+    "D": "カメラを時計回りに回転",
+    "S": "カメラを下に傾ける",
+    "globalCommands": {
+      "J": "マップに向かって下に移動",
+      "U": "マップから上に移動"
+    }
+  }
+}

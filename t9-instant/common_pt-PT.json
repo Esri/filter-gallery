@@ -1,0 +1,85 @@
+{
+  "copyClipboard": "Copiar para a área de transferência",
+  "error": "Erro",
+  "close": "Fechar",
+  "clear": "Apagar",
+  "expand": "Expandir",
+  "collapse": "Recolher",
+  "originError": {
+    "message": "A aplicação a que está a tentar aceder não tem origem no URL facultado",
+    "close": "Fechar",
+    "options": "Opções avançadas",
+    "linkMessage": "Prossiga para"
+  },
+  "licenseError": {
+    "message": "A sua conta não está licenciada para usar aplicações configuráveis não públicas. Peça ao administrador da sua organização para lhe atribuir um tipo de utilizador que inclua a licença para aplicações essenciais ou aplicações essenciais complementares.",
+    "title": "Não licenciado"
+  },
+  "analyticsOptIn": "Optar por participar",
+  "tools": {
+    "export": "Exportar para PDF",
+    "legend": "Abrir legenda",
+    "layerList": "Abrir lista de camadas",
+    "search": "Abrir pesquisa",
+    "print": "Abrir impressão",
+    "bookmarks": "Abrir marcadores",
+    "time": "Abrir tempo",
+    "overviewMap": "Abrir mapa de overview",
+    "elevationProfile": "Abrir perfil de elevação",
+    "table": "Abrir tabela",
+    "screenshot": "Abrir captura de ecrã",
+    "splash": "Abrir painel de introdução",
+    "hoverPopupTip": "Clique no mapa para fixar",
+    "close": {
+      "legend": "Fechar legenda",
+      "layerList": "Fechar lista de camadas",
+      "search": "Fechar pesquisa",
+      "print": "Fechar impressão",
+      "bookmarks": "Fechar marcadores",
+      "time": "Fechar tempo",
+      "overviewMap": "Fechar o mapa overview",
+      "elevationProfile": "Fechar perfil de elevação",
+      "table": "Fechar tabela",
+      "screenshot": "Fechar captura de ecrã",
+      "splash": "Fechar painel de introdução",
+      "cluster": "Procurar elementos"
+    }
+  },
+  "export": {
+    "results": "Resultados",
+    "resultsAndMap": "Resultados e mapa",
+    "tip": "Imprimir ou guardar como PDF"
+  },
+  "mapScroll": {
+    "enableMessage": "Ativar scroll do mapa",
+    "disableMessage": "Desativar rolagem do mapa"
+  },
+  "generalShortcuts": {
+    "menu": "menu de atalhos",
+    "shortcut": "Atalho",
+    "action": "Ação",
+    "title": "Selecione o mapa",
+    "label": "Atalhos de teclado"
+  },
+  "shortcutsMapView": {
+    "arrowKeys": "Teclas de setas",
+    "nudge": "Deslocar para a esquerda, direita, para cima ou para baixo",
+    "N": "Ajustar para apontar para Norte",
+    "A": "Rodar no sentido inverso ao dos ponteiros do relógio",
+    "D": "Rodar no sentido dos ponteiros do relógio",
+    "plus": "Aumentar o zoom no centro",
+    "minus": "Reduzir o zoom no centro"
+  },
+  "shortcutsSceneView": {
+    "P": "Mover a câmara para ficar perpendicular aos dados exibidos no mapa",
+    "N": "Ajustar o mapa para apontar para Norte",
+    "W": "Inclinar a câmara para cima",
+    "A": "Rodar a câmara no sentido inverso ao dos ponteiros do relógio",
+    "D": "Rodar a câmara no sentido dos ponteiros do relógio",
+    "S": "Inclinar a câmara para baixo",
+    "globalCommands": {
+      "J": "Mover para baixo para perto do mapa",
+      "U": "Mover para cima para longe do mapa"
+    }
+  }
+}

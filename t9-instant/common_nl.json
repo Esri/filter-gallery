@@ -1,0 +1,85 @@
+{
+  "copyClipboard": "Kopiëren naar klembord",
+  "error": "Fout",
+  "close": "Sluiten",
+  "clear": "Annuleren",
+  "expand": "Uitklappen",
+  "collapse": "Inklappen",
+  "originError": {
+    "message": "De applicatie die u probeert te openen, is niet afkomstig van de URL die u hebt ingevoerd",
+    "close": "Sluiten",
+    "options": "Geavanceerde opties",
+    "linkMessage": "Ga door naar"
+  },
+  "licenseError": {
+    "message": "Uw account heeft geen licentie om configureerbare apps te gebruiken die niet openbaar zijn. Vraag uw organisatiebeheerder om u een gebruikerstype toe te wijzen dat Essential Apps of een add-on Essential Apps-licentie bevat.",
+    "title": "Geen licentie"
+  },
+  "analyticsOptIn": "Aanmelden",
+  "tools": {
+    "export": "Exporteren als PDF",
+    "legend": "Legenda openen",
+    "layerList": "Laaglijst openen",
+    "search": "Zoeken openen",
+    "print": "Afdruk openen",
+    "bookmarks": "Bladwijzers openen",
+    "time": "Tijd openen",
+    "overviewMap": "Overzichtskaart openen",
+    "elevationProfile": "Hoogteprofiel openen",
+    "table": "Tabel openen",
+    "screenshot": "Screenshot openen",
+    "splash": "Introductiepaneel openen",
+    "hoverPopupTip": "Klik op kaart om vast te spelden",
+    "close": {
+      "legend": "Legenda sluiten",
+      "layerList": "Laaglijst sluiten",
+      "search": "Zoekbalk sluiten",
+      "print": "Afdrukken sluiten",
+      "bookmarks": "Bladwijzers sluiten",
+      "time": "Tijd sluiten",
+      "overviewMap": "Overzichtskaart sluiten",
+      "elevationProfile": "Hoogteprofiel sluiten",
+      "table": "Tabel sluiten",
+      "screenshot": "Screenshot sluiten",
+      "splash": "Introductiepaneel sluiten",
+      "cluster": "Objecten bekijken"
+    }
+  },
+  "export": {
+    "results": "Resultaten",
+    "resultsAndMap": "Resultaten en kaart",
+    "tip": "Afdrukken of opslaan als pdf"
+  },
+  "mapScroll": {
+    "enableMessage": "Door kaart scrollen inschakelen",
+    "disableMessage": "Door kaart scrollen uitschakelen"
+  },
+  "generalShortcuts": {
+    "menu": "Menu sneltoetsen",
+    "shortcut": "Sneltoets",
+    "action": "Actie",
+    "title": "De kaart selecteren",
+    "label": "Sneltoetsen"
+  },
+  "shortcutsMapView": {
+    "arrowKeys": "Pijltjestoetsen",
+    "nudge": "Verplaats naar links, rechts, boven of beneden",
+    "N": "Zet richting het noorden",
+    "A": "Linksom draaien",
+    "D": "Rechtsom draaien",
+    "plus": "Inzoomen op het midden",
+    "minus": "Uitzoomen op het midden"
+  },
+  "shortcutsSceneView": {
+    "P": "Beweeg de camera zodat deze loodrecht op de gegevens op de kaart staat",
+    "N": "Zet de kaart richting het noorden",
+    "W": "Kantel de camera omhoog",
+    "A": "Draai de camera linksom",
+    "D": "Draai de camera rechtsom",
+    "S": "Kantel de camera omlaag",
+    "globalCommands": {
+      "J": "Naar beneden verplaatsen dichter bij de kaart",
+      "U": "Naar boven verplaatsen verder van de kaart"
+    }
+  }
+}

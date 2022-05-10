@@ -1,0 +1,85 @@
+{
+  "copyClipboard": "Copia negli appunti",
+  "error": "Errore",
+  "close": "Chiudi",
+  "clear": "Cancellare",
+  "expand": "Espandi",
+  "collapse": "Comprimi",
+  "originError": {
+    "message": "L'applicazione a cui si sta tentando di accedere non ha origine dall'URL fornito",
+    "close": "Chiudi",
+    "options": "Opzioni avanzate",
+    "linkMessage": "Procedere a"
+  },
+  "licenseError": {
+    "message": "L’account non dispone della licenza per l’uso di app configurabili non pubbliche. È necessario richiedere all’amministratore dell'organizzazione l’assegnazione di un tipo di utente che includa le app essenziali o una licenza aggiuntiva per le app essenziali.",
+    "title": "Non Licenziato"
+  },
+  "analyticsOptIn": "Acconsentire esplicitamente",
+  "tools": {
+    "export": "Esporta in PDF",
+    "legend": "Apri legenda",
+    "layerList": "Apri elenco layer",
+    "search": "Apri ricerca",
+    "print": "Apri stampa",
+    "bookmarks": "Apri segnalibri",
+    "time": "Apri ora",
+    "overviewMap": "Apri mappa d'insieme",
+    "elevationProfile": "Apri profilo di elevazione",
+    "table": "Apri tabella",
+    "screenshot": "Apri screenshot",
+    "splash": "Aprire il pannello Introduzione",
+    "hoverPopupTip": "Clicca sulla mappa per fissare",
+    "close": {
+      "legend": "Chiudi legenda",
+      "layerList": "Chiudi elenco layer",
+      "search": "Chiudi ricerca",
+      "print": "Chiudi stampa",
+      "bookmarks": "Chiudi segnalibri",
+      "time": "Chiudi ora",
+      "overviewMap": "Chiudi mappa d'insieme",
+      "elevationProfile": "Chiudi profilo di elevazione",
+      "table": "Chiudi tabella",
+      "screenshot": "Chiudi screenshot",
+      "splash": "Chiudi pannello d'introduzione",
+      "cluster": "Browse feature"
+    }
+  },
+  "export": {
+    "results": "Risultati",
+    "resultsAndMap": "Risultati e mappa",
+    "tip": "Stampa o salva come PDF"
+  },
+  "mapScroll": {
+    "enableMessage": "Abilita lo scorrimento della mappa",
+    "disableMessage": "Disabilita lo scorrimento della mappa"
+  },
+  "generalShortcuts": {
+    "menu": "menu scorciatoie",
+    "shortcut": "Scorciatoia",
+    "action": "Azione",
+    "title": "Seleziona la mappa",
+    "label": "Tasti di scelta rapida"
+  },
+  "shortcutsMapView": {
+    "arrowKeys": "Tasti freccia",
+    "nudge": "Spingi a sinistra, a destra, in alto o in basso",
+    "N": "Regolare per puntare a nord",
+    "A": "Ruotare in senso antiorario",
+    "D": "Ruotare in senso orario",
+    "plus": "Zoom avanti al centro",
+    "minus": "Zoom indietro al centro"
+  },
+  "shortcutsSceneView": {
+    "P": "Sposta la telecamera per guardare perpendicolarmente ai dati visualizzati nella mappa",
+    "N": "Regola la mappa per puntare a nord",
+    "W": "Inclina la telecamera verso l'alto",
+    "A": "Ruota la telecamera in senso antiorario",
+    "D": "Ruota la telecamera in senso orario",
+    "S": "Inclina la telecamera verso il basso",
+    "globalCommands": {
+      "J": "Avvicinati alla mappa",
+      "U": "Sali più in alto nella mappa"
+    }
+  }
+}

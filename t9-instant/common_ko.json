@@ -1,0 +1,85 @@
+{
+  "copyClipboard": "클립보드에 복사",
+  "error": "오류",
+  "close": "닫기",
+  "clear": "지우기",
+  "expand": "확장",
+  "collapse": "축소",
+  "originError": {
+    "message": "접근하려는 응용프로그램이 제공한 URL에서 생성되지 않았습니다.",
+    "close": "닫기",
+    "options": "고급 옵션",
+    "linkMessage": "다음으로 계속 진행"
+  },
+  "licenseError": {
+    "message": "귀하의 계정에는 공개 상태가 아닌 구성 설정 앱을 사용할 수 있는 라이선스가 없습니다. 필수 앱 또는 애드온 필수 앱 라이선스가 포함된 사용자 유형을 업무 지시하려면 기관 관리자에게 문의하세요.",
+    "title": "라이선스가 없음"
+  },
+  "analyticsOptIn": "동의",
+  "tools": {
+    "export": "PDF로 내보내기",
+    "legend": "범례 열기",
+    "layerList": "레이어 목록 열기",
+    "search": "검색 열기",
+    "print": "인쇄 열기",
+    "bookmarks": "북마크 열기",
+    "time": "시간 열기",
+    "overviewMap": "오버뷰 맵 열기",
+    "elevationProfile": "고도 프로파일 열기",
+    "table": "테이블 열기",
+    "screenshot": "스크린샷 열기",
+    "splash": "소개 패널 열기",
+    "hoverPopupTip": "고정할 맵 클릭하기",
+    "close": {
+      "legend": "범례 닫기",
+      "layerList": "레이어 목록 닫기",
+      "search": "검색 닫기",
+      "print": "인쇄 닫기",
+      "bookmarks": "북마크 닫기",
+      "time": "시간 닫기",
+      "overviewMap": "오버뷰 맵 닫기",
+      "elevationProfile": "고도 프로파일 닫기",
+      "table": "테이블 닫기",
+      "screenshot": "스크린샷 닫기",
+      "splash": "소개 패널 닫기",
+      "cluster": "피처 찾아보기"
+    }
+  },
+  "export": {
+    "results": "결과",
+    "resultsAndMap": "결과 및 맵",
+    "tip": "PDF 형식으로 인쇄 또는 저장"
+  },
+  "mapScroll": {
+    "enableMessage": "맵 스크롤 활성화",
+    "disableMessage": "맵 스크롤 비활성화"
+  },
+  "generalShortcuts": {
+    "menu": "바로 가기 메뉴",
+    "shortcut": "바로 가기",
+    "action": "동작",
+    "title": "맵 선택",
+    "label": "키보드 단축키"
+  },
+  "shortcutsMapView": {
+    "arrowKeys": "화살표 키",
+    "nudge": "상하좌우로 조금 이동",
+    "N": "북쪽으로 조정",
+    "A": "반시계 방향 회전",
+    "D": "시계 방향 회전",
+    "plus": "중심에서 확대",
+    "minus": "중심에서 축소"
+  },
+  "shortcutsSceneView": {
+    "P": "맵에 표시된 데이터에 수직으로 보이도록 카메라 이동",
+    "N": "맵을 북쪽으로 조정",
+    "W": "카메라를 위로 기울이기",
+    "A": "반시계 방향으로 카메라 회전",
+    "D": "카메라를 시계 방향으로 회전",
+    "S": "카메라를 아래로 기울이기",
+    "globalCommands": {
+      "J": "맵에 더 가깝게 아래로 이동",
+      "U": "맵에서 더 멀리 위로 이동"
+    }
+  }
+}

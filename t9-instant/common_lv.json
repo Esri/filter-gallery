@@ -1,0 +1,85 @@
+{
+  "copyClipboard": "Kopēt starpliktuvē",
+  "error": "Kļūda",
+  "close": "Aizvērt",
+  "clear": "Notīrīt",
+  "expand": "Izvērst",
+  "collapse": "Sakļaut",
+  "originError": {
+    "message": "Lietotnei nevar piekļūt no jūsu norādītā vietrāža URL",
+    "close": "Aizvērt",
+    "options": "Papildus opcijas",
+    "linkMessage": "Turpināt ar"
+  },
+  "licenseError": {
+    "message": "Jūsu kontam nav licences, lai izmantotu konfigurējamās lietotnes, kas nav publiskas. Pieprasiet savas organizācijas administratoram piešķirt jums lietotāja veidu, kurā iekļauts lietotņu komplekts Essential Apps vai papildinājumlietotņu Essential Apps licence.",
+    "title": "Nav licences"
+  },
+  "analyticsOptIn": "Piekrist",
+  "tools": {
+    "export": "Eksportēt uz PDF",
+    "legend": "Atvērt apzīmējumus",
+    "layerList": "Atvērt slāņu sarakstu",
+    "search": "Atvērt meklēšanu",
+    "print": "Atvērt drukāšanu",
+    "bookmarks": "Atvērt grāmatzīmes",
+    "time": "Atvērt laiku",
+    "overviewMap": "Atvērt pārskata karti",
+    "elevationProfile": "Atvērt augstuma profilu",
+    "table": "Atvērt tabulu",
+    "screenshot": "Atvērt ekrānuzņēmumu",
+    "splash": "Atvērt ievadinformācijas paneli",
+    "hoverPopupTip": "Noklišķināt uz kartes, lai novietotu spraudīti",
+    "close": {
+      "legend": "Aizvērt apzīmējumus",
+      "layerList": "Aizvērt slāņu sarakstu",
+      "search": "Aizvērt meklēšanu",
+      "print": "Aizvērt printēšanu",
+      "bookmarks": "Aizvērt grāmatzīmes",
+      "time": "Aizvērt laiku",
+      "overviewMap": "Aizvērt pārskata karti",
+      "elevationProfile": "Aizvērt augstuma profilu",
+      "table": "Aizvērt tabulu",
+      "screenshot": "Aizvērt ekrānuzņēmumu",
+      "splash": "Aizvērt ievada paneli",
+      "cluster": "Pārlūkot elementus"
+    }
+  },
+  "export": {
+    "results": "Rezultāti",
+    "resultsAndMap": "Rezultāti un karte",
+    "tip": "Drukāt vai saglabāt kā PDF failu"
+  },
+  "mapScroll": {
+    "enableMessage": "Aktivizēt kartes ritināšanu",
+    "disableMessage": "Deaktivizēt kartes ritināšanu"
+  },
+  "generalShortcuts": {
+    "menu": "īsinājumikonu izvēlne",
+    "shortcut": "Īsinājumikona",
+    "action": "Darbība",
+    "title": "Atlasīt karti",
+    "label": "Īsinājumtaustiņi"
+  },
+  "shortcutsMapView": {
+    "arrowKeys": "Bulttaustiņi",
+    "nudge": "Pavirzīt pa kreisi, pa labi, uz augšu vai uz leju",
+    "N": "Pielāgot uz ziemeļiem",
+    "A": "Griezt pretēji pulksteņrādītāju kustības virzienam",
+    "D": "Griezt pulksteņrādītāju kustības virzienā",
+    "plus": "Tuvināt centrā",
+    "minus": "Tālināt no centra"
+  },
+  "shortcutsSceneView": {
+    "P": "Pārvietojiet kameru, lai skatītos perpendikulāri kartē redzamajiem datiem",
+    "N": "Pielāgot karti ziemeļu punktam",
+    "W": "Sasvērt kameru uz augšu",
+    "A": "Griezt kameru pretēji pulksteņrādītāju kustības virzienam",
+    "D": "Griezt kameru pulksteņrādītāju kustības virzienā",
+    "S": "Sasvērt kameru uz leju",
+    "globalCommands": {
+      "J": "Pārvietoties uz leju tuvāk kartei",
+      "U": "Pārvietoties augstāk no kartes"
+    }
+  }
+}

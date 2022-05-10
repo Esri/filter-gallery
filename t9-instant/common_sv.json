@@ -1,0 +1,85 @@
+{
+  "copyClipboard": "Kopiera till urklipp",
+  "error": "Fel",
+  "close": "Stäng",
+  "clear": "Avmarkera",
+  "expand": "Expandera",
+  "collapse": "Dölj",
+  "originError": {
+    "message": "Den applikation du försöker öppna hämtas inte från den URL du angav",
+    "close": "Stäng",
+    "options": "Avancerade alternativ",
+    "linkMessage": "Fortsätt till"
+  },
+  "licenseError": {
+    "message": "Ditt konto har ingen licens för att använda konfigurerbara appar som inte är tillgängliga för allmänheten. Be din organisations administratör att tilldela dig en användartyp som omfattar Essential Apps eller en tilläggslicens för Essential Apps.",
+    "title": "Inte licensierad"
+  },
+  "analyticsOptIn": "Anmäl dig",
+  "tools": {
+    "export": "Exportera till PDF",
+    "legend": "Öppna teckenförklaring",
+    "layerList": "Öppna lagerlista",
+    "search": "Öppna sökning",
+    "print": "Öppna utskrift",
+    "bookmarks": "Öppna bokmärken",
+    "time": "Öppna tid",
+    "overviewMap": "Öppna översiktskarta",
+    "elevationProfile": "Öppna profil för höjdkurva",
+    "table": "Öppna tabell",
+    "screenshot": "Öppna skärmbild",
+    "splash": "Öppna introduktionspanel",
+    "hoverPopupTip": "Klicka på kartan för att fästa",
+    "close": {
+      "legend": "Stäng teckenförklaring",
+      "layerList": "Stäng lagerlista",
+      "search": "Stäng sökning",
+      "print": "Stäng utskrift",
+      "bookmarks": "Stäng bokmärken",
+      "time": "Stäng tid",
+      "overviewMap": "Stäng översiktskarta",
+      "elevationProfile": "Stäng profil för höjdkurva",
+      "table": "Stäng tabell",
+      "screenshot": "Stäng skärmbild",
+      "splash": "Stäng introduktionspanel",
+      "cluster": "Bläddra genom geoobjekt"
+    }
+  },
+  "export": {
+    "results": "Resultat",
+    "resultsAndMap": "Resultat och karta",
+    "tip": "Skriv ut eller spara som PDF"
+  },
+  "mapScroll": {
+    "enableMessage": "Aktivera kartbläddring",
+    "disableMessage": "Inaktivera kartrullning"
+  },
+  "generalShortcuts": {
+    "menu": "genvägsmeny",
+    "shortcut": "Genväg",
+    "action": "Åtgärd",
+    "title": "Välj kartan",
+    "label": "Kortkommandon"
+  },
+  "shortcutsMapView": {
+    "arrowKeys": "Piltangenter",
+    "nudge": "Knuffa åt vänster, höger, uppåt eller nedåt",
+    "N": "Justera så att den pekar norrut",
+    "A": "Rotera moturs",
+    "D": "Rotera medurs",
+    "plus": "Zooma in i mitten",
+    "minus": "Zooma ut i mitten"
+  },
+  "shortcutsSceneView": {
+    "P": "Flytta kameran för en vinkelrät vy över data som visas i kartan",
+    "N": "Justera kartan så att den pekar norrut",
+    "W": "Luta kameran uppåt",
+    "A": "Rotera kameran moturs",
+    "D": "Rotera kameran medurs",
+    "S": "Luta kameran nedåt",
+    "globalCommands": {
+      "J": "Flytta ned närmare kartan",
+      "U": "Flytta upp högre än kartan"
+    }
+  }
+}

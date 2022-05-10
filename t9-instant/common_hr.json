@@ -1,0 +1,85 @@
+{
+  "copyClipboard": "Kopiraj u međuspremnik",
+  "error": "Pogreška",
+  "close": "Zatvori",
+  "clear": "Očisti",
+  "expand": "Proširi",
+  "collapse": "Sažmi",
+  "originError": {
+    "message": "Aplikacija kojoj pokušavate pristupiti ne potječe s URL-a koji ste naveli",
+    "close": "Zatvori",
+    "options": "Napredne opcije",
+    "linkMessage": "Nastavi do"
+  },
+  "licenseError": {
+    "message": "Vaš račun nije licenciran za upotrebu konfigurabilnih appova koji nisu javni. Obratite se administratoru svoje organizacije da vam dodijeli vrstu korisnika koja sadrži licencu za osnovne appove ili za dodatke za osnovne appove.",
+    "title": "Nema licence"
+  },
+  "analyticsOptIn": "Prijavi se",
+  "tools": {
+    "export": "Izvezi kao PDF",
+    "legend": "Otvori legendu",
+    "layerList": "Otvori popis slojeva",
+    "search": "Otvori pretraživanje",
+    "print": "Otvori ispis",
+    "bookmarks": "Otvori knjižne oznake",
+    "time": "Otvori vrijeme",
+    "overviewMap": "Otvori preglednu kartu",
+    "elevationProfile": "Otvori profil visine terena",
+    "table": "Otvori tablicu",
+    "screenshot": "Otvori snimku zaslona",
+    "splash": "Otvori uvodnu ploču",
+    "hoverPopupTip": "Klikni na kartu kako bi prikvačili",
+    "close": {
+      "legend": "Zatvori legendu",
+      "layerList": "Zatvori popis slojeva",
+      "search": "Zatvori pretraživanje",
+      "print": "Zatvori ispis",
+      "bookmarks": "Zatvori knjižne oznake",
+      "time": "Zatvori vrijeme",
+      "overviewMap": "Zatvori preglednu kartu",
+      "elevationProfile": "Zatvori profil visine terena",
+      "table": "Zatvori tablicu",
+      "screenshot": "Zatvori snimku zaslona",
+      "splash": "Zatvori uvodnu ploču",
+      "cluster": "Pregledaj geoobjekte"
+    }
+  },
+  "export": {
+    "results": "Rezultati",
+    "resultsAndMap": "Rezultati i karta",
+    "tip": "Ispiši ili spremi kao PDF"
+  },
+  "mapScroll": {
+    "enableMessage": "Omogući pomicanje po karti",
+    "disableMessage": "Onemogući listanje mape."
+  },
+  "generalShortcuts": {
+    "menu": "izbornik prečaca",
+    "shortcut": "Prečac",
+    "action": "Radnja",
+    "title": "Odaberi kartu",
+    "label": "Prečaci tipkovnice"
+  },
+  "shortcutsMapView": {
+    "arrowKeys": "Strelice",
+    "nudge": "Pogurni u lijevo, desno, prema gore ili dolje",
+    "N": "Podesi prema sjeveru",
+    "A": "Zakreni suprotno od smjera kazaljke na satu",
+    "D": "Zakreni u smjeru kazaljke na satu",
+    "plus": "Povećaj sredinu",
+    "minus": "Umanji sredinu"
+  },
+  "shortcutsSceneView": {
+    "P": "Pomakni kameru da izgleda okomito na podatke prikazane na karti",
+    "N": "Podesi kartu prema sjeveru",
+    "W": "Nagni kameru prema gore",
+    "A": "Zakreni kameru suprotno od smjera kazaljke na satu",
+    "D": "Zakreni kameru u smjeru kazaljke na satu",
+    "S": "Nagni kameru prema dolje",
+    "globalCommands": {
+      "J": "Pomakni dolje bliže karti",
+      "U": "Pomakni gore podalje od karte"
+    }
+  }
+}

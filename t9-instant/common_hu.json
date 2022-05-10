@@ -1,0 +1,85 @@
+{
+  "copyClipboard": "Másolás a vágólapra",
+  "error": "Hiba",
+  "close": "Bezárás",
+  "clear": "Törlés",
+  "expand": "Kibontás",
+  "collapse": "Összecsukás",
+  "originError": {
+    "message": "Az alkalmazás, amelyhez megpróbál hozzáférni, nem a megadott URL-ből eredeztethető.",
+    "close": "Bezárás",
+    "options": "Speciális beállítások",
+    "linkMessage": "Folytatás:"
+  },
+  "licenseError": {
+    "message": "Az Ön fiókjának licence nem terjed ki a nem nyilvános konfigurálható alkalmazásokra. Igényelje a szervezete adminisztrátorától, hogy rendeljen Önhöz olyan felhasználótípust, amely tartalmazza az alapvető alkalmazásokat, vagy egy kiegészítő alapvető alkalmazásokra vonatkozó licencet.",
+    "title": "Nincs licence"
+  },
+  "analyticsOptIn": "Jóváhagyás",
+  "tools": {
+    "export": "Exportálás .PDF-fájlként",
+    "legend": "Jelmagyarázat megnyitása",
+    "layerList": "Réteglista megnyitása",
+    "search": "Keresés megnyitása",
+    "print": "Nyomtatás megnyitása",
+    "bookmarks": "Könyvjelzők megnyitása",
+    "time": "Idő megnyitása",
+    "overviewMap": "Átnézeti térkép megnyitása",
+    "elevationProfile": "Magasságprofil megnyitása",
+    "table": "Tábla megnyitása",
+    "screenshot": "Képernyőkép megnyitása",
+    "splash": "Bevezetés panel megnyitása",
+    "hoverPopupTip": "Térképtű hozzáadásához kattintson a térképre",
+    "close": {
+      "legend": "Jelmagyarázat bezárása",
+      "layerList": "Réteglista bezárása",
+      "search": "Keresés bezárása",
+      "print": "Nyomtatás bezárása",
+      "bookmarks": "Könyvjelzők bezárása",
+      "time": "Idő bezárása",
+      "overviewMap": "Átnézeti térkép bezárása",
+      "elevationProfile": "Magasságprofil bezárása",
+      "table": "Táblázat bezárása",
+      "screenshot": "Képernyőkép bezárása",
+      "splash": "Bevezetés panel bezárása",
+      "cluster": "Vektoros elemek böngészése"
+    }
+  },
+  "export": {
+    "results": "Eredmények",
+    "resultsAndMap": "Eredmények és térkép",
+    "tip": "Nyomtatás vagy mentés PDF-ként"
+  },
+  "mapScroll": {
+    "enableMessage": "Térkép görgetésének engedélyezése",
+    "disableMessage": "Térkép görgetésének letiltása"
+  },
+  "generalShortcuts": {
+    "menu": "gyosbillentyűk menü",
+    "shortcut": "Gyorsbillentyű",
+    "action": "Művelet",
+    "title": "Válassza ki a térképet",
+    "label": "Gyorsbillentyű kombinációk"
+  },
+  "shortcutsMapView": {
+    "arrowKeys": "Navigációs billentyűk",
+    "nudge": "Balra, jobbra, felfelé vagy lefelé történő elmozdítás",
+    "N": "Beállítás észak felé",
+    "A": "Forgatás az óramutató járásával ellentétes irányba",
+    "D": "Forgatás az óramutató járásával megegyező irányba",
+    "plus": "Nagyítás középre",
+    "minus": "Kicsinyítés középre"
+  },
+  "shortcutsSceneView": {
+    "P": "Mozgassa a kamerát úgy, hogy merőlegesen nézzen a térképen megjelenített adatokra.",
+    "N": "Térkép beállítása észak felé",
+    "W": "Kamera billentése felfelé",
+    "A": "Kamera forgatása az óramutató járásával ellentétes irányba",
+    "D": "Kamera forgatása az óramutató járásával megegyező irányba",
+    "S": "Kamera billentése lefelé",
+    "globalCommands": {
+      "J": "Mozgatás le, a térképhez közelebb",
+      "U": "Mozgatás fel, a térképtől távolabb"
+    }
+  }
+}
