@@ -1,0 +1,85 @@
+{
+  "copyClipboard": "Salin ke Clipboard",
+  "error": "Kesalahan",
+  "close": "Tutup",
+  "clear": "Hapus",
+  "expand": "Bentang",
+  "collapse": "Tutup",
+  "originError": {
+    "message": "Aplikasi yang hendak Anda akses tidak berasal dari URL yang Anda berikan",
+    "close": "Tutup",
+    "options": "Opsi lanjutan",
+    "linkMessage": "Lanjut ke"
+  },
+  "licenseError": {
+    "message": "Akun Anda tidak dilisensikan untuk menggunakan Aplikasi yang Dapat Dikonfigurasi yang bukan bersifat publik. Harap minta administrator organisasi Anda untuk menetapkan Anda jenis pengguna yang menyertakan lisensi Essential App atau add-on Essential App.",
+    "title": "Tidak Dilisensikan"
+  },
+  "analyticsOptIn": "Ikut Serta",
+  "tools": {
+    "export": "Ekspor ke PDF",
+    "legend": "Buka legenda",
+    "layerList": "Buka daftar layer",
+    "search": "Buka pencarian",
+    "print": "Buka cetakan",
+    "bookmarks": "Buka penanda lokasi",
+    "time": "Buka waktu",
+    "overviewMap": "Buka peta ikhtisar",
+    "elevationProfile": "Buka profil elevasi",
+    "table": "Buka tabel",
+    "screenshot": "Buka tangkapan layar",
+    "splash": "Buka panel pendahuluan",
+    "hoverPopupTip": "Klik peta untuk memasang pin",
+    "close": {
+      "legend": "Tutup legenda",
+      "layerList": "Tutup daftar layer",
+      "search": "Tutup pencarian",
+      "print": "Tutup cetakan",
+      "bookmarks": "Tutup penanda lokasi",
+      "time": "Tutup waktu",
+      "overviewMap": "Tutup peta ikhtisar",
+      "elevationProfile": "Tutup profil elevasi",
+      "table": "Tutup tabel",
+      "screenshot": "Tutup tangkapan layar",
+      "splash": "Tutup panel pendahuluan",
+      "cluster": "Telusuri fitur"
+    }
+  },
+  "export": {
+    "results": "Hasil",
+    "resultsAndMap": "Hasil dan peta",
+    "tip": "Cetak atau simpan sebagai PDF"
+  },
+  "mapScroll": {
+    "enableMessage": "Aktifkan gulir peta",
+    "disableMessage": "Nonaktifkan gulir peta"
+  },
+  "generalShortcuts": {
+    "menu": "menu pintasan",
+    "shortcut": "Pintasan",
+    "action": "Tindakan",
+    "title": "Pilih peta",
+    "label": "Pintasan keyboard"
+  },
+  "shortcutsMapView": {
+    "arrowKeys": "Tombol panah",
+    "nudge": "Geser ke kiri, kanan, atas, atau bawah",
+    "N": "Sesuaikan untuk menunjuk arah utara",
+    "A": "Putar berlawanan arah jarum jam",
+    "D": "Putar searah jarum jam",
+    "plus": "Perbesar di pusat",
+    "minus": "Perkecil di pusat"
+  },
+  "shortcutsSceneView": {
+    "P": "Gerakkan kamera agar terlihat tegak lurus dengan data yang ditampilkan di peta",
+    "N": "Sesuaikan peta untuk menunjuk arah utara",
+    "W": "Miringkan kamera ke atas",
+    "A": "Putar kamera berlawanan arah jarum jam",
+    "D": "Putar kamera searah jarum jam",
+    "S": "Miringkan kamera ke bawah",
+    "globalCommands": {
+      "J": "Geser lebih dekat ke peta",
+      "U": "Geser lebih tinggi dari peta"
+    }
+  }
+}

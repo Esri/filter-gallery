@@ -39,8 +39,8 @@ export function subtreeFromPath(tree: Tree, path: string[]) {
  * @param tree - Tree to prune
  * @param include - Included values
  */
-export function treePrune(tree: Tree, include: string[]) {
-    return genericPrune<Tree, "value">("children", "value", tree, include);
+export function treePrune(tree: Tree, include: string[], includeChildren: boolean = false) {
+    return genericPrune<Tree, "value">("children", "value", tree, include, includeChildren);
 }
 
 /**
@@ -152,7 +152,7 @@ export function genericSubtreeFromPath<T, K extends keyof T>(childProp: keyof T,
  * @param tree - Tree to return subtree from
  * @param include - Array of values to include in the pruned tree
  */
-export function genericPrune<T, K extends keyof T>(childProp: keyof T, valueProp: K, tree: T, include: T[K][]): T {
+export function genericPrune<T, K extends keyof T>(childProp: keyof T, valueProp: K, tree: T, include: T[K][], includeChildren: boolean): T {
     const t = tree as any;
     const children = tree[childProp] as any as T[];
     if (!children || children.length === 0) {
@@ -164,11 +164,15 @@ export function genericPrune<T, K extends keyof T>(childProp: keyof T, valueProp
         ...t,
         [childProp]: children.reduce((result: T[], current: T) => {
             if (include.indexOf(current[valueProp]) !== -1) {
-                result.push(genericPrune(childProp, valueProp, current, include));
+                if (includeChildren) {
+                    result.push(current);
+                } else {
+                    result.push(genericPrune(childProp, valueProp, current, include, includeChildren));
+                }
             } else if (current[childProp]) {
                 let childs = (current[childProp] as any as T[]).reduce((result: T[], current: T)=> {
                     if (include.indexOf(current[valueProp]) !== -1) {
-                        result.push(genericPrune(childProp, valueProp, current, include));
+                        result.push(genericPrune(childProp, valueProp, current, include, includeChildren));
                     }
                     return result;
                 }, []);

@@ -1,0 +1,85 @@
+{
+  "copyClipboard": "Copiere în clipboard",
+  "error": "Eroare",
+  "close": "Închidere",
+  "clear": "Golire",
+  "expand": "Extindere",
+  "collapse": "Restrângere",
+  "originError": {
+    "message": "Aplicația pe care încercați să o accesați nu are originea în URL-ul pus la dispoziție de dvs.",
+    "close": "Închidere",
+    "options": "Opţiuni avansate",
+    "linkMessage": "Continuați la"
+  },
+  "licenseError": {
+    "message": "Contul dvs. nu este licențiat să utilizeze aplicații configurabile care nu sunt publice. Solicitați-i administratorului organizației să vă aloce un tip de utilizator care include aplicații esențiale sau o licență pentru aplicații esențiale de completare.",
+    "title": "Nelicențiat"
+  },
+  "analyticsOptIn": "Înscrieți-vă",
+  "tools": {
+    "export": "Export în PDF",
+    "legend": "Deschidere legendă",
+    "layerList": "Deschidere listă de straturi tematice",
+    "search": "Deschidere căutare",
+    "print": "Deschidere imprimare",
+    "bookmarks": "Deschidere semne de carte",
+    "time": "Deschidere oră",
+    "overviewMap": "Deschidere hartă prezentare generală",
+    "elevationProfile": "Deschidere profil elevație",
+    "table": "Deschidere tabel",
+    "screenshot": "Deschidere captură de ecran",
+    "splash": "Deschideți panoul de introducere",
+    "hoverPopupTip": "Faceți clic pe hartă pentru a fixa",
+    "close": {
+      "legend": "Închidere legendă",
+      "layerList": "Închidere listă de straturi tematice",
+      "search": "Închidere căutare",
+      "print": "Închidere imprimare",
+      "bookmarks": "Închidere semne de carte",
+      "time": "Închidere oră",
+      "overviewMap": "Închidere hartă prezentare generală",
+      "elevationProfile": "Închidere profil elevație",
+      "table": "Închidere tabel",
+      "screenshot": "Închidere captură de ecran",
+      "splash": "Închidere panou de introducere",
+      "cluster": "Căutare obiecte spațiale"
+    }
+  },
+  "export": {
+    "results": "Rezultate",
+    "resultsAndMap": "Rezultate și hartă",
+    "tip": "Imprimați sau salvați ca PDF"
+  },
+  "mapScroll": {
+    "enableMessage": "Activare derulare hartă",
+    "disableMessage": "Dezactivare derulare hartă"
+  },
+  "generalShortcuts": {
+    "menu": "meniu de scurtături",
+    "shortcut": "Scurtătură",
+    "action": "Acțiune",
+    "title": "Selectați harta",
+    "label": "Scurtături pe tastatură"
+  },
+  "shortcutsMapView": {
+    "arrowKeys": "Taste săgeți",
+    "nudge": "Împingeți la stânga, la dreapta, sus sau jos",
+    "N": "Reglați la punctul nord",
+    "A": "Rotire în sens invers acelor de ceasornic",
+    "D": "Rotire în sensul acelor de ceasornic",
+    "plus": "Transfocați în centru",
+    "minus": "Îndepărtați de centru"
+  },
+  "shortcutsSceneView": {
+    "P": "Mutați camera pentru a privi perpendicular la datele afișate în hartă",
+    "N": "Reglați harta la punctul nord",
+    "W": "Înclinați camera în sus",
+    "A": "Rotiți camera în sens invers acelor de ceasornic",
+    "D": "Rotiți camera în sensu acelor de ceasornic",
+    "S": "Înclinați camera în jos",
+    "globalCommands": {
+      "J": "Mutați în jos mai aproape de hartă",
+      "U": "Mutați în sus mai departe de hartă"
+    }
+  }
+}

@@ -3,6 +3,14 @@ define({
   "appFailed": "Učitavanje aplikacije nije uspelo.",
   "noAuth": "Vaš nalog nema licencu za korišćenje aplikacija koje mogu da se konfigurišu i nisu javne. Zatražite od administratora organizacije da vam dodeli onaj tip korisnika koji uključuje osnovne aplikacije ili licencu za dodatne osnovne aplikacije.",
   "notLicensed": "Nema licencu",
+  "error": "Greška",
+  "originError": {
+    "message": "Aplikacija kojoj pokušavate da pristupite ne potiče sa URL adrese koju ste naveli",
+    "close": "Zatvori",
+    "options": "Napredne opcije",
+    "linkMessage": "Nastavi do"
+  },
+  "analyticsOptIn": "Prijavi se",
   "badges": {
     "authoritative": "Merodavno",
     "deleted": "Izbrisano",
@@ -50,7 +58,7 @@ define({
     },
     "sorting": {
       "sort": "Sortiraj",
-      "sortBy": "Sortiraj po",
+      "sortBy": "Sortiraj prema",
       "sortDir": "Smer sortiranja",
       "relevance": "Značaj",
       "title": "Naslov",
@@ -99,6 +107,8 @@ define({
         "webApps": "Veb aplikacije",
         "mobileApps": "Mobilne aplikacije",
         "desktopApps": "Desktop aplikacije",
+        "instantApps": "Instant Apps",
+        "storyMaps": "Story Maps",
         "tools": "Alatke",
         "locators": "Lokatori",
         "geodatabaseAccess": "Pristup geobazi",
@@ -147,7 +157,7 @@ define({
       "browse": "Pregledaj",
       "search": "Pretraži"
     },
-    "resultCount": "stavke:",
+    "resultCount": "Stavke:",
     "searchPlaceholders": {
       "generic": "Unesite pojmove za pretragu"
     },
@@ -157,7 +167,7 @@ define({
       "dateModified": "Izmenjeno",
       "dateCreated": "Kreirano",
       "access": "Deljeno",
-      "group": "Grupiši",
+      "group": "Grupa",
       "folder": "Fascikla",
       "status": "Status",
       "clearAll": "Obriši sve",
@@ -174,7 +184,7 @@ define({
       "details": "Opis",
       "termsOfUse": "Uslovi korišćenja",
       "attribution": "Krediti (pripisivanje)",
-      "noTermsOfUse": "Nisu data posebna ograničenja ili limitacije za korišćenje sadržaja stavke.",
+      "noTermsOfUse": "Nema specijalnih zabrana ili ograničenja za korišćenje sadržaja stavke.",
       "noAttribution": "Nema potvrda.",
       "noDescription": "Detaljan opis stavke nije dostupan.",
       "views": "Broj prikaza",
@@ -218,7 +228,7 @@ define({
     "remove": "Ukloni",
     "add": "Dodaj",
     "by": "autor",
-    "actions": "Radnje",
+    "actions": "Akcije",
     "viewOrg": "Poseti organizaciju",
     "viewProfile": "Prikaži korisnički profil",
     "viewItem": "Prikaži detalje stavke",
@@ -226,7 +236,28 @@ define({
     "created": "Kreirano",
     "updated": "Ažurirano",
     "viewCount": "Broj prikaza",
-    "rating": "Ocena"
+    "rating": "Ocena",
+    "itemType": {
+      "table": "Tabela",
+      "routeLayer": "Sloj rute",
+      "markup": "Naznaka",
+      "featureLayer": "Sloj geoobjekata",
+      "elevationLayer": "Sloj elevacije",
+      "imageryLayer": "Sloj snimaka",
+      "sceneLayer": "Sloj scene",
+      "sceneLayerPackage": "Paket sloja scene",
+      "locator": "Lokator",
+      "microsoftPowerPoint": "Microsoft PowerPoint",
+      "geoJSON": "GeoJSON",
+      "globeLayer": "Sloj globusa",
+      "tileLayer": "Sloj tajla",
+      "netCDF": "NetCDF",
+      "mapImageLayer": "Sloj snimaka mape",
+      "addIn": "Dodatak",
+      "bigDataFileShare": "Deljenje velikih datoteka",
+      "ogcFeatureLayer": "OGC sloj geoobjekta",
+      "instantApp": "Instant aplikacija"
+    }
   },
   "pager": {
     "previous": "Prethodno",
@@ -245,7 +276,7 @@ define({
     "open": "Otvori",
     "openDoc": "Otvori dokument",
     "openTab": "Otvori u novoj kartici",
-    "openViewer": "Č_Open in Map Viewer___________________ž",
+    "openViewer": "Otvori u Map Viewer",
     "addFavorite": "Dodaj u omiljeni sadržaj",
     "removeFavorite": "Ukloni iz omiljenog sadržaja"
   },
@@ -263,8 +294,9 @@ define({
     }
   },
   "share": {
-    "shareGallery": "Č_Share gallery______________ž",
-    "shareFiltered": "Č_Share filtered gallery_______________________ž",
-    "tooltip": "Č_URL copied to you clipboard____________________________ž"
+    "share": "Podeli",
+    "shareGallery": "Podeli galeriju",
+    "shareFiltered": "Podeli filtriranu galeriju",
+    "tooltip": "URL adresa je kopirana u ostavu"
   }
 });

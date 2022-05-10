@@ -1,0 +1,85 @@
+{
+  "copyClipboard": "Kopírovat do schránky",
+  "error": "Chyba",
+  "close": "Zavřít",
+  "clear": "Zrušit výběr",
+  "expand": "Rozbalit",
+  "collapse": "Sbalit",
+  "originError": {
+    "message": "Aplikace, ke které se snažíte získat přístup, nepochází z adresy URL, kterou jste zadali",
+    "close": "Zavřít",
+    "options": "Pokročilé možnosti",
+    "linkMessage": "Pokračujte na"
+  },
+  "licenseError": {
+    "message": "Váš účet nevlastní licenci k používání konfigurovatelných aplikací, které nejsou veřejné. Požádejte prosím správce své organizace, aby vám přidělil typ uživatele, jehož součástí jsou základní aplikace nebo doplňková licence základních aplikací.",
+    "title": "Chybí licence"
+  },
+  "analyticsOptIn": "Přihlaste se",
+  "tools": {
+    "export": "Exportovat do formátu PDF",
+    "legend": "Otevřít legendu",
+    "layerList": "Otevřít seznam vrstev",
+    "search": "Otevřít vyhledávání",
+    "print": "Otevřít tisk",
+    "bookmarks": "Otevřít záložky",
+    "time": "Otevřít čas",
+    "overviewMap": "Otevřít přehledovou mapu",
+    "elevationProfile": "Otevřít výškový profil",
+    "table": "Otevřít tabulku",
+    "screenshot": "Otevřít snímek obrazovky",
+    "splash": "Otevřít úvodní panel",
+    "hoverPopupTip": "Kliknutím mapu připnout",
+    "close": {
+      "legend": "Zavřít legendu",
+      "layerList": "Zavřít seznam vrstev",
+      "search": "Zavřít vyhledávání",
+      "print": "Zavřít tisk",
+      "bookmarks": "Zavřít záložky",
+      "time": "Zavřít čas",
+      "overviewMap": "Zavřít přehledovou mapu",
+      "elevationProfile": "Zavřít výškový profil",
+      "table": "Zavřít tabulku",
+      "screenshot": "Zavřít snímek obrazovky",
+      "splash": "Zavřít úvodní panel",
+      "cluster": "Procházet prvky"
+    }
+  },
+  "export": {
+    "results": "Výsledky",
+    "resultsAndMap": "Výsledky a mapa",
+    "tip": "Vytisknout nebo uložit jako PDF"
+  },
+  "mapScroll": {
+    "enableMessage": "Zapnout rolování mapy",
+    "disableMessage": "Vypnout rolování mapy"
+  },
+  "generalShortcuts": {
+    "menu": "nabídka zkratek",
+    "shortcut": "Zkratka",
+    "action": "Akce",
+    "title": "Vyberte mapu",
+    "label": "Klávesové zkratky"
+  },
+  "shortcutsMapView": {
+    "arrowKeys": "Klávesy šipek",
+    "nudge": "Posunutí doleva, doprava, nahoru nebo dolů",
+    "N": "Nasměrovat na sever",
+    "A": "Otáčení proti směru hodinových ručiček",
+    "D": "Otáčení ve směru hodinových ručiček",
+    "plus": "Přiblížení na střed",
+    "minus": "Oddálení od středu"
+  },
+  "shortcutsSceneView": {
+    "P": "Posuňte kameru tak, aby se dívala kolmo na data zobrazená na mapě.",
+    "N": "Upravte mapu tak, aby směřovala na sever",
+    "W": "Naklonění fotoaparátu nahoru",
+    "A": "Otáčení fotoaparátu proti směru hodinových ručiček",
+    "D": "Otáčení fotoaparátu ve směru hodinových ručiček",
+    "S": "Naklonění fotoaparátu dolů",
+    "globalCommands": {
+      "J": "Přesunout se blíže k mapě",
+      "U": "Přesunout se od mapy výš"
+    }
+  }
+}

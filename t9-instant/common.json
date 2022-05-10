@@ -1,0 +1,85 @@
+{
+  "copyClipboard": "Copy to clipboard",
+  "error": "Error",
+  "close": "Close",
+  "clear": "Clear",
+  "expand": "Expand",
+  "collapse": "Collapse",
+  "originError": {
+    "message": "The application you are trying to access does not originate from the URL you provided",
+    "close": "Close",
+    "options": "Advanced options",
+    "linkMessage": "Proceed to"
+  },
+  "licenseError": {
+    "message": "Your account is not licensed to use Configurable Apps that are not public. Please ask your organization administrator to assign you a user type that includes Essential Apps or an add-on Essential Apps license.",
+    "title": "Not Licensed"
+  },
+  "analyticsOptIn": "Opt in",
+  "tools": {
+    "export": "Export to PDF",
+    "legend": "Open legend",
+    "layerList": "Open layer list",
+    "search": "Open search",
+    "print": "Open print",
+    "bookmarks": "Open bookmarks",
+    "time": "Open time",
+    "overviewMap": "Open overview map",
+    "elevationProfile": "Open elevation profile",
+    "table": "Open table",
+    "screenshot": "Open screenshot",
+    "splash": "Open introduction panel",
+    "hoverPopupTip": "Click on map to pin",
+    "close": {
+      "legend": "Close legend",
+      "layerList": "Close layer list",
+      "search": "Close search",
+      "print": "Close print",
+      "bookmarks": "Close bookmarks",
+      "time": "Close time",
+      "overviewMap": "Close overview map",
+      "elevationProfile": "Close elevation profile",
+      "table": "Close table",
+      "screenshot": "Close screenshot",
+      "splash": "Close introduction panel",
+      "cluster": "Browse features"
+    }
+  },
+  "export": {
+    "results": "Results",
+    "resultsAndMap": "Results and map",
+    "tip": "Print or save as PDF"
+  },
+  "mapScroll": {
+    "enableMessage": "Enable map scroll",
+    "disableMessage": "Disable map scroll"
+  },
+  "generalShortcuts": {
+    "menu": "shortcuts menu",
+    "shortcut": "Shortcut",
+    "action": "Action",
+    "title": "Select the map",
+    "label": "Keyboard shortcuts"
+  },
+  "shortcutsMapView": {
+    "arrowKeys": "Arrow keys",
+    "nudge": "Nudge to left, right, up, or down",
+    "N": "Adjust to point north",
+    "A": "Rotate counterclockwise",
+    "D": "Rotate clockwise",
+    "plus": "Zoom in at the center",
+    "minus": "Zoom out at the center"
+  },
+  "shortcutsSceneView": {
+    "P": "Move the camera to look perpindicular to the data displayed in the map",
+    "N": "Adjust the map to point north",
+    "W": "Tilt camera up",
+    "A": "Rotate camera counterclockwise",
+    "D": "Rotate camera clockwise",
+    "S": "Tilt camera down",
+    "globalCommands": {
+      "J": "Move down closer to the map",
+      "U": "Move up higher from the map"
+    }
+  }
+}

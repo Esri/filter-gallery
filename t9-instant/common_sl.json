@@ -1,0 +1,85 @@
+{
+  "copyClipboard": "Kopiraj v odložišče",
+  "error": "Napaka",
+  "close": "Zapri",
+  "clear": "Počisti",
+  "expand": "Razširi",
+  "collapse": "Strni",
+  "originError": {
+    "message": "Aplikacija, do katere želite dostopati, ne izvira iz navedenega URL-ja",
+    "close": "Zapri",
+    "options": "Napredne možnosti",
+    "linkMessage": "Nadaljuj na"
+  },
+  "licenseError": {
+    "message": "Vaš račun ni licenciran za uporabo konfigurabilnih aplikacij, ki niso javne. Prosite administratorja v vaši organizaciji, da vam dodeli tip uporabnika, ki vsebuje aplikacije Essential Apps ali licenco za dodatne aplikacije Essential Apps.",
+    "title": "Brez licence"
+  },
+  "analyticsOptIn": "Privolitev",
+  "tools": {
+    "export": "Izvozi v PDF",
+    "legend": "Odpri legendo",
+    "layerList": "Odpri seznam slojev",
+    "search": "Odpri iskanje",
+    "print": "Odpri tiskanje",
+    "bookmarks": "Odpri zaznamke",
+    "time": "Odpri čas",
+    "overviewMap": "Odpri pregledno karto",
+    "elevationProfile": "Odpri višinski profil",
+    "table": "Odpri tabelo",
+    "screenshot": "Odpri posnetek zaslona",
+    "splash": "Odpri uvodno ploščo",
+    "hoverPopupTip": "Klikni na karto, da jo pripneš",
+    "close": {
+      "legend": "Zapri legendo",
+      "layerList": "Zapri seznam slojev",
+      "search": "Zapri iskanje",
+      "print": "Zapri tiskanje",
+      "bookmarks": "Zapri zaznamke",
+      "time": "Zapri čas",
+      "overviewMap": "Zapri pregledno karto",
+      "elevationProfile": "Zapri višinski profil",
+      "table": "Zapri tabelo",
+      "screenshot": "Zapri posnetek zaslona",
+      "splash": "Zapri uvodno ploščo",
+      "cluster": "Prebrskaj geoobjekte"
+    }
+  },
+  "export": {
+    "results": "Rezultati",
+    "resultsAndMap": "Rezultati in karta",
+    "tip": "Natisni ali shrani kot PDF"
+  },
+  "mapScroll": {
+    "enableMessage": "Omogoči drsenje po karti",
+    "disableMessage": "Omogoči drsenje po karti"
+  },
+  "generalShortcuts": {
+    "menu": "Meni z bližnjicami",
+    "shortcut": "Bližnjica",
+    "action": "Dejanje",
+    "title": "Izberi karto",
+    "label": "Bližnjice na tipkovnici"
+  },
+  "shortcutsMapView": {
+    "arrowKeys": "Smerne tipke",
+    "nudge": "Pomakni na levo, desno, gor ali dol",
+    "N": "Prilagodi, da kaže na sever",
+    "A": "Zasuči v nasprotni smeri urinega kazalca",
+    "D": "Zasuči v smeri urinega kazalca",
+    "plus": "Približaj na sredini",
+    "minus": "Oddalji na sredini"
+  },
+  "shortcutsSceneView": {
+    "P": "Premakni kamero. da gleda pravokotno na podatke, ki so prikazani na karti",
+    "N": "Prilagodi karto, da kaže na sever",
+    "W": "Nagni kamero navzgor",
+    "A": "Zasuči kamero v nasprotni smeri urinega kazalca",
+    "D": "Zasuči kamero v smeri urinega kazalca",
+    "S": "Nagni kamero navzdol",
+    "globalCommands": {
+      "J": "Premakni navzdol, bližje karti",
+      "U": "Premakni navzgor, višje od karte"
+    }
+  }
+}

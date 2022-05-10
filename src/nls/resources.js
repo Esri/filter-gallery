@@ -108,6 +108,8 @@ define({
                     webApps: "Web Apps", // arcgisonline.searchFilters.webApplications
                     mobileApps: "Mobile Apps", // arcgisonline.searchFilters.mobileApplications
                     desktopApps: "Desktop Apps", // arcgisonline.searchFilters.desktopApplications
+                    instantApps: "Instant Apps", 
+                    storyMaps: "Story Maps", 
                     tools: "Tools", // arcgisonline.searchFilters.tools
                     locators: "Locators", // arcgisonline.searchFilters.addressLocators
                     geodatabaseAccess: "Geodatabase Access", // arcgisonline.searchFilters.geodatabaseAccess
@@ -235,7 +237,28 @@ define({
             created: "Created",
             updated: "Updated",
             viewCount: "View Count",
-            rating: "Rating"
+            rating: "Rating",
+            itemType: {
+                table: "Table",
+                routeLayer: "Route Layer",
+                markup: "Markup",
+                featureLayer: "Feature Layer",
+                elevationLayer: "Elevation Layer",
+                imageryLayer: "Imagery Layer",
+                sceneLayer: "Scene Layer",
+                sceneLayerPackage: "Scene Layer Package",
+                locator: "Locator",
+                microsoftPowerPoint: "Microsoft PowerPoint",
+                geoJSON: "GeoJSON",
+                globeLayer: "Globe Layer",
+                tileLayer: "Tile Layer",
+                netCDF: "NetCDF",
+                mapImageLayer: "Map Image Layer",
+                addIn: "Add-In",
+                bigDataFileShare: "Big Data File Share",
+                ogcFeatureLayer: "OGC Feature Layer",
+                instantApp: "Instant App"
+            }
         },
         pager: {
             previous: "Previous",
@@ -272,12 +295,14 @@ define({
             }
         }, 
         share: {
+            share: "Share",
             shareGallery: "Share gallery",
             shareFiltered: "Share filtered gallery",
             tooltip: "URL copied to you clipboard"
         }
     }),
     "ar": 1,
+    "bg": 1,
     "bs": 1,
     "ca": 1,
     "cs": 1,

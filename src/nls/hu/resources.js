@@ -1,11 +1,19 @@
 define({
   "appInit": "Alkalmazás inicializálása...",
   "appFailed": "Nem sikerült betölteni az alkalmazást.",
-  "noAuth": "Az Ön fiókjának licence nem terjed ki a nem nyilvános konfigurálható alkalmazásokra. Igényelje a szervezete adminisztrátorától, hogy rendeljen Önhöz olyan felhasználótípust, amely tartalmazza az alapvető alkalmazásokat, vagy egy kiegészítő alapvető alkalmazásokra vonatkozó licencet.",
-  "notLicensed": "Nincs licence",
+  "noAuth": "Az Ön fiókjának licence nem terjed ki a nem publikus konfigurálható alkalmazásokra. Igényelje a szervezete adminisztrátorától, hogy rendeljen Önhöz olyan felhasználótípust, amely tartalmazza az alapvető alkalmazásokat, vagy a valamelyik kiegészítő alapvető alkalmazásra vonatkozó licencet.",
+  "notLicensed": "Nincs licencelve",
+  "error": "Hiba",
+  "originError": {
+    "message": "Az alkalmazás, amelyhez megpróbál hozzáférni, nem a megadott URL-ből eredeztethető.",
+    "close": "Bezárás",
+    "options": "Speciális beállítások",
+    "linkMessage": "Folytatás:"
+  },
+  "analyticsOptIn": "Jóváhagyás",
   "badges": {
-    "authoritative": "Mérvadó",
-    "deleted": "Törölt",
+    "authoritative": "Hiteles",
+    "deleted": "Törölve",
     "deprecated": "Elavult",
     "livingAtlas": "Living Atlas",
     "marketplace": "Marketplace",
@@ -34,10 +42,10 @@ define({
     "today": "Ma",
     "yesterday": "Tegnap",
     "last7Days": "Az elmúlt 7 nap",
-    "last30Days": "Az elmúlt 30 nap",
+    "last30Days": "Az elmúlt 30 napban",
     "custom": "Egyéni tartomány...",
     "from": "Kezdő dátum",
-    "to": "Végdátum"
+    "to": "Befejező dátum"
   },
   "dropdowns": {
     "clear": "Törlés",
@@ -46,7 +54,7 @@ define({
       "grid": "Rácsháló",
       "list": "Lista",
       "table": "Táblázat",
-      "view": "Megtekintés"
+      "view": "Nézet"
     },
     "sorting": {
       "sort": "Rendezés",
@@ -56,7 +64,7 @@ define({
       "title": "Cím",
       "owner": "Tulajdonos",
       "created": "Létrehozás dátuma",
-      "modified": "Módosítás dátuma",
+      "modified": "Dátum módosítva",
       "numviews": "Megtekintések száma",
       "avgrating": "Értékelés",
       "ascending": {
@@ -65,7 +73,7 @@ define({
         "owner": "Betűrend szerint",
         "created": "Legrégebbi",
         "modified": "Legrégebbi",
-        "numviews": "Előfordulás szerint növekvő",
+        "numviews": "Legkevesebbtől a legtöbbig",
         "avgrating": "Értékelés szerint növekvő"
       },
       "descending": {
@@ -74,7 +82,7 @@ define({
         "owner": "Betűrend szerint visszafelé",
         "created": "Legfrissebb",
         "modified": "Legfrissebb",
-        "numviews": "Előfordulás szerint csökkenő",
+        "numviews": "Legnagyobbtól a legkisebbig",
         "avgrating": "Értékelés szerint csökkenő"
       }
     }
@@ -99,6 +107,8 @@ define({
         "webApps": "Webes alkalmazások",
         "mobileApps": "Mobilalkalmazások",
         "desktopApps": "Asztali alkalmazások",
+        "instantApps": "Instant Apps",
+        "storyMaps": "Story Map térképek",
         "tools": "Eszközök",
         "locators": "Keresők",
         "geodatabaseAccess": "Geoadatbázis-hozzáférés",
@@ -115,7 +125,7 @@ define({
     },
     "date": {
       "dateCreated": "Létrehozás dátuma",
-      "dateModified": "Módosítás dátuma"
+      "dateModified": "Dátum módosítva"
     },
     "shared": {
       "shared": "Megosztva",
@@ -127,9 +137,9 @@ define({
       }
     },
     "status": {
-      "status": "Státusz",
+      "status": "Állapot",
       "options": {
-        "authoritative": "Mérvadó",
+        "authoritative": "Hiteles",
         "deprecated": "Elavult",
         "premium": "Prémium"
       }
@@ -147,7 +157,7 @@ define({
       "browse": "Tallózás",
       "search": "Keresés"
     },
-    "resultCount": "elemek:",
+    "resultCount": "Elemek:",
     "searchPlaceholders": {
       "generic": "Adjon meg keresőkifejezést"
     },
@@ -157,9 +167,9 @@ define({
       "dateModified": "Módosítva",
       "dateCreated": "Létrehozva",
       "access": "Megosztva",
-      "group": "Csoport",
+      "group": "Csoportosítás",
       "folder": "Mappa",
-      "status": "Státusz",
+      "status": "Állapot",
       "clearAll": "Összes törlése",
       "category": "Kategória",
       "region": "Régió",
@@ -168,18 +178,18 @@ define({
     "itemDetails": {
       "addToMap": "Hozzáadás a térképhez",
       "removeFromMap": "Eltávolítás a térképről",
-      "by": "a következő szerint:",
+      "by": ":",
       "lastModified": "Frissítve",
       "noSnippet": "Nem áll rendelkezésre rövid összefoglaló az elemről.",
       "details": "Leírás",
       "termsOfUse": "Használati feltételek",
-      "attribution": "Kreditek (attribútum-hozzárendelés)",
+      "attribution": "Készítők (forrásmegjelölés)",
       "noTermsOfUse": "Nincs megadva az elem tartalmának használatával kapcsolatos különleges korlátozás.",
       "noAttribution": "Nincsenek köszönetnyilvánítások.",
       "noDescription": "Nem áll rendelkezésre részletes leírás az elemről.",
       "views": "Megtekintések száma",
       "created": "Létrehozva",
-      "sharedWith": "Megosztva:",
+      "sharedWith": "Megosztva a következővel:",
       "shared": {
         "public": "Mindenki (nyilvános)",
         "org": "Szervezet",
@@ -202,11 +212,11 @@ define({
     "close": "Bezárás",
     "filterPane": {
       "filter": "Szűrő",
-      "categories": "Kategóriák",
+      "categories": "Szabványok",
       "groupCategories": "Csoportkategóriák"
     },
     "viewDetails": "Elem részleteinek megtekintése",
-    "back": "Vissza",
+    "back": "Hátsó",
     "compact": "Táblázat",
     "compactView": "Kompakt nézet",
     "list": "Lista",
@@ -217,7 +227,7 @@ define({
   "itemCards": {
     "remove": "Eltávolítás",
     "add": "Hozzáadás",
-    "by": "a következő szerint:",
+    "by": ":",
     "actions": "Műveletek",
     "viewOrg": "Szervezet felkeresése",
     "viewProfile": "Felhasználói profil megtekintése",
@@ -226,11 +236,32 @@ define({
     "created": "Létrehozva",
     "updated": "Frissítve",
     "viewCount": "Megtekintések száma",
-    "rating": "Értékelés"
+    "rating": "Értékelés",
+    "itemType": {
+      "table": "Táblázat",
+      "routeLayer": "Útvonalréteg",
+      "markup": "Jelölés",
+      "featureLayer": "Vektoros réteg",
+      "elevationLayer": "Magasságréteg",
+      "imageryLayer": "Távérzékelési réteg",
+      "sceneLayer": "3D térkép réteg",
+      "sceneLayerPackage": "3D térkép réteg csomag",
+      "locator": "Locator",
+      "microsoftPowerPoint": "Microsoft PowerPoint",
+      "geoJSON": "GeoJSON",
+      "globeLayer": "Földgömbi réteg",
+      "tileLayer": "Csemperéteg",
+      "netCDF": "NetCDF",
+      "mapImageLayer": "Vizualizációs lekérdező réteg",
+      "addIn": "Bővítmény",
+      "bigDataFileShare": "Big Data-fájlmegosztás",
+      "ogcFeatureLayer": "OGC vektoros réteg",
+      "instantApp": "Azonnali alkalmazás"
+    }
   },
   "pager": {
     "previous": "Előző",
-    "next": "Következő",
+    "next": "Tovább",
     "paginationLimit": "Legfeljebb 10 000 elem kérhető le oldaltörés mellett. A találatok számának csökkentéséhez próbáljon meg szűrni, vagy módosítsa a keresőkifejezést."
   },
   "actions": {
@@ -245,7 +276,7 @@ define({
     "open": "Megnyitva",
     "openDoc": "Dokumentum megnyitása",
     "openTab": "Megnyitás új fülön",
-    "openViewer": "í_Open in Map Viewer___________________ő",
+    "openViewer": "Megnyitás a Map Viewerben",
     "addFavorite": "Hozzáadás a kedvencekhez",
     "removeFavorite": "Eltávolítás a kedvencek közül"
   },
@@ -263,8 +294,9 @@ define({
     }
   },
   "share": {
-    "shareGallery": "í_Share gallery______________ő",
-    "shareFiltered": "í_Share filtered gallery_______________________ő",
-    "tooltip": "í_URL copied to you clipboard____________________________ő"
+    "share": "Megosztás",
+    "shareGallery": "Galéria megosztása",
+    "shareFiltered": "Szűrt galéria megosztása",
+    "tooltip": "URL a vágólapra másolva"
   }
 });

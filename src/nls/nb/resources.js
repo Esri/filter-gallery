@@ -3,6 +3,14 @@ define({
   "appFailed": "Kan ikke laste appen.",
   "noAuth": "Kontoen din er ikke lisensiert til å bruke konfigurerbare apper som ikke er offentlige. Be administratoren for organisasjonen om å tilordne deg en brukertype som omfatter Essential Apps eller en tilleggslisens for Essential Apps.",
   "notLicensed": "Ikke lisensiert",
+  "error": "Feil",
+  "originError": {
+    "message": "Programmet du prøver å åpne, skriver seg ikke fra URL-en du har oppgitt.",
+    "close": "Lukk",
+    "options": "Avanserte alternativer",
+    "linkMessage": "Fortsett til"
+  },
+  "analyticsOptIn": "Velg",
   "badges": {
     "authoritative": "Autoritativ",
     "deleted": "Slettet",
@@ -28,7 +36,7 @@ define({
     }
   },
   "buttons": {
-    "clear": "Tøm"
+    "clear": "Fjern"
   },
   "dateSelection": {
     "today": "I dag",
@@ -40,8 +48,8 @@ define({
     "to": "Sluttdato"
   },
   "dropdowns": {
-    "clear": "Tøm",
-    "clearAll": "Tøm alle",
+    "clear": "Fjern",
+    "clearAll": "Fjern alle",
     "contentViews": {
       "grid": "Rutenett",
       "list": "Liste",
@@ -49,7 +57,7 @@ define({
       "view": "Vis"
     },
     "sorting": {
-      "sort": "Sorter",
+      "sort": "Sortere",
       "sortBy": "Sorter etter",
       "sortDir": "Sorteringsretning",
       "relevance": "Relevans",
@@ -88,17 +96,19 @@ define({
         "mapFiles": "Kartfiler",
         "layers": "Lag",
         "featureLayers": "Geoobjektslag",
-        "tileLayers": "Kartfliselag",
+        "tileLayers": "Kartflislag",
         "mapImageLayers": "Kartbildelag",
         "imageryLayers": "Bildelag",
         "sceneLayers": "Scenelag",
         "tables": "Tabeller",
         "layerFiles": "Lagfiler",
         "scenes": "Scener",
-        "apps": "Apper",
+        "apps": "Apper/programmer",
         "webApps": "Webapplikasjoner",
         "mobileApps": "Mobilapplikasjoner",
         "desktopApps": "Skrivebordsprogrammer",
+        "instantApps": "Instant Apps",
+        "storyMaps": "Fortellingskart",
         "tools": "Verktøy",
         "locators": "Posisjonsindikatorer",
         "geodatabaseAccess": "Geodatabase-tilgang",
@@ -110,7 +120,7 @@ define({
         "images": "Bilder",
         "pdfs": "PDF-er",
         "webTools": "Webverktøy",
-        "notebooks": "Notisbøker"
+        "notebooks": "Notatblokker"
       }
     },
     "date": {
@@ -135,19 +145,19 @@ define({
       }
     },
     "tags": {
-      "tags": "Knagger",
+      "tags": "Merker",
       "filterTags": "Filtrer merker",
       "noTags": "Fant ingen merker som passer med søket ditt."
     }
   },
   "gallery": {
-    "signIn": "Logg inn",
-    "signOut": "Logg av",
+    "signIn": "Logg på",
+    "signOut": "Logg ut",
     "header": {
       "browse": "Bla gjennom",
       "search": "Søk"
     },
-    "resultCount": "elementer:",
+    "resultCount": "Elementer:",
     "searchPlaceholders": {
       "generic": "Skriv inn søkeord"
     },
@@ -160,7 +170,7 @@ define({
       "group": "Gruppe",
       "folder": "Mappe",
       "status": "Status",
-      "clearAll": "Tøm alle",
+      "clearAll": "Fjern alle",
       "category": "Kategori",
       "region": "Region",
       "tagged": "Merket"
@@ -174,7 +184,7 @@ define({
       "details": "Beskrivelse",
       "termsOfUse": "Bruksvilkår",
       "attribution": "Credits (tildeling)",
-      "noTermsOfUse": "Det er ikke angitt spesielle restriksjoner eller begrensninger på bruken av innholdet.",
+      "noTermsOfUse": "Det er ikke angitt spesielle restriksjoner eller begrensninger for bruken av elementets innhold.",
       "noAttribution": "Ingen bekreftelser.",
       "noDescription": "Det finnes ikke en detaljert beskrivelse av elementet.",
       "views": "Antall visninger",
@@ -206,7 +216,7 @@ define({
       "groupCategories": "Gruppekategorier"
     },
     "viewDetails": "Vis elementdetaljer",
-    "back": "TILBAKE",
+    "back": "Tilbake",
     "compact": "Tabell",
     "compactView": "Kompakt visning",
     "list": "Liste",
@@ -226,7 +236,28 @@ define({
     "created": "Opprettet",
     "updated": "Oppdatert",
     "viewCount": "Antall visninger",
-    "rating": "Vurdering"
+    "rating": "Vurdering",
+    "itemType": {
+      "table": "Tabell",
+      "routeLayer": "Rutelag",
+      "markup": "Markering",
+      "featureLayer": "Geoobjektlag",
+      "elevationLayer": "Høydelag",
+      "imageryLayer": "Bildelag",
+      "sceneLayer": "Scenelag",
+      "sceneLayerPackage": "Scenelagpakke",
+      "locator": "Posisjonsindikator",
+      "microsoftPowerPoint": "Microsoft Powerpoint",
+      "geoJSON": "GeoJSON",
+      "globeLayer": "Globuslag",
+      "tileLayer": "Kartflislag",
+      "netCDF": "NetCDF",
+      "mapImageLayer": "Kartbildelag",
+      "addIn": "Tillegg",
+      "bigDataFileShare": "Delt stordatafil",
+      "ogcFeatureLayer": "OGC-geoobjektlag",
+      "instantApp": "Instant App"
+    }
   },
   "pager": {
     "previous": "Forrige",
@@ -245,7 +276,7 @@ define({
     "open": "Åpne",
     "openDoc": "Åpne dokument",
     "openTab": "Åpne i en ny fane",
-    "openViewer": "å_Open in Map Viewer___________________ø",
+    "openViewer": "Åpne i kartviseren",
     "addFavorite": "Legg til i favoritter",
     "removeFavorite": "Fjern fra favoritter"
   },
@@ -263,8 +294,9 @@ define({
     }
   },
   "share": {
-    "shareGallery": "å_Share gallery______________ø",
-    "shareFiltered": "å_Share filtered gallery_______________________ø",
-    "tooltip": "å_URL copied to you clipboard____________________________ø"
+    "share": "Dele",
+    "shareGallery": "Del galleri",
+    "shareFiltered": "Del filtrert galleri",
+    "tooltip": "URL-en er kopiert til utklippstavlen"
   }
 });

@@ -1,16 +1,24 @@
 define({
   "appInit": "Tiek inicializēta lietotne…",
   "appFailed": "Neizdevās ielādēt lietotni.",
-  "noAuth": "Jūsu kontam nav licences, lai izmantotu konfigurējamās lietotnes, kas nav publiskas. Pieprasiet savas organizācijas administratoram piešķirt jums lietotāja veidu, kurā iekļauts lietotņu komplekts Essential Apps vai papildinājumlietotņu Essential Apps licence.",
+  "noAuth": "Jūsu kontam nav licences, lai izmantotu konfigurējamās lietotnes Configurable Apps, kas nav publiskas. Pieprasiet savas organizācijas administratoram piešķirt jums lietotāja veidu, kurā iekļauts lietotņu komplekts Essential Apps vai papildinājumlietotņu Essential Apps licence.",
   "notLicensed": "Nav licences",
+  "error": "Kļūda",
+  "originError": {
+    "message": "Lietotne, kam mēģināt piekļūt, nav no jūsu norādītā vietrāža URL",
+    "close": "Aizvērt",
+    "options": "Papildu opcijas",
+    "linkMessage": "Turpināt ar"
+  },
+  "analyticsOptIn": "Izvēle piekrist",
   "badges": {
     "authoritative": "Autoritatīvs",
     "deleted": "Izdzēsts",
     "deprecated": "Novecojis",
     "livingAtlas": "Living Atlas",
     "marketplace": "Marketplace",
-    "openData": "Open Data",
-    "premium": "Augstākā līmeņa",
+    "openData": "Atvērtie dati",
+    "premium": "Premium",
     "subscriber": "Abonents",
     "tooltips": {
       "altAuthoritative": "Autoritatīvs: iesaka",
@@ -41,9 +49,9 @@ define({
   },
   "dropdowns": {
     "clear": "Notīrīt",
-    "clearAll": "Notīrīt visus",
+    "clearAll": "Notīrīt visu",
     "contentViews": {
-      "grid": "Režģis",
+      "grid": "Tīkls",
       "list": "Saraksts",
       "table": "Tabula",
       "view": "Skatīt"
@@ -52,12 +60,12 @@ define({
       "sort": "Kārtot",
       "sortBy": "Kārtot pēc",
       "sortDir": "Kārtošanas virziens",
-      "relevance": "Nozīmīgums",
-      "title": "Virsraksts",
+      "relevance": "Svarīgums",
+      "title": "Nosaukums",
       "owner": "Īpašnieks",
       "created": "Izveides datums",
-      "modified": "Pārveidošanas datums",
-      "numviews": "Skatījumi",
+      "modified": "Izmaiņu datums",
+      "numviews": "Skatīt kontu",
       "avgrating": "Novērtējums",
       "ascending": {
         "relevance": "No mazāk nozīmīga uz nozīmīgāku",
@@ -72,8 +80,8 @@ define({
         "relevance": "No nozīmīgāka uz mazāk nozīmīgu",
         "title": "Apgrieztā alfabētiskā secībā",
         "owner": "Apgrieztā alfabētiskā secībā",
-        "created": "Jaunākais",
-        "modified": "Jaunākais",
+        "created": "Jaunākās izmaiņas",
+        "modified": "Jaunākās izmaiņas",
         "numviews": "No lielākā uz mazāko",
         "avgrating": "No augstāk novērtētā uz zemāk novērtēto"
       }
@@ -96,11 +104,13 @@ define({
         "layerFiles": "Slāņa faili",
         "scenes": "Scēnas",
         "apps": "Lietotnes",
-        "webApps": "Tīmekļa lietotnes",
+        "webApps": "Web lietotnes",
         "mobileApps": "Mobilās lietotnes",
         "desktopApps": "Darbvirsmas lietotnes",
+        "instantApps": "Instant Apps",
+        "storyMaps": "Story Maps",
         "tools": "Rīki",
-        "locators": "Meklētāji",
+        "locators": "Lokators",
         "geodatabaseAccess": "Ģeodatubāzes piekļuve",
         "geometricOperations": "Ģeometriskās darbības",
         "geoprocessingTasks": "Ģeoapstrādes uzdevumi",
@@ -115,10 +125,10 @@ define({
     },
     "date": {
       "dateCreated": "Izveides datums",
-      "dateModified": "Pārveidošanas datums"
+      "dateModified": "Izmaiņu datums"
     },
     "shared": {
-      "shared": "Kopīgots",
+      "shared": "Koplietots",
       "options": {
         "public": "Ar ikvienu (publiski)",
         "org": "Ar organizāciju",
@@ -135,9 +145,9 @@ define({
       }
     },
     "tags": {
-      "tags": "Atslēgas vārdi",
-      "filterTags": "Filtrēt atslēgas vārdus",
-      "noTags": "Netika atrasts neviens jūsu meklēšanas vaicājumam atbilstošs atslēgas vārds."
+      "tags": "Atslēgvārdi",
+      "filterTags": "Filtra atzīmes",
+      "noTags": "Netika atrasta neviena atzīme, kas atbilst meklētajam."
     }
   },
   "gallery": {
@@ -156,11 +166,11 @@ define({
       "type": "Veids",
       "dateModified": "Mainīts",
       "dateCreated": "Izveidots",
-      "access": "Kopīgots",
+      "access": "Koplietots",
       "group": "Grupa",
       "folder": "Mape",
       "status": "Statuss",
-      "clearAll": "Notīrīt visus",
+      "clearAll": "Notīrīt visu",
       "category": "Kategorija",
       "region": "Reģions",
       "tagged": "Atzīmēts"
@@ -169,22 +179,22 @@ define({
       "addToMap": "Pievienot kartei",
       "removeFromMap": "Noņemt no kartes",
       "by": "autors:",
-      "lastModified": "Atjaunots",
+      "lastModified": "Atjaunināts",
       "noSnippet": "Īss kopsavilkums par vienību nav pieejams.",
       "details": "Apraksts",
       "termsOfUse": "Lietošanas noteikumi",
       "attribution": "Atsauces",
-      "noTermsOfUse": "Nav norādīti nekādi īpaši ierobežojumi par vienības satura izmantošanu.",
-      "noAttribution": "Bez atsaucēm.",
-      "noDescription": "Paplašināts apraksts par vienību nav pieejams.",
-      "views": "Skatījumi",
+      "noTermsOfUse": "Nav norādīti nekādi īpaši ierobežojumi attiecībā uz vienības satura izmantošanu.",
+      "noAttribution": "Bez apliecinājumiem.",
+      "noDescription": "Padziļināts apraksts par vienību nav pieejams.",
+      "views": "Skatīt kontu",
       "created": "Izveidots",
-      "sharedWith": "Kopīgots ar",
+      "sharedWith": "Koplietots ar",
       "shared": {
-        "public": "Ikvienu (publiski)",
-        "org": "Organizāciju",
-        "shared": "Vienība nav koplietota.",
-        "private": "Vienība nav koplietota."
+        "public": "Ikviens (publiski)",
+        "org": "Organizācija",
+        "shared": "Vienība nav koplietošanā.",
+        "private": "Vienība nav koplietošanā."
       },
       "viewUser": "Apskatīt lietotāja profilu",
       "viewOrg": "Apmeklēt organizāciju",
@@ -195,7 +205,7 @@ define({
     "results": {
       "loadingItems": "Notiek vienību ielādēšana…",
       "requestError": "Radās kļūda saistībā ar pieprasījumu.",
-      "noItemsFound": "Nav atrastas vienības, kas atbilstu jūsu kritērijiem. Mēģiniet notīrīt dažus filtrus, lai parādītu vairāk vienību.",
+      "noItemsFound": "Nav atrastas vienības, kas atbilstu jūsu meklēšanas kritērijiem. Mēģiniet notīrīt dažus filtrus, lai parādītu vairāk vienību.",
       "empty": "Augstāk ievadiet vārdus, lai sāktu meklēšanu."
     },
     "search": "Meklēt",
@@ -211,7 +221,7 @@ define({
     "compactView": "Kompaktais skats",
     "list": "Saraksts",
     "listView": "Saraksta skats",
-    "showing": "Parādīt",
+    "showing": "Rādīšana",
     "viewResults": "Skatīt rezultātus"
   },
   "itemCards": {
@@ -224,19 +234,40 @@ define({
     "viewItem": "Skatīt detalizētu informāciju par vienību",
     "hideItem": "Paslēpt detalizētu informāciju par vienību",
     "created": "Izveidots",
-    "updated": "Atjaunots",
-    "viewCount": "Skatījumi",
-    "rating": "Novērtējums"
+    "updated": "Atjaunināts",
+    "viewCount": "Skatīt kontu",
+    "rating": "Novērtējums",
+    "itemType": {
+      "table": "Tabula",
+      "routeLayer": "Maršruta slānis",
+      "markup": "Atzīmēšana",
+      "featureLayer": "Elementu slānis",
+      "elevationLayer": "Augstuma slānis",
+      "imageryLayer": "Attēlu slānis",
+      "sceneLayer": "Scēnu slānis",
+      "sceneLayerPackage": "Scēnas slāņa pakotne",
+      "locator": "Meklētājs",
+      "microsoftPowerPoint": "Microsoft PowerPoint",
+      "geoJSON": "GeoJSON",
+      "globeLayer": "Globusa slānis",
+      "tileLayer": "Mozaīku slānis",
+      "netCDF": "NetCDF",
+      "mapImageLayer": "Kartes attēlu slānis",
+      "addIn": "Pievienojumprogramma",
+      "bigDataFileShare": "Lielapjoma datu faila koplietošana",
+      "ogcFeatureLayer": "OGC elementu slānis",
+      "instantApp": "Instant App"
+    }
   },
   "pager": {
     "previous": "Iepriekšējais",
-    "next": "Nākošais",
-    "paginationLimit": "Izmantojot lappušu numerāciju, var izgūt ne vairāk kā 10 000 rezultātu. Lai samazinātu atgriezto rezultātu skaitu, pamēģiniet filtrēt vai mainīt meklēšanas kritēriju."
+    "next": "Tālāk",
+    "paginationLimit": "Izmantojot lapdali, var izgūt ne vairāk kā 10 000 rezultātu. Lai samazinātu atgriezto rezultātu skaitu, pamēģiniet filtrēt vai mainīt meklēšanas kritēriju."
   },
   "actions": {
     "viewMap": "Skatīt karti",
     "viewScene": "Skatīt scēnu",
-    "viewApp": "Skatīt lietotni",
+    "viewApp": "Skatīt aplikāciju",
     "viewInMap": "Skatīt kartē",
     "viewInScene": "Skatīt scēnā",
     "view": "Skatīt",
@@ -245,7 +276,7 @@ define({
     "open": "Atvērt",
     "openDoc": "Atvērt dokumentu",
     "openTab": "Atvērt jaunā cilnē",
-    "openViewer": "ķ_Open in Map Viewer___________________ū",
+    "openViewer": "Atvērt, izmantojot Map Viewer",
     "addFavorite": "Pievienot favorītiem",
     "removeFavorite": "Noņemt no favorītiem"
   },
@@ -263,8 +294,9 @@ define({
     }
   },
   "share": {
-    "shareGallery": "ķ_Share gallery______________ū",
-    "shareFiltered": "ķ_Share filtered gallery_______________________ū",
-    "tooltip": "ķ_URL copied to you clipboard____________________________ū"
+    "share": "Koplietot",
+    "shareGallery": "Koplietot galeriju",
+    "shareFiltered": "Koplietot filtrēto galeriju",
+    "tooltip": "Vietrādis URL ir iekopēts jūsu starpliktuvē"
   }
 });

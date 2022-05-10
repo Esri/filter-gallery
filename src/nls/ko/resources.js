@@ -3,13 +3,21 @@ define({
   "appFailed": "앱을 불러오는 데 실패했습니다.",
   "noAuth": "귀하의 계정에는 공개 상태가 아닌 구성 설정 앱을 사용할 수 있는 라이선스가 없습니다. 필수 앱 또는 애드온 필수 앱 라이선스가 포함된 사용자 유형을 업무 지시하려면 기관 관리자에게 문의하세요.",
   "notLicensed": "라이선스가 없음",
+  "error": "오류",
+  "originError": {
+    "message": "접근하려는 응용프로그램이 제공한 URL에서 생성되지 않았습니다.",
+    "close": "닫기",
+    "options": "고급 옵션",
+    "linkMessage": "다음으로 계속 진행"
+  },
+  "analyticsOptIn": "옵트인",
   "badges": {
     "authoritative": "신뢰할 수 있음",
     "deleted": "삭제됨",
     "deprecated": "사용되지 않음",
     "livingAtlas": "Living Atlas",
-    "marketplace": "마켓플레이스",
-    "openData": "오픈데이터",
+    "marketplace": "Marketplace",
+    "openData": "Open Data",
     "premium": "프리미엄",
     "subscriber": "구독자",
     "tooltips": {
@@ -28,7 +36,7 @@ define({
     }
   },
   "buttons": {
-    "clear": "지우기"
+    "clear": "선택 해제"
   },
   "dateSelection": {
     "today": "오늘",
@@ -40,13 +48,13 @@ define({
     "to": "종료일"
   },
   "dropdowns": {
-    "clear": "지우기",
-    "clearAll": "모두 해제",
+    "clear": "선택 해제",
+    "clearAll": "모두 지우기",
     "contentViews": {
-      "grid": "격자",
+      "grid": "그리드",
       "list": "목록",
       "table": "테이블",
-      "view": "뷰"
+      "view": "보기"
     },
     "sorting": {
       "sort": "정렬",
@@ -55,27 +63,27 @@ define({
       "relevance": "관련성",
       "title": "제목",
       "owner": "소유자",
-      "created": "생성된 날짜",
-      "modified": "수정된 날짜",
+      "created": "생성일",
+      "modified": "수정일",
       "numviews": "조회 수",
       "avgrating": "평점",
       "ascending": {
-        "relevance": "낮은 관련성순",
-        "title": "알파벳순",
-        "owner": "알파벳순",
-        "created": "오래된순",
-        "modified": "오래된순",
-        "numviews": "오름차순",
-        "avgrating": "낮은 평점순"
+        "relevance": "가장 관련성이 낮은 순",
+        "title": "알파벳 순",
+        "owner": "알파벳 순",
+        "created": "오래된 순",
+        "modified": "오래된 순",
+        "numviews": "최소에서 최대",
+        "avgrating": "가장 평점이 낮은 순"
       },
       "descending": {
-        "relevance": "높은 관련성순",
+        "relevance": "가장 관련성이 높은 순",
         "title": "알파벳 역순",
         "owner": "알파벳 역순",
         "created": "최신순",
         "modified": "최신순",
-        "numviews": "내림차순",
-        "avgrating": "높은 평점순"
+        "numviews": "최대에서 최소",
+        "avgrating": "가장 평점이 높은 항목 순"
       }
     }
   },
@@ -99,9 +107,11 @@ define({
         "webApps": "웹 앱",
         "mobileApps": "모바일 앱",
         "desktopApps": "데스크톱 앱",
+        "instantApps": "Instant Apps",
+        "storyMaps": "스토리맵",
         "tools": "도구",
         "locators": "로케이터",
-        "geodatabaseAccess": "지오데이터베이스 접근",
+        "geodatabaseAccess": "지오데이터베이스 액세스",
         "geometricOperations": "지오메트릭 작업",
         "geoprocessingTasks": "지오프로세싱 작업",
         "networkAnalysis": "네트워크 분석",
@@ -114,15 +124,15 @@ define({
       }
     },
     "date": {
-      "dateCreated": "생성된 날짜",
-      "dateModified": "수정된 날짜"
+      "dateCreated": "생성일",
+      "dateModified": "수정일"
     },
     "shared": {
-      "shared": "공유됨",
+      "shared": "공유",
       "options": {
-        "public": "모든 사람(공개)과",
-        "org": "기관과",
-        "shared": "그룹과",
+        "public": "모든 사람(공개)",
+        "org": "기관",
+        "shared": "그룹",
         "private": "다른 사람과 공유하지 않은 항목"
       }
     },
@@ -136,8 +146,8 @@ define({
     },
     "tags": {
       "tags": "태그",
-      "filterTags": "필터 태그",
-      "noTags": "검색과 일치하는 태그를 찾을 수 없습니다."
+      "filterTags": "태그 필터링",
+      "noTags": "검색과 일치하는 태그가 없습니다."
     }
   },
   "gallery": {
@@ -154,13 +164,13 @@ define({
     "filterChips": {
       "mapArea": "맵 영역 내",
       "type": "유형",
-      "dateModified": "수정한 날짜",
-      "dateCreated": "생성됨",
-      "access": "공유됨",
+      "dateModified": "수정일",
+      "dateCreated": "생성",
+      "access": "공유",
       "group": "그룹",
       "folder": "폴더",
       "status": "상태",
-      "clearAll": "모두 해제",
+      "clearAll": "모두 지우기",
       "category": "범주",
       "region": "지역",
       "tagged": "태그됨"
@@ -168,17 +178,17 @@ define({
     "itemDetails": {
       "addToMap": "맵에 추가",
       "removeFromMap": "맵에서 제거",
-      "by": "작성자:",
-      "lastModified": "업데이트되었습니다.",
+      "by": "작성자",
+      "lastModified": "업데이트",
       "noSnippet": "항목의 간략한 요약을 사용할 수 없습니다.",
       "details": "설명",
       "termsOfUse": "사용 약관",
-      "attribution": "크레딧(귀속)",
-      "noTermsOfUse": "항목의 콘텐츠 사용과 관련된 특수한 제한이 제공되지 않았습니다.",
+      "attribution": "크레딧(속성)",
+      "noTermsOfUse": "항목 콘텐츠 사용과 관련된 특정 제한이 제공되지 않았습니다.",
       "noAttribution": "승인된 항목이 없습니다.",
       "noDescription": "항목의 자세한 요약을 사용할 수 없습니다.",
       "views": "조회 수",
-      "created": "생성됨",
+      "created": "생성",
       "sharedWith": "다음과 공유",
       "shared": {
         "public": "모든 사람(공개)",
@@ -188,7 +198,7 @@ define({
       },
       "viewUser": "사용자 프로필 보기",
       "viewOrg": "기관 방문",
-      "addToFavorites": "즐겨찾기에 추가하세요",
+      "addToFavorites": "즐겨찾기에 추가",
       "removeFromFavorites": "즐겨찾기에서 제거",
       "managedBy": "관리자:"
     },
@@ -217,21 +227,42 @@ define({
   "itemCards": {
     "remove": "제거",
     "add": "추가",
-    "by": "작성자:",
-    "actions": "실행",
+    "by": "작성자",
+    "actions": "동작",
     "viewOrg": "기관 방문",
     "viewProfile": "사용자 프로필 보기",
     "viewItem": "항목 세부정보 보기",
     "hideItem": "항목 세부정보 숨기기",
-    "created": "생성됨",
-    "updated": "업데이트되었습니다.",
+    "created": "생성",
+    "updated": "업데이트",
     "viewCount": "조회 수",
-    "rating": "평점"
+    "rating": "평점",
+    "itemType": {
+      "table": "테이블",
+      "routeLayer": "경로 레이어",
+      "markup": "마크업",
+      "featureLayer": "피처 레이어",
+      "elevationLayer": "고도 레이어",
+      "imageryLayer": "영상 레이어",
+      "sceneLayer": "씬 레이어",
+      "sceneLayerPackage": "씬 레이어 패키지",
+      "locator": "로케이터",
+      "microsoftPowerPoint": "Microsoft PowerPoint",
+      "geoJSON": "GeoJSON",
+      "globeLayer": "글로브 레이어",
+      "tileLayer": "타일 레이어",
+      "netCDF": "NetCDF",
+      "mapImageLayer": "맵 이미지 레이어",
+      "addIn": "애드인",
+      "bigDataFileShare": "빅데이터 파일 공유",
+      "ogcFeatureLayer": "OGC 피처 레이어",
+      "instantApp": "Instant App"
+    }
   },
   "pager": {
     "previous": "이전",
     "next": "다음",
-    "paginationLimit": "페이지 매김을 통해 검색할 수 있는 결과는 최대 10,000개입니다. 검색어를 필터링하거나 변경하여 반환 결과 수를 줄여보세요."
+    "paginationLimit": "페이지 번호를 통해 검색할 수 있는 결과는 최대 10,000개입니다. 검색어를 필터링하거나 변경하여 반환 결과 수를 줄여보세요."
   },
   "actions": {
     "viewMap": "맵 보기",
@@ -240,13 +271,13 @@ define({
     "viewInMap": "맵에서 보기",
     "viewInScene": "씬에서 보기",
     "view": "보기",
-    "download": "다음을 다운로드합니다.",
+    "download": "다운로드",
     "openPdf": "PDF로 열기",
-    "open": "개설",
+    "open": "열기",
     "openDoc": "문서 열기",
     "openTab": "새 탭에서 열기",
-    "openViewer": "한_Open in Map Viewer___________________빠",
-    "addFavorite": "즐겨찾기에 추가하세요",
+    "openViewer": "Map Viewer에서 열기",
+    "addFavorite": "즐겨찾기에 추가",
     "removeFavorite": "즐겨찾기에서 제거"
   },
   "viewer": {
@@ -263,8 +294,9 @@ define({
     }
   },
   "share": {
-    "shareGallery": "한_Share gallery______________빠",
-    "shareFiltered": "한_Share filtered gallery_______________________빠",
-    "tooltip": "한_URL copied to you clipboard____________________________빠"
+    "share": "공유",
+    "shareGallery": "갤러리 공유",
+    "shareFiltered": "필터링된 갤러리 공유",
+    "tooltip": "클립보드에 복사된 URL"
   }
 });

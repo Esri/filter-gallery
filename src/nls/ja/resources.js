@@ -2,16 +2,24 @@ define({
   "appInit": "アプリケーションを初期化しています...",
   "appFailed": "アプリを読み込めませんでした。",
   "noAuth": "パブリックでないテンプレートを使用するためのライセンスがアカウントに付与されていません。 組織の管理者に Essential Apps またはアドオン Essential Apps ライセンスを含むユーザー タイプを割り当てるよう依頼してください。",
-  "notLicensed": "ライセンスがありません。",
+  "notLicensed": "ライセンスがありません",
+  "error": "エラー",
+  "originError": {
+    "message": "アクセスしようとしているアプリケーションは、指定した URL からのものではありません。",
+    "close": "閉じる",
+    "options": "高度なオプション",
+    "linkMessage": "進む"
+  },
+  "analyticsOptIn": "オプトイン",
   "badges": {
     "authoritative": "信頼済み",
     "deleted": "削除されました",
     "deprecated": "非推奨",
     "livingAtlas": "Living Atlas",
-    "marketplace": "マーケットプレイス",
+    "marketplace": "Marketplace",
     "openData": "オープンデータ",
     "premium": "プレミアム",
-    "subscriber": "サブスクリプション",
+    "subscriber": "登録者",
     "tooltips": {
       "altAuthoritative": "信頼済み: 次で推奨されています",
       "authoritative": "信頼済み: 組織で推奨されています",
@@ -49,7 +57,7 @@ define({
       "view": "表示"
     },
     "sorting": {
-      "sort": "レコードの並べ替え",
+      "sort": "並べ替え",
       "sortBy": "並べ替え",
       "sortDir": "並べ替え方向",
       "relevance": "関連性",
@@ -57,7 +65,7 @@ define({
       "owner": "所有者",
       "created": "作成日",
       "modified": "更新日",
-      "numviews": "ビュー数",
+      "numviews": "閲覧数",
       "avgrating": "評価",
       "ascending": {
         "relevance": "関連性の低い順",
@@ -99,6 +107,8 @@ define({
         "webApps": "Web アプリケーション",
         "mobileApps": "モバイル アプリケーション",
         "desktopApps": "デスクトップ アプリケーション",
+        "instantApps": "Instant Apps",
+        "storyMaps": "ストーリー マップ",
         "tools": "ツール",
         "locators": "ロケーター",
         "geodatabaseAccess": "ジオデータベース アクセス",
@@ -107,7 +117,7 @@ define({
         "networkAnalysis": "ネットワーク解析",
         "files": "ファイル",
         "documents": "ドキュメント",
-        "images": "イメージ",
+        "images": "画像",
         "pdfs": "PDF",
         "webTools": "Web ツール",
         "notebooks": "ノートブック"
@@ -118,12 +128,12 @@ define({
       "dateModified": "更新日"
     },
     "shared": {
-      "shared": "共有範囲",
+      "shared": "共有",
       "options": {
         "public": "すべての人 (パブリック)",
         "org": "組織",
         "shared": "グループ",
-        "private": "共有しない"
+        "private": "共有なし"
       }
     },
     "status": {
@@ -136,12 +146,12 @@ define({
     },
     "tags": {
       "tags": "タグ",
-      "filterTags": "フィルター タグ",
-      "noTags": "検索条件に一致するタグが見つかりませんでした。"
+      "filterTags": "タグのフィルタリング",
+      "noTags": "検索に一致するタグが見つかりませんでした。"
     }
   },
   "gallery": {
-    "signIn": "サインイン",
+    "signIn": "サイン イン",
     "signOut": "サイン アウト",
     "header": {
       "browse": "参照",
@@ -153,23 +163,23 @@ define({
     },
     "filterChips": {
       "mapArea": "マップ エリア内",
-      "type": "種類",
-      "dateModified": "最終更新日",
-      "dateCreated": "作成日時",
-      "access": "共有範囲",
+      "type": "タイプ",
+      "dateModified": "更新日",
+      "dateCreated": "作成日",
+      "access": "共有",
       "group": "グループ",
       "folder": "フォルダー",
       "status": "ステータス",
-      "clearAll": "すべて削除",
+      "clearAll": "すべて消去",
       "category": "カテゴリ",
       "region": "地域",
-      "tagged": "タグが付けられています"
+      "tagged": "タグ"
     },
     "itemDetails": {
       "addToMap": "マップに追加",
       "removeFromMap": "マップから削除",
-      "by": "操作者",
-      "lastModified": "更新済み",
+      "by": "所有者:",
+      "lastModified": "更新日",
       "noSnippet": "アイテムの簡単なサマリー (概要文) はありません。",
       "details": "説明",
       "termsOfUse": "利用規約",
@@ -177,11 +187,11 @@ define({
       "noTermsOfUse": "アイテムのコンテンツの使用における特別な制約や制限事項は指定されていません。",
       "noAttribution": "未承認",
       "noDescription": "アイテムの詳細な説明はありません。",
-      "views": "ビュー数",
-      "created": "作成日時",
-      "sharedWith": "共有範囲",
+      "views": "閲覧数",
+      "created": "作成日",
+      "sharedWith": "共有",
       "shared": {
-        "public": "すべての人に公開 (パブリック)",
+        "public": "すべての人 (パブリック)",
         "org": "組織",
         "shared": "アイテムは共有されていません。",
         "private": "アイテムは共有されていません。"
@@ -190,7 +200,7 @@ define({
       "viewOrg": "組織にアクセス",
       "addToFavorites": "お気に入りに追加",
       "removeFromFavorites": "お気に入りから削除",
-      "managedBy": "管理元:"
+      "managedBy": "管理者:"
     },
     "results": {
       "loadingItems": "アイテムを読み込んでいます..",
@@ -217,16 +227,37 @@ define({
   "itemCards": {
     "remove": "削除",
     "add": "追加",
-    "by": "操作者",
-    "actions": "操作",
+    "by": "所有者:",
+    "actions": "アクション",
     "viewOrg": "組織にアクセス",
     "viewProfile": "ユーザー プロフィールの表示",
     "viewItem": "アイテム詳細の表示",
     "hideItem": "アイテム詳細の非表示",
-    "created": "作成日時",
-    "updated": "更新済み",
-    "viewCount": "ビュー数",
-    "rating": "評価"
+    "created": "作成日",
+    "updated": "更新日",
+    "viewCount": "閲覧数",
+    "rating": "評価",
+    "itemType": {
+      "table": "テーブル",
+      "routeLayer": "ルート レイヤー",
+      "markup": "マークアップ",
+      "featureLayer": "フィーチャ レイヤー",
+      "elevationLayer": "標高レイヤー",
+      "imageryLayer": "イメージ レイヤー",
+      "sceneLayer": "シーン レイヤー",
+      "sceneLayerPackage": "シーン レイヤー パッケージ",
+      "locator": "ロケーター",
+      "microsoftPowerPoint": "Microsoft PowerPoint",
+      "geoJSON": "GeoJSON",
+      "globeLayer": "グローブ レイヤー",
+      "tileLayer": "タイル レイヤー",
+      "netCDF": "NetCDF",
+      "mapImageLayer": "マップ イメージ レイヤー",
+      "addIn": "アドイン",
+      "bigDataFileShare": "ビッグ データ ファイル共有",
+      "ogcFeatureLayer": "OGC フィーチャ レイヤー",
+      "instantApp": "Instant App"
+    }
   },
   "pager": {
     "previous": "前へ",
@@ -245,7 +276,7 @@ define({
     "open": "開く",
     "openDoc": "ドキュメントを開く",
     "openTab": "新しいタブで開く",
-    "openViewer": "須_Open in Map Viewer___________________鷗",
+    "openViewer": "Map Viewer で開く",
     "addFavorite": "お気に入りに追加",
     "removeFavorite": "お気に入りから削除"
   },
@@ -263,8 +294,9 @@ define({
     }
   },
   "share": {
-    "shareGallery": "須_Share gallery______________鷗",
-    "shareFiltered": "須_Share filtered gallery_______________________鷗",
-    "tooltip": "須_URL copied to you clipboard____________________________鷗"
+    "share": "共有",
+    "shareGallery": "ギャラリーの共有",
+    "shareFiltered": "フィルタリングされたギャラリーの共有",
+    "tooltip": "URL がクリップボードにコピーされました"
   }
 });

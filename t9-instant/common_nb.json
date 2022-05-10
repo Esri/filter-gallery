@@ -1,0 +1,85 @@
+{
+  "copyClipboard": "Kopier til utklippstavle",
+  "error": "Feil",
+  "close": "Lukk",
+  "clear": "Tøm",
+  "expand": "Utvid",
+  "collapse": "Skjul",
+  "originError": {
+    "message": "Programmet du prøver å åpne, skriver seg ikke fra URL-en du har oppgitt.",
+    "close": "Lukk",
+    "options": "Avanserte alternativer",
+    "linkMessage": "Fortsett til"
+  },
+  "licenseError": {
+    "message": "Kontoen din er ikke lisensiert til å bruke konfigurerbare apper som ikke er offentlige. Be administratoren for organisasjonen om å tilordne deg en brukertype som omfatter Essential Apps eller en tilleggslisens for Essential Apps.",
+    "title": "Ikke lisensiert"
+  },
+  "analyticsOptIn": "Velg",
+  "tools": {
+    "export": "Eksporter til PDF",
+    "legend": "Åpne tegnforklaring",
+    "layerList": "Åpne lagliste",
+    "search": "Åpne søk",
+    "print": "Åpne utskrift",
+    "bookmarks": "Åpne bokmerker",
+    "time": "Åpne klokkeslett",
+    "overviewMap": "Åpne oversiktskart",
+    "elevationProfile": "Åpne høydeprofil",
+    "table": "Åpne tabell",
+    "screenshot": "Åpne skjermbilde",
+    "splash": "Åpne innledningspanelet",
+    "hoverPopupTip": "Klikk på kartet for å feste",
+    "close": {
+      "legend": "Lukk tegnforklaring",
+      "layerList": "Lukk lagliste",
+      "search": "Lukk søk",
+      "print": "Lukk utskrift",
+      "bookmarks": "Lukk bokmerker",
+      "time": "Lukk klokkeslett",
+      "overviewMap": "Lukk oversiktskart",
+      "elevationProfile": "Lukk høydeprofil",
+      "table": "Lukk tabell",
+      "screenshot": "Lukk skjermbilde",
+      "splash": "Lukk innledningspanel",
+      "cluster": "Bla gjennom geoobjekter"
+    }
+  },
+  "export": {
+    "results": "Resultater",
+    "resultsAndMap": "Resultater og kart",
+    "tip": "Skriv ut eller lagre som PDF"
+  },
+  "mapScroll": {
+    "enableMessage": "Aktiver kartrulling",
+    "disableMessage": "Deaktiver kartrulling"
+  },
+  "generalShortcuts": {
+    "menu": "snarveismeny",
+    "shortcut": "Snarvei",
+    "action": "Handling",
+    "title": "Velg kartet",
+    "label": "Hurtigtaster"
+  },
+  "shortcutsMapView": {
+    "arrowKeys": "Piltaster",
+    "nudge": "Skyv mot venstre, høyre, oppover eller nedover",
+    "N": "Juster etter nordpunktet",
+    "A": "Roter mot klokken",
+    "D": "Roter med klokken",
+    "plus": "Zoom inn til midten",
+    "minus": "Zoom ut fra midten"
+  },
+  "shortcutsSceneView": {
+    "P": "Flytt kartet for å se vinkelrett på dataene som vises på kartet",
+    "N": "Juster kartet etter nordpunktet",
+    "W": "Vipp kameraet opp",
+    "A": "Roter kameraet mot klokken",
+    "D": "Roter kameraet med klokken",
+    "S": "Vipp kameraet ned",
+    "globalCommands": {
+      "J": "Flytt ned nærmere kartet",
+      "U": "Flytt opp høyere fra kartet"
+    }
+  }
+}

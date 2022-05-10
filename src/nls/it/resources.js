@@ -2,14 +2,22 @@ define({
   "appInit": "Inizializzazione dell'applicazione in corso...",
   "appFailed": "Impossibile caricare l’app.",
   "noAuth": "L’account non dispone della licenza per l’uso di app configurabili non pubbliche. È necessario richiedere all’amministratore dell'organizzazione l’assegnazione di un tipo di utente che includa le app essenziali o una licenza aggiuntiva per le app essenziali.",
-  "notLicensed": "Non Licenziato",
+  "notLicensed": "Non concesso in licenza",
+  "error": "Errore",
+  "originError": {
+    "message": "L'applicazione a cui si sta tentando di accedere non ha origine dall'URL fornito",
+    "close": "Chiudi",
+    "options": "Opzioni avanzate",
+    "linkMessage": "Procedere a"
+  },
+  "analyticsOptIn": "Acconsentire esplicitamente",
   "badges": {
     "authoritative": "Autorevole",
     "deleted": "Eliminato",
     "deprecated": "Deprecato",
-    "livingAtlas": "Living Atlas",
+    "livingAtlas": "Atlante attivo",
     "marketplace": "Marketplace",
-    "openData": "Dati aperti",
+    "openData": "Open Data",
     "premium": "Premium",
     "subscriber": "Sottoscrittore",
     "tooltips": {
@@ -28,11 +36,11 @@ define({
     }
   },
   "buttons": {
-    "clear": "Cancellare"
+    "clear": "Azzera"
   },
   "dateSelection": {
     "today": "Oggi",
-    "yesterday": "Ieri",
+    "yesterday": "Domani",
     "last7Days": "Ultimi 7 giorni",
     "last30Days": "Ultimi 30 giorni",
     "custom": "Intervallo personalizzato...",
@@ -40,13 +48,13 @@ define({
     "to": "Data di fine"
   },
   "dropdowns": {
-    "clear": "Cancellare",
-    "clearAll": "Cancella tutto",
+    "clear": "Azzera",
+    "clearAll": "Deseleziona tutto",
     "contentViews": {
       "grid": "Griglia",
       "list": "Elenco",
       "table": "Tabella",
-      "view": "Vista"
+      "view": "Visualizza"
     },
     "sorting": {
       "sort": "Ordina",
@@ -55,7 +63,7 @@ define({
       "relevance": "Rilevanza",
       "title": "Titolo",
       "owner": "Proprietario",
-      "created": "Data Creazione",
+      "created": "Data creazione",
       "modified": "Data di modifica",
       "numviews": "Conteggio visualizzazioni",
       "avgrating": "Valutazione",
@@ -81,24 +89,26 @@ define({
   },
   "filters": {
     "itemType": {
-      "itemType": "Tipo di elemento",
+      "itemType": "Tipo Argomento",
       "filters": {
         "maps": "Mappe",
         "webMaps": "Mappe Web",
         "mapFiles": "File mappa",
-        "layers": "Livelli",
+        "layers": "Layer",
         "featureLayers": "Feature Layer",
         "tileLayers": "Layer Tile",
-        "mapImageLayers": "Map Image layer",
+        "mapImageLayers": "Image Layers di Mappa",
         "imageryLayers": "Layer immagini",
         "sceneLayers": "Layer scene",
         "tables": "Tabelle",
         "layerFiles": "File layer",
         "scenes": "Scene",
         "apps": "App",
-        "webApps": "App Web",
+        "webApps": "Applicazioni Web",
         "mobileApps": "App mobili",
         "desktopApps": "App desktop",
+        "instantApps": "Instant Apps",
+        "storyMaps": "Mappe delle storie",
         "tools": "Strumenti",
         "locators": "Localizzatori",
         "geodatabaseAccess": "Accesso a geodatabase",
@@ -114,7 +124,7 @@ define({
       }
     },
     "date": {
-      "dateCreated": "Data Creazione",
+      "dateCreated": "Data creazione",
       "dateModified": "Data di modifica"
     },
     "shared": {
@@ -142,12 +152,12 @@ define({
   },
   "gallery": {
     "signIn": "Accedi",
-    "signOut": "Disconnetti",
+    "signOut": "Esci",
     "header": {
       "browse": "Sfoglia",
-      "search": "Cercare"
+      "search": "Cerca"
     },
-    "resultCount": "elementi:",
+    "resultCount": "Elementi:",
     "searchPlaceholders": {
       "generic": "Immettere i termini da cercare"
     },
@@ -155,30 +165,30 @@ define({
       "mapArea": "Nell'area della mappa",
       "type": "Tipo",
       "dateModified": "Modificato",
-      "dateCreated": "Creato",
+      "dateCreated": "Data creazione",
       "access": "Condiviso",
       "group": "Gruppo",
       "folder": "Cartella",
       "status": "Stato",
-      "clearAll": "Cancella tutto",
+      "clearAll": "Deseleziona tutto",
       "category": "Categoria",
-      "region": "Region",
+      "region": "Regione",
       "tagged": "Taggato"
     },
     "itemDetails": {
       "addToMap": "Aggiungi alla mappa",
       "removeFromMap": "Rimuovi dalla mappa",
-      "by": "da",
+      "by": "di",
       "lastModified": "Aggiornato",
       "noSnippet": "Un breve riepilogo dell'elemento non è disponibile.",
       "details": "Descrizione",
       "termsOfUse": "Condizioni d'uso",
       "attribution": "Crediti (Attribuzione)",
-      "noTermsOfUse": "Non è stata fornita alcuna restrizione speciale o limitazione sull'uso del contenuto dell'elemento.",
+      "noTermsOfUse": "Non è stata fornita alcuna restrizione o limitazione speciale sull'uso del contenuto dell’elemento.",
       "noAttribution": "Nessun riconoscimento.",
       "noDescription": "Una descrizione dettagliata dell'elemento non è disponibile.",
       "views": "Conteggio visualizzazioni",
-      "created": "Creato",
+      "created": "Data creazione",
       "sharedWith": "Condiviso con",
       "shared": {
         "public": "Tutti (pubblica)",
@@ -198,8 +208,8 @@ define({
       "noItemsFound": "Nessun elemento corrisponde ai criteri ricercati. Prova a cancellare qualche filtro per visualizzare più elementi.",
       "empty": "Inserire alcuni termini per dare inizio alla ricerca."
     },
-    "search": "Cercare",
-    "close": "Chiudere",
+    "search": "Cerca",
+    "close": "Chiudi",
     "filterPane": {
       "filter": "Filtro",
       "categories": "Categorie",
@@ -212,25 +222,46 @@ define({
     "list": "Elenco",
     "listView": "Vista elenco",
     "showing": "Visualizzazione",
-    "viewResults": "Visualizzazione dei risultati"
+    "viewResults": "Visualizza risultati"
   },
   "itemCards": {
     "remove": "Rimuovi",
     "add": "Aggiungi",
-    "by": "da",
+    "by": "di",
     "actions": "Azioni",
     "viewOrg": "Visita l’organizzazione",
     "viewProfile": "Visualizza profilo utente",
     "viewItem": "Visualizza dettagli elemento",
     "hideItem": "Nascondi dettagli elemento",
-    "created": "Creato",
+    "created": "Data creazione",
     "updated": "Aggiornato",
     "viewCount": "Conteggio visualizzazioni",
-    "rating": "Valutazione"
+    "rating": "Valutazione",
+    "itemType": {
+      "table": "Tabella",
+      "routeLayer": "Layer Itinerario",
+      "markup": "Markup",
+      "featureLayer": "Feature layer",
+      "elevationLayer": "Layer di elevazione",
+      "imageryLayer": "Layer immagini",
+      "sceneLayer": "Scene layer",
+      "sceneLayerPackage": "Pacchetto Scene Layer",
+      "locator": "Localizzatore",
+      "microsoftPowerPoint": "Microsoft PowerPoint",
+      "geoJSON": "GeoJSON",
+      "globeLayer": "Layer globo",
+      "tileLayer": "Layer Tile",
+      "netCDF": "NetCDF",
+      "mapImageLayer": "Layer immagine mappa",
+      "addIn": "Componente aggiuntivo",
+      "bigDataFileShare": "Condivisione file Big Data",
+      "ogcFeatureLayer": "OGC Feature layer",
+      "instantApp": "App istantanea"
+    }
   },
   "pager": {
     "previous": "Precedente",
-    "next": "Successivo",
+    "next": "Avanti",
     "paginationLimit": "Vi è un limite di 10.000 elementi per pagina. Filtrare la ricerca o modificare il termine di ricerca per ridurre il numero di risultati restituiti."
   },
   "actions": {
@@ -240,12 +271,12 @@ define({
     "viewInMap": "Visualizza nella mappa",
     "viewInScene": "Visualizza nella scena",
     "view": "Visualizza",
-    "download": "Download",
+    "download": "Scarica",
     "openPdf": "Apri in PDF",
     "open": "Apri",
     "openDoc": "Apri documento",
     "openTab": "Apri in una nuova scheda",
-    "openViewer": "é_Open in Map Viewer___________________È",
+    "openViewer": "Apri nel map viewer",
     "addFavorite": "Aggiungi ai Preferiti",
     "removeFavorite": "Rimuovi dai Preferiti"
   },
@@ -263,8 +294,9 @@ define({
     }
   },
   "share": {
-    "shareGallery": "é_Share gallery______________È",
-    "shareFiltered": "é_Share filtered gallery_______________________È",
-    "tooltip": "é_URL copied to you clipboard____________________________È"
+    "share": "Condividi",
+    "shareGallery": "Condividere galleria",
+    "shareFiltered": "Condividere galleria filtrata",
+    "tooltip": "URL copiato negli appunti"
   }
 });

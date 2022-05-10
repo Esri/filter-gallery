@@ -1,16 +1,24 @@
 define({
   "appInit": "Инициализация приложения...",
   "appFailed": "Не удалось загрузить приложение.",
-  "noAuth": "Ваша учетная запись не лицензирована на использование не публичных Настраиваемых приложений. Обратитесь к администратору организации, чтобы получить тип пользователя, в который входит Essential Apps или лицензия дополнительного модуля Essential Apps.",
+  "noAuth": "Ваша учетная запись не лицензирована на использование не публичных Настраиваемых приложений. Обратитесь к администратору организации, чтобы получить тип пользователя, в который входит Essential Apps или дополнительная лицензия Essential Apps.",
   "notLicensed": "Не лицензировано",
+  "error": "Ошибка",
+  "originError": {
+    "message": "Приложение, к которому вы пытаетесь получить доступ, не соответствует источнику по URL",
+    "close": "Закрыть",
+    "options": "Дополнительные опции",
+    "linkMessage": "Продолжить до"
+  },
+  "analyticsOptIn": "Оптимизировано в",
   "badges": {
     "authoritative": "Достоверный",
     "deleted": "Удалено",
-    "deprecated": "Не рекомендуемый",
+    "deprecated": "Нерекомендуемый",
     "livingAtlas": "Living Atlas",
     "marketplace": "Marketplace",
-    "openData": "Открытые данные",
-    "premium": "Premium",
+    "openData": "Open Data",
+    "premium": "Премиум",
     "subscriber": "Подписчик",
     "tooltips": {
       "altAuthoritative": "Достоверный: Рекомендован",
@@ -28,7 +36,7 @@ define({
     }
   },
   "buttons": {
-    "clear": "Сбросить"
+    "clear": "Очистить"
   },
   "dateSelection": {
     "today": "Сегодня",
@@ -40,10 +48,10 @@ define({
     "to": "Дата окончания"
   },
   "dropdowns": {
-    "clear": "Сбросить",
+    "clear": "Очистить",
     "clearAll": "Очистить все",
     "contentViews": {
-      "grid": "Грид",
+      "grid": "Сетка",
       "list": "Список",
       "table": "Таблица",
       "view": "Вид"
@@ -72,8 +80,8 @@ define({
         "relevance": "От наибольшего к наименьшему",
         "title": "По алфавиту в обратном порядке",
         "owner": "По алфавиту в обратном порядке",
-        "created": "Недавние",
-        "modified": "Недавние",
+        "created": "Самые свежие",
+        "modified": "Самые свежие",
         "numviews": "От наибольшего к наименьшему",
         "avgrating": "От высшего к низшему"
       }
@@ -92,13 +100,15 @@ define({
         "mapImageLayers": "Слои изображений карты",
         "imageryLayers": "Слои изображений",
         "sceneLayers": "Слои сцены",
-        "tables": "Таблица",
+        "tables": "Таблицы",
         "layerFiles": "Файлы слоев",
         "scenes": "Сцены",
         "apps": "Приложения",
         "webApps": "Веб-приложения",
         "mobileApps": "Мобильные приложения",
         "desktopApps": "Настольные приложения",
+        "instantApps": "Instant Apps",
+        "storyMaps": "Story Maps",
         "tools": "Инструменты",
         "locators": "Локаторы",
         "geodatabaseAccess": "Доступ к базе геоданных",
@@ -118,20 +128,20 @@ define({
       "dateModified": "Дата изменения"
     },
     "shared": {
-      "shared": "Общий доступ",
+      "shared": "Общий",
       "options": {
         "public": "Для всех (общедоступный)",
         "org": "Для организации",
         "shared": "Для групп",
-        "private": "Ни с кем"
+        "private": "Без единого"
       }
     },
     "status": {
-      "status": "Статус",
+      "status": "Состояние",
       "options": {
         "authoritative": "Достоверный",
-        "deprecated": "Не рекомендуемый",
-        "premium": "Premium"
+        "deprecated": "Нерекомендуемый",
+        "premium": "Премиум"
       }
     },
     "tags": {
@@ -141,25 +151,25 @@ define({
     }
   },
   "gallery": {
-    "signIn": "Войти",
-    "signOut": "Выйти",
+    "signIn": "Вход",
+    "signOut": "Выход",
     "header": {
-      "browse": "Просмотр",
+      "browse": "Обзор",
       "search": "Поиск"
     },
-    "resultCount": "элементы:",
+    "resultCount": "Элементы:",
     "searchPlaceholders": {
       "generic": "Введите текст поиска"
     },
     "filterChips": {
       "mapArea": "В области карты",
       "type": "Тип",
-      "dateModified": "Изменена",
-      "dateCreated": "Создана",
-      "access": "Общий доступ",
+      "dateModified": "Изменено",
+      "dateCreated": "Создано",
+      "access": "Общий",
       "group": "Группа",
-      "folder": "Folder",
-      "status": "Status",
+      "folder": "Папка",
+      "status": "Состояние",
       "clearAll": "Очистить все",
       "category": "Категория",
       "region": "Регион",
@@ -169,19 +179,19 @@ define({
       "addToMap": "Добавить к карте",
       "removeFromMap": "Удалить из карты",
       "by": "по",
-      "lastModified": "Обновлено",
+      "lastModified": "Обновления",
       "noSnippet": "Краткая информация об элементе недоступна.",
       "details": "Описание",
       "termsOfUse": "Условия использования",
-      "attribution": "Сведения об авторах",
-      "noTermsOfUse": "Отсутствуют специальные ограничения использования содержимого элемента.",
+      "attribution": "Кредиты (атрибуция)",
+      "noTermsOfUse": "Не указаны особые ограничения на использование ресурса элемента.",
       "noAttribution": "Отсутствуют авторские права третьих лиц.",
       "noDescription": "Полное описание элемента недоступно.",
       "views": "Количество просмотров",
-      "created": "Создана",
-      "sharedWith": "Общий доступ для",
+      "created": "Создано",
+      "sharedWith": "Совместный доступ для",
       "shared": {
-        "public": "Для всех (общий)",
+        "public": "Для всех (общедоступный)",
         "org": "Организация",
         "shared": "Элемент не используется в общем доступе.",
         "private": "Элемент не используется в общем доступе."
@@ -210,33 +220,54 @@ define({
     "compact": "Таблица",
     "compactView": "Компактный вид",
     "list": "Список",
-    "listView": "Список",
-    "showing": "Показываются",
+    "listView": "Вид - список",
+    "showing": "Показать",
     "viewResults": "Просмотр результатов"
   },
   "itemCards": {
-    "remove": "Убрать",
-    "add": "Добавление",
+    "remove": "Удалить",
+    "add": "Добавить",
     "by": "по",
     "actions": "Действия",
     "viewOrg": "Посетить организацию",
     "viewProfile": "Просмотр профиля пользователя",
     "viewItem": "Просмотр информации об элементе",
     "hideItem": "Скрыть информацию об элементе",
-    "created": "Создана",
+    "created": "Создано",
     "updated": "Обновлено",
     "viewCount": "Количество просмотров",
-    "rating": "Рейтинг"
+    "rating": "Рейтинг",
+    "itemType": {
+      "table": "Таблица",
+      "routeLayer": "Слой маршрута",
+      "markup": "Разметка",
+      "featureLayer": "Векторный слой",
+      "elevationLayer": "Слой высот",
+      "imageryLayer": "Слой изображения",
+      "sceneLayer": "Слой сцены",
+      "sceneLayerPackage": "Пакет слоя сцены",
+      "locator": "Локатор",
+      "microsoftPowerPoint": "Microsoft PowerPoint",
+      "geoJSON": "GeoJSON",
+      "globeLayer": "Слой глобуса",
+      "tileLayer": "Слой листов",
+      "netCDF": "NetCDF",
+      "mapImageLayer": "Слой изображения карты",
+      "addIn": "Надстройка",
+      "bigDataFileShare": "Файловое хранилище больших данных",
+      "ogcFeatureLayer": "Слой объектов OGC",
+      "instantApp": "Instant App"
+    }
   },
   "pager": {
-    "previous": "Предыдущая",
-    "next": "Следующая",
+    "previous": "Предыдущий",
+    "next": "Следующий",
     "paginationLimit": "Существует ограничение в 10 000 результатов, которые могут быть получены с помощью разбиения на страницы. Попробуйте отфильтровать или изменить термин поиска, чтобы снизить количество возвращаемых результатов."
   },
   "actions": {
-    "viewMap": "Просмотр карты",
-    "viewScene": "Просмотр сцены",
-    "viewApp": "Просмотр приложения",
+    "viewMap": "Просмотреть карту",
+    "viewScene": "Просмотреть сцену",
+    "viewApp": "Просмотреть приложение и",
     "viewInMap": "Просмотреть на карте",
     "viewInScene": "Просмотреть в сцене",
     "view": "Просмотр",
@@ -245,7 +276,7 @@ define({
     "open": "Открыть",
     "openDoc": "Открыть документ",
     "openTab": "Открыть в новой вкладке",
-    "openViewer": "Ж_Open in Map Viewer___________________Я",
+    "openViewer": "Открыть во вьюере карт",
     "addFavorite": "Добавить в Избранное",
     "removeFavorite": "Удалить из Избранного"
   },
@@ -263,8 +294,9 @@ define({
     }
   },
   "share": {
-    "shareGallery": "Ж_Share gallery______________Я",
-    "shareFiltered": "Ж_Share filtered gallery_______________________Я",
-    "tooltip": "Ж_URL copied to you clipboard____________________________Я"
+    "share": "Общий доступ",
+    "shareGallery": "Опубликовать галерею",
+    "shareFiltered": "Опубликовать галерею с фильтрами",
+    "tooltip": "Этот URL был скопирован в буфер обмена."
   }
 });

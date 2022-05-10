@@ -2,7 +2,15 @@ define({
   "appInit": "Inicializando aplicación...",
   "appFailed": "Error al cargar la aplicación.",
   "noAuth": "Su cuenta no tiene licencia para utilizar aplicaciones configurables que no son públicas. Pídale al administrador de su organización que le asigne un tipo de usuario que incluya aplicaciones esenciales o una licencia complementaria de aplicaciones esenciales.",
-  "notLicensed": "Sin licencia",
+  "notLicensed": "Sin Licencia",
+  "error": "Error",
+  "originError": {
+    "message": "La aplicación a la que intenta acceder no procede de la dirección URL que ha proporcionado",
+    "close": "Cerrar",
+    "options": "Opciones avanzadas",
+    "linkMessage": "Continuar"
+  },
+  "analyticsOptIn": "Autorizar",
   "badges": {
     "authoritative": "Acreditado",
     "deleted": "Eliminado",
@@ -91,7 +99,7 @@ define({
         "tileLayers": "Capas de teselas",
         "mapImageLayers": "Capas de imágenes de mapa",
         "imageryLayers": "Capas de imágenes",
-        "sceneLayers": "Capas de escena",
+        "sceneLayers": "Capas de escenas",
         "tables": "Tablas",
         "layerFiles": "Archivos de capa",
         "scenes": "Escenas",
@@ -99,6 +107,8 @@ define({
         "webApps": "Aplicaciones web",
         "mobileApps": "Aplicaciones móviles",
         "desktopApps": "Aplicaciones de escritorio",
+        "instantApps": "Aplicaciones instantáneas",
+        "storyMaps": "Story Maps",
         "tools": "Herramientas",
         "locators": "Localizadores",
         "geodatabaseAccess": "Acceso a la geodatabase",
@@ -118,7 +128,7 @@ define({
       "dateModified": "Fecha de modificación"
     },
     "shared": {
-      "shared": "Compartido",
+      "shared": "Compartida",
       "options": {
         "public": "Con todos (público)",
         "org": "Con organización",
@@ -147,7 +157,7 @@ define({
       "browse": "Examinar",
       "search": "Buscar"
     },
-    "resultCount": "elementos:",
+    "resultCount": "Elementos:",
     "searchPlaceholders": {
       "generic": "Introducir términos de búsqueda"
     },
@@ -155,8 +165,8 @@ define({
       "mapArea": "Dentro del área del mapa",
       "type": "Tipo",
       "dateModified": "Modificado",
-      "dateCreated": "Creado",
-      "access": "Compartido",
+      "dateCreated": "Creada",
+      "access": "Compartida",
       "group": "Grupo",
       "folder": "Carpeta",
       "status": "Estado",
@@ -169,16 +179,16 @@ define({
       "addToMap": "Agregar al mapa",
       "removeFromMap": "Quitar del mapa",
       "by": "por",
-      "lastModified": "Actualizado",
+      "lastModified": "Actualizada",
       "noSnippet": "No hay disponible un breve resumen del elemento.",
       "details": "Descripción",
       "termsOfUse": "Condiciones de uso",
       "attribution": "Créditos (atribución)",
-      "noTermsOfUse": "No se han proporcionado restricciones especiales o limitaciones sobre el uso del contenido del elemento.",
+      "noTermsOfUse": "No se han proporcionado restricciones ni limitaciones especiales sobre el uso del contenido del elemento.",
       "noAttribution": "Sin reconocimientos.",
       "noDescription": "No hay disponible una descripción detallada del elemento.",
       "views": "Recuento de vistas",
-      "created": "Creado",
+      "created": "Creada",
       "sharedWith": "Compartido con",
       "shared": {
         "public": "Todos (público)",
@@ -216,17 +226,38 @@ define({
   },
   "itemCards": {
     "remove": "Eliminar",
-    "add": "Agregar",
+    "add": "Añadir",
     "by": "por",
     "actions": "Acciones",
     "viewOrg": "Visitar organización",
     "viewProfile": "Ver perfil de usuario",
     "viewItem": "Ver detalles del elemento",
     "hideItem": "Ocultar detalles del elemento",
-    "created": "Creado",
-    "updated": "Actualizado",
+    "created": "Creada",
+    "updated": "Actualizada",
     "viewCount": "Recuento de vistas",
-    "rating": "Calificación"
+    "rating": "Calificación",
+    "itemType": {
+      "table": "Tabla",
+      "routeLayer": "Capa de ruta",
+      "markup": "Marca",
+      "featureLayer": "Capa de entidades",
+      "elevationLayer": "Capa de elevación",
+      "imageryLayer": "Capa de imágenes",
+      "sceneLayer": "Capa de escena",
+      "sceneLayerPackage": "Paquete de capas de escena",
+      "locator": "Localizador",
+      "microsoftPowerPoint": "Microsoft PowerPoint",
+      "geoJSON": "GeoJSON",
+      "globeLayer": "Capa de globo",
+      "tileLayer": "Capa de teselas",
+      "netCDF": "NetCDF",
+      "mapImageLayer": "Capa de imágenes de mapa",
+      "addIn": "Add-In",
+      "bigDataFileShare": "Archivos compartidos de Big Data",
+      "ogcFeatureLayer": "Capa de entidades del OGC",
+      "instantApp": "Aplicación instantánea"
+    }
   },
   "pager": {
     "previous": "Anterior",
@@ -242,10 +273,10 @@ define({
     "view": "Vista",
     "download": "Descargar",
     "openPdf": "Abrir en PDF",
-    "open": "Abierto",
+    "open": "Abrir",
     "openDoc": "Abrir documento",
     "openTab": "Abrir en una nueva pestaña",
-    "openViewer": "á_Open in Map Viewer___________________Ó",
+    "openViewer": "Abrir en Map Viewer",
     "addFavorite": "Agregar a favoritos",
     "removeFavorite": "Quitar de favoritos"
   },
@@ -263,8 +294,9 @@ define({
     }
   },
   "share": {
-    "shareGallery": "á_Share gallery______________Ó",
-    "shareFiltered": "á_Share filtered gallery_______________________Ó",
-    "tooltip": "á_URL copied to you clipboard____________________________Ó"
+    "share": "Compartir",
+    "shareGallery": "Compartir galería",
+    "shareFiltered": "Compartir galería filtrada",
+    "tooltip": "La URL se copió en el portapapeles"
   }
 });

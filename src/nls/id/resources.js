@@ -1,8 +1,16 @@
 define({
   "appInit": "Menginisialisasi aplikasi...",
   "appFailed": "Gagal memuat aplikasi.",
-  "noAuth": "Akun Anda tidak dilisensikan untuk menggunakan Aplikasi yang Dapat Dikonfigurasi yang bukan bersifat publik. Harap minta administrator organisasi Anda untuk menetapkan Anda jenis pengguna yang menyertakan lisensi Essential App atau add-on Essential App.",
-  "notLicensed": "Tidak Dilisensikan",
+  "noAuth": "Akun Anda tidak memiliki lisensi untuk menggunakan Configurable Apps yang tidak bersifat publik. Harap meminta administrator organisasi Anda untuk memberikan Anda akses pengguna yang memiliki lisensi Essential App atau add-on Essential App.",
+  "notLicensed": "Tidak Berlisensi",
+  "error": "Kesalahan",
+  "originError": {
+    "message": "Aplikasi yang hendak Anda akses tidak berasal dari URL yang Anda berikan",
+    "close": "Tutup",
+    "options": "Opsi lanjutan",
+    "linkMessage": "Lanjut ke"
+  },
+  "analyticsOptIn": "Ikut Serta",
   "badges": {
     "authoritative": "Otoritatif",
     "deleted": "Dihapus",
@@ -31,7 +39,7 @@ define({
     "clear": "Hapus"
   },
   "dateSelection": {
-    "today": "Hari Ini",
+    "today": "Hari ini",
     "yesterday": "Kemarin",
     "last7Days": "7 Hari Terakhir",
     "last30Days": "30 Hari Terakhir",
@@ -46,7 +54,7 @@ define({
       "grid": "Grid",
       "list": "Daftar",
       "table": "Tabel",
-      "view": "Tampilkan"
+      "view": "Lihat"
     },
     "sorting": {
       "sort": "Urutkan",
@@ -56,7 +64,7 @@ define({
       "title": "Judul",
       "owner": "Pemilik",
       "created": "Tanggal Dibuat",
-      "modified": "Tanggal Diubah",
+      "modified": "Tanggal Dimodifikasi",
       "numviews": "Jumlah Tampilan",
       "avgrating": "Peringkat",
       "ascending": {
@@ -84,10 +92,10 @@ define({
       "itemType": "Jenis Item",
       "filters": {
         "maps": "Peta",
-        "webMaps": "Web Map",
+        "webMaps": "Pemetaan Web",
         "mapFiles": "File Peta",
         "layers": "Layer",
-        "featureLayers": "Feature Layer",
+        "featureLayers": "Feature layer",
         "tileLayers": "Layer Tile",
         "mapImageLayers": "Layer Gambar Peta",
         "imageryLayers": "Layer Pencitraan",
@@ -99,6 +107,8 @@ define({
         "webApps": "Aplikasi Web",
         "mobileApps": "Aplikasi Mobile",
         "desktopApps": "Aplikasi Desktop",
+        "instantApps": "Instant Apps",
+        "storyMaps": "Story Map",
         "tools": "Alat",
         "locators": "Penentu Lokasi",
         "geodatabaseAccess": "Akses Geodatabase",
@@ -115,7 +125,7 @@ define({
     },
     "date": {
       "dateCreated": "Tanggal Dibuat",
-      "dateModified": "Tanggal Diubah"
+      "dateModified": "Tanggal Dimodifikasi"
     },
     "shared": {
       "shared": "Dibagikan",
@@ -135,7 +145,7 @@ define({
       }
     },
     "tags": {
-      "tags": "Tag",
+      "tags": "Label",
       "filterTags": "Filter tag",
       "noTags": "Tidak ditemukan tag yang cocok dengan pencarian Anda."
     }
@@ -147,7 +157,7 @@ define({
       "browse": "Jelajahi",
       "search": "Cari"
     },
-    "resultCount": "item:",
+    "resultCount": "Item:",
     "searchPlaceholders": {
       "generic": "Masukkan istilah pencarian"
     },
@@ -174,7 +184,7 @@ define({
       "details": "Deskripsi",
       "termsOfUse": "Ketentuan Penggunaan",
       "attribution": "Kredit (Atribusi)",
-      "noTermsOfUse": "Tidak ada larangan atau pembatasan khusus terkait penggunakan konten itemâ€™s yang diberikan.",
+      "noTermsOfUse": "Tidak ada larangan atau pembatasan khusus atas penggunaan konten item yang telah disediakan.",
       "noAttribution": "Tidak ada pengakuan.",
       "noDescription": "Deskripsi mendalam mengenai item tidak tersedia.",
       "views": "Jumlah Tampilan",
@@ -216,7 +226,7 @@ define({
   },
   "itemCards": {
     "remove": "Hapus",
-    "add": "Tambah",
+    "add": "Tambahkan",
     "by": "oleh",
     "actions": "Tindakan",
     "viewOrg": "Kunjungi organisasi",
@@ -226,11 +236,32 @@ define({
     "created": "Dibuat",
     "updated": "Diperbarui",
     "viewCount": "Jumlah Tampilan",
-    "rating": "Peringkat"
+    "rating": "Peringkat",
+    "itemType": {
+      "table": "Tabel",
+      "routeLayer": "Layer Rute",
+      "markup": "Markup",
+      "featureLayer": "Feature layer",
+      "elevationLayer": "Layer Elevasi",
+      "imageryLayer": "Layer Citra",
+      "sceneLayer": "Scene Layer",
+      "sceneLayerPackage": "Paket Layer Scene",
+      "locator": "Penentu Lokasi",
+      "microsoftPowerPoint": "Microsoft PowerPoint",
+      "geoJSON": "GeoJSON",
+      "globeLayer": "Layer Bola Dunia",
+      "tileLayer": "Layer Tile",
+      "netCDF": "NetCDF",
+      "mapImageLayer": "Layer Citra Peta",
+      "addIn": "Add-In",
+      "bigDataFileShare": "Pembagian File Big Data",
+      "ogcFeatureLayer": "Feature Layer OGC",
+      "instantApp": "Aplikasi Instan"
+    }
   },
   "pager": {
     "previous": "Sebelumnya",
-    "next": "Berikutnya",
+    "next": "Selanjutnya",
     "paginationLimit": "Ada batas 10.000 hasil yang dapat diambil melalui penentuan halaman. Cobalah memfilter atau mengubah istilah pencarian Anda untuk mengurangi jumlah hasil yang didapat."
   },
   "actions": {
@@ -245,7 +276,7 @@ define({
     "open": "Buka",
     "openDoc": "Buka Dokumen",
     "openTab": "Buka di tab baru",
-    "openViewer": "ng_Open in Map Viewer___________________ny",
+    "openViewer": "Buka di Map Viewer",
     "addFavorite": "Tambahkan ke Favorit",
     "removeFavorite": "Hapus dari Favorit"
   },
@@ -263,8 +294,9 @@ define({
     }
   },
   "share": {
-    "shareGallery": "ng_Share gallery______________ny",
-    "shareFiltered": "ng_Share filtered gallery_______________________ny",
-    "tooltip": "ng_URL copied to you clipboard____________________________ny"
+    "share": "Bagikan",
+    "shareGallery": "Bagikan galeri",
+    "shareFiltered": "Bagikan galeri yang difilter",
+    "tooltip": "URL disalin ke clipboard Anda"
   }
 });

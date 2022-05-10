@@ -3,6 +3,14 @@ define({
   "appFailed": "Učitavanje appa nije uspjelo.",
   "noAuth": "Vaš račun nije licenciran za upotrebu konfigurabilnih appova koji nisu javni. Obratite se administratoru svoje organizacije da vam dodijeli vrstu korisnika koja sadrži licencu za osnovne appove ili za dodatke za osnovne appove.",
   "notLicensed": "Nema licence",
+  "error": "Pogreška",
+  "originError": {
+    "message": "Aplikacija kojoj pokušavate pristupiti ne potječe s URL-a koji ste naveli",
+    "close": "Zatvori",
+    "options": "Napredne opcije",
+    "linkMessage": "Nastavi do"
+  },
+  "analyticsOptIn": "Prijavi se",
   "badges": {
     "authoritative": "Mjerodavno",
     "deleted": "Izbrisano",
@@ -28,7 +36,7 @@ define({
     }
   },
   "buttons": {
-    "clear": "Očisti"
+    "clear": "Ukloni"
   },
   "dateSelection": {
     "today": "Danas",
@@ -40,7 +48,7 @@ define({
     "to": "Datum kraja"
   },
   "dropdowns": {
-    "clear": "Očisti",
+    "clear": "Ukloni",
     "clearAll": "Očisti sve",
     "contentViews": {
       "grid": "Mreža",
@@ -95,10 +103,12 @@ define({
         "tables": "Tablice",
         "layerFiles": "Datoteke sloja",
         "scenes": "Scene",
-        "apps": "Appovi",
-        "webApps": "Web-appovi",
+        "apps": "Aplikacije",
+        "webApps": "Web-aplikacije",
         "mobileApps": "Mobilni appovi",
         "desktopApps": "Desktop appovi",
+        "instantApps": "Instant Apps",
+        "storyMaps": "Story Maps",
         "tools": "Alati",
         "locators": "Lokatori",
         "geodatabaseAccess": "Pristup geobazi podataka",
@@ -145,9 +155,9 @@ define({
     "signOut": "Odjava",
     "header": {
       "browse": "Pregledaj",
-      "search": "Potraži"
+      "search": "Pretraživanje"
     },
-    "resultCount": "stavke:",
+    "resultCount": "Stavke:",
     "searchPlaceholders": {
       "generic": "Unesite pojmove za pretraživanje"
     },
@@ -173,8 +183,8 @@ define({
       "noSnippet": "Kratki sažetak stavke nije dostupan.",
       "details": "Opis",
       "termsOfUse": "Uvjeti korištenja",
-      "attribution": "Krediti (atribucija)",
-      "noTermsOfUse": "Nema posebnih ograničenja upotrebe sadržaja stavke.",
+      "attribution": "Izvori",
+      "noTermsOfUse": "Nema posebnih ograničenja za upotrebu sadržaja stavke.",
       "noAttribution": "Nema zahvala.",
       "noDescription": "Detaljni opis stavke nije dostupan.",
       "views": "Broj prikaza",
@@ -188,7 +198,7 @@ define({
       },
       "viewUser": "Prikaži korisnički profil",
       "viewOrg": "Posjeti organizaciju",
-      "addToFavorites": "Dodaj favoritima",
+      "addToFavorites": "Dodaj u favorite",
       "removeFromFavorites": "Ukloni iz favorita",
       "managedBy": "Upravlja:"
     },
@@ -198,7 +208,7 @@ define({
       "noItemsFound": "Nema stavki koje ispunjavaju vaše kriterije. Pokušajte očistiti neke filtre za prikaz više stavki.",
       "empty": "Unesite pojmove iznad i započnite pretraživanje."
     },
-    "search": "Potraži",
+    "search": "Pretraživanje",
     "close": "Zatvori",
     "filterPane": {
       "filter": "Filtriraj",
@@ -226,7 +236,28 @@ define({
     "created": "Stvoreno",
     "updated": "Ažurirano",
     "viewCount": "Broj prikaza",
-    "rating": "Ocjena"
+    "rating": "Ocjena",
+    "itemType": {
+      "table": "tablica",
+      "routeLayer": "Sloj rute",
+      "markup": "Obilježje",
+      "featureLayer": "Sloj geoobjekta",
+      "elevationLayer": "Visinski sloj",
+      "imageryLayer": "Sloj sa snimkama",
+      "sceneLayer": "Sloj scene",
+      "sceneLayerPackage": "Paket sloja scene",
+      "locator": "Lokator",
+      "microsoftPowerPoint": "Microsoft PowerPoint",
+      "geoJSON": "GeoJSON",
+      "globeLayer": "Sloj globusa",
+      "tileLayer": "Pločasti sloj",
+      "netCDF": "NetCDF",
+      "mapImageLayer": "Slikovni sloj karte",
+      "addIn": "Dodatak",
+      "bigDataFileShare": "Dijeljena datoteka velikih podataka",
+      "ogcFeatureLayer": "OGC sloj geoobjekta",
+      "instantApp": "Instant App"
+    }
   },
   "pager": {
     "previous": "Prethodno",
@@ -234,19 +265,19 @@ define({
     "paginationLimit": "Postoji ograničenje od 10.000 rezultata koji se mogu dohvatiti putem numeriranja. Pokušajte filtrirati ili promijeniti svoje termine za pretraživanje kako bi se smanjio broj vraćenih rezultata."
   },
   "actions": {
-    "viewMap": "Prikaz karte",
+    "viewMap": "Prikaži kartu",
     "viewScene": "Prikaži scenu",
-    "viewApp": "Prikaz Appa",
-    "viewInMap": "Prikaz na karti",
-    "viewInScene": "Prikaz u sceni",
+    "viewApp": "Prikaži app",
+    "viewInMap": "Prikaži na karti",
+    "viewInScene": "Prikaži u sceni",
     "view": "Prikaži",
     "download": "Preuzmi",
     "openPdf": "Otvori u PDF-u",
     "open": "Otvori",
     "openDoc": "Otvori dokument",
     "openTab": "Otvorite u novoj kartici",
-    "openViewer": "Č_Open in Map Viewer___________________ž",
-    "addFavorite": "Dodaj favoritima",
+    "openViewer": "Otvori u Map Vieweru",
+    "addFavorite": "Dodaj u favorite",
     "removeFavorite": "Ukloni iz favorita"
   },
   "viewer": {
@@ -263,8 +294,9 @@ define({
     }
   },
   "share": {
-    "shareGallery": "Č_Share gallery______________ž",
-    "shareFiltered": "Č_Share filtered gallery_______________________ž",
-    "tooltip": "Č_URL copied to you clipboard____________________________ž"
+    "share": "Podijeli",
+    "shareGallery": "Podijeli galeriju",
+    "shareFiltered": "Podijeli filtriranu galeriju",
+    "tooltip": "URL kopiran u međuspremnik."
   }
 });

@@ -1,15 +1,23 @@
 define({
   "appInit": "Đang khởi chạy ứng dụng...",
   "appFailed": "Không thể tải ứng dụng.",
-  "noAuth": "Tài khoản của bạn không được cấp phép để sử dụng các ứng dụng có thể cấu hình mà hông được công khai. Vui lòng yêu cầu quản trị viên của tổ chức bạn gán cho bạn loại người dùng nào có bao gồm các ứng dụng thiết yếu hoặc có giấy phép sử dụng các ứng dụng thiết yếu bổ trợ.",
-  "notLicensed": "Không được cấp phép",
+  "noAuth": "Tài khoản của bạn không được cấp phép để sử dụng Các Ứng dụng có thể Cấu hình chưa được chia sẻ công khai. Vui lòng yêu cầu quản trị viên của tổ chức bạn gán cho bạn loại người dùng nào có bao gồm các ứng dụng thiết yếu hoặc có giấy phép sử dụng các ứng dụng thiết yếu bổ sung.",
+  "notLicensed": "Không được Cấp phép",
+  "error": "Lỗi",
+  "originError": {
+    "message": "Ứng dụng bạn đang cố gắng truy cập không có nguồn gốc từ URL bạn đã cung cấp",
+    "close": "Đóng",
+    "options": "Các tùy chọn nâng cao",
+    "linkMessage": "Tiếp tục tới"
+  },
+  "analyticsOptIn": "Đăng ký tham gia",
   "badges": {
     "authoritative": "Đáng tin cậy",
     "deleted": "Đã xóa",
     "deprecated": "Không còn sử dụng",
-    "livingAtlas": "Living Atlas",
+    "livingAtlas": "Tập bản đồ Sinh sống",
     "marketplace": "Marketplace",
-    "openData": "Open Data",
+    "openData": "Dữ liệu Mở",
     "premium": "Cao cấp",
     "subscriber": "Người đăng ký",
     "tooltips": {
@@ -41,7 +49,7 @@ define({
   },
   "dropdowns": {
     "clear": "Xóa",
-    "clearAll": "Xóa Tất cả",
+    "clearAll": "Xóa tất cả",
     "contentViews": {
       "grid": "Lưới",
       "list": "Danh sách",
@@ -99,6 +107,8 @@ define({
         "webApps": "Ứng dụng web",
         "mobileApps": "Ứng dụng di động",
         "desktopApps": "Ứng dụng dành cho máy tính để bàn",
+        "instantApps": "Instant Apps",
+        "storyMaps": "Story Maps",
         "tools": "Công cụ",
         "locators": "Bộ định vị",
         "geodatabaseAccess": "Truy cập Geodatabase",
@@ -141,13 +151,13 @@ define({
     }
   },
   "gallery": {
-    "signIn": "Đăng Nhập",
-    "signOut": "Đăng Xuất",
+    "signIn": "Đăng nhập",
+    "signOut": "Đăng xuất",
     "header": {
-      "browse": "Duyệt",
+      "browse": "Duyệt tìm",
       "search": "Tìm kiếm"
     },
-    "resultCount": "mục:",
+    "resultCount": "Mục:",
     "searchPlaceholders": {
       "generic": "Nhập cụm từ tìm kiếm"
     },
@@ -160,9 +170,9 @@ define({
       "group": "Nhóm",
       "folder": "Thư mục",
       "status": "Trạng thái",
-      "clearAll": "Xóa Tất cả",
+      "clearAll": "Xóa tất cả",
       "category": "Thể loại",
-      "region": "Vùng",
+      "region": "Khu vực",
       "tagged": "Được gắn thẻ"
     },
     "itemDetails": {
@@ -174,7 +184,7 @@ define({
       "details": "Thông tin mô tả",
       "termsOfUse": "Điều khoản Sử dụng",
       "attribution": "Credit (Ghi công tác giả)",
-      "noTermsOfUse": "Không có hạn chế hoặc giới hạn đối với việc sử dụng nội dung của mục được cung cấp.",
+      "noTermsOfUse": "Không có hạn chế hoặc giới hạn đặc biệt nào đối với việc sử dụng nội dung của mục được cung cấp.",
       "noAttribution": "Không có thông tin ghi nhận nào.",
       "noDescription": "Không có thông tin mô tả chuyên sâu cho mục này.",
       "views": "Số lượng lượt xem",
@@ -190,7 +200,7 @@ define({
       "viewOrg": "Truy cập tổ chức",
       "addToFavorites": "Thêm vào mục Yêu thích",
       "removeFromFavorites": "Gỡ bỏ khỏi mục Yêu thích",
-      "managedBy": "Được quản lý bởi:"
+      "managedBy": "Người quản lý bởi:"
     },
     "results": {
       "loadingItems": "Đang tải mục...",
@@ -205,7 +215,7 @@ define({
       "categories": "Danh mục",
       "groupCategories": "Danh mục nhóm"
     },
-    "viewDetails": "Xem chi tiết mục",
+    "viewDetails": "Xem thông tin chi tiết mục",
     "back": "Quay lại",
     "compact": "Bảng",
     "compactView": "Chế độ xem nhỏ gọn",
@@ -220,17 +230,38 @@ define({
     "by": "bởi",
     "actions": "Các hành động",
     "viewOrg": "Truy cập tổ chức",
-    "viewProfile": "Xem hồ sơ người dùng",
-    "viewItem": "Xem chi tiết mục",
+    "viewProfile": "Xem thông tin chi tiết người dùng",
+    "viewItem": "Xem thông tin chi tiết mục",
     "hideItem": "Ẩn thông tin chi tiết của mục",
     "created": "Đã tạo",
     "updated": "Đã cập nhật",
-    "viewCount": "Xem Số lượng",
-    "rating": "Xếp loại"
+    "viewCount": "Số lượng lượt xem",
+    "rating": "Xếp loại",
+    "itemType": {
+      "table": "Bảng",
+      "routeLayer": "Lớp Tuyến đường",
+      "markup": "Đánh dấu",
+      "featureLayer": "Lớp đối tượng",
+      "elevationLayer": "Lớp Độ cao",
+      "imageryLayer": "Lớp hình ảnh",
+      "sceneLayer": "Lớp Scene",
+      "sceneLayerPackage": "Gói Lớp Scene",
+      "locator": "Bộ định vị",
+      "microsoftPowerPoint": "Microsoft PowerPoint",
+      "geoJSON": "GeoJSON",
+      "globeLayer": "Lớp Globe",
+      "tileLayer": "Lớp Tile",
+      "netCDF": "NetCDF",
+      "mapImageLayer": "Lớp Hình ảnh Bản đồ",
+      "addIn": "Add-In",
+      "bigDataFileShare": "Chia sẻ Tệp Dữ liệu Lớn",
+      "ogcFeatureLayer": "Lớp Đối tượng OGC",
+      "instantApp": "Instant App"
+    }
   },
   "pager": {
     "previous": "Trước",
-    "next": "Tiếp theo",
+    "next": "Tiếp",
     "paginationLimit": "Giới hạn 10.000 kết quả có thể truy vấn thông qua việc phân trang. Thử lọc hoặc thay đổi cụm từ tìm kiếm để giảm số lượng kết quả trả về."
   },
   "actions": {
@@ -245,7 +276,7 @@ define({
     "open": "Mở",
     "openDoc": "Mở Tài liệu",
     "openTab": "Mở trong tab mới",
-    "openViewer": "Đ_Open in Map Viewer___________________ớ",
+    "openViewer": "Mở trong Map Viewer",
     "addFavorite": "Thêm vào mục Yêu thích",
     "removeFavorite": "Gỡ bỏ khỏi mục Yêu thích"
   },
@@ -263,8 +294,9 @@ define({
     }
   },
   "share": {
-    "shareGallery": "Đ_Share gallery______________ớ",
-    "shareFiltered": "Đ_Share filtered gallery_______________________ớ",
-    "tooltip": "Đ_URL copied to you clipboard____________________________ớ"
+    "share": "Chia sẻ",
+    "shareGallery": "Chia sẻ bộ sưu tập",
+    "shareFiltered": "Chia sẻ bộ sưu tập đã được lọc",
+    "tooltip": "URL đã được sao chép vào bảng tạm của bạn"
   }
 });

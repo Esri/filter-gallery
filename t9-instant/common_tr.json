@@ -1,0 +1,85 @@
+{
+  "copyClipboard": "Panoya kopyala",
+  "error": "Hata",
+  "close": "Kapat",
+  "clear": "Temizle",
+  "expand": "Genişlet",
+  "collapse": "Daralt",
+  "originError": {
+    "message": "Erişim sağlamaya çalıştığınız uygulama, sağladığınız URL'den kaynaklanmıyor",
+    "close": "Kapat",
+    "options": "Gelişmiş seçenekler",
+    "linkMessage": "'e devam edin"
+  },
+  "licenseError": {
+    "message": "Hesabınız herkese açık olmayan Yapılandırılabilir Uygulamaları kullanmak için lisanslandırılmamış. Lütfen kuruluş yöneticinizden Temel Uygulamalar veya eklenti Temel Uygulamalar lisansı içeren bir kullanıcı türü atamasını isteyin.",
+    "title": "Lisanslı Değil"
+  },
+  "analyticsOptIn": "Kaydol",
+  "tools": {
+    "export": "PDF'ye aktarın",
+    "legend": "Lejantı aç",
+    "layerList": "Katman listesini aç",
+    "search": "Aramayı aç",
+    "print": "Yazdırmayı aç",
+    "bookmarks": "Yer imlerini aç",
+    "time": "Zamanı aç",
+    "overviewMap": "Genel bakış haritasını aç",
+    "elevationProfile": "Yükselti profilini aç",
+    "table": "Tabloyu aç",
+    "screenshot": "Ekran görüntüsünü aç",
+    "splash": "Giriş panelini aç",
+    "hoverPopupTip": "Sabitlemek için haritaya tıkla",
+    "close": {
+      "legend": "Lejantı kapat",
+      "layerList": "Katman listesini kapat",
+      "search": "Aramayı kapat",
+      "print": "Yazdırmayı kapat",
+      "bookmarks": "Yer imlerini kapat",
+      "time": "Zamanı kapat",
+      "overviewMap": "Genel bakış haritasını kapat",
+      "elevationProfile": "Yükselti profilini kapat",
+      "table": "Tabloyu kapat",
+      "screenshot": "Ekran görüntüsünü kapat",
+      "splash": "Giriş panelini kapat",
+      "cluster": "Detaylara gözat"
+    }
+  },
+  "export": {
+    "results": "Sonuçlar",
+    "resultsAndMap": "Sonuçlar ve harita",
+    "tip": "PDF olarak yazdır veya kaydet"
+  },
+  "mapScroll": {
+    "enableMessage": "Harita kaydırmayı etkinleştir",
+    "disableMessage": "Harita kaydırmayı devre dışı bırak"
+  },
+  "generalShortcuts": {
+    "menu": "kısayollar menüsü",
+    "shortcut": "Kısayol",
+    "action": "Eylem",
+    "title": "Haritayı seç",
+    "label": "Klavye kısayolları"
+  },
+  "shortcutsMapView": {
+    "arrowKeys": "Ok tuşları",
+    "nudge": "Sola, sağa, yukarı veya aşağı kaydır",
+    "N": "Kuzey noktasına ayarla",
+    "A": "Saat yönünün tersine döndür",
+    "D": "Saat yönünde döndür",
+    "plus": "Merkezde yakınlaştır",
+    "minus": "Merkezde uzaklaştır"
+  },
+  "shortcutsSceneView": {
+    "P": "Haritada görüntülenen verilere dikey olarak bakmak için kamerayı hareket ettirin",
+    "N": "Haritayı kuzey noktasına ayarla",
+    "W": "Kamerayı yukarı yatır",
+    "A": "Kamerayı saatin ters yönünde döndür",
+    "D": "Kamerayı saat yönünde döndür",
+    "S": "Kamerayı aşağı yatır",
+    "globalCommands": {
+      "J": "Alçalarak haritaya yaklaş",
+      "U": "Yükselerek haritadan uzaklaş"
+    }
+  }
+}

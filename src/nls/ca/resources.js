@@ -3,6 +3,14 @@ define({
   "appFailed": "No s'ha pogut carregar l'aplicació.",
   "noAuth": "El vostre compte no té llicència per utilitzar aplicacions configurables que no siguin públiques. Demaneu a l'administrador de l'organització que us assigni un tipus d'usuari que inclogui les aplicacions bàsiques o una llicència d'aplicacions bàsiques de complement.",
   "notLicensed": "Sense llicència",
+  "error": "Error",
+  "originError": {
+    "message": "L'aplicació a la qual esteu intentant accedir no té el seu origen en l'URL que heu facilitat",
+    "close": "Tanca",
+    "options": "Opcions avançades",
+    "linkMessage": "Continua"
+  },
+  "analyticsOptIn": "Autoritza",
   "badges": {
     "authoritative": "Acreditat",
     "deleted": "Suprimit",
@@ -99,6 +107,8 @@ define({
         "webApps": "Aplicacions web",
         "mobileApps": "Aplicacions mòbils",
         "desktopApps": "Aplicacions d'escriptori",
+        "instantApps": "Instant Apps",
+        "storyMaps": "Story Maps",
         "tools": "Eines",
         "locators": "Localitzadors",
         "geodatabaseAccess": "Accés a la geobase de dades",
@@ -118,12 +128,12 @@ define({
       "dateModified": "Data de modificació"
     },
     "shared": {
-      "shared": "S'ha compartit",
+      "shared": "Compartit",
       "options": {
         "public": "Amb tothom (públic)",
         "org": "Amb l'organització",
         "shared": "Amb grups",
-        "private": "Amb ningú"
+        "private": "Sense ningú"
       }
     },
     "status": {
@@ -147,17 +157,17 @@ define({
       "browse": "Navega",
       "search": "Cerca"
     },
-    "resultCount": "elements:",
+    "resultCount": "Elements:",
     "searchPlaceholders": {
       "generic": "Introduïu els termes de cerca"
     },
     "filterChips": {
       "mapArea": "Dins de l'àrea del mapa",
       "type": "Tipus",
-      "dateModified": "Modificat",
-      "dateCreated": "Data de creació",
-      "access": "S'ha compartit",
-      "group": "Agrupa",
+      "dateModified": "Data de modificació",
+      "dateCreated": "Creat",
+      "access": "Compartit",
+      "group": "Grup",
       "folder": "Carpeta",
       "status": "Estat",
       "clearAll": "Esborra-ho tot",
@@ -174,11 +184,11 @@ define({
       "details": "Descripció",
       "termsOfUse": "Condicions d'ús",
       "attribution": "Crèdits (atribució)",
-      "noTermsOfUse": "No s'han proporcionat restriccions ni limitacions especials sobre l'ús del contingut de l'element.",
+      "noTermsOfUse": "No s'han proporcionat restriccions especials ni limitacions sobre l'ús del contingut de l'element.",
       "noAttribution": "Sense reconeixements.",
       "noDescription": "No hi ha disponible cap descripció detallada de l'element.",
       "views": "Recompte de visualitzacions",
-      "created": "Data de creació",
+      "created": "Creat",
       "sharedWith": "Compartit amb",
       "shared": {
         "public": "Tothom (públic)",
@@ -201,7 +211,7 @@ define({
     "search": "Cerca",
     "close": "Tanca",
     "filterPane": {
-      "filter": "Filtra",
+      "filter": "Filtre",
       "categories": "Categories",
       "groupCategories": "Categories de grup"
     },
@@ -223,10 +233,31 @@ define({
     "viewProfile": "Visualitza el perfil d'usuari",
     "viewItem": "Visualitza els detalls de l'element",
     "hideItem": "Amaga els detalls de l'element",
-    "created": "Data de creació",
+    "created": "Creat",
     "updated": "Actualitzat",
     "viewCount": "Recompte de visualitzacions",
-    "rating": "Qualificació"
+    "rating": "Qualificació",
+    "itemType": {
+      "table": "Taula",
+      "routeLayer": "Capa de ruta",
+      "markup": "Etiquetatge",
+      "featureLayer": "Capa d'entitats",
+      "elevationLayer": "Capa d'elevació",
+      "imageryLayer": "Capa d'imatges",
+      "sceneLayer": "Capa d'escena",
+      "sceneLayerPackage": "Paquet de capes d'escena",
+      "locator": "Localitzador",
+      "microsoftPowerPoint": "Microsoft PowerPoint",
+      "geoJSON": "GeoJSON",
+      "globeLayer": "Capa de globus",
+      "tileLayer": "Capa de tessel·les",
+      "netCDF": "NetCDF",
+      "mapImageLayer": "Capa d'imatges de mapa",
+      "addIn": "Complement",
+      "bigDataFileShare": "Recurs compartit de fitxers de dades massives",
+      "ogcFeatureLayer": "Capa d'entitats de l'OGC",
+      "instantApp": "Instant App"
+    }
   },
   "pager": {
     "previous": "Anterior",
@@ -245,7 +276,7 @@ define({
     "open": "Obre",
     "openDoc": "Obre el document",
     "openTab": "Obre-ho en una pestanya nova",
-    "openViewer": "ó_Open in Map Viewer___________________à",
+    "openViewer": "Obre-ho al Map Viewer",
     "addFavorite": "Afegeix als favorits",
     "removeFavorite": "Elimina dels favorits"
   },
@@ -263,8 +294,9 @@ define({
     }
   },
   "share": {
-    "shareGallery": "ó_Share gallery______________à",
-    "shareFiltered": "ó_Share filtered gallery_______________________à",
-    "tooltip": "ó_URL copied to you clipboard____________________________à"
+    "share": "Comparteix",
+    "shareGallery": "Comparteix la galeria",
+    "shareFiltered": "Comparteix a la galeria filtrada",
+    "tooltip": "L'URL s'ha copiat al porta-retalls"
   }
 });

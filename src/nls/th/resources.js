@@ -3,13 +3,21 @@ define({
   "appFailed": "การโหลดแอปล้มเหลว",
   "noAuth": "บัญชีผู้ใช้ของคุณไม่มีใบอนุญาตในการใช้งานแอปที่กำหนดค่าได้ซึ่งไม่ใช่แบบสาธารณะ โปรดขอให้ผู้ดูแลองค์กรของคุณกำหนดประเภทผู้ใช้ที่มีใบอนุญาตแอป Essential หรือแอดออนแอป Essential ให้กับคุณ",
   "notLicensed": "ไม่มีใบอนุญาต",
+  "error": "ข้อผิดพลาด",
+  "originError": {
+    "message": "แอปพลิเคชันที่คุณพยายามเข้าใช้งาน ไม่ได้มีที่มาจาก URL ที่คุณระบุ",
+    "close": "ปิด",
+    "options": "ตัวเลือกขั้นสูง",
+    "linkMessage": "ดำเนินการต่อไปยัง"
+  },
+  "analyticsOptIn": "เข้าร่วม",
   "badges": {
     "authoritative": "เชื่อถือได้ (Authoritative)",
     "deleted": "ลบ",
     "deprecated": "ไม่เห็นด้วย (Deprecated)",
-    "livingAtlas": "สมุดแผนที่",
+    "livingAtlas": "Living Atlas",
     "marketplace": "ตลาด",
-    "openData": "เปิดข้อมูล",
+    "openData": "Open Data",
     "premium": "ระดับพรีเมียม",
     "subscriber": "สมาชิก",
     "tooltips": {
@@ -28,7 +36,7 @@ define({
     }
   },
   "buttons": {
-    "clear": "เคลียร์"
+    "clear": "ชัดเจน"
   },
   "dateSelection": {
     "today": "วันนี้",
@@ -40,7 +48,7 @@ define({
     "to": "วันที่สิ้นสุด"
   },
   "dropdowns": {
-    "clear": "เคลียร์",
+    "clear": "ชัดเจน",
     "clearAll": "เคลียร์ทั้งหมด",
     "contentViews": {
       "grid": "กริด",
@@ -53,7 +61,7 @@ define({
       "sortBy": "จัดลำดับตาม",
       "sortDir": "ทิศทางการเรียง",
       "relevance": "สัมพันธ์",
-      "title": "ชื่อ",
+      "title": "คำนำหน้า",
       "owner": "เจ้าของ",
       "created": "วันที่สร้าง",
       "modified": "วันที่ปรับข้อมูล",
@@ -81,7 +89,7 @@ define({
   },
   "filters": {
     "itemType": {
-      "itemType": "ประเภทรายการ",
+      "itemType": "ประเภทข้อมูล",
       "filters": {
         "maps": "แผนที่",
         "webMaps": "เว็บแมป",
@@ -89,16 +97,18 @@ define({
         "layers": "ชั้นข้อมูล",
         "featureLayers": "ชั้นข้อมูลฟีเจอร์",
         "tileLayers": "ชั้นข้อมูลไทล์",
-        "mapImageLayers": "ชั้นข้อมูลภาพแผนที่",
-        "imageryLayers": "ชั้นข้อมูลภาพถ่าย",
+        "mapImageLayers": "ชั้นข้อมูลรูปแผนที่",
+        "imageryLayers": "ชั้นข้อมูลรูปภาพ",
         "sceneLayers": "ชั้นข้อมูลซีน",
         "tables": "ตาราง",
         "layerFiles": "ไฟล์ชั้นข้อมูล",
         "scenes": "ซีน",
         "apps": "แอป",
-        "webApps": "เว็บแอป",
+        "webApps": "เว็บแอพ",
         "mobileApps": "แอปบนมือถือ",
-        "desktopApps": "แอปเดสก์ท็อป",
+        "desktopApps": "แอพเดสก์ท็อป",
+        "instantApps": "Instant Apps",
+        "storyMaps": "Story Maps",
         "tools": "เครื่องมือ",
         "locators": "เครื่องระบตำแหน่ง",
         "geodatabaseAccess": "การเข้าถึง Geodatabase",
@@ -107,8 +117,8 @@ define({
         "networkAnalysis": "การวิเคราะห์เครือข่าย",
         "files": "ไฟล์",
         "documents": "เอกสาร",
-        "images": "รูปภาพ",
-        "pdfs": "PDFs",
+        "images": "ภาพ",
+        "pdfs": "PDF",
         "webTools": "เครื่องมือบนเว็บ",
         "notebooks": "โน้ตบุ๊ก"
       }
@@ -135,27 +145,27 @@ define({
       }
     },
     "tags": {
-      "tags": "แท็ก",
+      "tags": "แท็กส์",
       "filterTags": "แท็กตัวกรอง",
       "noTags": "ไม่พบแท็กที่ตรงกับการค้นหาของคุณ"
     }
   },
   "gallery": {
     "signIn": "ลงชื่อเข้าใช้",
-    "signOut": "ออกจากระบบ",
+    "signOut": "ลงชื่อออก",
     "header": {
-      "browse": "ค้นหา",
+      "browse": "เบราว์",
       "search": "ค้นหา"
     },
-    "resultCount": "รายการ:",
+    "resultCount": "ไอเทม:",
     "searchPlaceholders": {
       "generic": "ใส่คำที่ใช้ค้นหา"
     },
     "filterChips": {
       "mapArea": "อยู่ภายในพื้นที่ของแผนที่",
-      "type": "ชนิด",
+      "type": "ประเภท",
       "dateModified": "แก้ไขแล้ว",
-      "dateCreated": "สร้างโดย",
+      "dateCreated": "สร้าง",
       "access": "แชร์",
       "group": "กลุ่ม",
       "folder": "โฟลเดอร์",
@@ -167,18 +177,18 @@ define({
     },
     "itemDetails": {
       "addToMap": "เพิ่มไปยังแผนที่",
-      "removeFromMap": "นำออกจากแผนที่",
+      "removeFromMap": "นำออกจากกลุ่ม",
       "by": "โดย",
-      "lastModified": "อัปเดต",
+      "lastModified": "อัพเดท",
       "noSnippet": "สรุปโดยย่อของรายการไม่สามารถใช้ได้",
-      "details": "คำอธิบาย",
+      "details": "รายละเอียด",
       "termsOfUse": "ข้อตกลงการใช้",
       "attribution": "เครดิต (ระบุแหล่งที่มา)",
-      "noTermsOfUse": "ไม่มีข้อจำกัดพิเศษ หรือข้อจำกัดเกี่ยวกับการใช้ รายการ™ เนื้อหาที่มีให้",
+      "noTermsOfUse": "ไม่มีข้อกำหนดพิเศษหรือการจำกัดใด ๆ ในการใช้ จัดหาหัวข้อไว้แล้ว",
       "noAttribution": "ไม่มีการประกาศ",
       "noDescription": "รายละเอียดในเชิงลึกของรายการไม่สามารถใช้ได้",
       "views": "นับจำนวนครั้ง",
-      "created": "สร้างโดย",
+      "created": "สร้าง",
       "sharedWith": "แชร์ร่วมกับ",
       "shared": {
         "public": "ทุกคน (สาธารณะ)",
@@ -186,7 +196,7 @@ define({
         "shared": "ข้อมูลนี้ไม่ได้ถูกแชร์",
         "private": "ข้อมูลนี้ไม่ได้ถูกแชร์"
       },
-      "viewUser": "ดูข้อมูลผู้ใช้งาน",
+      "viewUser": "ดูโปรไฟล์ผู้ใช้",
       "viewOrg": "เยี่ยมชมองค์กร",
       "addToFavorites": "เพิ่มไปยังรายการโปรด",
       "removeFromFavorites": "นำออกจากรายการโปรด",
@@ -215,18 +225,39 @@ define({
     "viewResults": "ดูผลลัพธ์"
   },
   "itemCards": {
-    "remove": "ลบออก",
+    "remove": "ลบทิ้ง",
     "add": "เพิ่ม",
     "by": "โดย",
     "actions": "การดำเนินการ",
     "viewOrg": "เยี่ยมชมองค์กร",
-    "viewProfile": "ดูข้อมูลผู้ใช้งาน",
+    "viewProfile": "ดูโปรไฟล์ผู้ใช้",
     "viewItem": "ดูรายละเอียดของข้อมูล",
     "hideItem": "ซ่อนรายละเอียดการประเมินผล",
-    "created": "สร้างโดย",
-    "updated": "อัปเดต",
+    "created": "สร้าง",
+    "updated": "อัพเดท",
     "viewCount": "นับจำนวนครั้ง",
-    "rating": "อันดับ"
+    "rating": "อันดับ",
+    "itemType": {
+      "table": "ตาราง",
+      "routeLayer": "ชั้นข้อมูลเส้นทาง",
+      "markup": "มาร์คอัพ",
+      "featureLayer": "ชั้นข้อมูลฟีเจอร์",
+      "elevationLayer": "ชั้นข้อมูลความสูง",
+      "imageryLayer": "ชั้นข้อมูลภาพ",
+      "sceneLayer": "ชั้นข้อมูลซีน",
+      "sceneLayerPackage": "แพ็คเกจชั้นข้อมูลซีน",
+      "locator": "ตัวระบุตำแหน่ง",
+      "microsoftPowerPoint": "Microsoft PowerPoint",
+      "geoJSON": "GeoJSON",
+      "globeLayer": "ชั้นข้อมูลลูกโลก",
+      "tileLayer": "ชั้นข้อมูลไทล์",
+      "netCDF": "NetCDF",
+      "mapImageLayer": "ชั้นข้อมูลแผนที่รูปภาพ",
+      "addIn": "Add-In",
+      "bigDataFileShare": "แบ่งปันไฟล์ข้อมูลขนาดใหญ่",
+      "ogcFeatureLayer": "ชั้นข้อมูลฟีเจอร์ OGC",
+      "instantApp": "Instant App"
+    }
   },
   "pager": {
     "previous": "ก่อนหน้า",
@@ -236,7 +267,7 @@ define({
   "actions": {
     "viewMap": "ดูแผนที่",
     "viewScene": "ดูซีน",
-    "viewApp": "แสดงแอป",
+    "viewApp": "แสดงแอพ",
     "viewInMap": "ดูในแผนที่",
     "viewInScene": "ดูในซีน",
     "view": "วิว",
@@ -245,7 +276,7 @@ define({
     "open": "เปิด",
     "openDoc": "เปิดเอกสาร",
     "openTab": "เปิดในแท็บใหม่",
-    "openViewer": "ก้_Open in Map Viewer___________________ษฺ",
+    "openViewer": "เปิดในหน้าต่างแสดงแผนที่",
     "addFavorite": "เพิ่มไปยังรายการโปรด",
     "removeFavorite": "นำออกจากรายการโปรด"
   },
@@ -263,8 +294,9 @@ define({
     }
   },
   "share": {
-    "shareGallery": "ก้_Share gallery______________ษฺ",
-    "shareFiltered": "ก้_Share filtered gallery_______________________ษฺ",
-    "tooltip": "ก้_URL copied to you clipboard____________________________ษฺ"
+    "share": "แชร์",
+    "shareGallery": "แชร์แกลเลอรี",
+    "shareFiltered": "แชร์แกลเลอรีที่กรอง",
+    "tooltip": "คัดลอก URL ไปยังคลิปบอร์ดของคุณแล้ว"
   }
 });

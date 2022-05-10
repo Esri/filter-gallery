@@ -1,20 +1,28 @@
 define({
   "appInit": "جارِ تهيئة التطبيق...",
   "appFailed": "فشل تحميل التطبيق.",
-  "noAuth": "حسابك غير مرخص لاستخدام التطبيقات القابلة للتكوين غير العامة. رجاءً اطلب من مسئولي المؤسسة تعيينك كنوع مستخدم يتضمن التطبيقات الأساسية أو ترخيص التطبيقات الأساسية المضافة.",
+  "noAuth": "حسابك غير مرخص لاستخدام Configurable Apps غير العامة. رجاءً اطلب من مسئولي المؤسسة تعيينك كنوع مستخدم يتضمن التطبيقات الأساسية أو ترخيص التطبيقات الأساسية المضافة.",
   "notLicensed": "غير مرخص",
+  "error": "خطأ",
+  "originError": {
+    "message": "لا يأتي التطبيق الذي تحاول الوصول إليه من عنوان URL الذي قدمته",
+    "close": "إغلاق",
+    "options": "خيارات متقدمة",
+    "linkMessage": "متابعة إلى"
+  },
+  "analyticsOptIn": "الاشتراك",
   "badges": {
     "authoritative": "موثوق",
     "deleted": "تم الحذف",
     "deprecated": "تم إهماله",
-    "livingAtlas": "الأطلس المباشر",
+    "livingAtlas": "Living Atlas",
     "marketplace": "Marketplace",
-    "openData": "Open Data",
+    "openData": "فتح البيانات",
     "premium": "متميز",
     "subscriber": "مشترك",
     "tooltips": {
       "altAuthoritative": "موثوق: موصى به من قبل",
-      "authoritative": "موثوق: موصى به من قبل المؤسسة",
+      "authoritative": "موثوق: موصه به من قبل المؤسسة",
       "deprecated": "مهمل: لا يوصى بالاستخدام",
       "livingAtlas": "Living Atlas: محتوى برعاية Esri",
       "marketplace": "مُدرج على ArcGIS Marketplace",
@@ -53,7 +61,7 @@ define({
       "sortBy": "فرز بواسطة",
       "sortDir": "اتجاه الفرز",
       "relevance": "صلة",
-      "title": "العنوان",
+      "title": "اللقب",
       "owner": "المالك",
       "created": "تاريخ الإنشاء",
       "modified": "تاريخ التعديل",
@@ -63,8 +71,8 @@ define({
         "relevance": "الأقل إلى الأكثر أهمية",
         "title": "أبجدي",
         "owner": "أبجدي",
-        "created": "الأحدث",
-        "modified": "الأحدث",
+        "created": "الأقل حداثة",
+        "modified": "الأقل حداثة",
         "numviews": "أقل إلى الأكثر",
         "avgrating": "أقل إلى الأعلى ذات الصلة"
       },
@@ -83,7 +91,7 @@ define({
     "itemType": {
       "itemType": "نوع العنصر",
       "filters": {
-        "maps": "الخرائط",
+        "maps": "خرائط",
         "webMaps": "خرائط الويب",
         "mapFiles": "ملفات الخريطة",
         "layers": "الطبقات",
@@ -99,8 +107,10 @@ define({
         "webApps": "تطبيقات الويب",
         "mobileApps": "تطبيقات الجوال",
         "desktopApps": "تطبيقات سطح المكتب",
+        "instantApps": "التطبيقات الفورية \"Instant Apps\"",
+        "storyMaps": "خرائط القصة",
         "tools": "أدوات",
-        "locators": "محددو الموقع",
+        "locators": "محددي الموقع",
         "geodatabaseAccess": "الوصول إلى قاعدة البيانات الجغرافية",
         "geometricOperations": "العمليات الهندسية",
         "geoprocessingTasks": "مهام المعالجة الجغرافية",
@@ -108,7 +118,7 @@ define({
         "files": "ملفات",
         "documents": "المستندات",
         "images": "الصور",
-        "pdfs": "PDFs",
+        "pdfs": "ملفات PDF",
         "webTools": "أدوات الويب",
         "notebooks": "مفكرات"
       }
@@ -118,7 +128,7 @@ define({
       "dateModified": "تاريخ التعديل"
     },
     "shared": {
-      "shared": "مُشارَك",
+      "shared": "مشارَك",
       "options": {
         "public": "مع الجميع (عام)",
         "org": "مع المؤسسة",
@@ -127,7 +137,7 @@ define({
       }
     },
     "status": {
-      "status": "الحالة",
+      "status": "حالة",
       "options": {
         "authoritative": "موثوق",
         "deprecated": "تم إهماله",
@@ -153,13 +163,13 @@ define({
     },
     "filterChips": {
       "mapArea": "داخل منطقة الخريطة",
-      "type": "النوع",
-      "dateModified": "معَدَّل",
+      "type": "نوع",
+      "dateModified": "تعديل",
       "dateCreated": "تم الإنشاء",
-      "access": "مُشارَك",
+      "access": "مشارَك",
       "group": "مجموعة",
       "folder": "مجلد",
-      "status": "الحالة",
+      "status": "حالة",
       "clearAll": "مسح الكل",
       "category": "فئة",
       "region": "المنطقة",
@@ -174,7 +184,7 @@ define({
       "details": "الوصف",
       "termsOfUse": "شروط الاستخدام",
       "attribution": "اعتمادات (بيانات جدولية)",
-      "noTermsOfUse": "أضف أي قيود خاصة أو حدود باستخدام محتوىâ€™ العنصر المتوفر.",
+      "noTermsOfUse": "لم يتم توفير أي قيود أو حدود خاصة على استخدام محتوى العنصر.",
       "noAttribution": "لا تتوفر رسائل الإقرار",
       "noDescription": "لا يتوفر وصف دقيق للعنصر.",
       "views": "عرض العدد",
@@ -201,12 +211,12 @@ define({
     "search": "بحث",
     "close": "إغلاق",
     "filterPane": {
-      "filter": "عامل تصفية",
+      "filter": "تصفية",
       "categories": "الفئات",
       "groupCategories": "تجميع الفئات"
     },
     "viewDetails": "عرض تفاصيل العنصر",
-    "back": "الخلف",
+    "back": "رجوع",
     "compact": "جدول",
     "compactView": "عرض مصغر",
     "list": "قائمة",
@@ -226,7 +236,28 @@ define({
     "created": "تم الإنشاء",
     "updated": "تم التحديث",
     "viewCount": "عرض العدد",
-    "rating": "التقييم"
+    "rating": "التقييم",
+    "itemType": {
+      "table": "جدول",
+      "routeLayer": "طبقة المسار",
+      "markup": "علامة",
+      "featureLayer": "طبقة المعلم",
+      "elevationLayer": "طبقة المسقط الرأسي",
+      "imageryLayer": "طبقة الصور",
+      "sceneLayer": "طبقة المشهد",
+      "sceneLayerPackage": "حزمة طبقة المشهد",
+      "locator": "محدد المواقع",
+      "microsoftPowerPoint": "Microsoft PowerPoint",
+      "geoJSON": "GeoJSON",
+      "globeLayer": "طبقة الكرة الأرضية",
+      "tileLayer": "طبقة التجانب",
+      "netCDF": "NetCDF",
+      "mapImageLayer": "طبقة صورة الخريطة",
+      "addIn": "مكون إضافي",
+      "bigDataFileShare": "مشاركة ملف البيانات الضخمة",
+      "ogcFeatureLayer": "طبقة معالم OGC",
+      "instantApp": "تطبيق فوري"
+    }
   },
   "pager": {
     "previous": "السابق",
@@ -245,7 +276,7 @@ define({
     "open": "فتح",
     "openDoc": "فتح مستند",
     "openTab": "فتح في علامة تبويب جديدة",
-    "openViewer": "بيت_Open in Map Viewer___________________لاحقة",
+    "openViewer": "افتح في Map Viewer",
     "addFavorite": "إضافة إلى المفضلات",
     "removeFavorite": "إزالة من المفضلات"
   },
@@ -263,8 +294,9 @@ define({
     }
   },
   "share": {
-    "shareGallery": "بيت_Share gallery______________لاحقة",
-    "shareFiltered": "بيت_Share filtered gallery_______________________لاحقة",
-    "tooltip": "بيت_URL copied to you clipboard____________________________لاحقة"
+    "share": "مشاركة",
+    "shareGallery": "مشاركة معرض الصور",
+    "shareFiltered": "مشاركة معرض الصور الذي تمت تصفيته",
+    "tooltip": "تم نسخ URL إلى الحافظة الخاصة بك"
   }
 });

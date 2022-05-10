@@ -3,13 +3,21 @@ define({
   "appFailed": "Η φόρτωσης της εφαρμογής απέτυχε.",
   "noAuth": "Ο λογαριασμός σας δεν διαθέτει άδεια χρήσης για Παραμετροποιήσιμες Εφαρμογές που δεν είναι δημόσιες. Ζητήστε από τον διαχειριστή του οργανισμού σας να σας εκχωρήσει τύπο χρήστη που να περιλαμβάνει Βασικές Εφαρμογές ή πρόσθετη άδεια χρήσης για Βασικές Εφαρμογές.",
   "notLicensed": "Χωρίς άδεια χρήσης",
+  "error": "Σφάλμα",
+  "originError": {
+    "message": "Η εφαρμογή στην οποία επιχειρείτε να αποκτήσετε πρόσβαση δεν προέρχεται από τη διεύθυνση URL που καταχωρίσατε.",
+    "close": "Κλείσιμο",
+    "options": "Σύνθετες επιλογές",
+    "linkMessage": "Μετάβαση σε"
+  },
+  "analyticsOptIn": "Συγκατάθεση",
   "badges": {
     "authoritative": "Έγκυρο",
     "deleted": "Διεγραμμένο",
     "deprecated": "Υπό απόσυρση",
     "livingAtlas": "Living Atlas",
     "marketplace": "Marketplace",
-    "openData": "Ανοιχτά δεδομένα (Open Data)",
+    "openData": "Open Data",
     "premium": "Premium",
     "subscriber": "Συνδρομητής",
     "tooltips": {
@@ -28,7 +36,7 @@ define({
     }
   },
   "buttons": {
-    "clear": "Εκκαθάριση"
+    "clear": "Απαλοιφή"
   },
   "dateSelection": {
     "today": "Σήμερα",
@@ -36,12 +44,12 @@ define({
     "last7Days": "Τελευταίες 7 ημέρες",
     "last30Days": "Τελευταίες 30 ημέρες",
     "custom": "Προσαρμοσμένο εύρος...",
-    "from": "Ημερομηνία έναρξης",
-    "to": "Ημερομηνία λήξης"
+    "from": "Ημερομηνία αρχής",
+    "to": "Ημερομηνία τέλους"
   },
   "dropdowns": {
-    "clear": "Εκκαθάριση",
-    "clearAll": "Εκκαθάριση όλων",
+    "clear": "Απαλοιφή",
+    "clearAll": "Απαλοιφή όλων",
     "contentViews": {
       "grid": "Πλέγμα",
       "list": "Λίστα",
@@ -86,19 +94,21 @@ define({
         "maps": "Χάρτες",
         "webMaps": "Web χάρτες",
         "mapFiles": "Αρχεία χαρτών",
-        "layers": "Θεμ. επίπ.",
+        "layers": "Θεματικά επίπεδα",
         "featureLayers": "Feature Layer",
-        "tileLayers": "Tile Layer",
-        "mapImageLayers": "Map Image Layer",
-        "imageryLayers": "Imagery Layer",
-        "sceneLayers": "Scene Layer",
+        "tileLayers": "Tile Layers",
+        "mapImageLayers": "Map Image Layers",
+        "imageryLayers": "Imagery Layers",
+        "sceneLayers": "Scene Layers",
         "tables": "Πίνακες",
         "layerFiles": "Layer File",
-        "scenes": "3D Προβολές",
+        "scenes": "3D προβολές",
         "apps": "Εφαρμογές",
         "webApps": "Web εφαρμογές",
         "mobileApps": "Εφαρμογές για κινητά",
         "desktopApps": "Εφαρμογές για υπολογιστές",
+        "instantApps": "Instant Apps",
+        "storyMaps": "Story Maps",
         "tools": "Εργαλεία",
         "locators": "Εργαλεία εντοπισμού",
         "geodatabaseAccess": "Πρόσβαση σε Geodatabase",
@@ -107,7 +117,7 @@ define({
         "networkAnalysis": "Ανάλυση Δικτύου",
         "files": "Αρχεία",
         "documents": "Έγγραφα",
-        "images": "Δορυφορικές Εικόνες",
+        "images": "Εικόνες",
         "pdfs": "PDF",
         "webTools": "Εργαλεία web",
         "notebooks": "Σημειωματάρια"
@@ -118,11 +128,11 @@ define({
       "dateModified": "Ημερομηνία τροποποίησης"
     },
     "shared": {
-      "shared": "Κοινοποίηση",
+      "shared": "Κοινοποιήθηκε",
       "options": {
-        "public": "Σε όλους (δημόσια)",
-        "org": "Στον οργανισμό",
-        "shared": "Σε ομάδες",
+        "public": "Με όλους (δημόσιο)",
+        "org": "Με οργανισμό",
+        "shared": "Με ομάδες",
         "private": "Σε κανέναν"
       }
     },
@@ -144,23 +154,23 @@ define({
     "signIn": "Είσοδος",
     "signOut": "Έξοδος",
     "header": {
-      "browse": "Περιήγηση",
+      "browse": "Αναζήτηση",
       "search": "Αναζήτηση"
     },
-    "resultCount": "αντικείμενα:",
+    "resultCount": "Αντικείμενα:",
     "searchPlaceholders": {
       "generic": "Εισαγωγή όρων αναζήτησης"
     },
     "filterChips": {
       "mapArea": "Εντός της περιοχής του χάρτη",
       "type": "Τύπος",
-      "dateModified": "Τροποποιήθηκε",
-      "dateCreated": "Επιτυχής δημιουργία",
-      "access": "Κοινοποίηση",
-      "group": "Ομάδας",
+      "dateModified": "Επιτυχής τροποποίηση",
+      "dateCreated": "Δημιουργημένο",
+      "access": "Κοινοποιήθηκε",
+      "group": "Ομάδα",
       "folder": "Φάκελος",
       "status": "Κατάσταση",
-      "clearAll": "Εκκαθάριση όλων",
+      "clearAll": "Απαλοιφή όλων",
       "category": "Κατηγορία",
       "region": "Περιοχή",
       "tagged": "Με ετικέτες"
@@ -169,20 +179,20 @@ define({
       "addToMap": "Προσθήκη στο χάρτη",
       "removeFromMap": "Κατάργηση από τον χάρτη",
       "by": "κατά",
-      "lastModified": "Επιτυχής ενημέρωση",
+      "lastModified": "Ενημερώθηκε",
       "noSnippet": "Δεν είναι διαθέσιμη μια σύντομη σύνοψη του αντικειμένου.",
       "details": "Περιγραφή",
       "termsOfUse": "Όροι χρήσης",
       "attribution": "Συντελεστές (Απόδοση)",
-      "noTermsOfUse": "Δεν έχουν καταχωριστεί ειδικοί η νομικοί περιορισμοί για τη χρήση περιεχομένου του αντικειμένου.",
-      "noAttribution": "Χωρίς αναγνωρίσεις.",
+      "noTermsOfUse": "Δεν έχουν καταχωριστεί ειδικοί περιορισμοί ή όρια για τη χρήση του περιεχομένου του αντικειμένου.",
+      "noAttribution": "Χωρίς ευχαριστίες.",
       "noDescription": "Δεν είναι διαθέσιμη μια αναλυτική περιγραφή του αντικειμένου.",
       "views": "Προβολή αριθμού",
-      "created": "Επιτυχής δημιουργία",
+      "created": "Δημιουργημένο",
       "sharedWith": "Κοινοποιήθηκε σε",
       "shared": {
-        "public": "Σε όλους (δημοσίως)",
-        "org": "Οργανισμού",
+        "public": "Όλοι (δημόσια)",
+        "org": "Οργανισμός",
         "shared": "Το αντικείμενο δεν είναι κοινόχρηστο.",
         "private": "Το αντικείμενο δεν είναι κοινόχρηστο."
       },
@@ -203,14 +213,14 @@ define({
     "filterPane": {
       "filter": "Φίλτρο",
       "categories": "Κατηγορίες",
-      "groupCategories": "Κατηγορίες ομάδων"
+      "groupCategories": "Κατηγορίες Ομάδας"
     },
     "viewDetails": "Προβολή λεπτομερειών αντικειμένου",
     "back": "Πίσω",
     "compact": "Πίνακας",
     "compactView": "Συμπαγής προβολή",
     "list": "Λίστα",
-    "listView": "Προβολή σε λίστα",
+    "listView": "Προβολή λίστας",
     "showing": "Εμφάνιση",
     "viewResults": "Προβολή αποτελεσμάτων"
   },
@@ -223,10 +233,31 @@ define({
     "viewProfile": "Προβολή προφίλ χρήστη",
     "viewItem": "Προβολή λεπτομερειών αντικειμένου",
     "hideItem": "Απόκρυψη λεπτομερειών αντικειμένου",
-    "created": "Επιτυχής δημιουργία",
-    "updated": "Επιτυχής ενημέρωση",
+    "created": "Δημιουργημένο",
+    "updated": "Ενημερώθηκε",
     "viewCount": "Προβολή αριθμού",
-    "rating": "Αξιολόγηση"
+    "rating": "Αξιολόγηση",
+    "itemType": {
+      "table": "Πίνακας",
+      "routeLayer": "Route Layer",
+      "markup": "Σήμανση",
+      "featureLayer": "Feature Layer",
+      "elevationLayer": "Elevation Layer",
+      "imageryLayer": "Imagery Layer",
+      "sceneLayer": "Scene Layer",
+      "sceneLayerPackage": "Scene Layer Package",
+      "locator": "Εργαλείο εντοπισμού",
+      "microsoftPowerPoint": "Microsoft PowerPoint",
+      "geoJSON": "GeoJSON",
+      "globeLayer": "Globe Layer",
+      "tileLayer": "Tile Layer",
+      "netCDF": "NetCDF",
+      "mapImageLayer": "Map Image Layer",
+      "addIn": "Add-in",
+      "bigDataFileShare": "Κοινοποίηση αρχείων Big Data",
+      "ogcFeatureLayer": "OGC Feature Layer",
+      "instantApp": "Instant App"
+    }
   },
   "pager": {
     "previous": "Προηγούμενο",
@@ -245,7 +276,7 @@ define({
     "open": "Άνοιγμα",
     "openDoc": "Άνοιγμα εγγράφου",
     "openTab": "Άνοιγμα σε νέα καρτέλα",
-    "openViewer": "Đ_Open in Map Viewer___________________ớ",
+    "openViewer": "Άνοιγμα στο Map Viewer",
     "addFavorite": "Προσθήκη στα Αγαπημένα",
     "removeFavorite": "Κατάργηση από τα Αγαπημένα"
   },
@@ -253,7 +284,7 @@ define({
     "back": "Επιστροφή στη Συλλογή",
     "viewLoading": {
       "scripts": "Λήψη σεναρίων..",
-      "map": "Προετοιμασία του χάρτη...",
+      "map": "Προετοιμασία του χάρτη..",
       "basemap": "Φόρτωση των υποβάθρων..",
       "layers": "Επεξεργασία θεματικών επιπέδων..",
       "view": "Προετοιμασία της προβολής..",
@@ -263,8 +294,9 @@ define({
     }
   },
   "share": {
-    "shareGallery": "Đ_Share gallery______________ớ",
-    "shareFiltered": "Đ_Share filtered gallery_______________________ớ",
-    "tooltip": "Đ_URL copied to you clipboard____________________________ớ"
+    "share": "Κοινοποίηση",
+    "shareGallery": "Kοινοποίηση Γκαλερί",
+    "shareFiltered": "Κοινοποίηση γκαλερί με φιλτράρισμα",
+    "tooltip": "Έγινε αντιγραφή URL στο πρόχειρό σας"
   }
 });

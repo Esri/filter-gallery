@@ -1,0 +1,85 @@
+{
+  "copyClipboard": "Kopiér til udklipsholder",
+  "error": "Fejl",
+  "close": "Luk",
+  "clear": "Ryd",
+  "expand": "Udvid",
+  "collapse": "Fold sammen",
+  "originError": {
+    "message": "Den applikation, som du prøver at få adgang til, stammer ikke fra den URL, du sendte",
+    "close": "Luk",
+    "options": "Avancerede indstillinger",
+    "linkMessage": "Fortsæt til"
+  },
+  "licenseError": {
+    "message": "Din konto har ikke licens til at bruge Konfigurérbare apps, der ikke er offentlige. Bed din organisationsadministrator om at knytte dig til en brugertype, der omfatter Essential Apps eller en add-on Essential Apps-licens.",
+    "title": "Ikke licenseret"
+  },
+  "analyticsOptIn": "Tilmeld dig",
+  "tools": {
+    "export": "Eksporter til PDF",
+    "legend": "Åbn signaturforklaring",
+    "layerList": "Åbn lagliste",
+    "search": "Åbn søgning",
+    "print": "Åbn udskrivning",
+    "bookmarks": "Åbn bogmærker",
+    "time": "Åbn tid",
+    "overviewMap": "Åbn oversigtskort",
+    "elevationProfile": "Åbn højdeprofil",
+    "table": "Åbn tabel",
+    "screenshot": "Åbn screenshot",
+    "splash": "Åbn introduktionspanel",
+    "hoverPopupTip": "Klik på kortet for at tilføje en kortnål",
+    "close": {
+      "legend": "Luk signaturforklaring",
+      "layerList": "Luk lagliste",
+      "search": "Luk søgning",
+      "print": "Luk udskrivning",
+      "bookmarks": "Luk bogmærker",
+      "time": "Luk tid",
+      "overviewMap": "Luk oversigtskort",
+      "elevationProfile": "Luk højdeprofil",
+      "table": "Luk tabel",
+      "screenshot": "Luk screenshot",
+      "splash": "Luk introduktionspanel",
+      "cluster": "Gennemse objekter"
+    }
+  },
+  "export": {
+    "results": "Resultater",
+    "resultsAndMap": "Resultater og kort",
+    "tip": "Udskriv eller gem som PDF"
+  },
+  "mapScroll": {
+    "enableMessage": "Aktiver rulning på kort",
+    "disableMessage": "Deaktiver rulning på kort"
+  },
+  "generalShortcuts": {
+    "menu": "genvejsmenu",
+    "shortcut": "Genvej",
+    "action": "Handling",
+    "title": "Vælg kortet",
+    "label": "Tastaturgenveje"
+  },
+  "shortcutsMapView": {
+    "arrowKeys": "Piletaster",
+    "nudge": "Skub til venstre, højre, op eller ned",
+    "N": "Justér til at pege mod nord",
+    "A": "Rotér mod uret",
+    "D": "Rotér med uret",
+    "plus": "Zoom ind på centrum",
+    "minus": "Zoom ud fra centrum"
+  },
+  "shortcutsSceneView": {
+    "P": "Bevæg kameraet for at få en lodret visning af de data, der vises på kortet",
+    "N": "Justér kortet, så det peger mod nord",
+    "W": "Vip kameraet op",
+    "A": "Rotér kameraet mod uret",
+    "D": "Rotér kameraet med uret",
+    "S": "Vip kameraet ned",
+    "globalCommands": {
+      "J": "Bevæg nedad – tættere på kortet",
+      "U": "Bevæg opad – højere op fra kortet"
+    }
+  }
+}

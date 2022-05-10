@@ -3,12 +3,20 @@ define({
   "appFailed": "Nie powiodło się wczytanie aplikacji.",
   "noAuth": "Twoje konto nie jest licencjonowane do korzystania z aplikacji konfigurowalnych, które nie są publiczne. Poproś administratora instytucji o przypisanie typu użytkownika, który obejmuje licencję na kluczowe aplikacje lub licencję na kluczowe aplikacje dodatkowe.",
   "notLicensed": "Nie licencjonowano",
+  "error": "Błąd",
+  "originError": {
+    "message": "Aplikacja, do której próbujesz uzyskać dostęp, nie pochodzi z podanego adresu URL",
+    "close": "Zamknij",
+    "options": "Opcje zaawansowane",
+    "linkMessage": "Przejdź do"
+  },
+  "analyticsOptIn": "Zgadzam się",
   "badges": {
     "authoritative": "Wiarygodne",
     "deleted": "Usunięto",
-    "deprecated": "Przestarzały",
+    "deprecated": "Nieaktualne",
     "livingAtlas": "Living Atlas",
-    "marketplace": "Rynek",
+    "marketplace": "Marketplace",
     "openData": "Open Data",
     "premium": "Premium",
     "subscriber": "Subskrybent",
@@ -41,7 +49,7 @@ define({
   },
   "dropdowns": {
     "clear": "Wyczyść",
-    "clearAll": "Wyczyść wszystkie",
+    "clearAll": "Wyczyść wszystko",
     "contentViews": {
       "grid": "Siatka",
       "list": "Lista",
@@ -87,7 +95,7 @@ define({
         "webMaps": "Mapy internetowe",
         "mapFiles": "Pliki map",
         "layers": "Warstwy",
-        "featureLayers": "Warstwy obiektowe",
+        "featureLayers": "Warstwy obiektów",
         "tileLayers": "Warstwy kafli",
         "mapImageLayers": "Warstwy obrazowe map",
         "imageryLayers": "Warstwy zobrazowań",
@@ -99,15 +107,17 @@ define({
         "webApps": "Aplikacje internetowe",
         "mobileApps": "Aplikacje mobilne",
         "desktopApps": "Aplikacje komputerowe",
+        "instantApps": "Aplikacje błyskawiczne",
+        "storyMaps": "Story Maps (mapy narracyjne)",
         "tools": "Narzędzia",
-        "locators": "Lokalizatory",
+        "locators": "Lokatory",
         "geodatabaseAccess": "Dostęp do geobaz",
         "geometricOperations": "Operacje geometryczne",
         "geoprocessingTasks": "Zadania geoprzetwarzania",
         "networkAnalysis": "Analiza sieciowa",
         "files": "Pliki",
         "documents": "Dokumenty",
-        "images": "Obrazy rastrowe",
+        "images": "Obrazy",
         "pdfs": "Pliki PDF",
         "webTools": "Narzędzia internetowe",
         "notebooks": "Notatniki"
@@ -130,7 +140,7 @@ define({
       "status": "Status",
       "options": {
         "authoritative": "Wiarygodne",
-        "deprecated": "Przestarzały",
+        "deprecated": "Nieaktualne",
         "premium": "Premium"
       }
     },
@@ -141,26 +151,26 @@ define({
     }
   },
   "gallery": {
-    "signIn": "Zarejestruj się",
+    "signIn": "Zaloguj się",
     "signOut": "Wyloguj się",
     "header": {
       "browse": "Przeglądaj",
-      "search": "Wyszukaj"
+      "search": "Szukaj"
     },
-    "resultCount": "elementy:",
+    "resultCount": "Elementy:",
     "searchPlaceholders": {
       "generic": "Wpisz wyszukiwane wyrazy"
     },
     "filterChips": {
       "mapArea": "W obszarze mapy",
       "type": "Typ",
-      "dateModified": "Zmodyfikowany",
-      "dateCreated": "Utworzone",
+      "dateModified": "Zmodyfikowano",
+      "dateCreated": "Utworzony",
       "access": "Udostępnione",
-      "group": "Grupuj",
+      "group": "Grupa",
       "folder": "Folder",
       "status": "Status",
-      "clearAll": "Wyczyść wszystkie",
+      "clearAll": "Wyczyść wszystko",
       "category": "Kategoria",
       "region": "Region",
       "tagged": "Ze znacznikami"
@@ -169,16 +179,16 @@ define({
       "addToMap": "Dodaj do mapy",
       "removeFromMap": "Usuń z mapy",
       "by": "przez",
-      "lastModified": "Zaktualizowano",
+      "lastModified": "Zaktualizowane",
       "noSnippet": "Krótki opis elementu jest niedostępny.",
       "details": "Opis",
       "termsOfUse": "Warunki użytkowania",
-      "attribution": "Źródło danych (atrybucja)",
-      "noTermsOfUse": "Nie dodano żadnych ograniczeń ani limitów dotyczących korzystania z treści elementu.",
+      "attribution": "Kredyty (Atrybucja)",
+      "noTermsOfUse": "Nie dodano żadnych specjalnych ograniczeń ani limitów dotyczących korzystania z treści tego elementu.",
       "noAttribution": "Brak informacji o źródle.",
       "noDescription": "Szczegółowy opis elementu jest niedostępny.",
       "views": "Liczba wyświetleń",
-      "created": "Utworzone",
+      "created": "Utworzony",
       "sharedWith": "Udostępnione dla",
       "shared": {
         "public": "Wszyscy (publiczne)",
@@ -198,39 +208,60 @@ define({
       "noItemsFound": "Nie znaleziono elementów spełniających Twoje kryteria. Spróbuj wyczyścić niektóre filtry, aby wyświetlić więcej elementów.",
       "empty": "Wprowadź powyżej jakieś terminy, aby rozpocząć wyszukiwanie."
     },
-    "search": "Wyszukaj",
+    "search": "Szukaj",
     "close": "Zamknij",
     "filterPane": {
-      "filter": "Filtr",
+      "filter": "Filtruj",
       "categories": "Kategorie",
       "groupCategories": "Kategorie grupy"
     },
     "viewDetails": "Wyświetl szczegóły elementu",
-    "back": "Wstecz",
+    "back": "Powrót",
     "compact": "Tabela",
     "compactView": "Widok kompaktowy",
     "list": "Lista",
     "listView": "Widok listy",
-    "showing": "Showing",
+    "showing": "Wyświetlanie",
     "viewResults": "Wyświetlanie wyników"
   },
   "itemCards": {
     "remove": "Usuń",
     "add": "Dodaj",
     "by": "przez",
-    "actions": "Akcje",
+    "actions": "Działania",
     "viewOrg": "Odwiedź instytucję",
     "viewProfile": "Wyświetl profil użytkownika",
     "viewItem": "Wyświetl szczegóły elementu",
     "hideItem": "Ukryj szczegóły elementu",
-    "created": "Utworzone",
-    "updated": "Zaktualizowano",
+    "created": "Utworzony",
+    "updated": "Zaktualizowane",
     "viewCount": "Liczba wyświetleń",
-    "rating": "Ocena"
+    "rating": "Ocena",
+    "itemType": {
+      "table": "Tabela",
+      "routeLayer": "Warstwa trasy",
+      "markup": "Znacznik",
+      "featureLayer": "Warstwa obiektowa",
+      "elevationLayer": "Warstwa wysokościowa",
+      "imageryLayer": "Warstwa zobrazowań",
+      "sceneLayer": "Warstwa sceny",
+      "sceneLayerPackage": "Pakiet warstwy sceny",
+      "locator": "Lokalizator",
+      "microsoftPowerPoint": "Microsoft PowerPoint",
+      "geoJSON": "GeoJSON",
+      "globeLayer": "Warstwa globu",
+      "tileLayer": "Warstwa kafli",
+      "netCDF": "NetCDF",
+      "mapImageLayer": "Warstwa rastrów mapy",
+      "addIn": "Dodatek",
+      "bigDataFileShare": "Udostępniony plik dużych zbiorów danych",
+      "ogcFeatureLayer": "Warstwa obiektowa OGC",
+      "instantApp": "Aplikacja błyskawiczna"
+    }
   },
   "pager": {
-    "previous": "Poprzedni",
-    "next": "Następny",
+    "previous": "Powrót",
+    "next": "Dalej",
     "paginationLimit": "Obowiązuje limit 10 000 wyników, które można pobrać za pośrednictwem stronicowania. Spróbuj zastosować filtr lub zmień wyszukiwane wyrażenie, aby zmniejszyć liczbę zwracanych wyników."
   },
   "actions": {
@@ -245,7 +276,7 @@ define({
     "open": "Otwórz",
     "openDoc": "Otwórz dokument",
     "openTab": "Otwórz na nowej karcie",
-    "openViewer": "ł_Open in Map Viewer___________________ą",
+    "openViewer": "Otwórz w przeglądarce map",
     "addFavorite": "Dodaj do ulubionych",
     "removeFavorite": "Usuń z ulubionych"
   },
@@ -263,8 +294,9 @@ define({
     }
   },
   "share": {
-    "shareGallery": "ł_Share gallery______________ą",
-    "shareFiltered": "ł_Share filtered gallery_______________________ą",
-    "tooltip": "ł_URL copied to you clipboard____________________________ą"
+    "share": "Udostępnianie",
+    "shareGallery": "Udostępnij galerię",
+    "shareFiltered": "Udostępnij przefiltrowaną galerię",
+    "tooltip": "Adres URL został skopiowany do schowka"
   }
 });

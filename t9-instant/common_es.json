@@ -1,0 +1,85 @@
+{
+  "copyClipboard": "Copiar al portapapeles",
+  "error": "Error",
+  "close": "Cerrar",
+  "clear": "Borrar",
+  "expand": "Expandir",
+  "collapse": "Contraer",
+  "originError": {
+    "message": "La aplicación a la que intenta acceder no procede de la dirección URL que ha proporcionado",
+    "close": "Cerrar",
+    "options": "Opciones avanzadas",
+    "linkMessage": "Continuar"
+  },
+  "licenseError": {
+    "message": "Su cuenta no tiene licencia para utilizar aplicaciones configurables que no son públicas. Pídale al administrador de su organización que le asigne un tipo de usuario que incluya aplicaciones esenciales o una licencia complementaria de aplicaciones esenciales.",
+    "title": "Sin licencia"
+  },
+  "analyticsOptIn": "Autorizar",
+  "tools": {
+    "export": "Exportar a PDF",
+    "legend": "Abrir leyenda",
+    "layerList": "Abra lista de capas",
+    "search": "Abrir búsqueda",
+    "print": "Abrir impresión",
+    "bookmarks": "Abrir marcadores",
+    "time": "Hora de apertura",
+    "overviewMap": "Abrir mapa de vista general",
+    "elevationProfile": "Abrir perfil de elevación",
+    "table": "Abrir la tabla",
+    "screenshot": "Abrir captura de pantalla",
+    "splash": "Abrir panel de introducción",
+    "hoverPopupTip": "Hacer clic en el mapa para anclarlo",
+    "close": {
+      "legend": "Cerrar leyenda",
+      "layerList": "Cerrar lista de capas",
+      "search": "Cerrar búsqueda",
+      "print": "Cerrar impresión",
+      "bookmarks": "Cerrar marcadores",
+      "time": "Hora de cierre",
+      "overviewMap": "Cerrar mapa de vista general",
+      "elevationProfile": "Cerrar perfil de elevación",
+      "table": "Cerrar tabla",
+      "screenshot": "Cerrar captura de pantalla",
+      "splash": "Cerrar panel de introducción",
+      "cluster": "Examinar entidades"
+    }
+  },
+  "export": {
+    "results": "Resultados",
+    "resultsAndMap": "Resultados y mapa",
+    "tip": "Imprimir o guardar como PDF"
+  },
+  "mapScroll": {
+    "enableMessage": "Habilitar desplazamiento por mapa",
+    "disableMessage": "Deshabilitar desplazamiento por mapa"
+  },
+  "generalShortcuts": {
+    "menu": "menú de accesos directos",
+    "shortcut": "Acceso directo",
+    "action": "Acción",
+    "title": "Seleccione el mapa",
+    "label": "Accesos directos del teclado"
+  },
+  "shortcutsMapView": {
+    "arrowKeys": "Teclas de dirección",
+    "nudge": "Desplazar hacia la izquierda, la derecha, arriba o abajo",
+    "N": "Ajustar para que apunte al norte",
+    "A": "Rotar en sentido antihorario",
+    "D": "Rotar en sentido horario",
+    "plus": "Acercar al centro",
+    "minus": "Alejar desde el centro"
+  },
+  "shortcutsSceneView": {
+    "P": "Mover la cámara para mirar en sentido perpendicular a los datos que se muestran en el mapa",
+    "N": "Ajustar el mapa para que apunte al norte",
+    "W": "Inclinar la cámara hacia arriba",
+    "A": "Rotar la cámara en sentido antihorario",
+    "D": "Rotar la cámara en sentido horario",
+    "S": "Inclinar la cámara hacia abajo",
+    "globalCommands": {
+      "J": "Mover hacia abajo, más cerca del mapa",
+      "U": "Mover hacia arriba, más alejado del mapa"
+    }
+  }
+}

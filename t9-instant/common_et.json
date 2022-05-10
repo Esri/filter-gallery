@@ -1,0 +1,85 @@
+{
+  "copyClipboard": "Kopeeri lõikelauale",
+  "error": "Viga",
+  "close": "Sule",
+  "clear": "Tühjenda",
+  "expand": "Laienda",
+  "collapse": "Ahenda",
+  "originError": {
+    "message": "Rakendus, mida proovite avada, pole pärit teie esitatud URL-ilt",
+    "close": "Sule",
+    "options": "Täiendavad võimalused",
+    "linkMessage": "Liigu kohta"
+  },
+  "licenseError": {
+    "message": "Teie kontol puudub litsents konfigureeritavate rakenduste kasutamiseks, mis ei ole avalikud. Paluge oma organisatsiooni administraatoril määrata teile kasutajatüüp, mis sisaldab olulisi rakendusi või oluliste rakenduse lisalitsentsi.",
+    "title": "Litsents puudub"
+  },
+  "analyticsOptIn": "Luba",
+  "tools": {
+    "export": "Ekspordi PDF-failiks",
+    "legend": "Ava legend",
+    "layerList": "Ava kihiloend",
+    "search": "Ava otsing",
+    "print": "Ava printimine",
+    "bookmarks": "Ava järjehoidjad",
+    "time": "Ava aeg",
+    "overviewMap": "Ava ülevaatekaart",
+    "elevationProfile": "Ava kõrgusprofiil",
+    "table": "Ava tabel",
+    "screenshot": "Ava ekraanipilt",
+    "splash": "Ava tutvustuspaneel",
+    "hoverPopupTip": "Klõpsa kinnitamiseks kaardil",
+    "close": {
+      "legend": "Sulge legend",
+      "layerList": "Sulge kihiloend",
+      "search": "Sulge otsing",
+      "print": "Sulge printimine",
+      "bookmarks": "Sulge järjehoidjad",
+      "time": "Sulge aeg",
+      "overviewMap": "Sulge ülevaatekaart",
+      "elevationProfile": "Sulge kõrgusprofiil",
+      "table": "Sulge tabel",
+      "screenshot": "Sulge ekraanipilt",
+      "splash": "Sulge tutvustuspaneel",
+      "cluster": "Sirvi objekte"
+    }
+  },
+  "export": {
+    "results": "Tulemused",
+    "resultsAndMap": "Tulemused ja kaart",
+    "tip": "Prindi või salvesta PDF-ina"
+  },
+  "mapScroll": {
+    "enableMessage": "Luba kaardi kerimine",
+    "disableMessage": "Keela kaardi kerimine"
+  },
+  "generalShortcuts": {
+    "menu": "otseteede menüü",
+    "shortcut": "Otsetee",
+    "action": "Toiming",
+    "title": "Valige kaart",
+    "label": "Kiirklahvid"
+  },
+  "shortcutsMapView": {
+    "arrowKeys": "Nooleklahvid",
+    "nudge": "Nihuta vasakule, paremale, üles või alla",
+    "N": "Kohanda, et see osutaks põhja",
+    "A": "Pööra vastupäeva",
+    "D": "Pööra päripäeva",
+    "plus": "Suurenda keskosa",
+    "minus": "Vähenda keskosa"
+  },
+  "shortcutsSceneView": {
+    "P": "Liigutage kaamerat, et vaadata kaardil kuvatavate andmetega risti",
+    "N": "Kohanda kaarti, et see osutaks põhja",
+    "W": "Kalluta kaamerat ülespoole",
+    "A": "Pööra kaamerat vastupäeva",
+    "D": "Pööra kaamerat päripäeva",
+    "S": "Kalluta kaamerat allapoole",
+    "globalCommands": {
+      "J": "Liigu allapoole kaardile lähemnale",
+      "U": "Liigu ülespoole kaardilt eemale"
+    }
+  }
+}

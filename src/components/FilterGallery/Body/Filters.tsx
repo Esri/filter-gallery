@@ -83,7 +83,7 @@ export class FilterPane extends Component<FilterPaneProps> {
                     !this.props.stateTree.parameters.filter.itemType.text) {
                         const types = treeCompress(treePrune(
                             {  value: "##itemTypeOptionsRoot", children: itemTypeOptions },
-                            config.availableItemTypeFilters as string[]
+                            config.availableItemTypeFilters as string[], true
                         )).children as ToggleOption[];
                         this.props.stateTree.parameters.filter.itemType.text = "" + 
                             this.props.stateTree.parameters.filter.itemType ?

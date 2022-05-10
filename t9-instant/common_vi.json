@@ -1,0 +1,85 @@
+{
+  "copyClipboard": "Sao chép vào bảng tạm",
+  "error": "Lỗi",
+  "close": "Đóng",
+  "clear": "Xóa",
+  "expand": "Mở rộng",
+  "collapse": "Thu gọn",
+  "originError": {
+    "message": "Ứng dụng bạn đang cố gắng truy cập không có nguồn gốc từ URL bạn đã cung cấp",
+    "close": "Đóng",
+    "options": "Tùy chọn nâng cao",
+    "linkMessage": "Tiếp tục tới"
+  },
+  "licenseError": {
+    "message": "Tài khoản của bạn không được cấp phép để sử dụng ứng dụng có thể cấu hình mà không được công khai. Vui lòng yêu cầu quản trị viên của tổ chức bạn gán cho bạn loại người dùng nào có bao gồm các ứng dụng thiết yếu hoặc có giấy phép sử dụng các ứng dụng thiết yếu bổ trợ.",
+    "title": "Không được cấp phép"
+  },
+  "analyticsOptIn": "Đăng ký",
+  "tools": {
+    "export": "Xuất sang PDF",
+    "legend": "Mở chú giải",
+    "layerList": "Mở danh sách lớp",
+    "search": "Mở tìm kiếm",
+    "print": "Mở bản in",
+    "bookmarks": "Mở đánh dấu",
+    "time": "Mở thời gian",
+    "overviewMap": "Mở bản đồ tổng quan",
+    "elevationProfile": "Mở thông tin độ cao",
+    "table": "Mở bảng",
+    "screenshot": "Mở ảnh chụp màn hình",
+    "splash": "Mở bảng giới thiệu",
+    "hoverPopupTip": "Nhấp vào bản đồ để ghim",
+    "close": {
+      "legend": "Đóng chú giải",
+      "layerList": "Đóng danh sách lớp",
+      "search": "Đóng tìm kiếm",
+      "print": "Đóng bản in",
+      "bookmarks": "Đóng đánh dấu",
+      "time": "Đóng thời gian",
+      "overviewMap": "Đóng bản đồ tổng quan",
+      "elevationProfile": "Đóng thông tin độ cao",
+      "table": "Đóng bảng",
+      "screenshot": "Đóng ảnh chụp màn hình",
+      "splash": "Đóng bảng giới thiệu",
+      "cluster": "Duyệt tìm đối tượng"
+    }
+  },
+  "export": {
+    "results": "Kết quả",
+    "resultsAndMap": "Kết quả và bản đồ",
+    "tip": "In hoặc lưu dưới dạng PDF"
+  },
+  "mapScroll": {
+    "enableMessage": "Bật chế độ cuộn bản đồ",
+    "disableMessage": "Tắt cuộn bản đồ"
+  },
+  "generalShortcuts": {
+    "menu": "menu phím tắt",
+    "shortcut": "Phím tắt",
+    "action": "Hành động",
+    "title": "Chọn bản đồ",
+    "label": "Shortcut của bàn phím"
+  },
+  "shortcutsMapView": {
+    "arrowKeys": "Các phím mũi tên",
+    "nudge": "Di chuyển sang trái, phải, lên hoặc xuống",
+    "N": "Điều chỉnh sang hướng bắc",
+    "A": "Xoay ngược chiều kim đồng hồ",
+    "D": "Xoay theo chiều kim đồng hồ",
+    "plus": "Phóng to tại tâm",
+    "minus": "Thu nhỏ tại tâm"
+  },
+  "shortcutsSceneView": {
+    "P": "Di chuyển máy ảnh để nhìn vuông góc với dữ liệu hiển thị trên bản đồ",
+    "N": "Điều chỉnh bản đồ sang hướng bắc",
+    "W": "Nghiêng máy ảnh lên",
+    "A": "Xoay máy ảnh ngược chiều kim đồng hồ",
+    "D": "Xoay máy ảnh theo chiều kim đồng hồ",
+    "S": "Nghiêng máy ảnh xuống",
+    "globalCommands": {
+      "J": "Di chuyển xuống gần bản đồ hơn",
+      "U": "Di chuyển lên cao hơn so với bản đồ"
+    }
+  }
+}

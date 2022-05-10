@@ -1,0 +1,85 @@
+{
+  "copyClipboard": "Copia-ho al porta-retalls",
+  "error": "Error",
+  "close": "Tanca",
+  "clear": "Esborra",
+  "expand": "Amplia",
+  "collapse": "Redueix",
+  "originError": {
+    "message": "L'aplicació a la qual esteu intentant accedir no té el seu origen en l'URL que heu facilitat",
+    "close": "Tanca",
+    "options": "Opcions avançades",
+    "linkMessage": "Continua"
+  },
+  "licenseError": {
+    "message": "El vostre compte no té llicència per utilitzar aplicacions configurables que no siguin públiques. Demaneu a l'administrador de l'organització que us assigni un tipus d'usuari que inclogui les aplicacions bàsiques o una llicència d'aplicacions bàsiques de complement.",
+    "title": "Sense llicència"
+  },
+  "analyticsOptIn": "Autoritza",
+  "tools": {
+    "export": "Exporta-ho a PDF",
+    "legend": "Obre la llegenda",
+    "layerList": "Obre la llista de capes",
+    "search": "Obre la cerca",
+    "print": "Obre la impressió",
+    "bookmarks": "Obre els marcadors",
+    "time": "Obre l'hora",
+    "overviewMap": "Obre el mapa de situació",
+    "elevationProfile": "Obre el perfil d'elevació",
+    "table": "Obre la taula",
+    "screenshot": "Obre la captura de pantalla",
+    "splash": "Obre la subfinestra d'introducció",
+    "hoverPopupTip": "Feu clic en un mapa per col·locar una xinxeta",
+    "close": {
+      "legend": "Tanca la llegenda",
+      "layerList": "Tanca la llista de capes",
+      "search": "Tanca la cerca",
+      "print": "Tanca la impressió",
+      "bookmarks": "Tanca els marcadors",
+      "time": "Tanca l'hora",
+      "overviewMap": "Tanca el mapa de situació",
+      "elevationProfile": "Tanca el perfil d'elevació",
+      "table": "Tanca la taula",
+      "screenshot": "Tanca la captura de pantalla",
+      "splash": "Tanca la subfinestra d'introducció",
+      "cluster": "Cerca entitats"
+    }
+  },
+  "export": {
+    "results": "Resultats",
+    "resultsAndMap": "Resultats i mapa",
+    "tip": "Imprimeix o desa com a PDF"
+  },
+  "mapScroll": {
+    "enableMessage": "Habilita el desplaçament del mapa",
+    "disableMessage": "Deshabilita el desplaçament del mapa"
+  },
+  "generalShortcuts": {
+    "menu": "menú de dreceres",
+    "shortcut": "Drecera",
+    "action": "Acció",
+    "title": "Seleccioneu el mapa",
+    "label": "Dreceres de teclat"
+  },
+  "shortcutsMapView": {
+    "arrowKeys": "Tecles de direcció",
+    "nudge": "Desplaça a l'esquerra, la dreta, amunt o avall",
+    "N": "Ajusta perquè apunti al nord",
+    "A": "Gira cap a l'esquerra",
+    "D": "Gira cap a la dreta",
+    "plus": "Apropa el centre",
+    "minus": "Allunya el centre"
+  },
+  "shortcutsSceneView": {
+    "P": "Mou la càmera perquè apunti en sentit perpendicular a les dades que es mostren al ampa",
+    "N": "Ajusta el mapa perquè apunti al nord",
+    "W": "Inclina la càmera cap amunt",
+    "A": "Gira la càmera cap a l'esquerra",
+    "D": "Gira la càmera cap a la dreta",
+    "S": "Inclina la càmera cap avall",
+    "globalCommands": {
+      "J": "Mou cap avall més a prop del mapa",
+      "U": "Mou cap amunt per sobre del mapa"
+    }
+  }
+}

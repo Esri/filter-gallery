@@ -1,0 +1,85 @@
+{
+  "copyClipboard": "Kopiraj u ostavu",
+  "error": "Greška",
+  "close": "Zatvori",
+  "clear": "Obriši",
+  "expand": "Proširi",
+  "collapse": "Skupi",
+  "originError": {
+    "message": "Aplikacija kojoj pokušavate da pristupite ne potiče sa URL adrese koju ste naveli",
+    "close": "Zatvori",
+    "options": "Napredne opcije",
+    "linkMessage": "Nastavi do"
+  },
+  "licenseError": {
+    "message": "Vaš nalog nema licencu za korišćenje aplikacija koje mogu da se konfigurišu i nisu javne. Zatražite od administratora organizacije da vam dodeli onaj tip korisnika koji uključuje osnovne aplikacije ili licencu za dodatne osnovne aplikacije.",
+    "title": "Nema licencu"
+  },
+  "analyticsOptIn": "Prijavi se",
+  "tools": {
+    "export": "Izvezi u PDF",
+    "legend": "Otvori legendu",
+    "layerList": "Otvori listu slojeva",
+    "search": "Otvori pretragu",
+    "print": "Otvori štampanje",
+    "bookmarks": "Otvori obeleživače",
+    "time": "Otvori vreme",
+    "overviewMap": "Otvori preglednu mapu",
+    "elevationProfile": "Otvori profil elevacije",
+    "table": "Otvori tabelu",
+    "screenshot": "Otvori snimak ekrana",
+    "splash": "Otvori uvodni panel",
+    "hoverPopupTip": "Kliknite na mapu za kačenje",
+    "close": {
+      "legend": "Zatvori legendu",
+      "layerList": "Zatvori listu slojeva",
+      "search": "Zatvori pretragu",
+      "print": "Zatvori štampanje",
+      "bookmarks": "Zatvori obeleživače",
+      "time": "Zatvori vreme",
+      "overviewMap": "Zatvori preglednu mapu",
+      "elevationProfile": "Zatvori profil elevacije",
+      "table": "Zatvori tabelu",
+      "screenshot": "Zatvori snimak ekrana",
+      "splash": "Zatvori uvodni panel",
+      "cluster": "Pregled funkcija"
+    }
+  },
+  "export": {
+    "results": "Rezultati",
+    "resultsAndMap": "Rezultati i mapa",
+    "tip": "Odštampaj ili sačuvaj kao PDF"
+  },
+  "mapScroll": {
+    "enableMessage": "Omogući listanje mape",
+    "disableMessage": "Onemogući listanje mape"
+  },
+  "generalShortcuts": {
+    "menu": "meni prečica",
+    "shortcut": "Prečica",
+    "action": "Akcija",
+    "title": "Izaberi mapu",
+    "label": "Prečice na tastaturi"
+  },
+  "shortcutsMapView": {
+    "arrowKeys": "Tasteri strelice",
+    "nudge": "Pomeri na levo, desno, gore ili dole",
+    "N": "Podesi prema tački sever",
+    "A": "Rotiraj suprotno od smera kretanja kazaljki na satu",
+    "D": "Rotiraj u smeru kretanja kazaljki na satu",
+    "plus": "Zumiranje u sredini",
+    "minus": "Smanjenje zumiranja u sredini"
+  },
+  "shortcutsSceneView": {
+    "P": "Pomerite kameru da bi gledala normalno na podatke prikazane na mapi",
+    "N": "Podešavanje mape u pravcu severa",
+    "W": "Naginjanje kamere gore",
+    "A": "Rotiranje kamere suprotno kretanju kazaljke na satu",
+    "D": "Rotiranje kamere u smeru kretanja kazaljke na satu",
+    "S": "Naginjanje kamere dole",
+    "globalCommands": {
+      "J": "Pomeri na dole bliže mapi",
+      "U": "Pomeri na gore dalje od mape"
+    }
+  }
+}

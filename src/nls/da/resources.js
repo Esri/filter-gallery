@@ -3,6 +3,14 @@ define({
   "appFailed": "Kunne ikke indlæse app.",
   "noAuth": "Din konto har ikke licens til at bruge Konfigurérbare apps, der ikke er offentlige. Bed din organisationsadministrator om at knytte dig til en brugertype, der omfatter Essential Apps eller en add-on Essential Apps-licens.",
   "notLicensed": "Ikke licenseret",
+  "error": "Fejl",
+  "originError": {
+    "message": "Den applikation, som du prøver at få adgang til, stammer ikke fra den URL, du sendte",
+    "close": "Luk",
+    "options": "Avancerede indstillinger",
+    "linkMessage": "Fortsæt til"
+  },
+  "analyticsOptIn": "Tilmeld dig",
   "badges": {
     "authoritative": "Autoriseret",
     "deleted": "Slettet",
@@ -99,6 +107,8 @@ define({
         "webApps": "Webapps",
         "mobileApps": "Mobile apps",
         "desktopApps": "Desktop-apps",
+        "instantApps": "Instant Apps",
+        "storyMaps": "Story Maps",
         "tools": "Værktøjer",
         "locators": "Lokatorer",
         "geodatabaseAccess": "Geodatabase-adgang",
@@ -135,7 +145,7 @@ define({
       }
     },
     "tags": {
-      "tags": "\"Tags\"",
+      "tags": "Nøgleord",
       "filterTags": "Filtrér \"tags\"",
       "noTags": "Ingen \"tags\", der matchede din søgning, blev fundet."
     }
@@ -147,7 +157,7 @@ define({
       "browse": "Gennemse",
       "search": "Søg"
     },
-    "resultCount": "elementer:",
+    "resultCount": "Elementer:",
     "searchPlaceholders": {
       "generic": "Angiv søgetermer"
     },
@@ -201,17 +211,17 @@ define({
     "search": "Søg",
     "close": "Luk",
     "filterPane": {
-      "filter": "Filter",
+      "filter": "Filtrér",
       "categories": "Kategorier",
       "groupCategories": "Gruppekategorier"
     },
     "viewDetails": "Vis oplysninger om element",
-    "back": "Bagside",
+    "back": "Tilbage",
     "compact": "Tabel",
     "compactView": "Kompakt visning",
     "list": "Liste",
     "listView": "Listevisning",
-    "showing": "Showing",
+    "showing": "Viser",
     "viewResults": "Vis resultater"
   },
   "itemCards": {
@@ -226,7 +236,28 @@ define({
     "created": "Oprettet",
     "updated": "Opdateret",
     "viewCount": "Visningstælling",
-    "rating": "Vurdering"
+    "rating": "Vurdering",
+    "itemType": {
+      "table": "Tabel",
+      "routeLayer": "Rutelag",
+      "markup": "Markup",
+      "featureLayer": "Vektorlag",
+      "elevationLayer": "Højdelag",
+      "imageryLayer": "Billedlag",
+      "sceneLayer": "Scenelag",
+      "sceneLayerPackage": "Scenelagpakke",
+      "locator": "Lokator",
+      "microsoftPowerPoint": "Microsoft PowerPoint",
+      "geoJSON": "GeoJSON",
+      "globeLayer": "Globuslag",
+      "tileLayer": "Tile-lag",
+      "netCDF": "NetCDF",
+      "mapImageLayer": "Kortbilledelag",
+      "addIn": "Tilføjelsesprogram",
+      "bigDataFileShare": "Big data-fildeling",
+      "ogcFeatureLayer": "OGC-vektorlag",
+      "instantApp": "Instant App"
+    }
   },
   "pager": {
     "previous": "Forrige",
@@ -240,12 +271,12 @@ define({
     "viewInMap": "Vis i kort",
     "viewInScene": "Vis i scene",
     "view": "Vis",
-    "download": "Hent",
+    "download": "Arkivér",
     "openPdf": "Åbn i PDF",
     "open": "Åbn",
     "openDoc": "Åbn dokument",
     "openTab": "Åbn på en ny fane",
-    "openViewer": "ø_Open in Map Viewer___________________å",
+    "openViewer": "Åbn i Map Viewer",
     "addFavorite": "Føj til Favoritter",
     "removeFavorite": "Fjern fra Favoritter"
   },
@@ -263,8 +294,9 @@ define({
     }
   },
   "share": {
-    "shareGallery": "ø_Share gallery______________å",
-    "shareFiltered": "ø_Share filtered gallery_______________________å",
-    "tooltip": "ø_URL copied to you clipboard____________________________å"
+    "share": "Del",
+    "shareGallery": "Del galleri",
+    "shareFiltered": "Del filtreret galleri",
+    "tooltip": "URL er blevet kopieret til udklipsholderen"
   }
 });

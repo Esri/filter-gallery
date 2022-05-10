@@ -4,28 +4,37 @@
 @include form();
 
 body {
-    margin: 0;
-    overflow-y: scroll;
+  margin: 0;
+  overflow-y: scroll;
 }
 
 table {
-    @include table();
+  @include table();
 }
 
 .fg__no-js {
-    box-sizing: border-box;
-    height: 95vh;
-    margin: 0;
-    padding: 2rem;
-    position: relative;
-    width: 100%;
+  box-sizing: border-box;
+  height: 95vh;
+  margin: 0;
+  padding: 2rem;
+  position: relative;
+  width: 100%;
 }
 
 .fg__no-js-text {
-    @include center();
-    max-width: 600px;
-    text-align: center;
+  @include center();
+  max-width: 600px;
+  text-align: center;
 }
+
+.image {
+  margin: 0;
+
+  img {
+    width: inherit;
+  }
+}
+
 
 @import "Badges/_Authoritative";
 @import "Badges/_Badge";

@@ -1,0 +1,85 @@
+{
+  "copyClipboard": "Kopiuj do schowka",
+  "error": "Błąd",
+  "close": "Zamknij",
+  "clear": "Wyczyść",
+  "expand": "Rozwiń",
+  "collapse": "Zwiń",
+  "originError": {
+    "message": "Aplikacja, do której próbujesz uzyskać dostęp, nie pochodzi z podanego adresu URL",
+    "close": "Zamknij",
+    "options": "Opcje zaawansowane",
+    "linkMessage": "Przejdź do"
+  },
+  "licenseError": {
+    "message": "Twoje konto nie jest licencjonowane do korzystania z aplikacji konfigurowalnych, które nie są publiczne. Poproś administratora instytucji o przypisanie typu użytkownika, który obejmuje licencję na kluczowe aplikacje lub licencję na kluczowe aplikacje dodatkowe.",
+    "title": "Nie licencjonowano"
+  },
+  "analyticsOptIn": "Zgadzam się",
+  "tools": {
+    "export": "Eksportuj do pliku PDF",
+    "legend": "Otwórz legendę",
+    "layerList": "Otwórz listę warstw",
+    "search": "Otwórz okno Wyszukaj",
+    "print": "Otwórz okno Drukuj",
+    "bookmarks": "Otwórz okno Zakładki",
+    "time": "Otwórz okno Czas",
+    "overviewMap": "Otwórz okno Mapa przeglądowa",
+    "elevationProfile": "Otwórz okno Profil wysokościowy",
+    "table": "Otwórz tabelę",
+    "screenshot": "Otwórz zrzut ekranu",
+    "splash": "Otwórz panel wprowadzenia",
+    "hoverPopupTip": "Kliknij mapę, aby ustawić pinezkę",
+    "close": {
+      "legend": "Zamknij legendę",
+      "layerList": "Zamknij listę warstw",
+      "search": "Zamknij wyszukiwanie",
+      "print": "Zamknij okno Drukuj",
+      "bookmarks": "Zamknij okno Zakładki",
+      "time": "Zamknij okno Czas",
+      "overviewMap": "Zamknij okno Mapa przeglądowa",
+      "elevationProfile": "Zamknij okno Profil wysokościowy",
+      "table": "Zamknij tabelę",
+      "screenshot": "Zamknij zrzut ekranu",
+      "splash": "Zamknij panel wprowadzenia",
+      "cluster": "Przeglądaj obiekty"
+    }
+  },
+  "export": {
+    "results": "Wyniki",
+    "resultsAndMap": "Wyniki i mapa",
+    "tip": "Wydrukuj lub zapisz w formacie PDF"
+  },
+  "mapScroll": {
+    "enableMessage": "Włącz przewijanie mapy",
+    "disableMessage": "Wyłącz przewijanie mapy"
+  },
+  "generalShortcuts": {
+    "menu": "menu skrótów",
+    "shortcut": "Skrót",
+    "action": "Operacja",
+    "title": "Wybierz mapę",
+    "label": "Skróty klawiaturowe"
+  },
+  "shortcutsMapView": {
+    "arrowKeys": "Klawisze strzałek",
+    "nudge": "Posuń w lewo, w prawo, w górę lub w dół",
+    "N": "Dostosuj do kierunku północnego",
+    "A": "Obróć przeciwnie do ruchu wskazówek zegara",
+    "D": "Obróć zgodnie z ruchem wskazówek zegara",
+    "plus": "Powiększ po środku",
+    "minus": "Pomniejsz po środku"
+  },
+  "shortcutsSceneView": {
+    "P": "Przenieś kamerę w taki sposób, aby była skierowana prostopadle do danych wyświetlanych na mapie",
+    "N": "Dostosuj mapę do kierunku północnego",
+    "W": "Pochyl kamerę w górę",
+    "A": "Obróć kamerę przeciwnie do ruchu wskazówek zegara",
+    "D": "Obróć kamerę zgodnie z ruchem wskazówek zegara",
+    "S": "Pochyl kamerę w dół",
+    "globalCommands": {
+      "J": "Przenieś w dół bliżej mapy",
+      "U": "Przenieś w górę dalej od mapy"
+    }
+  }
+}
