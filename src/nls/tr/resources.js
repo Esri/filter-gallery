@@ -3,15 +3,23 @@ define({
   "appFailed": "Uygulama yüklenemedi.",
   "noAuth": "Hesabınız herkese açık olmayan Yapılandırılabilir Uygulamaları kullanmak için lisanslandırılmamış. Lütfen kuruluş yöneticinizden Temel Uygulamalar veya eklenti Temel Uygulamalar lisansı içeren bir kullanıcı türü atamasını isteyin.",
   "notLicensed": "Lisanslı Değil",
+  "error": "Hata",
+  "originError": {
+    "message": "Erişim sağlamaya çalıştığınız uygulama, sağladığınız URL'den kaynaklanmıyor",
+    "close": "Kapat",
+    "options": "Gelişmiş seçenekler",
+    "linkMessage": "'e devam edin"
+  },
+  "analyticsOptIn": "Kaydol",
   "badges": {
     "authoritative": "Güvenilir",
     "deleted": "Silindi",
-    "deprecated": "İptal Edildi",
+    "deprecated": "Kullanım dışı olma Tarihi",
     "livingAtlas": "Living Atlas",
     "marketplace": "Pazar",
-    "openData": "Açık Veri",
+    "openData": "Open Data",
     "premium": "Premium",
-    "subscriber": "Abone",
+    "subscriber": "sürdürümcü",
     "tooltips": {
       "altAuthoritative": "Yetkili: Tavsiye edilen",
       "authoritative": "Yetkili: Kuruluşunuz tarafından tavsiye edilir",
@@ -33,8 +41,8 @@ define({
   "dateSelection": {
     "today": "Bugün",
     "yesterday": "Dün",
-    "last7Days": "Son 7 Gün",
-    "last30Days": "Son 30 Gün",
+    "last7Days": "Son 7 gün",
+    "last30Days": "Son 30 gün",
     "custom": "Özel Aralık...",
     "from": "Başlangıç tarihi",
     "to": "Bitiş tarihi"
@@ -43,17 +51,17 @@ define({
     "clear": "Temizle",
     "clearAll": "Tümünü Temizle",
     "contentViews": {
-      "grid": "Grid",
+      "grid": "Kılavuz",
       "list": "Liste",
       "table": "Tablo",
-      "view": "Görünüm"
+      "view": "Görüntüle"
     },
     "sorting": {
-      "sort": "Sıralama",
-      "sortBy": "Şuna göre sırala",
+      "sort": "Sırala",
+      "sortBy": "Şuna göre sırala:",
       "sortDir": "Sıralama yönü",
       "relevance": "İlgi Derecesi",
-      "title": "Unvan",
+      "title": "Başlık",
       "owner": "Sahip",
       "created": "Oluşturulma Tarihi",
       "modified": "Değiştirilme Tarihi",
@@ -63,8 +71,8 @@ define({
         "relevance": "En azdan en çok ilgiliye",
         "title": "Alfabetik",
         "owner": "Alfabetik",
-        "created": "En az yeni",
-        "modified": "En az yeni",
+        "created": "En yeni",
+        "modified": "En yeni",
         "numviews": "En azdan en çoğa",
         "avgrating": "En düşükten en yüksek değerliye"
       },
@@ -81,7 +89,7 @@ define({
   },
   "filters": {
     "itemType": {
-      "itemType": "Öğe Türü",
+      "itemType": "Öğe Tipi",
       "filters": {
         "maps": "Haritalar",
         "webMaps": "Web Haritaları",
@@ -99,8 +107,10 @@ define({
         "webApps": "Web Uygulamaları",
         "mobileApps": "Mobil Uygulamalar",
         "desktopApps": "Masaüstü Uygulamaları",
+        "instantApps": "Instant Apps",
+        "storyMaps": "Story Maps",
         "tools": "Araçlar",
-        "locators": "Yer Bulucular",
+        "locators": "Bulucular",
         "geodatabaseAccess": "Coğrafi Veri Tabanı Erişimi",
         "geometricOperations": "Geometrik İşlemler",
         "geoprocessingTasks": "Coğrafi İşlem Görevleri",
@@ -110,7 +120,7 @@ define({
         "images": "Görüntüler",
         "pdfs": "PDF'ler",
         "webTools": "Web Araçları",
-        "notebooks": "Dizüstü Bilgisayarlar"
+        "notebooks": "Notebooks"
       }
     },
     "date": {
@@ -118,7 +128,7 @@ define({
       "dateModified": "Değiştirilme Tarihi"
     },
     "shared": {
-      "shared": "Paylaşıldı",
+      "shared": "Paylaşılma",
       "options": {
         "public": "Herkes İle (genel)",
         "org": "Kuruluş İle",
@@ -130,7 +140,7 @@ define({
       "status": "Durum",
       "options": {
         "authoritative": "Güvenilir",
-        "deprecated": "İptal Edildi",
+        "deprecated": "Kullanım dışı olma Tarihi",
         "premium": "Premium"
       }
     },
@@ -144,19 +154,19 @@ define({
     "signIn": "Oturum Aç",
     "signOut": "Oturumu Kapat",
     "header": {
-      "browse": "Göz at",
-      "search": "Arama"
+      "browse": "Göz At",
+      "search": "Ara"
     },
-    "resultCount": "öğeler:",
+    "resultCount": "Öğeler:",
     "searchPlaceholders": {
       "generic": "Arama terimlerini gir"
     },
     "filterChips": {
       "mapArea": "Harita Alanı İçinde",
       "type": "Tür",
-      "dateModified": "Değiştirildi",
-      "dateCreated": "Oluşturuldu",
-      "access": "Paylaşıldı",
+      "dateModified": "Değişiklik yapılma Tarihi",
+      "dateCreated": "Oluşturulma",
+      "access": "Paylaşılma",
       "group": "Grup",
       "folder": "Klasör",
       "status": "Durum",
@@ -168,21 +178,21 @@ define({
     "itemDetails": {
       "addToMap": "Haritaya Ekle",
       "removeFromMap": "Haritadan Kaldır",
-      "by": "kaynak",
+      "by": "oluşturan:",
       "lastModified": "Güncellendi",
       "noSnippet": "Öğenin kısa özeti mevcut değildir.",
-      "details": "Tanım",
+      "details": "Açıklama",
       "termsOfUse": "Kullanım Koşulları",
-      "attribution": "Katkıda Bulunanlar (Atıf)",
-      "noTermsOfUse": "Öğe içeriğinin kullanımıyla ilgili özel kısıtlama veya sınırlama sağlanmadı.",
+      "attribution": "Kredi (Yükleme)",
+      "noTermsOfUse": "Öğe içeriğinin kullanımıyla ilgili verilen özel kısıtlama veya sınırlama yok.",
       "noAttribution": "Onaylama yok.",
       "noDescription": "Öğenin ayrıntılı açıklaması mevcut değildir.",
       "views": "Sayımları Görüntüle",
-      "created": "Oluşturuldu",
+      "created": "Oluşturulma",
       "sharedWith": "Paylaşılan kimse",
       "shared": {
         "public": "Herkes (genel)",
-        "org": "Organizasyon",
+        "org": "Kuruluş",
         "shared": "Öğe paylaşılmıyor.",
         "private": "Öğe paylaşılmıyor."
       },
@@ -198,14 +208,14 @@ define({
       "noItemsFound": "Ölçütlerinizi karşılayan öğe bulunamadı. Daha fazla öğe görüntülemek için bazı filtreleri silmeyi deneyin.",
       "empty": "Aramaya başlamak için yukarıya bazı terimler girin."
     },
-    "search": "Arama",
+    "search": "Ara",
     "close": "Kapat",
     "filterPane": {
-      "filter": "Filtre Uygula",
+      "filter": "Filtrele",
       "categories": "Kategoriler",
       "groupCategories": "Grup Kategorileri"
     },
-    "viewDetails": "Öğe ayrıntılarını görüntüle",
+    "viewDetails": "Öge ayrıntılarını görüntüle",
     "back": "Geri",
     "compact": "Tablo",
     "compactView": "Kompakt görünüm",
@@ -217,20 +227,41 @@ define({
   "itemCards": {
     "remove": "Kaldır",
     "add": "Ekle",
-    "by": "kaynak",
+    "by": "oluşturan:",
     "actions": "İşlemler",
     "viewOrg": "Kuruluşu ziyaret et",
     "viewProfile": "Kullanıcı profilini görüntüle",
-    "viewItem": "Öğe ayrıntılarını görüntüle",
+    "viewItem": "Öge ayrıntılarını görüntüle",
     "hideItem": "Öğe ayrıntılarını gizle",
-    "created": "Oluşturuldu",
+    "created": "Oluşturulma",
     "updated": "Güncellendi",
     "viewCount": "Sayımları Görüntüle",
-    "rating": "Derecelendirme"
+    "rating": "Derecelendirme",
+    "itemType": {
+      "table": "Tablo",
+      "routeLayer": "Rota Katmanı",
+      "markup": "İşaret",
+      "featureLayer": "Detay Katmanı",
+      "elevationLayer": "Yükselti Katmanı",
+      "imageryLayer": "Görüntü Katmanı",
+      "sceneLayer": "Sahne Katmanı",
+      "sceneLayerPackage": "Görünüm Katmanı Paketi",
+      "locator": "Konumlandırıcı",
+      "microsoftPowerPoint": "Microsoft PowerPoint",
+      "geoJSON": "GeoJSON",
+      "globeLayer": "Yerküre Katmanı",
+      "tileLayer": "Döşeme Katmanı",
+      "netCDF": "NetCDF",
+      "mapImageLayer": "Harita Görüntü Katmanı",
+      "addIn": "Eklenti",
+      "bigDataFileShare": "Büyük Veri Dosya Paylaşımı",
+      "ogcFeatureLayer": "OGC Detay Katmanı",
+      "instantApp": "Instant App"
+    }
   },
   "pager": {
     "previous": "Önceki",
-    "next": "Sonraki",
+    "next": "İleri",
     "paginationLimit": "Sayfalandırma yoluyla alınabilecek sonuç sınırı 10.000’dir. Döndürülen sonuçların sayısını azaltmak için filtrelemeyi veya arama teriminizi değiştirmeyi deneyin."
   },
   "actions": {
@@ -240,12 +271,12 @@ define({
     "viewInMap": "Haritada Görüntüle",
     "viewInScene": "Sahnede Görüntüle",
     "view": "Görüntüle",
-    "download": "İndir",
+    "download": "Yükle",
     "openPdf": "PDF'te Aç",
     "open": "Aç",
     "openDoc": "Belgeyi Aç",
     "openTab": "Yeni sekmede aç",
-    "openViewer": "ı_Open in Map Viewer___________________İ",
+    "openViewer": "Map Viewer'da Aç",
     "addFavorite": "Sık Kullanılanlara Ekle",
     "removeFavorite": "Sık Kullanılanlardan Kaldır"
   },
@@ -263,8 +294,9 @@ define({
     }
   },
   "share": {
-    "shareGallery": "ı_Share gallery______________İ",
-    "shareFiltered": "ı_Share filtered gallery_______________________İ",
-    "tooltip": "ı_URL copied to you clipboard____________________________İ"
+    "share": "Paylaş",
+    "shareGallery": "Galeriyi paylaş",
+    "shareFiltered": "Filtrelenen galeriyi paylaş",
+    "tooltip": "URL panonuza kopyalandı"
   }
 });

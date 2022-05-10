@@ -3,13 +3,21 @@ define({
   "appFailed": "Rakenduse laadimine nurjus.",
   "noAuth": "Teie kontol puudub litsents konfigureeritavate rakenduste kasutamiseks, mis ei ole avalikud. Paluge oma organisatsiooni administraatoril määrata teile kasutajatüüp, mis sisaldab olulisi rakendusi või oluliste rakenduse lisalitsentsi.",
   "notLicensed": "Litsents puudub",
+  "error": "viga",
+  "originError": {
+    "message": "Rakendus, mida proovite avada, pole pärit teie esitatud URL-ilt",
+    "close": "Sule",
+    "options": "Täiendavad võimalused",
+    "linkMessage": "Liigu kohta"
+  },
+  "analyticsOptIn": "Luba",
   "badges": {
     "authoritative": "Usaldusväärne",
     "deleted": "Kustutatud",
     "deprecated": "Aegunud",
     "livingAtlas": "Elukoha atlas",
     "marketplace": "Rakenduste pood",
-    "openData": "Open Data",
+    "openData": "Ava andmed",
     "premium": "Premium",
     "subscriber": "Tellija",
     "tooltips": {
@@ -19,11 +27,11 @@ define({
       "livingAtlas": "Living Atlas: Esri poolt hallatav sisu",
       "marketplace": "Saadaval ArcGIS-i rakenduste poes",
       "openData": "Saadaval avalikuks kasutamiseks",
-      "premiumAnon": "Nõuab sisselogimist ArcGIS Online tellimuse alusel ja tarbib teenuskrediite",
-      "subscriberAnon": "Tellija: nõuab sisselogimist ArcGIS Online’i tellimusega",
-      "premiumPublic": "Premium: nõuab ArcGIS Online tellimust ja tarbib teenuskrediite",
+      "premiumAnon": "Premium: Nõuab sisselogimist ArcGIS Online tellimuse alusel",
+      "subscriberAnon": "Subscriber: Nõuab sisselogimist ArcGIS Online tellimuse alusel",
+      "premiumPublic": "Premium: eeldab ArcGIS Online tellimust ja tarbib teenuskrediite",
       "subscriberPublic": "Tellija: nõutav on ArcGIS Online tellimus",
-      "premiumOrg": "Erijuhtum: eksklusiivne sisu tellijatele. Kasutab krediite.",
+      "premiumOrg": "Premium: eksklusiivne sisu tellijatele. Kasutab teenuskrediite.",
       "subscriberOrg": "Tellija: eksklusiivne sisu tellijatele"
     }
   },
@@ -46,11 +54,11 @@ define({
       "grid": "Ruudustik",
       "list": "Loend",
       "table": "Tabel",
-      "view": "Vaatamine"
+      "view": "Kuva"
     },
     "sorting": {
       "sort": "Sorteeri",
-      "sortBy": "Sorteeri:",
+      "sortBy": "Sorteeri",
       "sortDir": "Sortimise alus",
       "relevance": "Asjakohasus",
       "title": "Pealkiri",
@@ -99,6 +107,8 @@ define({
         "webApps": "Veebirakendused",
         "mobileApps": "Mobiilirakendused",
         "desktopApps": "Töölauarakendused",
+        "instantApps": "Instant Apps",
+        "storyMaps": "Story Maps",
         "tools": "Töövahendid",
         "locators": "Lokaatorid",
         "geodatabaseAccess": "Geoandmebaasile ligipääs",
@@ -106,7 +116,7 @@ define({
         "geoprocessingTasks": "Geotöötluse ülesanded",
         "networkAnalysis": "Võrguanalüüs",
         "files": "Failid",
-        "documents": "Dokument",
+        "documents": "Dokumendid",
         "images": "Pildid",
         "pdfs": "PDF failid",
         "webTools": "Veebitööriistad",
@@ -127,7 +137,7 @@ define({
       }
     },
     "status": {
-      "status": "Staatus",
+      "status": "Olek",
       "options": {
         "authoritative": "Usaldusväärne",
         "deprecated": "Aegunud",
@@ -142,12 +152,12 @@ define({
   },
   "gallery": {
     "signIn": "Logi sisse",
-    "signOut": "Logi välja",
+    "signOut": "Logige välja",
     "header": {
       "browse": "Sirvi",
       "search": "Otsing"
     },
-    "resultCount": "sisuobjektid:",
+    "resultCount": "Sisuüksused:",
     "searchPlaceholders": {
       "generic": "Sisestage otsingusõnad"
     },
@@ -155,11 +165,11 @@ define({
       "mapArea": "Kaardi kuvaulatuses",
       "type": "Tüüp",
       "dateModified": "Muudetud",
-      "dateCreated": "Loodud",
+      "dateCreated": "Koostatud",
       "access": "Jagatud",
       "group": "Grupp",
       "folder": "Kaust",
-      "status": "Staatus",
+      "status": "Olek",
       "clearAll": "Tühjenda kõik",
       "category": "Kategooria",
       "region": "Piirkond",
@@ -168,40 +178,40 @@ define({
     "itemDetails": {
       "addToMap": "Lisa kaardile",
       "removeFromMap": "Eemalda kaardilt",
-      "by": ":",
+      "by": "Autor:",
       "lastModified": "Uuendatud",
       "noSnippet": "Sisuobjekti lühikirjeldus pole saadaval.",
       "details": "Kirjeldus",
       "termsOfUse": "Kasutustingimused",
       "attribution": "Krediidid (omistamine)",
-      "noTermsOfUse": "Sisuobjekti kasutamise osas pole eripiiranguid ega muid piiranguid kindlaks määratud.",
+      "noTermsOfUse": "Sisuobjektide kasutamise osas pole eripiiranguid ega muid kitsendusi määratud.",
       "noAttribution": "Kinnitusi pole.",
       "noDescription": "Sisuobjekti põhjalik kirjeldus pole saadaval.",
       "views": "Vaatamiste arv",
-      "created": "Loodud",
+      "created": "Koostatud",
       "sharedWith": "Jagatud",
       "shared": {
-        "public": "Igaühele (avalik)",
+        "public": "Igaüks (avalik)",
         "org": "Ettevõte",
         "shared": "Sisu ei ole jagatud.",
         "private": "Sisu ei ole jagatud."
       },
       "viewUser": "Vaata kasutaja profiili",
       "viewOrg": "Külasta organisatsiooni",
-      "addToFavorites": "Lisa lemmikutesse",
-      "removeFromFavorites": "Eemalda lemmikutest",
+      "addToFavorites": "Lisa lemmikute loendisse",
+      "removeFromFavorites": "Eemalda lemmikute loendist",
       "managedBy": "Haldaja:"
     },
     "results": {
       "loadingItems": "Üksuste laadimine...",
       "requestError": "Taotlusega seoses ilmnes tõrge.",
-      "noItemsFound": "Teie kriteeriumidele vastavaid sisuobjekte ei leitud. Proovige mõni filter eemaldada, et kuvada rohkem sisuobjekte.",
+      "noItemsFound": "Teie nõuetele vastavaid sisuobjekte ei leitud. Proovige mõni filter eemaldada, et kuvada rohkem sisuobjekte.",
       "empty": "Otsingu alustamiseks sisestage ülal mõned otsinguterminid."
     },
     "search": "Otsing",
     "close": "Sule",
     "filterPane": {
-      "filter": "Filter",
+      "filter": "Filtreeri",
       "categories": "Kategooriad",
       "groupCategories": "Grupeeri kategooriad"
     },
@@ -217,20 +227,41 @@ define({
   "itemCards": {
     "remove": "Eemalda",
     "add": "Lisa",
-    "by": ":",
+    "by": "Autor:",
     "actions": "Toimingud",
     "viewOrg": "Külasta organisatsiooni",
     "viewProfile": "Vaata kasutaja profiili",
     "viewItem": "Vaata üksuse detaile",
     "hideItem": "Peida üksuse detailid",
-    "created": "Loodud",
+    "created": "Koostatud",
     "updated": "Uuendatud",
     "viewCount": "Vaatamiste arv",
-    "rating": "Hinnang"
+    "rating": "Hinnang",
+    "itemType": {
+      "table": "Tabel",
+      "routeLayer": "Marsruudikiht",
+      "markup": "Märgistus",
+      "featureLayer": "Objektikiht",
+      "elevationLayer": "Kõrguste kiht",
+      "imageryLayer": "Satelliitpiltide kiht",
+      "sceneLayer": "Stseenikiht",
+      "sceneLayerPackage": "Stseeni kihi pakett",
+      "locator": "Lokaator",
+      "microsoftPowerPoint": "Microsoft PowerPoint",
+      "geoJSON": "GeoJSON",
+      "globeLayer": "Maakera kiht",
+      "tileLayer": "Pildiüksuse kiht",
+      "netCDF": "NetCDF",
+      "mapImageLayer": "Kaardi piltide kiht",
+      "addIn": "Lisandmoodul",
+      "bigDataFileShare": "Suurandmete failiketas",
+      "ogcFeatureLayer": "OGC objektikiht",
+      "instantApp": "Kiirrakendus"
+    }
   },
   "pager": {
     "previous": "Eelmine",
-    "next": "Järgmine",
+    "next": "Edasi",
     "paginationLimit": "Leheküljestamise kaudu saab tuua kuni 10 000 tulemust. Proovige filtreerida või muuta otsinguterminit väiksemale arvule tagastatavatele tulemustele."
   },
   "actions": {
@@ -239,15 +270,15 @@ define({
     "viewApp": "Kuva rakendus",
     "viewInMap": "Kuva kaardil",
     "viewInScene": "Kuva stseenil",
-    "view": "Vaatamine",
+    "view": "Kuva",
     "download": "Allalaadimine",
     "openPdf": "Ava PDF",
-    "open": "Avatud",
+    "open": "Ava",
     "openDoc": "Ava dokument",
     "openTab": "Ava uuel vahelehel",
-    "openViewer": "Š_Open in Map Viewer___________________ä",
-    "addFavorite": "Lisa lemmikutesse",
-    "removeFavorite": "Eemalda lemmikutest"
+    "openViewer": "Ava kaardivaaturis",
+    "addFavorite": "Lisa lemmikute loendisse",
+    "removeFavorite": "Eemalda lemmikute loendist"
   },
   "viewer": {
     "back": "Tagasi kaardile",
@@ -263,8 +294,9 @@ define({
     }
   },
   "share": {
-    "shareGallery": "Š_Share gallery______________ä",
-    "shareFiltered": "Š_Share filtered gallery_______________________ä",
-    "tooltip": "Š_URL copied to you clipboard____________________________ä"
+    "share": "Jagamine",
+    "shareGallery": "Jaga galeriid",
+    "shareFiltered": "Jaga filtreeritud galeriid",
+    "tooltip": "URL on kopeeritud teie lõikelauale"
   }
 });

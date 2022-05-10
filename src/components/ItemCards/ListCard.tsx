@@ -218,9 +218,18 @@ export default class AnalysisCard extends Component<ListCardProps> {
                                 ]) : ``}
                         </div>
                         <p class="card-lc__snippet">
-                            <span class="card-lc__snippet-text" key="itemSummaryMaxChar">{itemSummaryMaxChar < 250 && item.snippet && item.snippet.length > itemSummaryMaxChar ? 
-                                                                item.snippet.substring(0, itemSummaryMaxChar) + `...` :
-                                                                item.snippet}{` `}</span>
+                            {item.snippet && item.snippet.length > itemSummaryMaxChar ? 
+                                (<span class="card-lc__snippet" key="itemSummary">
+                                        {item.snippet.substring(0, itemSummaryMaxChar)} 
+                                        {baseConfig.showItemToolTip ? 
+                                            (<span class="card-lc__snippet-tooltip tooltip tooltip-multiline tooltip-left" tooltip={item.snippet.replace(/<\/?[^>]+(>|$)/g, "")}>...</span>) :
+                                            (<span>...</span>) 
+                                        }
+                                </span>) :
+                                (<span class="card-lc__snippet" key="itemSummary">
+                                    {item.snippet}
+                                </span>)
+                            }{` `}
                             {baseConfig.showItemToolTip && item.snippet ?
                                 (<IconButton
                                     key="grid-info-tooltip-btn"

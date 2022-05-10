@@ -3,6 +3,14 @@ define({
   "appFailed": "無法載入應用程式。",
   "noAuth": "您的帳號未經授權，無法使用非公開的可配置應用程式。 請聯繫您的組織管理員，請其將包含基礎應用程式或附加元件基礎應用程式授權的使用者類型指派給您。",
   "notLicensed": "未經許可",
+  "error": "錯誤",
+  "originError": {
+    "message": "您正在嘗試存取的應用程式並非源自您提供的 URL",
+    "close": "關閉",
+    "options": "進階選項",
+    "linkMessage": "繼續至"
+  },
+  "analyticsOptIn": "選擇參加",
   "badges": {
     "authoritative": "授權",
     "deleted": "已刪除",
@@ -44,9 +52,9 @@ define({
     "clearAll": "全部清除",
     "contentViews": {
       "grid": "網格",
-      "list": "清單",
-      "table": "表",
-      "view": "視圖"
+      "list": "列表",
+      "table": "表格",
+      "view": "查看"
     },
     "sorting": {
       "sort": "排序",
@@ -99,6 +107,8 @@ define({
         "webApps": "Web 應用程式",
         "mobileApps": "行動應用程式",
         "desktopApps": "桌面應用程式",
+        "instantApps": "Instant Apps",
+        "storyMaps": "Story Maps",
         "tools": "工具",
         "locators": "定位器",
         "geodatabaseAccess": "地理資料庫存取",
@@ -154,11 +164,11 @@ define({
     "filterChips": {
       "mapArea": "在地圖區域內",
       "type": "類型",
-      "dateModified": "已修改",
-      "dateCreated": "已建立",
+      "dateModified": "修改日期",
+      "dateCreated": "建立日期",
       "access": "共用",
       "group": "群組",
-      "folder": "資料夾",
+      "folder": "文件夾",
       "status": "狀態",
       "clearAll": "全部清除",
       "category": "類別",
@@ -168,7 +178,7 @@ define({
     "itemDetails": {
       "addToMap": "新增到地圖",
       "removeFromMap": "從地圖移除",
-      "by": "ArcGIS Runtime SDK for iOS",
+      "by": "建立者",
       "lastModified": "已更新",
       "noSnippet": "無法取得項目的摘要。",
       "details": "描述",
@@ -178,10 +188,10 @@ define({
       "noAttribution": "無認可。",
       "noDescription": "無法取得項目的深入描述。",
       "views": "檢視計數",
-      "created": "已建立",
+      "created": "建立日期",
       "sharedWith": "共用範圍",
       "shared": {
-        "public": "任何人 (公眾)",
+        "public": "任何人（公眾）",
         "org": "組織",
         "shared": "項目未共用。",
         "private": "項目未共用。"
@@ -201,35 +211,56 @@ define({
     "search": "搜尋",
     "close": "關閉",
     "filterPane": {
-      "filter": "篩選",
+      "filter": "篩選器",
       "categories": "類別",
       "groupCategories": "分組類別"
     },
     "viewDetails": "查看項目的詳細資訊",
     "back": "上一步",
-    "compact": "表",
+    "compact": "表格",
     "compactView": "精簡視圖",
-    "list": "清單",
-    "listView": "列表檢視",
+    "list": "列表",
+    "listView": "清單視圖",
     "showing": "顯示",
     "viewResults": "檢視結果"
   },
   "itemCards": {
     "remove": "移除",
     "add": "新增",
-    "by": "ArcGIS Runtime SDK for iOS",
-    "actions": "作業",
+    "by": "建立者",
+    "actions": "操作",
     "viewOrg": "造訪組織",
     "viewProfile": "查看使用者個人資料",
     "viewItem": "查看項目的詳細資訊",
     "hideItem": "隱藏項目詳細資訊",
-    "created": "已建立",
+    "created": "建立日期",
     "updated": "已更新",
     "viewCount": "檢視計數",
-    "rating": "評級次數"
+    "rating": "評級次數",
+    "itemType": {
+      "table": "表格",
+      "routeLayer": "路線圖層",
+      "markup": "標記",
+      "featureLayer": "圖徵圖層",
+      "elevationLayer": "高程圖層",
+      "imageryLayer": "影像圖層",
+      "sceneLayer": "場景圖層",
+      "sceneLayerPackage": "場景圖層套件",
+      "locator": "定位器",
+      "microsoftPowerPoint": "Microsoft PowerPoint",
+      "geoJSON": "GeoJSON",
+      "globeLayer": "全球圖層",
+      "tileLayer": "圖磚圖層",
+      "netCDF": "NetCDF",
+      "mapImageLayer": "地圖影像圖層",
+      "addIn": "增益集",
+      "bigDataFileShare": "大數據檔分享",
+      "ogcFeatureLayer": "OGC 圖徵圖層",
+      "instantApp": "即時應用程式"
+    }
   },
   "pager": {
-    "previous": "上一步",
+    "previous": "上一頁",
     "next": "下一步",
     "paginationLimit": "透過分頁可擷取的結果限制為 10,000 個。 請嘗試篩選或變更您的搜尋條件來降低傳回的結果數目。"
   },
@@ -245,7 +276,7 @@ define({
     "open": "開啟",
     "openDoc": "開啟文件",
     "openTab": "在新頁籤中開啟",
-    "openViewer": "試_Open in Map Viewer___________________驗",
+    "openViewer": "在 Map Viewer 中開啟",
     "addFavorite": "新增到我的最愛",
     "removeFavorite": "從我的最愛中移除"
   },
@@ -263,8 +294,9 @@ define({
     }
   },
   "share": {
-    "shareGallery": "試_Share gallery______________驗",
-    "shareFiltered": "試_Share filtered gallery_______________________驗",
-    "tooltip": "試_URL copied to you clipboard____________________________驗"
+    "share": "分享",
+    "shareGallery": "分享圖庫",
+    "shareFiltered": "分享篩選的圖庫",
+    "tooltip": "已將 URL 複製到剪貼簿"
   }
 });

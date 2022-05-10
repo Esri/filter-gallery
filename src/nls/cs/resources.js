@@ -3,13 +3,21 @@ define({
   "appFailed": "Nepodařilo se načíst aplikaci.",
   "noAuth": "Váš účet nevlastní licenci k používání konfigurovatelných aplikací, které nejsou veřejné. Požádejte prosím správce své organizace, aby vám přidělil typ uživatele, jehož součástí jsou základní aplikace nebo doplňková licence základních aplikací.",
   "notLicensed": "Chybí licence",
+  "error": "Chyba",
+  "originError": {
+    "message": "Aplikace, ke které se snažíte získat přístup, nepochází z adresy URL, kterou jste zadali",
+    "close": "Zavřít",
+    "options": "Pokročilé možnosti",
+    "linkMessage": "Pokračujte na"
+  },
+  "analyticsOptIn": "Přihlaste se",
   "badges": {
     "authoritative": "Spolehlivé",
     "deleted": "Odstraněno",
     "deprecated": "Zastaralé",
     "livingAtlas": "Living Atlas",
     "marketplace": "Marketplace",
-    "openData": "Otevřená data",
+    "openData": "Open Data",
     "premium": "Nadstandardní",
     "subscriber": "Předplatitel",
     "tooltips": {
@@ -28,7 +36,7 @@ define({
     }
   },
   "buttons": {
-    "clear": "Zrušit výběr"
+    "clear": "Vymazat"
   },
   "dateSelection": {
     "today": "Dnes",
@@ -40,7 +48,7 @@ define({
     "to": "Koncové datum"
   },
   "dropdowns": {
-    "clear": "Zrušit výběr",
+    "clear": "Vymazat",
     "clearAll": "Zrušit vše",
     "contentViews": {
       "grid": "Mřížka",
@@ -53,7 +61,7 @@ define({
       "sortBy": "Seřadit podle",
       "sortDir": "Směr řazení",
       "relevance": "Relevance",
-      "title": "Název",
+      "title": "Nadpis",
       "owner": "Vlastník",
       "created": "Datum vytvoření",
       "modified": "Datum změny",
@@ -85,7 +93,7 @@ define({
       "filters": {
         "maps": "Mapy",
         "webMaps": "Webové mapy",
-        "mapFiles": "Mapové soubory",
+        "mapFiles": "Soubory map",
         "layers": "Vrstvy",
         "featureLayers": "Vrstvy prvků",
         "tileLayers": "Vrstvy dlaždic",
@@ -99,12 +107,14 @@ define({
         "webApps": "Webové aplikace",
         "mobileApps": "Mobilní aplikace",
         "desktopApps": "Desktopové aplikace",
+        "instantApps": "Instant Apps",
+        "storyMaps": "Mapy s příběhem",
         "tools": "Nástroje",
         "locators": "Lokátory",
         "geodatabaseAccess": "Geodatabázový přístup",
         "geometricOperations": "Geometrické operace",
         "geoprocessingTasks": "Úlohy geoprocessingu",
-        "networkAnalysis": "Síťová analýza",
+        "networkAnalysis": "Analýza sítě",
         "files": "Soubory",
         "documents": "Dokumenty",
         "images": "Snímky",
@@ -141,13 +151,13 @@ define({
     }
   },
   "gallery": {
-    "signIn": "Přihlásit se",
+    "signIn": "Přihlásit",
     "signOut": "Odhlásit",
     "header": {
       "browse": "Procházet",
-      "search": "Vyhledávání"
+      "search": "Hledat"
     },
-    "resultCount": "položek:",
+    "resultCount": "Položky:",
     "searchPlaceholders": {
       "generic": "Zadat hledané výrazy"
     },
@@ -168,7 +178,7 @@ define({
     "itemDetails": {
       "addToMap": "Přidat do mapy",
       "removeFromMap": "Odebrat z mapy",
-      "by": "uživatelem",
+      "by": "od",
       "lastModified": "Aktualizováno",
       "noSnippet": "Stručný souhrn položky není k dispozici.",
       "details": "Popis",
@@ -188,17 +198,17 @@ define({
       },
       "viewUser": "Zobrazit profil uživatele",
       "viewOrg": "Navštívit organizaci",
-      "addToFavorites": "Přidat k oblíbeným",
+      "addToFavorites": "Přidat do oblíbených",
       "removeFromFavorites": "Odebrat z oblíbených",
       "managedBy": "Spravováno:"
     },
     "results": {
       "loadingItems": "Probíhá načítání položek..",
-      "requestError": "Vyskytla se chyba v požadavku.",
+      "requestError": "Vyskytla se chyba v požadavku.",
       "noItemsFound": "Nebyly nalezeny žádné položky, které splňují vaše kritéria. Pro zobrazení více položek zkuste zrušit některé filtry.",
       "empty": "Pro zahájení hledání zadejte některé z výrazů výše."
     },
-    "search": "Vyhledávání",
+    "search": "Hledat",
     "close": "Zavřít",
     "filterPane": {
       "filter": "Filtr",
@@ -211,13 +221,13 @@ define({
     "compactView": "Zobrazit zhuštěně",
     "list": "Seznam",
     "listView": "Zobrazení seznamu",
-    "showing": "Zobrazování",
+    "showing": "Zobrazení",
     "viewResults": "Zobrazit výsledky"
   },
   "itemCards": {
-    "remove": "Odstranit",
+    "remove": "Odebrat",
     "add": "Přidat",
-    "by": "uživatelem",
+    "by": "od",
     "actions": "Akce",
     "viewOrg": "Navštívit organizaci",
     "viewProfile": "Zobrazit profil uživatele",
@@ -226,7 +236,28 @@ define({
     "created": "Vytvořeno",
     "updated": "Aktualizováno",
     "viewCount": "Počty zobrazení",
-    "rating": "Hodnocení"
+    "rating": "Hodnocení",
+    "itemType": {
+      "table": "Tabulka",
+      "routeLayer": "Vrstva trasy",
+      "markup": "Kresba",
+      "featureLayer": "Vrstva prvků",
+      "elevationLayer": "Vrstva nadmořské výšky",
+      "imageryLayer": "Vrstva obrazových dat",
+      "sceneLayer": "Vrstva scény",
+      "sceneLayerPackage": "Balíček vrstev scén",
+      "locator": "Lokátor",
+      "microsoftPowerPoint": "Microsoft PowerPoint",
+      "geoJSON": "GeoJSON",
+      "globeLayer": "Vrstva glóbu",
+      "tileLayer": "Vrstva dlaždic",
+      "netCDF": "NetCDF",
+      "mapImageLayer": "Vrstva obrazu mapy",
+      "addIn": "Doplněk",
+      "bigDataFileShare": "Sdílená složka Big Data",
+      "ogcFeatureLayer": "Vrstva prvků OGC",
+      "instantApp": "Instant App"
+    }
   },
   "pager": {
     "previous": "Předchozí",
@@ -243,10 +274,10 @@ define({
     "download": "Stáhnout",
     "openPdf": "Otevřít v PDF",
     "open": "Otevřít",
-    "openDoc": "Otevřený dokument",
+    "openDoc": "Otevřít dokument",
     "openTab": "Otevřít na nové kartě",
-    "openViewer": "Ř_Open in Map Viewer___________________ů",
-    "addFavorite": "Přidat k oblíbeným",
+    "openViewer": "Otevřít v Map Viewer",
+    "addFavorite": "Přidat do oblíbených",
     "removeFavorite": "Odebrat z oblíbených"
   },
   "viewer": {
@@ -263,8 +294,9 @@ define({
     }
   },
   "share": {
-    "shareGallery": "Ř_Share gallery______________ů",
-    "shareFiltered": "Ř_Share filtered gallery_______________________ů",
-    "tooltip": "Ř_URL copied to you clipboard____________________________ů"
+    "share": "Sdílet",
+    "shareGallery": "Sdílet galerii",
+    "shareFiltered": "Sdílet vyfiltrovanou galerii",
+    "tooltip": "Adresa URL byla zkopírována do schránky"
   }
 });

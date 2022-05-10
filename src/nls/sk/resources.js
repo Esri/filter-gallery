@@ -1,14 +1,22 @@
 define({
   "appInit": "Spúšťanie aplikácie...",
   "appFailed": "Aplikáciu sa nepodarilo načítať.",
-  "noAuth": "Váš účet nezahŕňa licenciu na použitie Konfigurovateľných aplikácií, ktoré nie sú verejné. Požiadajte správcu vašej organizácie, aby vám priradil typ používateľa, ktorý zahŕňa Esenciálne aplikácie alebo doplnkovú licenciu Esenciálnych aplikácií",
+  "noAuth": "Váš účet nezahŕňa licenciu na použitie Konfigurovateľných aplikácií, ktoré nie sú verejné. Požiadajte správcu vašej organizácie, aby vám priradil typ používateľa, ktorý zahŕňa základné aplikácie Essential Apps alebo doplnkovú licenciu základných aplikácií.",
   "notLicensed": "Nelicencované",
+  "error": "Chyba",
+  "originError": {
+    "message": "Aplikácia, ku ktorej sa snažíte pristúpiť, nepochádza z URL, ktorú ste poskytli",
+    "close": "Zatvoriť",
+    "options": "Rozšírené možnosti",
+    "linkMessage": "Pokračovať na"
+  },
+  "analyticsOptIn": "Prihlásiť sa",
   "badges": {
     "authoritative": "Spoľahlivý",
     "deleted": "Odstránený",
     "deprecated": "Neschválený",
     "livingAtlas": "Živý atlas",
-    "marketplace": "Obchod",
+    "marketplace": "Marketplace",
     "openData": "Open Data",
     "premium": "Premium",
     "subscriber": "Predplatiteľ",
@@ -87,10 +95,10 @@ define({
         "webMaps": "Webové mapy",
         "mapFiles": "Súbory mapy",
         "layers": "Vrstvy",
-        "featureLayers": "Vektorové vrstvy prvkov",
+        "featureLayers": "Prvkové vrstvy",
         "tileLayers": "Vrstvy dlaždíc",
-        "mapImageLayers": "Vrstvy obrazových mapových služieb",
-        "imageryLayers": "Vrstvy obrazových snímok (letecké/družicové)",
+        "mapImageLayers": "Vrstvy mapových služieb (MapService)",
+        "imageryLayers": "Snímkové vrstvy",
         "sceneLayers": "Vrstvy scény",
         "tables": "Tabuľky",
         "layerFiles": "Súbory vrstvy",
@@ -99,6 +107,8 @@ define({
         "webApps": "Webové aplikácie",
         "mobileApps": "Mobilné aplikácie",
         "desktopApps": "Desktopové aplikácie",
+        "instantApps": "Instant Apps",
+        "storyMaps": "Mapy s príbehom",
         "tools": "Nástroje",
         "locators": "Lokátor",
         "geodatabaseAccess": "Prístup do geodatabázy",
@@ -226,11 +236,32 @@ define({
     "created": "Vytvorené",
     "updated": "Aktualizované",
     "viewCount": "Počet zobrazení",
-    "rating": "Hodnotenie"
+    "rating": "Hodnotenie",
+    "itemType": {
+      "table": "Tabuľka",
+      "routeLayer": "Trasovacia vrstva",
+      "markup": "Označenie",
+      "featureLayer": "Vektorová vrstva",
+      "elevationLayer": "Vrstva nadmorskej výšky",
+      "imageryLayer": "Snímková vrstva",
+      "sceneLayer": "Scénová vrstva",
+      "sceneLayerPackage": "Balíček scénových vrstiev",
+      "locator": "Lokátor",
+      "microsoftPowerPoint": "Microsoft PowerPoint",
+      "geoJSON": "GeoJSON",
+      "globeLayer": "Glóbusová vrstva",
+      "tileLayer": "Dlaždicová vrstva",
+      "netCDF": "NetCDF",
+      "mapImageLayer": "Mapová snímková vrstva",
+      "addIn": "Doplnok",
+      "bigDataFileShare": "Zdieľanie súborov Big Data",
+      "ogcFeatureLayer": "Prvková vrstva OGC",
+      "instantApp": "Instant App"
+    }
   },
   "pager": {
-    "previous": "Predchádzajúce",
-    "next": "Ďalšie",
+    "previous": "Predchádzajúci",
+    "next": "Ďalší",
     "paginationLimit": "Je daný limit 10 000 výsledkov, ktoré možno získať stránkovaním. Skúste filtrovať alebo zmeniť hľadaný výraz a znížiť tak počet vrátených výsledkov."
   },
   "actions": {
@@ -245,7 +276,7 @@ define({
     "open": "Otvoriť",
     "openDoc": "Otvoriť dokument",
     "openTab": "Otvoriť na novej karte",
-    "openViewer": "ĺ_Open in Map Viewer___________________ľ",
+    "openViewer": "Otvoriť v Map Viewer",
     "addFavorite": "Pridať k obľúbeným",
     "removeFavorite": "Odstrániť z obľúbených"
   },
@@ -263,8 +294,9 @@ define({
     }
   },
   "share": {
-    "shareGallery": "ĺ_Share gallery______________ľ",
-    "shareFiltered": "ĺ_Share filtered gallery_______________________ľ",
-    "tooltip": "ĺ_URL copied to you clipboard____________________________ľ"
+    "share": "Zdieľať",
+    "shareGallery": "Zdieľaná galéria",
+    "shareFiltered": "Zdieľať filtrovanú galériu",
+    "tooltip": "URL skopírovaná do vašej schránky"
   }
 });

@@ -3,6 +3,14 @@ define({
   "appFailed": "Die App konnte nicht geladen werden.",
   "noAuth": "Ihr Konto ist nicht für die Verwendung von nicht öffentlichen konfigurierbaren Apps lizenziert. Bitten Sie den Administrator der Organisation, Ihnen einen Benutzertyp mit Essential Apps oder eine Add-On-Lizenz für Essential Apps zuzuweisen.",
   "notLicensed": "Nicht lizenziert",
+  "error": "Fehler",
+  "originError": {
+    "message": "Die Anwendung, auf die Sie zugreifen möchten, stammt nicht von der von Ihnen angegebenen URL.",
+    "close": "Schließen",
+    "options": "Erweiterte Optionen",
+    "linkMessage": "Weiter zu"
+  },
+  "analyticsOptIn": "Zustimmen",
   "badges": {
     "authoritative": "Verlässlich",
     "deleted": "Gelöscht",
@@ -11,7 +19,7 @@ define({
     "marketplace": "Marketplace",
     "openData": "Open Data",
     "premium": "Premium",
-    "subscriber": "Abonnenteninhalt",
+    "subscriber": "Abonnent",
     "tooltips": {
       "altAuthoritative": "Verlässlich: Empfohlen von",
       "authoritative": "Verlässlich: Empfohlen von Ihrer Organisation",
@@ -28,7 +36,7 @@ define({
     }
   },
   "buttons": {
-    "clear": "Auswahl aufheben"
+    "clear": "Löschen"
   },
   "dateSelection": {
     "today": "Heute",
@@ -40,7 +48,7 @@ define({
     "to": "Enddatum"
   },
   "dropdowns": {
-    "clear": "Auswahl aufheben",
+    "clear": "Löschen",
     "clearAll": "Alle löschen",
     "contentViews": {
       "grid": "Raster",
@@ -54,7 +62,7 @@ define({
       "sortDir": "Sortierrichtung",
       "relevance": "Relevanz",
       "title": "Titel",
-      "owner": "Eigentümer",
+      "owner": "Besitzer",
       "created": "Erstellungsdatum",
       "modified": "Änderungsdatum",
       "numviews": "Anzahl der Aufrufe",
@@ -81,7 +89,7 @@ define({
   },
   "filters": {
     "itemType": {
-      "itemType": "Elementtyp",
+      "itemType": "Feldtyp",
       "filters": {
         "maps": "Karten",
         "webMaps": "Webkarten",
@@ -99,6 +107,8 @@ define({
         "webApps": "Web-Apps",
         "mobileApps": "Mobile Apps",
         "desktopApps": "Desktop-Apps",
+        "instantApps": "Instant Apps",
+        "storyMaps": "Story Maps",
         "tools": "Werkzeuge",
         "locators": "Locators",
         "geodatabaseAccess": "Geodatabase-Zugriff",
@@ -120,9 +130,9 @@ define({
     "shared": {
       "shared": "Freigegeben",
       "options": {
-        "public": "Für alle (öffentlich)",
-        "org": "Für Organisation",
-        "shared": "Für Gruppen",
+        "public": "Mit allen (öffentlich)",
+        "org": "Mit Organisation",
+        "shared": "Mit Gruppen",
         "private": "Für niemanden"
       }
     },
@@ -174,7 +184,7 @@ define({
       "details": "Beschreibung",
       "termsOfUse": "Nutzungsbedingungen",
       "attribution": "Quellennachweis (Attributierung)",
-      "noTermsOfUse": "Es wurden keine speziellen Beschränkungen für die Verwendung des Inhalts des Elements bereitgestellt.",
+      "noTermsOfUse": "Es wurden keine speziellen Beschränkungen für die Verwendung des Elementinhalts angegeben.",
       "noAttribution": "Keine Bestätigungen.",
       "noDescription": "Eine detaillierte Beschreibung des Elements ist nicht verfügbar.",
       "views": "Anzahl der Aufrufe",
@@ -189,7 +199,7 @@ define({
       "viewUser": "Benutzerprofil anzeigen",
       "viewOrg": "Organisation aufrufen",
       "addToFavorites": "Zu Favoriten hinzufügen",
-      "removeFromFavorites": "Aus Favoriten entfernen",
+      "removeFromFavorites": "Entfernen von Favoriten",
       "managedBy": "Verwaltet von:"
     },
     "results": {
@@ -201,7 +211,7 @@ define({
     "search": "Suchen",
     "close": "Schließen",
     "filterPane": {
-      "filter": "Filtern",
+      "filter": "Filter",
       "categories": "Kategorien",
       "groupCategories": "Gruppenkategorien"
     },
@@ -226,11 +236,32 @@ define({
     "created": "Erstellt",
     "updated": "Aktualisiert",
     "viewCount": "Anzahl der Aufrufe",
-    "rating": "Bewertung"
+    "rating": "Bewertung",
+    "itemType": {
+      "table": "Tabelle",
+      "routeLayer": "Routen-Layer",
+      "markup": "Markup",
+      "featureLayer": "Feature-Layer",
+      "elevationLayer": "Höhen-Layer",
+      "imageryLayer": "Bilddaten-Layer",
+      "sceneLayer": "Szenen-Layer",
+      "sceneLayerPackage": "Szenen-Layer-Paket",
+      "locator": "Locator",
+      "microsoftPowerPoint": "Microsoft PowerPoint",
+      "geoJSON": "GeoJSON",
+      "globeLayer": "Globe-Layer",
+      "tileLayer": "Kachel-Layer",
+      "netCDF": "NetCDF",
+      "mapImageLayer": "Kartenbild-Layer",
+      "addIn": "Add-in",
+      "bigDataFileShare": "Big-Data-Dateifreigabe",
+      "ogcFeatureLayer": "OGC-Feature-Layer",
+      "instantApp": "Instant App"
+    }
   },
   "pager": {
-    "previous": "Vorheriges",
-    "next": "Nächstes",
+    "previous": "Zurück",
+    "next": "Weiter",
     "paginationLimit": "Über die Paginierung können maximal 10.000 Ergebnisse abgerufen werden. Wenden Sie Filter an, oder ändern Sie Ihren Suchbegriff, um die Anzahl der zurückgegebenen Ergebnisse zu verringern."
   },
   "actions": {
@@ -245,9 +276,9 @@ define({
     "open": "Öffnen",
     "openDoc": "Dokument öffnen",
     "openTab": "In neuer Registerkarte öffnen",
-    "openViewer": "ä_Open in Map Viewer___________________Ü",
+    "openViewer": "In Map Viewer öffnen",
     "addFavorite": "Zu Favoriten hinzufügen",
-    "removeFavorite": "Aus Favoriten entfernen"
+    "removeFavorite": "Entfernen von Favoriten"
   },
   "viewer": {
     "back": "Zurück zur Galerie",
@@ -263,8 +294,9 @@ define({
     }
   },
   "share": {
-    "shareGallery": "ä_Share gallery______________Ü",
-    "shareFiltered": "ä_Share filtered gallery_______________________Ü",
-    "tooltip": "ä_URL copied to you clipboard____________________________Ü"
+    "share": "Freigeben",
+    "shareGallery": "Galerie freigeben",
+    "shareFiltered": "Gefilterte Galerie freigeben",
+    "tooltip": "URL wurde in Zwischenablage kopiert"
   }
 });

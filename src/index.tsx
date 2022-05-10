@@ -15,11 +15,10 @@ import {
 import { rootEpic } from "./_epic";
 import reducer, { initialState, FilterGalleryState } from "./_reducer";
 import RootComponent from "./components/FilterGallery";
-import { loadPortal, OriginError } from "./_actions";
+import { loadPortal, OriginError, loadPortalThenUpdateSection } from "./_actions";
 import { startHistoryListener, router } from "./router";
 
 import ApplicationBaseGallery from "./ApplicationBaseGallery";
-import { ApplicationConfig } from 'ApplicationBase/interfaces';
 
 export type FilterGalleryStore = Store<FilterGalleryState>;
 
@@ -74,6 +73,7 @@ export default (cfg: string, sets: string) => {
             base.portal.load().then(
                 () => {
                     base.loadConfig().then((config) => { 
+                        document.title = config.title;
                         if (!config.group) { //group is not set
                             document.location.href = `./shared/unavailable/index.html?appid=${
                                 config?.appid || null
@@ -94,8 +94,13 @@ export default (cfg: string, sets: string) => {
             if (e?.data?.type === "rerender") {
                 base.loadConfig().then(() => {
                     if (projector !== undefined) {
-                        store.dispatch(loadPortal());
-                        // projector.scheduleRender();
+                        //handle custom updates
+                        if (e?.data?.properties.hasOwnProperty("useOrgCategories")) {
+                            store.dispatch(loadPortalThenUpdateSection());
+                        } else {
+                            store.dispatch(loadPortal());
+                            // projector.scheduleRender();
+                        }
                     }
                 });
                 

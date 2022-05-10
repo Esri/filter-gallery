@@ -3,18 +3,26 @@ define({
   "appFailed": "无法加载应用程序。",
   "noAuth": "您的帐户无权使用非公共的可配置应用程序。 请联系您的组织管理员为您分配包含基本应用程序或附加基本应用程序许可的用户类型。",
   "notLicensed": "未经许可",
+  "error": "错误",
+  "originError": {
+    "message": "您正在尝试访问的应用程序并非源自您已提供的 URL",
+    "close": "关闭",
+    "options": "高级选项",
+    "linkMessage": "继续"
+  },
+  "analyticsOptIn": "选择同意",
   "badges": {
     "authoritative": "权威",
     "deleted": "已删除",
     "deprecated": "已弃用",
     "livingAtlas": "Living Atlas",
     "marketplace": "Marketplace",
-    "openData": "开放数据",
-    "premium": "高级",
+    "openData": "Open Data",
+    "premium": "高级内容",
     "subscriber": "订阅者",
     "tooltips": {
       "altAuthoritative": "权威：推荐者",
-      "authoritative": "权威：由您的组织推荐",
+      "authoritative": "权威：由您的组织建议",
       "deprecated": "已弃用：不建议使用",
       "livingAtlas": "Living Atlas：Esri 精选内容",
       "marketplace": "在 ArcGIS Marketplace 中列出",
@@ -43,10 +51,10 @@ define({
     "clear": "清除",
     "clearAll": "全部清除",
     "contentViews": {
-      "grid": "格网",
+      "grid": "Grid",
       "list": "列表",
-      "table": "表格",
-      "view": "视图"
+      "table": "表",
+      "view": "查看"
     },
     "sorting": {
       "sort": "排序",
@@ -57,7 +65,7 @@ define({
       "owner": "所有者",
       "created": "创建日期",
       "modified": "修改日期",
-      "numviews": "浏览次数",
+      "numviews": "查看计数",
       "avgrating": "评级",
       "ascending": {
         "relevance": "相关性由最低到最高",
@@ -99,15 +107,17 @@ define({
         "webApps": "Web 应用程序",
         "mobileApps": "移动应用程序",
         "desktopApps": "桌面应用程序",
+        "instantApps": "Instant Apps",
+        "storyMaps": "故事地图",
         "tools": "工具",
         "locators": "定位器",
         "geodatabaseAccess": "地理数据库访问",
         "geometricOperations": "几何运算",
         "geoprocessingTasks": "地理处理任务",
-        "networkAnalysis": "Network Analysis",
+        "networkAnalysis": "网络分析",
         "files": "文件",
         "documents": "文档",
-        "images": "图像",
+        "images": "影像",
         "pdfs": "PDF",
         "webTools": "Web 工具",
         "notebooks": "Notebook"
@@ -123,7 +133,7 @@ define({
         "public": "与所有人(公共)",
         "org": "与组织",
         "shared": "与群组",
-        "private": "未共享"
+        "private": "无结果"
       }
     },
     "status": {
@@ -131,23 +141,23 @@ define({
       "options": {
         "authoritative": "权威",
         "deprecated": "已弃用",
-        "premium": "高级"
+        "premium": "高级内容"
       }
     },
     "tags": {
       "tags": "标签",
       "filterTags": "过滤标签",
-      "noTags": "未找到匹配您搜索的标签。"
+      "noTags": "未找到与您的搜索相匹配的标签。"
     }
   },
   "gallery": {
     "signIn": "登录",
-    "signOut": "登出",
+    "signOut": "退出",
     "header": {
       "browse": "浏览",
       "search": "搜索"
     },
-    "resultCount": "项目:",
+    "resultCount": "项目：",
     "searchPlaceholders": {
       "generic": "输入搜索词"
     },
@@ -156,32 +166,32 @@ define({
       "type": "类型",
       "dateModified": "修改日期",
       "dateCreated": "创建日期",
-      "access": "已共享",
+      "access": "共享",
       "group": "群组",
       "folder": "文件夹",
       "status": "状态",
       "clearAll": "全部清除",
       "category": "类别",
-      "region": "区域",
+      "region": "地区",
       "tagged": "已标记"
     },
     "itemDetails": {
-      "addToMap": "添加至地图",
+      "addToMap": "添加到地图",
       "removeFromMap": "从地图移除",
-      "by": "所有者",
-      "lastModified": "更新日期",
+      "by": "创建者",
+      "lastModified": "已更新",
       "noSnippet": "项目的简要描述不可用。",
       "details": "描述",
       "termsOfUse": "使用条款",
-      "attribution": "制作者名单(属性)",
-      "noTermsOfUse": "尚未提供任何关于使用项目内容的特定约束和限制。",
+      "attribution": "制作者名单 (属性)",
+      "noTermsOfUse": "尚未提供任何关于使用项目内容的特殊约束或限制。",
       "noAttribution": "无任何声明。",
       "noDescription": "项目的进一步描述不可用。",
-      "views": "浏览次数",
+      "views": "查看计数",
       "created": "创建日期",
-      "sharedWith": "共享给",
+      "sharedWith": "共享范围",
       "shared": {
-        "public": "所有人(公共)",
+        "public": "任何人(公共)",
         "org": "组织",
         "shared": "项目未共享。",
         "private": "项目未共享。"
@@ -190,7 +200,7 @@ define({
       "viewOrg": "访问组织",
       "addToFavorites": "添加到收藏夹",
       "removeFromFavorites": "从收藏夹中移除",
-      "managedBy": "管理人："
+      "managedBy": "托管："
     },
     "results": {
       "loadingItems": "正在加载项目..",
@@ -201,14 +211,14 @@ define({
     "search": "搜索",
     "close": "关闭",
     "filterPane": {
-      "filter": "过滤",
+      "filter": "Filter",
       "categories": "类别",
-      "groupCategories": "分组类别"
+      "groupCategories": "群组类别"
     },
     "viewDetails": "查看项目详细信息",
     "back": "返回",
     "compact": "表",
-    "compactView": "精简视图",
+    "compactView": "压缩视图",
     "list": "列表",
     "listView": "列表视图",
     "showing": "显示",
@@ -217,16 +227,37 @@ define({
   "itemCards": {
     "remove": "移除",
     "add": "添加",
-    "by": "按",
+    "by": "创建者",
     "actions": "操作",
     "viewOrg": "访问组织",
     "viewProfile": "查看用户个人资料",
     "viewItem": "查看项目详细信息",
     "hideItem": "隐藏项目详细信息",
     "created": "创建日期",
-    "updated": "更新日期",
-    "viewCount": "浏览次数",
-    "rating": "评级"
+    "updated": "已更新",
+    "viewCount": "查看计数",
+    "rating": "评级",
+    "itemType": {
+      "table": "表",
+      "routeLayer": "路径图层",
+      "markup": "标记",
+      "featureLayer": "要素图层",
+      "elevationLayer": "高程图层",
+      "imageryLayer": "影像图层",
+      "sceneLayer": "场景图层",
+      "sceneLayerPackage": "场景图层包",
+      "locator": "定位器",
+      "microsoftPowerPoint": "Microsoft PowerPoint",
+      "geoJSON": "GeoJSON",
+      "globeLayer": "Globe 图层",
+      "tileLayer": "切片图层",
+      "netCDF": "NetCDF",
+      "mapImageLayer": "地图图像图层",
+      "addIn": "加载项",
+      "bigDataFileShare": "大数据文件共享",
+      "ogcFeatureLayer": "OGC 要素图层",
+      "instantApp": "Instant App"
+    }
   },
   "pager": {
     "previous": "上一步",
@@ -245,7 +276,7 @@ define({
     "open": "打开",
     "openDoc": "打开文档",
     "openTab": "在新选项卡中打开",
-    "openViewer": "试_Open in Map Viewer___________________验",
+    "openViewer": "在 Map Viewer 中打开",
     "addFavorite": "添加到收藏夹",
     "removeFavorite": "从收藏夹中移除"
   },
@@ -263,8 +294,9 @@ define({
     }
   },
   "share": {
-    "shareGallery": "试_Share gallery______________验",
-    "shareFiltered": "试_Share filtered gallery_______________________验",
-    "tooltip": "试_URL copied to you clipboard____________________________验"
+    "share": "共享",
+    "shareGallery": "共享图库",
+    "shareFiltered": "共享已过滤的图库",
+    "tooltip": "已复制到剪贴板的 URL"
   }
 });

@@ -1,30 +1,38 @@
 define({
   "appInit": "Initialisation de l’application...",
   "appFailed": "Échec du chargement de l’application.",
-  "noAuth": "La licence de votre compte ne permet pas d’utiliser des applications configurables non publiques. Demandez à l’administrateur de votre organisation de vous attribuer un type d’utilisateur qui inclut une licence Essential Apps ou une licence Essential Apps additionnelle.",
+  "noAuth": "La licence de votre compte ne permet pas d’utiliser des applications Configurable Apps non publiques. Demandez à l’administrateur de votre organisation de vous attribuer un type d’utilisateur qui inclut une licence Essential Apps ou une licence Essential Apps additionnelle.",
   "notLicensed": "Pas de licence",
+  "error": "Erreur",
+  "originError": {
+    "message": "L’application à laquelle vous essayez d’accéder n’est pas disponible à l’URL que vous avez indiquée",
+    "close": "Fermer",
+    "options": "Options avancées",
+    "linkMessage": "Poursuivre vers"
+  },
+  "analyticsOptIn": "Accepter",
   "badges": {
     "authoritative": "Officiel",
     "deleted": "Supprimé",
     "deprecated": "Obsolète",
     "livingAtlas": "Living Atlas",
-    "marketplace": "Boutique",
+    "marketplace": "Marketplace",
     "openData": "Open Data",
     "premium": "Premium",
     "subscriber": "Abonné",
     "tooltips": {
-      "altAuthoritative": "Officiel : recommandé(e) par",
-      "authoritative": "Officiel : recommandé(e) par votre organisation",
-      "deprecated": "Obsolète : utilisation non recommandée",
-      "livingAtlas": "Living Atlas : contenu édité par Esri",
-      "marketplace": "Répertorié(e) dans ArcGIS Marketplace",
+      "altAuthoritative": "Officiel : recommandé par",
+      "authoritative": "Officiel : recommandé par votre organisation",
+      "deprecated": "Obsolète : utilisation non recommandée",
+      "livingAtlas": "Living Atlas : contenu géré par Esri",
+      "marketplace": "Répertorié sur ArcGIS Marketplace",
       "openData": "Utilisation publique",
-      "premiumAnon": "Premium : nécessite de se connecter via un abonnement ArcGIS Online et consomme des crédits",
-      "subscriberAnon": "Abonné : nécessite de se connecter via un abonnement ArcGIS Online",
-      "premiumPublic": "Premium : requiert un abonnement ArcGIS Online et consomme des crédits",
-      "subscriberPublic": "Abonné : requiert un abonnement ArcGIS Online",
-      "premiumOrg": "Premium : contenu exclusif réservé aux abonnés. Consomme des crédits.",
-      "subscriberOrg": "Abonné : contenu exclusif réservé aux abonnés"
+      "premiumAnon": "Premium : nécessite de se connecter via un abonnement ArcGIS Online et consomme des crédits",
+      "subscriberAnon": "Abonné : nécessite de se connecter via un abonnement ArcGIS Online",
+      "premiumPublic": "Premium : nécessite un abonnement ArcGIS Online et consomme des crédits",
+      "subscriberPublic": "Abonné : nécessite un abonnement ArcGIS Online",
+      "premiumOrg": "Premium : contenu exclusif réservé aux abonnés. Consomme des crédits.",
+      "subscriberOrg": "Abonné : contenu exclusif réservé aux abonnés"
     }
   },
   "buttons": {
@@ -33,25 +41,25 @@ define({
   "dateSelection": {
     "today": "Aujourd’hui",
     "yesterday": "Hier",
-    "last7Days": "7 derniers jours",
-    "last30Days": "30 derniers jours",
+    "last7Days": "7 derniers jours",
+    "last30Days": "30 derniers jours",
     "custom": "Plage personnalisée...",
     "from": "Date de début",
     "to": "Date de fin"
   },
   "dropdowns": {
     "clear": "Effacer",
-    "clearAll": "Tout effacer",
+    "clearAll": "Effacer tout",
     "contentViews": {
-      "grid": "Carroyage",
+      "grid": "Grille",
       "list": "Liste",
-      "table": "Tableau",
-      "view": "Visualiser"
+      "table": "Table",
+      "view": "Affichage"
     },
     "sorting": {
       "sort": "Trier",
       "sortBy": "Trier par",
-      "sortDir": "Direction de tri",
+      "sortDir": "Sens de tri",
       "relevance": "Pertinence",
       "title": "Titre",
       "owner": "Propriétaire",
@@ -60,7 +68,7 @@ define({
       "numviews": "Nombre de vues",
       "avgrating": "Évaluation",
       "ascending": {
-        "relevance": "Du moins pertinent au plus pertinent",
+        "relevance": "Du moins au plus pertinent",
         "title": "Alphabétique",
         "owner": "Alphabétique",
         "created": "Le moins récent",
@@ -85,26 +93,28 @@ define({
       "filters": {
         "maps": "Cartes",
         "webMaps": "Cartes Web",
-        "mapFiles": "Fichiers de cartes",
+        "mapFiles": "Fichiers de carte",
         "layers": "Couches",
-        "featureLayers": "Couches d'entités",
+        "featureLayers": "Couches d’entités",
         "tileLayers": "Couches de tuiles",
         "mapImageLayers": "Couches d’images de carte",
         "imageryLayers": "Couches d’imagerie",
-        "sceneLayers": "Couches de scènes",
+        "sceneLayers": "Couches de scène",
         "tables": "Tables",
-        "layerFiles": "Fichiers de couches",
+        "layerFiles": "Fichiers de couche",
         "scenes": "Scènes",
         "apps": "Applications",
         "webApps": "Applications Web",
         "mobileApps": "Applications mobiles",
         "desktopApps": "Applications bureautiques",
+        "instantApps": "Instant Apps",
+        "storyMaps": "Story maps",
         "tools": "Outils",
         "locators": "Localisateurs",
-        "geodatabaseAccess": "Accès à la géodatabase",
-        "geometricOperations": "Opération géométriques",
+        "geodatabaseAccess": "Accès à une géodatabase",
+        "geometricOperations": "Opérations géométriques",
         "geoprocessingTasks": "Tâches de géotraitement",
-        "networkAnalysis": "Analyse du réseau",
+        "networkAnalysis": "Analyse de réseaux",
         "files": "Fichiers",
         "documents": "Documents",
         "images": "Images",
@@ -121,7 +131,7 @@ define({
       "shared": "Partagé",
       "options": {
         "public": "Avec tout le monde (public)",
-        "org": "Avec l'organisation",
+        "org": "Avec l’organisation",
         "shared": "Avec des groupes",
         "private": "Avec personne"
       }
@@ -149,10 +159,10 @@ define({
     },
     "resultCount": "Éléments :",
     "searchPlaceholders": {
-      "generic": "Saisir les termes de la recherche"
+      "generic": "Saisir des termes de recherche"
     },
     "filterChips": {
-      "mapArea": "Dans la zone de la carte",
+      "mapArea": "Dans la zone cartographique",
       "type": "Type",
       "dateModified": "Modification",
       "dateCreated": "Création",
@@ -160,7 +170,7 @@ define({
       "group": "Groupe",
       "folder": "Dossier",
       "status": "Statut",
-      "clearAll": "Tout effacer",
+      "clearAll": "Effacer tout",
       "category": "Catégorie",
       "region": "Région",
       "tagged": "Balisé"
@@ -170,13 +180,13 @@ define({
       "removeFromMap": "Supprimer de la carte",
       "by": "par",
       "lastModified": "Mis à jour",
-      "noSnippet": "L'élément ne comporte pas de bref résumé.",
+      "noSnippet": "L’élément ne comporte pas de bref résumé.",
       "details": "Description",
       "termsOfUse": "Conditions d’utilisation",
       "attribution": "Crédits (Attribution)",
-      "noTermsOfUse": "Aucune restriction spéciale ou limitation quant à l'utilisation du contenu de l'élément n'a été fournie.",
-      "noAttribution": "Aucun accusé de réception.",
-      "noDescription": "L'élément ne comporte pas de description détaillée.",
+      "noTermsOfUse": "Aucune restriction ou limitation spéciale quant à l’utilisation du contenu de l’élément n’a été fournie.",
+      "noAttribution": "Aucun crédit.",
+      "noDescription": "L’élément ne comporte pas de description détaillée.",
       "views": "Nombre de vues",
       "created": "Créé",
       "sharedWith": "Partagé avec",
@@ -190,24 +200,24 @@ define({
       "viewOrg": "Visiter le site de l’organisation",
       "addToFavorites": "Ajouter aux favoris",
       "removeFromFavorites": "Supprimer des favoris",
-      "managedBy": "Géré par :"
+      "managedBy": "Géré par :"
     },
     "results": {
       "loadingItems": "Chargement des éléments...",
       "requestError": "Une erreur s’est produite avec la demande.",
-      "noItemsFound": "Aucun élément correspondant à vos critères n'a été trouvé. Essayez de supprimer certains filtres pour afficher plus d’éléments.",
+      "noItemsFound": "Aucun élément correspondant à vos critères n’a été trouvé. Essayez de supprimer certains filtres pour afficher plus d’éléments.",
       "empty": "Saisissez des termes ci-dessus pour lancer la recherche."
     },
     "search": "Rechercher",
     "close": "Fermer",
     "filterPane": {
-      "filter": "Filtre",
+      "filter": "Filtrer",
       "categories": "Catégories",
-      "groupCategories": "Catégories de groupes"
+      "groupCategories": "Catégories de groupe"
     },
-    "viewDetails": "Afficher les détails de l'élément",
-    "back": "Précédent",
-    "compact": "Tableau",
+    "viewDetails": "Afficher les détails de l’élément",
+    "back": "Retour",
+    "compact": "Table",
     "compactView": "Vue compacte",
     "list": "Liste",
     "listView": "Vue Liste",
@@ -215,28 +225,49 @@ define({
     "viewResults": "Afficher les résultats"
   },
   "itemCards": {
-    "remove": "Retirer",
+    "remove": "Supprimer",
     "add": "Ajouter",
     "by": "par",
     "actions": "Actions",
     "viewOrg": "Visiter le site de l’organisation",
     "viewProfile": "Afficher le profil utilisateur",
-    "viewItem": "Afficher les détails de l'élément",
-    "hideItem": "Masquer les détails des éléments",
-    "created": "Créé",
-    "updated": "Mis à jour",
+    "viewItem": "Afficher les détails de l’élément",
+    "hideItem": "Masquer les détails de l’élément",
+    "created": "Création",
+    "updated": "Mise à jour",
     "viewCount": "Nombre de vues",
-    "rating": "Évaluation"
+    "rating": "Évaluation",
+    "itemType": {
+      "table": "Table",
+      "routeLayer": "Couche d’itinéraires",
+      "markup": "Annotation",
+      "featureLayer": "Couche d’entités",
+      "elevationLayer": "Couche d’altitude",
+      "imageryLayer": "Couche d’imagerie",
+      "sceneLayer": "Couche de scène",
+      "sceneLayerPackage": "Paquetage de couches de scène",
+      "locator": "Localisateur",
+      "microsoftPowerPoint": "Microsoft PowerPoint",
+      "geoJSON": "GeoJSON",
+      "globeLayer": "Couche de globe",
+      "tileLayer": "Couche de tuiles",
+      "netCDF": "NetCDF",
+      "mapImageLayer": "Couche d’images de carte",
+      "addIn": "Complément",
+      "bigDataFileShare": "Partage de fichiers Big Data",
+      "ogcFeatureLayer": "Couche d’entités OGC",
+      "instantApp": "Instant App"
+    }
   },
   "pager": {
     "previous": "Précédent",
     "next": "Suivant",
-    "paginationLimit": "Le nombre de résultats récupérés via pagination est limité à 10 000. Essayez de filtrer ou de changer de terme de recherche pour diminuer le nombre de résultats obtenus."
+    "paginationLimit": "Le nombre de résultats récupérés via pagination est limité à 10 000. Essayez de filtrer ou de modifier le terme de recherche pour diminuer le nombre de résultats obtenus."
   },
   "actions": {
     "viewMap": "Afficher la carte",
     "viewScene": "Afficher la scène",
-    "viewApp": "Afficher l'application",
+    "viewApp": "Afficher l’application",
     "viewInMap": "Afficher sur la carte",
     "viewInScene": "Afficher dans la scène",
     "view": "Afficher",
@@ -245,7 +276,7 @@ define({
     "open": "Ouvrir",
     "openDoc": "Ouvrir un document",
     "openTab": "Ouvrir dans un nouvel onglet",
-    "openViewer": "æ_Open in Map Viewer___________________Â",
+    "openViewer": "Ouvrir dans Map Viewer",
     "addFavorite": "Ajouter aux favoris",
     "removeFavorite": "Supprimer des favoris"
   },
@@ -258,13 +289,14 @@ define({
       "layers": "Traitement des couches...",
       "view": "Initialisation de la vue...",
       "widgets": "Ajout de widgets...",
-      "failed": "Echec de chargement de l’élément.",
+      "failed": "Échec du chargement de l’élément.",
       "sorry": "Désolé, un problème est survenu lors du chargement de l’élément demandé."
     }
   },
   "share": {
-    "shareGallery": "æ_Share gallery______________Â",
-    "shareFiltered": "æ_Share filtered gallery_______________________Â",
-    "tooltip": "æ_URL copied to you clipboard____________________________Â"
+    "share": "Partager",
+    "shareGallery": "Partager la bibliothèque",
+    "shareFiltered": "Partager la bibliothèque filtrée",
+    "tooltip": "URL copiée dans le Presse-papiers"
   }
 });

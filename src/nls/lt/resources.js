@@ -1,15 +1,23 @@
 define({
-  "appInit": "Paleidžiama aplikacija...",
-  "appFailed": "Nepavyko įkelti aplikacijos.",
-  "noAuth": "Jūsų paskyra nelicencijuota naudoti ne viešas konfigūruojamas aplikacijas. Kreipkitės į organizacijos administratorių, kad paskirtų jums naudotojo tipą, kuris turi svarbiausias aplikacijas, arba suteiktų jums papildomą svarbiausių aplikacijų licenciją.",
+  "appInit": "Paleidžiama programėlė...",
+  "appFailed": "Nepavyko įkelti programėlės.",
+  "noAuth": "Jūsų paskyra nelicencijuota naudoti ne viešas Configurable Apps. Kreipkitės į organizacijos administratorių, kad paskirtų jums vartotojo tipą, kuris turi svarbiausias programėles, arba suteiktų jums papildomą svarbiausių programėlių licenciją.",
   "notLicensed": "Nelicencijuota",
+  "error": "Klaida",
+  "originError": {
+    "message": "Programėlė, kurią bandote pasiekti, nėra pasiekiama naudojant jūsų nurodytą URL",
+    "close": "Uždaryti",
+    "options": "Papildomi nustatymai",
+    "linkMessage": "Tęsti pereinant į"
+  },
+  "analyticsOptIn": "Sutikti",
   "badges": {
     "authoritative": "Patikimas",
     "deleted": "Ištrinta",
     "deprecated": "Nebenaudojamas",
-    "livingAtlas": "Gyvasis pasaulio atlasas",
+    "livingAtlas": "Gyvojo pasaulio atlasas",
     "marketplace": "Marketplace",
-    "openData": "Open Data",
+    "openData": "Atviri duomenys",
     "premium": "Premium",
     "subscriber": "Prenumeratorius",
     "tooltips": {
@@ -46,18 +54,18 @@ define({
       "grid": "Tinklelis",
       "list": "Sąrašas",
       "table": "Lentelė",
-      "view": "Peržiūrėti"
+      "view": "Peržiūra"
     },
     "sorting": {
-      "sort": "Rūšiuoti pagal",
+      "sort": "Rūšiuoti",
       "sortBy": "Rūšiuoti pagal",
       "sortDir": "Rūšiavimo tvarka",
       "relevance": "Aktualumas",
-      "title": "Pavadinimas",
+      "title": "Antraštė",
       "owner": "Savininkas",
       "created": "Sukūrimo data",
-      "modified": "Pakeitimo data",
-      "numviews": "Peržiūros",
+      "modified": "Keitimo data",
+      "numviews": "Peržiūrų skaičius",
       "avgrating": "Vertinimas",
       "ascending": {
         "relevance": "Nuo mažiausiai svarbaus iki svarbiausio",
@@ -95,30 +103,32 @@ define({
         "tables": "Lentelės",
         "layerFiles": "Sluoksnių failai",
         "scenes": "Scenos",
-        "apps": "Aplikacijos",
-        "webApps": "Internetinės aplikacijos",
-        "mobileApps": "Mobilios aplikacijos",
-        "desktopApps": "Darbastalio aplikacijos",
+        "apps": "Programėlės",
+        "webApps": "Internetinės programėlės",
+        "mobileApps": "Mobilios programėlės",
+        "desktopApps": "Kompiuterio programos",
+        "instantApps": "Momentinės programėlės",
+        "storyMaps": "Žemėlapių pasakojimai",
         "tools": "Įrankiai",
         "locators": "Lokatoriai",
         "geodatabaseAccess": "Prieiga prie geoduomenų bazės",
         "geometricOperations": "Geometrinės operacijos",
         "geoprocessingTasks": "Geoduomenų apdorojimo užduotys",
         "networkAnalysis": "Tinklo analizė",
-        "files": "Bylos",
+        "files": "Failai",
         "documents": "Dokumentai",
-        "images": "Vaizdai",
+        "images": "Paveikslėliai",
         "pdfs": "PDF",
-        "webTools": "Internetiniai įrankiai",
-        "notebooks": "Notebooks"
+        "webTools": "Web Tools",
+        "notebooks": "Užrašinės"
       }
     },
     "date": {
       "dateCreated": "Sukūrimo data",
-      "dateModified": "Pakeitimo data"
+      "dateModified": "Keitimo data"
     },
     "shared": {
-      "shared": "Bendrinimas",
+      "shared": "Bendrinamas",
       "options": {
         "public": "Su visais (vieša)",
         "org": "Su organizacija",
@@ -137,57 +147,57 @@ define({
     "tags": {
       "tags": "Raktažodžiai",
       "filterTags": "Filtruoti raktažodžius",
-      "noTags": "Nerasta jūsų paieškos kriterijus atitinkančių raktažodžių."
+      "noTags": "Jūsų paiešką atitinkančių raktažodžių nerasta."
     }
   },
   "gallery": {
     "signIn": "Prisijungti",
     "signOut": "Atsijungti",
     "header": {
-      "browse": "Naršyti",
+      "browse": "Parinkti",
       "search": "Ieškoti"
     },
-    "resultCount": "elementai:",
+    "resultCount": "Elementai:",
     "searchPlaceholders": {
       "generic": "Įveskite paieškos frazes"
     },
     "filterChips": {
       "mapArea": "Žemėlapio plote",
       "type": "Tipas",
-      "dateModified": "Pakeitimo data",
+      "dateModified": "Pakeistas",
       "dateCreated": "Sukurta",
-      "access": "Bendrinimas",
-      "group": "Grupuoti",
-      "folder": "Aplankas",
-      "status": "Būseną",
+      "access": "Bendrinamas",
+      "group": "Grupė",
+      "folder": "Katalogas",
+      "status": "Būsena",
       "clearAll": "Valyti viską",
       "category": "Kategorija",
       "region": "Regionas",
       "tagged": "Pažymėta"
     },
     "itemDetails": {
-      "addToMap": "Įtraukti į žemėlapį",
+      "addToMap": "Pridėti į žemėlapį",
       "removeFromMap": "Pašalinti iš žemėlapio",
       "by": "sukūrė",
       "lastModified": "Atnaujinta",
       "noSnippet": "Trumpos elemento santraukos nėra.",
-      "details": "Aprašymas",
+      "details": "Aprašas",
       "termsOfUse": "Naudojimo sąlygos",
-      "attribution": "Autoriai ir duomenų savininkai",
+      "attribution": "Kreditai (priskyrimas)",
       "noTermsOfUse": "Nepateikta jokių specialiųjų apribojimų arba elementų naudojimo sąlygų.",
       "noAttribution": "Nėra patvirtinimų.",
-      "noDescription": "Išsamaus elemento aprašymo nėra.",
-      "views": "Peržiūros",
+      "noDescription": "Išsamios elemento santraukos nėra.",
+      "views": "Peržiūrų skaičius",
       "created": "Sukurta",
       "sharedWith": "Bendrinta su",
       "shared": {
         "public": "Visi (vieša)",
-        "org": "Organizacijos",
+        "org": "Organizacija",
         "shared": "Šis elementas nėra bendrinamas.",
         "private": "Šis elementas nėra bendrinamas."
       },
-      "viewUser": "Peržiūrėti naudotojo profilį",
-      "viewOrg": "Aplankyti organizaciją",
+      "viewUser": "Peržiūrėti vartotojo profilį",
+      "viewOrg": "Apsilankyti organizacijoje",
       "addToFavorites": "Pridėti į mėgstamiausius",
       "removeFromFavorites": "Šalinti iš mėgstamiausių",
       "managedBy": "Tvarko:"
@@ -206,7 +216,7 @@ define({
       "groupCategories": "Grupuoti kategorijas"
     },
     "viewDetails": "Elemento aprašas",
-    "back": "Nugara",
+    "back": "Atgal",
     "compact": "Lentelė",
     "compactView": "Kompaktiškas rodinys",
     "list": "Sąrašas",
@@ -219,33 +229,54 @@ define({
     "add": "Pridėti",
     "by": "sukūrė",
     "actions": "Veiksmai",
-    "viewOrg": "Aplankyti organizaciją",
-    "viewProfile": "Peržiūrėti naudotojo profilį",
+    "viewOrg": "Apsilankyti organizacijoje",
+    "viewProfile": "Peržiūrėti vartotojo profilį",
     "viewItem": "Elemento aprašas",
     "hideItem": "Slėpti elemento aprašą",
     "created": "Sukurta",
     "updated": "Atnaujinta",
-    "viewCount": "Peržiūros",
-    "rating": "Vertinimas"
+    "viewCount": "Peržiūrų skaičius",
+    "rating": "Vertinimas",
+    "itemType": {
+      "table": "Lentelė",
+      "routeLayer": "Maršruto sluoksnis",
+      "markup": "Žymėjimas",
+      "featureLayer": "Elementų sluoksnis",
+      "elevationLayer": "Aukščių sluoksnis",
+      "imageryLayer": "Vaizdų sluoksnis",
+      "sceneLayer": "Scenos sluoksnis",
+      "sceneLayerPackage": "Scenų sluoksnio paketas",
+      "locator": "Lokatorius",
+      "microsoftPowerPoint": "Microsoft PowerPoint",
+      "geoJSON": "GeoJSON",
+      "globeLayer": "Žemės rutulio sluoksnis",
+      "tileLayer": "Išklotinių sluoksnis",
+      "netCDF": "NetCDF",
+      "mapImageLayer": "Žemėlapio vaizdų sluoksnis",
+      "addIn": "Papildinys",
+      "bigDataFileShare": "Didelių duomenų failo bendrinimas",
+      "ogcFeatureLayer": "OGC elementų sluoksnis",
+      "instantApp": "Momentinė programėlė"
+    }
   },
   "pager": {
-    "previous": "Ankstesnis",
-    "next": "Toliau",
-    "paginationLimit": "Naudojant puslapių numeravimą galima pasiekti ne daugiau nei 10 000 rezultatų. Bandykite filtruoti arba pakeisti paieškos terminą, kad sumažintumėte paieškos rezultatų skaičių."
+    "previous": "Atgal",
+    "next": "Kitas",
+    "paginationLimit": "Naudojant puslapių numeravimą galima pasiekti ne daugiau nei 10 000 rezultatų. Bandykite filtruoti arba pakeisti paieškos terminą, kad sumažintumėte grąžinamų rezultatų skaičių."
   },
   "actions": {
     "viewMap": "Peržiūrėti žemėlapį",
     "viewScene": "Peržiūrėti sceną",
-    "viewApp": "Peržiūrėti aplikaciją",
+    "viewApp": "Peržiūrėti programėlės",
     "viewInMap": "Peržiūrėti žemėlapyje",
     "viewInScene": "Peržiūrėti scenoje",
-    "view": "Peržiūrėti",
+    "view": "Peržiūra",
     "download": "Atsisiųsti",
     "openPdf": "Atidaryti kaip PDF",
     "open": "Atverti",
     "openDoc": "Atviras dokumentas",
     "openTab": "Atidaryti naujame skirtuke",
-    "openViewer": "Į_Open in Map Viewer___________________š",
+    "openViewer": "Atidaryti naudojant „Map Viewer“",
     "addFavorite": "Pridėti į mėgstamiausius",
     "removeFavorite": "Šalinti iš mėgstamiausių"
   },
@@ -263,8 +294,9 @@ define({
     }
   },
   "share": {
-    "shareGallery": "Į_Share gallery______________š",
-    "shareFiltered": "Į_Share filtered gallery_______________________š",
-    "tooltip": "Į_URL copied to you clipboard____________________________š"
+    "share": "Bendrinti",
+    "shareGallery": "Bendrinti galeriją",
+    "shareFiltered": "Bendrinti filtruotą galeriją",
+    "tooltip": "URL nukopijuotas į iškarpinę"
   }
 });

@@ -1,15 +1,23 @@
 define({
   "appInit": "A inicializar aplicação...",
   "appFailed": "Ocorreu uma falha ao carregar a aplicação.",
-  "noAuth": "A sua conta não está licenciada para usar aplicações configuráveis não públicas. Peça ao administrador da sua organização para lhe atribuir um tipo de utilizador que inclua a licença para aplicações essenciais ou aplicações essenciais complementares.",
+  "noAuth": "Não tem licença para usar Configurable Apps que não sejam públicas. Peça ao administrador da sua organização para lhe atribuir um tipo de utilizador que inclua a licença para aplicações essenciais ou aplicações essenciais complementares.",
   "notLicensed": "Não licenciado",
+  "error": "Erro",
+  "originError": {
+    "message": "A aplicação a que está a tentar aceder não tem origem no URL facultado",
+    "close": "Fechar",
+    "options": "Opções avançadas",
+    "linkMessage": "Continuar para"
+  },
+  "analyticsOptIn": "Optar por participar",
   "badges": {
     "authoritative": "Fidedigno",
     "deleted": "Eliminar",
     "deprecated": "Obsoleto",
-    "livingAtlas": "Atlas Dinâmico",
+    "livingAtlas": "Living Atlas",
     "marketplace": "Marketplace",
-    "openData": "Abrir dados",
+    "openData": "Open Data",
     "premium": "Premium",
     "subscriber": "Subscritor",
     "tooltips": {
@@ -28,25 +36,25 @@ define({
     }
   },
   "buttons": {
-    "clear": "Apagar"
+    "clear": "Limpar"
   },
   "dateSelection": {
     "today": "Hoje",
     "yesterday": "Ontem",
-    "last7Days": "Últimos 7 dias",
+    "last7Days": "Últimos 7 Dias",
     "last30Days": "Últimos 30 dias",
     "custom": "Intervalo Personalizado...",
     "from": "Data de início",
     "to": "Data de conclusão"
   },
   "dropdowns": {
-    "clear": "Apagar",
+    "clear": "Limpar",
     "clearAll": "Limpar tudo",
     "contentViews": {
       "grid": "Grelha",
       "list": "Lista",
       "table": "Tabela",
-      "view": "Ver"
+      "view": "Visualizar"
     },
     "sorting": {
       "sort": "Ordenar",
@@ -91,24 +99,26 @@ define({
         "tileLayers": "Camadas de Mosaicos",
         "mapImageLayers": "Camadas de Imagens de Mapas",
         "imageryLayers": "Camadas de Imagem",
-        "sceneLayers": "Camadas de Cenas 3D",
+        "sceneLayers": "Camadas de Cena 3D",
         "tables": "Tabelas",
         "layerFiles": "Ficheiros de Camadas",
-        "scenes": "Cenas 3D",
+        "scenes": "Cenas",
         "apps": "Aplicações",
         "webApps": "Aplicações Web",
         "mobileApps": "Aplicações Móveis",
         "desktopApps": "Aplicações para Desktop",
+        "instantApps": "Instant Apps",
+        "storyMaps": "Story Maps",
         "tools": "Ferramentas",
         "locators": "Localizadores",
-        "geodatabaseAccess": "Acesso ao Geodatabase",
+        "geodatabaseAccess": "Geodatabase Access",
         "geometricOperations": "Operações Geométricas",
         "geoprocessingTasks": "Tarefas de Geoprocessamento",
         "networkAnalysis": "Análise de Rede",
         "files": "Ficheiros",
         "documents": "Documentos",
         "images": "Imagens",
-        "pdfs": "Ficheiros PDF",
+        "pdfs": "PDF",
         "webTools": "Ferramentas Web",
         "notebooks": "Notebooks"
       }
@@ -137,17 +147,17 @@ define({
     "tags": {
       "tags": "Palavras-chave",
       "filterTags": "Filtrar palavras-chave",
-      "noTags": "Nao foram encontradas palavras-chave que correspondam à sua pesquisa."
+      "noTags": "Não foram encontradas palavras-chave que correspondam à sua pesquisa."
     }
   },
   "gallery": {
-    "signIn": "Início de Sessão",
-    "signOut": "Terminar Sessão",
+    "signIn": "Iniciar sessão",
+    "signOut": "Terminar sessão",
     "header": {
       "browse": "Procurar",
       "search": "Pesquisar"
     },
-    "resultCount": "itens:",
+    "resultCount": "Itens:",
     "searchPlaceholders": {
       "generic": "Introduza termos de pesquisa"
     },
@@ -169,12 +179,12 @@ define({
       "addToMap": "Adicionar ao Mapa",
       "removeFromMap": "Remover do Mapa",
       "by": "por",
-      "lastModified": "Actualizado",
+      "lastModified": "Atualizado",
       "noSnippet": "Não está disponível um breve resumo do item.",
       "details": "Descrição",
       "termsOfUse": "Termos de Utilização",
       "attribution": "Créditos (Atribuição)",
-      "noTermsOfUse": "Não foram fornecidas quaisquer restrições ou limitações especiais à utilização do conteúdo do item.",
+      "noTermsOfUse": "Não foram introduzidas quaisquer restrições ou limitações especiais à utilização do conteúdo do item.",
       "noAttribution": "Sem informações.",
       "noDescription": "Não está disponível uma descrição aprofundada do item.",
       "views": "Visualizar Contagem",
@@ -201,12 +211,12 @@ define({
     "search": "Pesquisar",
     "close": "Fechar",
     "filterPane": {
-      "filter": "Filtro",
+      "filter": "Filtrar",
       "categories": "Categorias",
       "groupCategories": "Categorias de Grupos"
     },
     "viewDetails": "Visualizar detalhes do item",
-    "back": "Voltar",
+    "back": "Retroceder",
     "compact": "Tabela",
     "compactView": "Vista compacta",
     "list": "Lista",
@@ -224,28 +234,49 @@ define({
     "viewItem": "Visualizar detalhes do item",
     "hideItem": "Ocultar detalhes do item",
     "created": "Criado",
-    "updated": "Actualizado",
+    "updated": "Atualizado",
     "viewCount": "Visualizar Contagem",
-    "rating": "Avaliação"
+    "rating": "Avaliação",
+    "itemType": {
+      "table": "Tabela",
+      "routeLayer": "Camada de Rota",
+      "markup": "Marcação",
+      "featureLayer": "Camada de Elementos",
+      "elevationLayer": "Camada de Elevação",
+      "imageryLayer": "Camada de Imagem",
+      "sceneLayer": "Camada de Cena",
+      "sceneLayerPackage": "Pacote de Camadas de Cenas",
+      "locator": "Localizador",
+      "microsoftPowerPoint": "Microsoft PowerPoint",
+      "geoJSON": "GeoJSON",
+      "globeLayer": "Camada de Globo",
+      "tileLayer": "Camada de Mosaico",
+      "netCDF": "NetCDF",
+      "mapImageLayer": "Camada de Imagem de Mapa",
+      "addIn": "Add-In",
+      "bigDataFileShare": "Partilha de Ficheiros Big Data",
+      "ogcFeatureLayer": "Camada de Elementos OGC",
+      "instantApp": "Instant App"
+    }
   },
   "pager": {
     "previous": "Anterior",
     "next": "Seguinte",
-    "paginationLimit": "Existe um limite de 10,000 resultados que podem ser obtidos através de paginação. Tente filtrar ou alterar o seu termo de pesquisa para reduzir o número de resultads apresentados."
+    "paginationLimit": "Existe um limite de 10,000 resultados que podem ser obtidos através de paginação. Experimente filtrar ou alterar o seu termo de pesquisa para reduzir o número de resultados apresentados."
   },
   "actions": {
     "viewMap": "Ver Mapa",
     "viewScene": "Visualizar Cena",
-    "viewApp": "Visualizar Aplicação",
+    "viewApp": "Visualizar aplicação",
     "viewInMap": "Visualizar no Mapa",
     "viewInScene": "Visualizar em Cena",
     "view": "Visualizar",
-    "download": "Descarregar",
+    "download": "Transferir",
     "openPdf": "Abrir em PDF",
     "open": "Abrir",
     "openDoc": "Abrir Documento",
     "openTab": "Abrir num novo separador",
-    "openViewer": "ã_Open in Map Viewer___________________Ç",
+    "openViewer": "Abrir no Map Viewer",
     "addFavorite": "Adicionar aos Favoritos",
     "removeFavorite": "Remover dos Favoritos"
   },
@@ -263,8 +294,9 @@ define({
     }
   },
   "share": {
-    "shareGallery": "ã_Share gallery______________Ç",
-    "shareFiltered": "ã_Share filtered gallery_______________________Ç",
-    "tooltip": "ã_URL copied to you clipboard____________________________Ç"
+    "share": "Partilhar",
+    "shareGallery": "Partilhar Galeria",
+    "shareFiltered": "Partilhar galeria filtrada",
+    "tooltip": "URL copiado para a sua área de transferência"
   }
 });

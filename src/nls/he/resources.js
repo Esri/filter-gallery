@@ -3,13 +3,21 @@ define({
   "appFailed": "טעינת האפליקציה נכשלה.",
   "noAuth": "החשבון שלך אינו מורשה להשתמש באפליקציות הניתנות להגדרה שאינן ציבוריות. בקש ממנהל המערכת בארגון שלך להקצות לך סוג משתמש שכולל את Essential Apps או רישיון הרחבה ל-Essential Apps.",
   "notLicensed": "ללא רישיון",
+  "error": "שגיאה",
+  "originError": {
+    "message": "היישום שאתה מנסה לגשת אליו לא נמצא בכתובת ה-URL שציינת",
+    "close": "סגירה",
+    "options": "אפשרויות מתקדמות",
+    "linkMessage": "המשך אל"
+  },
+  "analyticsOptIn": "הצטרף",
   "badges": {
     "authoritative": "מהימן",
     "deleted": "נמחק",
     "deprecated": "מופחת",
-    "livingAtlas": "Living Atlas",
+    "livingAtlas": "אטלס דינמי",
     "marketplace": "Marketplace",
-    "openData": "מידע חופשי (Open Data)",
+    "openData": "Open Data",
     "premium": "פרימיום",
     "subscriber": "מנוי",
     "tooltips": {
@@ -43,14 +51,14 @@ define({
     "clear": "נקה",
     "clearAll": "נקה הכול",
     "contentViews": {
-      "grid": "Grid",
+      "grid": "גריד",
       "list": "רשימה",
       "table": "טבלה",
       "view": "הצג"
     },
     "sorting": {
       "sort": "מיין",
-      "sortBy": "מיון על ידי",
+      "sortBy": "מיון לפי",
       "sortDir": "כיוון המיון",
       "relevance": "רלוונטיות",
       "title": "כותרת",
@@ -90,7 +98,7 @@ define({
         "featureLayers": "שכבות ישויות",
         "tileLayers": "שכבות אריחים",
         "mapImageLayers": "שכבות של תמונות מפה",
-        "imageryLayers": "שכבות של הדמאות",
+        "imageryLayers": "שכבות של תמונות",
         "sceneLayers": "שכבות של סצינות",
         "tables": "טבלאות",
         "layerFiles": "קבצי שכבה",
@@ -99,6 +107,8 @@ define({
         "webApps": "אפליקציות אינטרנט",
         "mobileApps": "אפליקציות למכשירים ניידים",
         "desktopApps": "אפליקציות למחשבים שולחניים",
+        "instantApps": "Instant Apps",
+        "storyMaps": "Story Maps",
         "tools": "כלים",
         "locators": "מגדירי עיגון כתובות",
         "geodatabaseAccess": "גישה ל- Geodatabase",
@@ -144,7 +154,7 @@ define({
     "signIn": "היכנס",
     "signOut": "יציאה",
     "header": {
-      "browse": "עיין",
+      "browse": "נתב",
       "search": "חיפוש"
     },
     "resultCount": "פריטים:",
@@ -174,7 +184,7 @@ define({
       "details": "תאור",
       "termsOfUse": "תנאי שימוש",
       "attribution": "קרדיט (תודות)",
-      "noTermsOfUse": "לא צוינו הגבלות או מגבלות מיוחדות לגבי השימוש בתכולת הפריט.",
+      "noTermsOfUse": "לא צוינו הגבלות או מגבלות מיוחדות לגבי השימוש בתוכן הפריט.",
       "noAttribution": "אין אישורים.",
       "noDescription": "תיאור מעמיק של הפריט לא זמין.",
       "views": "הצג ספירה",
@@ -199,16 +209,16 @@ define({
       "empty": "הזן כמה מונחים לעיל כדי להתחיל בחיפוש."
     },
     "search": "חיפוש",
-    "close": "סגור",
+    "close": "סגירה",
     "filterPane": {
-      "filter": "מסנן",
+      "filter": "סנן",
       "categories": "קטגוריות",
       "groupCategories": "קטגוריות קבוצה"
     },
     "viewDetails": "הצג תיאור פריט",
     "back": "חזור",
     "compact": "טבלה",
-    "compactView": "תצוגה מצומצמת",
+    "compactView": "תצוגה דחוסה",
     "list": "רשימה",
     "listView": "תצוגת רשימה",
     "showing": "מציג",
@@ -226,10 +236,31 @@ define({
     "created": "נוצר",
     "updated": "עודכן",
     "viewCount": "הצג ספירה",
-    "rating": "דירוג"
+    "rating": "דירוג",
+    "itemType": {
+      "table": "טבלה",
+      "routeLayer": "שכבת מסלול",
+      "markup": "שרטוט",
+      "featureLayer": "שכבת ישויות",
+      "elevationLayer": "שכבת גבהים",
+      "imageryLayer": "שכבת תמונה",
+      "sceneLayer": "שכבת סצנה",
+      "sceneLayerPackage": "‏שכבת סצינה ארוזה",
+      "locator": "מגדיר עיגון כתובות",
+      "microsoftPowerPoint": "Microsoft PowerPoint",
+      "geoJSON": "GeoJSON",
+      "globeLayer": "שכבת ה-Globe",
+      "tileLayer": "שכבת אריח",
+      "netCDF": "NetCDF",
+      "mapImageLayer": "שכבת תמונת מפה",
+      "addIn": "תוסף",
+      "bigDataFileShare": "שיתוף קבצים של Big Data",
+      "ogcFeatureLayer": "שכבת ישויות OGC",
+      "instantApp": "Instant App"
+    }
   },
   "pager": {
-    "previous": "הקודם",
+    "previous": "קודם",
     "next": "הבא",
     "paginationLimit": "יש מגבלה של 10,000 תוצאות שניתן לאחזר דרך מספור. נסה לסנן או לשנות את שאילתת החיפוש כדי להקטין את מספר התוצאות."
   },
@@ -245,7 +276,7 @@ define({
     "open": "פתוח",
     "openDoc": "פתח מסמך",
     "openTab": "פתח בכרטיסייה חדשה",
-    "openViewer": "כן_Open in Map Viewer___________________ש",
+    "openViewer": "פתח בתצוגת מפה",
     "addFavorite": "הוסף למועדפים",
     "removeFavorite": "הסר ממועדפים"
   },
@@ -263,8 +294,9 @@ define({
     }
   },
   "share": {
-    "shareGallery": "כן_Share gallery______________ש",
-    "shareFiltered": "כן_Share filtered gallery_______________________ש",
-    "tooltip": "כן_URL copied to you clipboard____________________________ש"
+    "share": "שתף",
+    "shareGallery": "שתף גלריה",
+    "shareFiltered": "שתף גלריה מסוננת",
+    "tooltip": "כתובת ה-URL הועתקה ללוח שלך"
   }
 });

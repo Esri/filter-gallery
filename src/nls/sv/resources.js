@@ -3,11 +3,19 @@ define({
   "appFailed": "Det gick inte att läsa in appen.",
   "noAuth": "Ditt konto har ingen licens för att använda konfigurerbara appar som inte är tillgängliga för allmänheten. Be din organisations administratör att tilldela dig en användartyp som omfattar Essential Apps eller en tilläggslicens för Essential Apps.",
   "notLicensed": "Inte licensierad",
+  "error": "Fel",
+  "originError": {
+    "message": "Den applikation du försöker öppna hämtas inte från den URL du angav",
+    "close": "Stäng",
+    "options": "Avancerade alternativ",
+    "linkMessage": "Fortsätt till"
+  },
+  "analyticsOptIn": "Anmäl dig",
   "badges": {
     "authoritative": "Tillförlitlig",
     "deleted": "Borttagen",
     "deprecated": "Inaktuellt",
-    "livingAtlas": "Living Atlas",
+    "livingAtlas": "Världsatlas",
     "marketplace": "Marketplace",
     "openData": "Open Data",
     "premium": "Premium",
@@ -28,7 +36,7 @@ define({
     }
   },
   "buttons": {
-    "clear": "Avmarkera"
+    "clear": "Radera"
   },
   "dateSelection": {
     "today": "Idag",
@@ -40,8 +48,8 @@ define({
     "to": "Slutdatum"
   },
   "dropdowns": {
-    "clear": "Avmarkera",
-    "clearAll": "Avmarkera alla",
+    "clear": "Radera",
+    "clearAll": "Rensa alla",
     "contentViews": {
       "grid": "Rutnät",
       "list": "Lista",
@@ -54,11 +62,11 @@ define({
       "sortDir": "Sorteringsordning",
       "relevance": "Relevans",
       "title": "Titel",
-      "owner": "Ägare:",
+      "owner": "Ägare",
       "created": "Skapad den",
       "modified": "Ändringsdatum",
       "numviews": "Visa antal",
-      "avgrating": "Betyg",
+      "avgrating": "Bedömning",
       "ascending": {
         "relevance": "Minst till mest relevant",
         "title": "Alfabetisk",
@@ -99,8 +107,10 @@ define({
         "webApps": "Webbappar",
         "mobileApps": "Mobila appar",
         "desktopApps": "Desktop-appar",
+        "instantApps": "Snabbappar",
+        "storyMaps": "Story Maps",
         "tools": "Verktyg",
-        "locators": "Lokaliseringsfiler",
+        "locators": "Placeringsfiler",
         "geodatabaseAccess": "Åtkomst till geodatabas",
         "geometricOperations": "Geometriska funktioner",
         "geoprocessingTasks": "Geobearbetningsuppgifter",
@@ -141,13 +151,13 @@ define({
     }
   },
   "gallery": {
-    "signIn": "Hämtar",
+    "signIn": "Logga in",
     "signOut": "Logga ut",
     "header": {
       "browse": "Bläddra",
       "search": "Sök"
     },
-    "resultCount": "objekt:",
+    "resultCount": "Objekt:",
     "searchPlaceholders": {
       "generic": "Ange söktermer"
     },
@@ -160,7 +170,7 @@ define({
       "group": "Grupp",
       "folder": "Mapp",
       "status": "Status",
-      "clearAll": "Avmarkera alla",
+      "clearAll": "Rensa alla",
       "category": "Kategori",
       "region": "Region",
       "tagged": "Taggade"
@@ -174,7 +184,7 @@ define({
       "details": "Beskrivning",
       "termsOfUse": "Användarvillkor",
       "attribution": "Krediter (attribut)",
-      "noTermsOfUse": "Inga särskilda begränsningar om användning av objektets innehåll har givits.",
+      "noTermsOfUse": "Inga särskilda begränsningar om användning av objektets innehåll har angivits.",
       "noAttribution": "Inga bekräftelser.",
       "noDescription": "En detaljerad beskrivning av objektet saknas.",
       "views": "Visa antal",
@@ -206,7 +216,7 @@ define({
       "groupCategories": "Gruppera efter kategorier"
     },
     "viewDetails": "Visa objektinformation",
-    "back": "BACKA",
+    "back": "Bakåt",
     "compact": "Tabell",
     "compactView": "Kompakt vy",
     "list": "Lista",
@@ -226,7 +236,28 @@ define({
     "created": "Skapad",
     "updated": "Uppdaterad",
     "viewCount": "Visa antal",
-    "rating": "Betyg"
+    "rating": "Bedömning",
+    "itemType": {
+      "table": "Tabell",
+      "routeLayer": "Ruttlager",
+      "markup": "Markering",
+      "featureLayer": "Geoobjektlager",
+      "elevationLayer": "Höjdlager",
+      "imageryLayer": "Bildlager",
+      "sceneLayer": "Scenlager",
+      "sceneLayerPackage": "Scenlagerpaket",
+      "locator": "Placeringsfil",
+      "microsoftPowerPoint": "Microsoft PowerPoint",
+      "geoJSON": "GeoJSON",
+      "globeLayer": "Jordglobslager",
+      "tileLayer": "Tilelager",
+      "netCDF": "NetCDF",
+      "mapImageLayer": "Kartbildlager",
+      "addIn": "Addin-komponent",
+      "bigDataFileShare": "Big Data-fildelning",
+      "ogcFeatureLayer": "OGC geoobjektlager",
+      "instantApp": "Snabbapp"
+    }
   },
   "pager": {
     "previous": "Föregående",
@@ -245,7 +276,7 @@ define({
     "open": "Öppna",
     "openDoc": "Öppna dokument",
     "openTab": "Öppna i en ny flik",
-    "openViewer": "Å_Open in Map Viewer___________________ö",
+    "openViewer": "Öppna i kartvyn",
     "addFavorite": "Lägg till i favoriter",
     "removeFavorite": "Ta bort från favoriter"
   },
@@ -263,8 +294,9 @@ define({
     }
   },
   "share": {
-    "shareGallery": "Å_Share gallery______________ö",
-    "shareFiltered": "Å_Share filtered gallery_______________________ö",
-    "tooltip": "Å_URL copied to you clipboard____________________________ö"
+    "share": "Dela",
+    "shareGallery": "Dela galleri",
+    "shareFiltered": "Dela filtrerat galleri",
+    "tooltip": "URL kopierades till Urklipp"
   }
 });

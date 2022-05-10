@@ -1,13 +1,21 @@
 define({
   "appInit": "Inicializando aplicativo...",
   "appFailed": "Falha ao carregar o aplicativo.",
-  "noAuth": "Sua conta não está licenciada para utilizar Aplicativos Configuráveis que não sejam públicos. Solicite ao administrador da sua organização que lhe atribua um tipo de usuário que inclua os Aplicativos Fundamentais ou uma licença complementar dos Aplicativos Fundamentais.",
+  "noAuth": "Sua conta não está licenciada para utilizar Configurable Apps que não sejam públicos. Solicite ao administrador da sua organização que lhe atribua um tipo de usuário que inclua Essential Apps ou uma licença complementar do Essential Apps.",
   "notLicensed": "Não Licenciado",
+  "error": "Erro",
+  "originError": {
+    "message": "O aplicativo que você está tentando acessar não se origina da URL fornecida.",
+    "close": "Fechar",
+    "options": "Opções avançadas",
+    "linkMessage": "Prosseguir para"
+  },
+  "analyticsOptIn": "Aceitar",
   "badges": {
     "authoritative": "Autorizado",
     "deleted": "Excluído",
     "deprecated": "Desaprovado",
-    "livingAtlas": "Atlas em Tempo Real",
+    "livingAtlas": "Living Atlas",
     "marketplace": "Marketplace",
     "openData": "Open Data",
     "premium": "Premium",
@@ -16,7 +24,7 @@ define({
       "altAuthoritative": "Autorizado: Recomendado por",
       "authoritative": "Autorizado: Recomendado por sua organização",
       "deprecated": "Descontinuado: Não recomendado para uso",
-      "livingAtlas": "Atlas em Tempo Real: Conteúdo curado da Esri",
+      "livingAtlas": "Living Atlas: Conteúdo curado da Esri",
       "marketplace": "Listado no ArcGIS Marketplace",
       "openData": "Disponível para uso público",
       "premiumAnon": "Premium: Exige entrar com uma assinatura do ArcGIS Online e consome créditos",
@@ -28,7 +36,7 @@ define({
     }
   },
   "buttons": {
-    "clear": "Apagar"
+    "clear": "Limpar"
   },
   "dateSelection": {
     "today": "Hoje",
@@ -40,13 +48,13 @@ define({
     "to": "Data final"
   },
   "dropdowns": {
-    "clear": "Apagar",
+    "clear": "Limpar",
     "clearAll": "Limpar Tudo",
     "contentViews": {
       "grid": "Grade",
       "list": "Lista",
       "table": "Tabela",
-      "view": "Exibir"
+      "view": "Visualizar"
     },
     "sorting": {
       "sort": "Classificar",
@@ -54,7 +62,7 @@ define({
       "sortDir": "Classificar direção",
       "relevance": "Relevância",
       "title": "Título",
-      "owner": "Proprietário",
+      "owner": "Proprietáeio",
       "created": "Data de Criação",
       "modified": "Data de Modificação",
       "numviews": "Visualizar Contagem",
@@ -87,7 +95,7 @@ define({
         "webMaps": "Mapas da Web",
         "mapFiles": "Arquivos de Mapa",
         "layers": "Camadas",
-        "featureLayers": "Camadas de Feição",
+        "featureLayers": "Camadas de Feições",
         "tileLayers": "Camadas de Mosaico",
         "mapImageLayers": "Camadas de Imagem do Mapa",
         "imageryLayers": "Camadas de Imagem",
@@ -99,6 +107,8 @@ define({
         "webApps": "Aplicativos da Web",
         "mobileApps": "Aplicativos Móveis",
         "desktopApps": "Aplicativos de Desktop",
+        "instantApps": "Aplicativos Instantâneos",
+        "storyMaps": "Story Maps",
         "tools": "Ferramentas",
         "locators": "Localizadores",
         "geodatabaseAccess": "Acesso de Geodatabase",
@@ -137,7 +147,7 @@ define({
     "tags": {
       "tags": "Tags",
       "filterTags": "Filtrar tags",
-      "noTags": "Nenhuma tag correspondente localizada sua pesquisa."
+      "noTags": "Nenhuma das tags foi encontrada correspondentes à sua pesquisa."
     }
   },
   "gallery": {
@@ -147,7 +157,7 @@ define({
       "browse": "Procurar",
       "search": "Pesquisar"
     },
-    "resultCount": "itens:",
+    "resultCount": "Itens:",
     "searchPlaceholders": {
       "generic": "Inserir termo de pesquisa"
     },
@@ -174,7 +184,7 @@ define({
       "details": "Descrição",
       "termsOfUse": "Termos de Uso",
       "attribution": "Créditos (Atribuição)",
-      "noTermsOfUse": "Nenhuma restrição ou limitações especiais sobre utilizar o conteúdo do item foi fornecida.",
+      "noTermsOfUse": "Nenhuma restrição ou limitações especiais sobre utilizar o conteúdo do item que foi fornecido.",
       "noAttribution": "Nenhum reconhecimento.",
       "noDescription": "Uma descrição detalhada do item não está disponível.",
       "views": "Visualizar Contagem",
@@ -210,7 +220,7 @@ define({
     "compact": "Tabela",
     "compactView": "Visualização compacta",
     "list": "Lista",
-    "listView": "Visualização da lista",
+    "listView": "Visualização de lista",
     "showing": "Mostrando",
     "viewResults": "Visualizar resultados"
   },
@@ -226,11 +236,32 @@ define({
     "created": "Criado",
     "updated": "Atualizado",
     "viewCount": "Visualizar Contagem",
-    "rating": "Classificação"
+    "rating": "Classificação",
+    "itemType": {
+      "table": "Tabela",
+      "routeLayer": "Camada de Rota",
+      "markup": "Marcação",
+      "featureLayer": "Camada de Feição",
+      "elevationLayer": "Camada de Elevação",
+      "imageryLayer": "Camada de Imagem",
+      "sceneLayer": "Camada de Cena",
+      "sceneLayerPackage": "Pacote da Camada de Cena",
+      "locator": "Localizador",
+      "microsoftPowerPoint": "Microsoft PowerPoint",
+      "geoJSON": "GeoJSON",
+      "globeLayer": "Camada do Globo",
+      "tileLayer": "Camada de Mosaico",
+      "netCDF": "NetCDF",
+      "mapImageLayer": "Camada de Imagem do Mapa",
+      "addIn": "Complemento",
+      "bigDataFileShare": "Compartilhamento de Arquivo do Big Data",
+      "ogcFeatureLayer": "Camada de Feição OGC",
+      "instantApp": "App Instantâneo"
+    }
   },
   "pager": {
     "previous": "Anterior",
-    "next": "Próximo",
+    "next": "Avançar",
     "paginationLimit": "Há um limite de 10,000 resultados que podem ser recuperados via paginação. Tente filtrar ou alterar seu termo de pesquisa para abaixar o número de resultados retornados."
   },
   "actions": {
@@ -241,11 +272,11 @@ define({
     "viewInScene": "Visualizar na Cena",
     "view": "Visualizar",
     "download": "Download",
-    "openPdf": "Abrir em PDF",
+    "openPdf": "Abrir no PDF",
     "open": "Abrir",
     "openDoc": "Abrir Documento",
     "openTab": "Abrir em uma nova guia",
-    "openViewer": "ã_Open in Map Viewer___________________Ç",
+    "openViewer": "Abrir no Map Viewer",
     "addFavorite": "Adicionar aos Favoritos",
     "removeFavorite": "Remover dos Favoritos"
   },
@@ -263,8 +294,9 @@ define({
     }
   },
   "share": {
-    "shareGallery": "ã_Share gallery______________Ç",
-    "shareFiltered": "ã_Share filtered gallery_______________________Ç",
-    "tooltip": "ã_URL copied to you clipboard____________________________Ç"
+    "share": "Compartilhar",
+    "shareGallery": "Compartilhar galeria",
+    "shareFiltered": "Compatilhar galeria filtrada",
+    "tooltip": "URL copiada para área de transferência"
   }
 });

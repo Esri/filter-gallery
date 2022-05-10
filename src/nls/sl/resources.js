@@ -1,15 +1,23 @@
 define({
   "appInit": "Inicializacija aplikacije ...",
   "appFailed": "Aplikacije ni bilo mogoče naložiti.",
-  "noAuth": "Vaš račun ni licenciran za uporabo konfigurabilnih aplikacij, ki niso javne. Prosite administratorja v vaši organizaciji, da vam dodeli tip uporabnika, ki vsebuje aplikacije Essential Apps ali licenco za dodatne aplikacije Essential Apps.",
+  "noAuth": "Vaš račun ni licenciran za uporabo konfigurabilnih aplikacij, ki niso javne. Prosite administratorja v vaši organizaciji, da vam dodeli tip uporabnika, ki vsebuje osnovne aplikacije ali licenco za dodatne aplikacije.",
   "notLicensed": "Brez licence",
+  "error": "Napaka",
+  "originError": {
+    "message": "Aplikacija, do katere želite dostopati, ne izvira iz navedenega URL-ja",
+    "close": "Zapri",
+    "options": "Napredne možnosti",
+    "linkMessage": "Nadaljuj na"
+  },
+  "analyticsOptIn": "Privolitev",
   "badges": {
     "authoritative": "Verodostojno",
     "deleted": "Izbrisano",
     "deprecated": "Zastarelo",
-    "livingAtlas": "zbirka Living Atlas",
+    "livingAtlas": "Living Atlas",
     "marketplace": "Marketplace",
-    "openData": "Open Data",
+    "openData": "Odprti podatki",
     "premium": "Premium",
     "subscriber": "Naročnik",
     "tooltips": {
@@ -21,9 +29,9 @@ define({
       "openData": "Na voljo za javno uporabo",
       "premiumAnon": "Premium: zahteva prijavo z naročniškim računom ArcGIS Online in porablja kredite",
       "subscriberAnon": "Naročnik: zahteva prijavo z naročniškim računom ArcGIS Online",
-      "premiumPublic": "Premium: zahteva naročnino na ArcGIS Online in porablja kredite",
-      "subscriberPublic": "Naročnik: zahteva naročnino na ArcGIS Online",
-      "premiumOrg": "Premium: ekskluzivna vsebina za naročnike. Porablja kredite.",
+      "premiumPublic": "Premium: zahteva naročnino na naročniški račun ArcGIS Online in porablja kredite",
+      "subscriberPublic": "Naročnik: zahteva naročnino na naročniški račun ArcGIS Online",
+      "premiumOrg": "Premium: ekskluzivna vsebina za naročnike. Porablja kredite",
       "subscriberOrg": "Naročnik: ekskluzivna vsebina za naročnike"
     }
   },
@@ -35,7 +43,7 @@ define({
     "yesterday": "Včeraj",
     "last7Days": "Zadnjih 7 dni",
     "last30Days": "Zadnjih 30 dni",
-    "custom": "Razpon po meri...",
+    "custom": "Razpon po meri ...",
     "from": "Začetni datum",
     "to": "Končni datum"
   },
@@ -46,21 +54,21 @@ define({
       "grid": "Mreža",
       "list": "Seznam",
       "table": "Tabela",
-      "view": "Ogledi"
+      "view": "Ogled"
     },
     "sorting": {
       "sort": "Razvrsti",
       "sortBy": "Razvrsti po",
       "sortDir": "Smer sortiranja",
-      "relevance": "Ustreznost",
-      "title": "Ime",
+      "relevance": "Relevantnost",
+      "title": "Naslov",
       "owner": "Lastnik",
       "created": "Datum ustvarjanja",
-      "modified": "Datum spremembe",
-      "numviews": "Število ogledov",
+      "modified": "Datum spreminjanja",
+      "numviews": "Števec ogledov",
       "avgrating": "Ocena",
       "ascending": {
-        "relevance": "Najmanj do najbolj ustrezno",
+        "relevance": "Najmanj do najbolj pomembno",
         "title": "Po abecednem vrstnem redu",
         "owner": "Po abecednem vrstnem redu",
         "created": "Najmanj nedavno",
@@ -69,7 +77,7 @@ define({
         "avgrating": "Od najnižje do najvišje ocene"
       },
       "descending": {
-        "relevance": "Najbolj do najmanj ustrezno",
+        "relevance": "Najbolj do najmanj pomembno",
         "title": "Po obratnem abecednem vrstnem redu",
         "owner": "Po obratnem abecednem vrstnem redu",
         "created": "Najnovejše",
@@ -89,7 +97,7 @@ define({
         "layers": "Sloji",
         "featureLayers": "Geoobjektni sloji",
         "tileLayers": "Ploščični sloji",
-        "mapImageLayers": "Kartni sloji",
+        "mapImageLayers": "Kartni slikovni sloji",
         "imageryLayers": "Slikovni sloji",
         "sceneLayers": "Sloji 3D-prizora",
         "tables": "Tabele",
@@ -99,6 +107,8 @@ define({
         "webApps": "Spletne aplikacije",
         "mobileApps": "Mobilne aplikacije",
         "desktopApps": "Namizne aplikacije",
+        "instantApps": "Instant Apps",
+        "storyMaps": "Karte z zgodbo",
         "tools": "Orodja",
         "locators": "Lokatorji",
         "geodatabaseAccess": "Dostop do geopodatkovne baze",
@@ -115,10 +125,10 @@ define({
     },
     "date": {
       "dateCreated": "Datum ustvarjanja",
-      "dateModified": "Datum spremembe"
+      "dateModified": "Datum spreminjanja"
     },
     "shared": {
-      "shared": "Deljeno",
+      "shared": "V skupni rabi",
       "options": {
         "public": "Z vsemi (javno)",
         "org": "Z organizacijo",
@@ -136,7 +146,7 @@ define({
     },
     "tags": {
       "tags": "Oznake",
-      "filterTags": "Filtriraj oznake",
+      "filterTags": "Oznake filtra",
       "noTags": "Najdena ni bila nobena oznaka, ki bi se ujemala z vašim iskanjem."
     }
   },
@@ -145,18 +155,18 @@ define({
     "signOut": "Odjava",
     "header": {
       "browse": "Prebrskaj",
-      "search": "Išči"
+      "search": "Iskanje"
     },
-    "resultCount": "elementi:",
+    "resultCount": "Elementi:",
     "searchPlaceholders": {
       "generic": "Vnesi iskalne izraze"
     },
     "filterChips": {
       "mapArea": "Znotraj območja karte",
-      "type": "Vrsta",
+      "type": "Tip",
       "dateModified": "Spremenjeno",
       "dateCreated": "Ustvarjeno",
-      "access": "Deljeno",
+      "access": "V skupni rabi",
       "group": "Skupina",
       "folder": "Mapa",
       "status": "Status",
@@ -168,26 +178,26 @@ define({
     "itemDetails": {
       "addToMap": "Dodaj na karto",
       "removeFromMap": "Odstrani s karte",
-      "by": "po",
+      "by": "od",
       "lastModified": "Posodobljeno",
       "noSnippet": "Kratek povzetek o elementu ni na voljo.",
       "details": "Opis",
       "termsOfUse": "Pogoji uporabe",
       "attribution": "Viri podatkov",
-      "noTermsOfUse": "Ni posebnih restrikcij ali omejitev glede uporabe vsebine elementa.",
-      "noAttribution": "Ni potrdil",
-      "noDescription": "Podroben opis elementa ni na voljo.",
-      "views": "Število ogledov",
+      "noTermsOfUse": "Niso bile določene posebne omejitve uporabe vsebine elementa.",
+      "noAttribution": "Ni potrditev",
+      "noDescription": "Podroben povzetek o elementu ni na voljo.",
+      "views": "Števec ogledov",
       "created": "Ustvarjeno",
-      "sharedWith": "Deljeno s/z",
+      "sharedWith": "Deljeno z",
       "shared": {
         "public": "Vsi (javno)",
         "org": "Organizacija",
         "shared": "Element ni deljen.",
         "private": "Element ni deljen."
       },
-      "viewUser": "Ogled profila uporabnika",
-      "viewOrg": "Obišči organizacijo",
+      "viewUser": "Ogled uporabniškega profila",
+      "viewOrg": "Obiščite organizacijo",
       "addToFavorites": "Dodaj med priljubljene",
       "removeFromFavorites": "Odstrani iz priljubljenih",
       "managedBy": "Upravlja:"
@@ -198,54 +208,75 @@ define({
       "noItemsFound": "Ni bilo najdenih elementov, ki izpolnjujejo vaše kriterije. Poskusite izbrisati nekaj filtrov za prikaz več elementov.",
       "empty": "Za začetek iskanja zgoraj vnesite nekaj izrazov."
     },
-    "search": "Išči",
+    "search": "Iskanje",
     "close": "Zapri",
     "filterPane": {
-      "filter": "Filtriraj",
+      "filter": "Filter",
       "categories": "Kategorije",
       "groupCategories": "Kategorije skupine"
     },
-    "viewDetails": "Pogled podrobnosti elementa",
+    "viewDetails": "Ogled podrobnosti elementa",
     "back": "Nazaj",
     "compact": "Tabela",
     "compactView": "Kompaktni pogled",
     "list": "Seznam",
-    "listView": "Ogled seznama",
+    "listView": "Pogled seznama",
     "showing": "Prikazujem",
     "viewResults": "Ogled rezultatov"
   },
   "itemCards": {
     "remove": "Odstrani",
     "add": "Dodaj",
-    "by": "po",
+    "by": "od",
     "actions": "Dejanja",
-    "viewOrg": "Obišči organizacijo",
-    "viewProfile": "Ogled profila uporabnika",
+    "viewOrg": "Obiščite organizacijo",
+    "viewProfile": "Ogled uporabniškega profila",
     "viewItem": "Ogled podrobnosti elementa",
     "hideItem": "Skrij podrobnosti elementa",
     "created": "Ustvarjeno",
     "updated": "Posodobljeno",
-    "viewCount": "Število ogledov",
-    "rating": "Ocena"
+    "viewCount": "Števec ogledov",
+    "rating": "Ocena",
+    "itemType": {
+      "table": "Tabela",
+      "routeLayer": "Sloj poti",
+      "markup": "Oznaka",
+      "featureLayer": "Geoobjektni sloj",
+      "elevationLayer": "Višinski sloj",
+      "imageryLayer": "Slikovni sloj",
+      "sceneLayer": "Sloj 3D-prizora",
+      "sceneLayerPackage": "Paket sloja 3D-prizora",
+      "locator": "Lokator",
+      "microsoftPowerPoint": "Microsoft PowerPoint",
+      "geoJSON": "GeoJSON",
+      "globeLayer": "Globusni sloj",
+      "tileLayer": "Ploščični sloj",
+      "netCDF": "NetCDF",
+      "mapImageLayer": "Kartni slikovni sloj",
+      "addIn": "Dodatek",
+      "bigDataFileShare": "Delitev datotek velikih podatkov",
+      "ogcFeatureLayer": "Geoobjektni sloj OGC",
+      "instantApp": "Instant App"
+    }
   },
   "pager": {
-    "previous": "Prejšnji",
-    "next": "Naslednji",
+    "previous": "Nazaj",
+    "next": "Naprej",
     "paginationLimit": "Obstaja omejitev 10.000 rezultatov, ki jih je mogoče pridobiti prek oštevilčenja. Poskusite s filtriranjem ali s spremembo iskalnega izraza, da znižate število vrnjenih rezultatov."
   },
   "actions": {
-    "viewMap": "Ogled karte",
+    "viewMap": "Pogled karte",
     "viewScene": "Ogled prizora",
-    "viewApp": "Ogled aplikacije",
+    "viewApp": "Oglej si aplikacijo",
     "viewInMap": "Pogled na karti",
     "viewInScene": "Pogled v prizoru",
     "view": "Ogled",
-    "download": "Prenos",
+    "download": "Prenesi",
     "openPdf": "Odpri v PDF",
     "open": "Odpri",
     "openDoc": "Odpri dokument",
     "openTab": "Odpri v novem zavihku",
-    "openViewer": "Š_Open in Map Viewer___________________č",
+    "openViewer": "Odpri v pregledovalniku kart",
     "addFavorite": "Dodaj med priljubljene",
     "removeFavorite": "Odstrani iz priljubljenih"
   },
@@ -263,8 +294,9 @@ define({
     }
   },
   "share": {
-    "shareGallery": "Š_Share gallery______________č",
-    "shareFiltered": "Š_Share filtered gallery_______________________č",
-    "tooltip": "Š_URL copied to you clipboard____________________________č"
+    "share": "Deli",
+    "shareGallery": "Deli galerijo",
+    "shareFiltered": "Deli filtrirano galerijo",
+    "tooltip": "URL kopiran v vaše odložišče"
   }
 });

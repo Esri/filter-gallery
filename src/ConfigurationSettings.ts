@@ -47,6 +47,9 @@ class ConfigurationSettings extends Accessor {
     displayDefault: string;
 
     @property()
+    sortDefault: string;
+
+    @property()
     headHTML: string;
 
     @property()
@@ -214,7 +217,7 @@ class ConfigurationSettings extends Accessor {
         if (e?.data?.type === "cats-app" && (!e.data.hasOwnProperty('group') || e.data.group !== "")) {
             // Prevents defaults data push from overwriting data
             Object.assign(this, e.data);
-            window.postMessage({type: "rerender"}, window.origin);
+            window.postMessage({type: "rerender", properties: e.data}, window.origin);
         }
     }
 

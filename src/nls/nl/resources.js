@@ -3,6 +3,14 @@ define({
   "appFailed": "Laden van de toepassing is mislukt.",
   "noAuth": "Uw account heeft geen licentie om configureerbare apps te gebruiken die niet openbaar zijn. Vraag uw organisatiebeheerder om u een gebruikerstype toe te wijzen dat Essential Apps of een add-on Essential Apps-licentie bevat.",
   "notLicensed": "Geen licentie",
+  "error": "Fout",
+  "originError": {
+    "message": "De applicatie die u probeert te openen, is niet afkomstig van de URL die u hebt ingevoerd",
+    "close": "Sluiten",
+    "options": "Geavanceerde opties",
+    "linkMessage": "Ga door naar"
+  },
+  "analyticsOptIn": "Aanmelden",
   "badges": {
     "authoritative": "autoritatief",
     "deleted": "Verwijderd",
@@ -28,7 +36,7 @@ define({
     }
   },
   "buttons": {
-    "clear": "Annuleren"
+    "clear": "Wissen"
   },
   "dateSelection": {
     "today": "Vandaag",
@@ -40,10 +48,10 @@ define({
     "to": "Einddatum"
   },
   "dropdowns": {
-    "clear": "Annuleren",
+    "clear": "Wissen",
     "clearAll": "Alles wissen",
     "contentViews": {
-      "grid": "Grid",
+      "grid": "Raster",
       "list": "Lijst",
       "table": "Tabel",
       "view": "Weergeven"
@@ -57,7 +65,7 @@ define({
       "owner": "Eigenaar",
       "created": "Aanmaakdatum",
       "modified": "Gewijzigd op",
-      "numviews": "Keer bekeken",
+      "numviews": "Aantal keer bekeken",
       "avgrating": "Beoordeling",
       "ascending": {
         "relevance": "Van het minst tot het meest relevant",
@@ -83,22 +91,24 @@ define({
     "itemType": {
       "itemType": "Itemtype",
       "filters": {
-        "maps": "Kaarten",
+        "maps": "Maps",
         "webMaps": "Webmaps",
         "mapFiles": "Kaartbestanden",
-        "layers": "Lagen",
+        "layers": "Kaartlagen",
         "featureLayers": "Objectlagen",
         "tileLayers": "Tilelagen",
         "mapImageLayers": "Map imagelagen",
-        "imageryLayers": "Imagelaag",
+        "imageryLayers": "Imagery Layers",
         "sceneLayers": "Satellietbeeldlagen",
         "tables": "Tabellen",
         "layerFiles": "Laagbestanden",
         "scenes": "Scenes",
         "apps": "Apps",
-        "webApps": "Webapps",
+        "webApps": "Web-apps",
         "mobileApps": "Mobiele apps",
         "desktopApps": "Desktopapps",
+        "instantApps": "Instant Apps",
+        "storyMaps": "Story Maps",
         "tools": "Tools",
         "locators": "Locators",
         "geodatabaseAccess": "Geodatabase-toegang",
@@ -107,7 +117,7 @@ define({
         "networkAnalysis": "Netwerkanalyse",
         "files": "Bestanden",
         "documents": "Documenten",
-        "images": "Beelden",
+        "images": "Afbeeldingen",
         "pdfs": "PDF's",
         "webTools": "Webtools",
         "notebooks": "Notebooks"
@@ -147,7 +157,7 @@ define({
       "browse": "Bladeren",
       "search": "Zoeken"
     },
-    "resultCount": "items:",
+    "resultCount": "Items:",
     "searchPlaceholders": {
       "generic": "Zoektermen invoeren"
     },
@@ -158,7 +168,7 @@ define({
       "dateCreated": "Gemaakt",
       "access": "Gedeeld",
       "group": "Groep",
-      "folder": "Folder",
+      "folder": "Map",
       "status": "Status",
       "clearAll": "Alles wissen",
       "category": "Categorie",
@@ -175,9 +185,9 @@ define({
       "termsOfUse": "Gebruiksvoorwaarden",
       "attribution": "Credits (toeschrijving)",
       "noTermsOfUse": "Er zijn geen speciale beperkingen of grenzen op het gebruik van de content van het item opgegeven.",
-      "noAttribution": "Geen dankwoord.",
+      "noAttribution": "Geen bevestigingen.",
       "noDescription": "Er is geen uitgebreide beschrijving van het item beschikbaar.",
-      "views": "Keer bekeken",
+      "views": "Aantal keer bekeken",
       "created": "Gemaakt",
       "sharedWith": "Gedeeld met",
       "shared": {
@@ -201,12 +211,12 @@ define({
     "search": "Zoeken",
     "close": "Sluiten",
     "filterPane": {
-      "filter": "Filteren",
+      "filter": "Filter",
       "categories": "Categorieën",
       "groupCategories": "Groepcategorieën"
     },
     "viewDetails": "Itemdetails weergeven",
-    "back": "Achterkant",
+    "back": "Terug",
     "compact": "Tabel",
     "compactView": "Compacte weergave",
     "list": "Lijst",
@@ -225,8 +235,29 @@ define({
     "hideItem": "Itemdetails verbergen",
     "created": "Gemaakt",
     "updated": "Bijgewerkt",
-    "viewCount": "Keer bekeken",
-    "rating": "Beoordeling"
+    "viewCount": "Aantal keer bekeken",
+    "rating": "Beoordeling",
+    "itemType": {
+      "table": "Tabel",
+      "routeLayer": "Routelaag",
+      "markup": "Markeren",
+      "featureLayer": "Feature Layer",
+      "elevationLayer": "Hoogtelaag",
+      "imageryLayer": "Imagery layer",
+      "sceneLayer": "Scenelaag",
+      "sceneLayerPackage": "Scenelaag-package",
+      "locator": "Locator",
+      "microsoftPowerPoint": "Microsoft PowerPoint",
+      "geoJSON": "GeoJSON",
+      "globeLayer": "Globelaag",
+      "tileLayer": "Tilelaag",
+      "netCDF": "NetCDF",
+      "mapImageLayer": "Kaartafbeeldingslaag",
+      "addIn": "Invoegtoepassing",
+      "bigDataFileShare": "Big Data File Share",
+      "ogcFeatureLayer": "OGC-objectlaag",
+      "instantApp": "Instant App"
+    }
   },
   "pager": {
     "previous": "Vorige",
@@ -245,7 +276,7 @@ define({
     "open": "Openen",
     "openDoc": "Open document",
     "openTab": "Openen in een nieuw tabblad",
-    "openViewer": "Ĳ_Open in Map Viewer___________________ä",
+    "openViewer": "Openen in Map Viewer",
     "addFavorite": "Toevoegen aan Favorieten",
     "removeFavorite": "Verwijderen uit Favorieten"
   },
@@ -263,8 +294,9 @@ define({
     }
   },
   "share": {
-    "shareGallery": "Ĳ_Share gallery______________ä",
-    "shareFiltered": "Ĳ_Share filtered gallery_______________________ä",
-    "tooltip": "Ĳ_URL copied to you clipboard____________________________ä"
+    "share": "Delen",
+    "shareGallery": "Galerij delen",
+    "shareFiltered": "Gefilterde galerij delen",
+    "tooltip": "URL gekopieerd naar uw klembord"
   }
 });

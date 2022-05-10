@@ -80,23 +80,24 @@ export class LayerBase extends Component<LayerBaseProps, LayerBaseState> {
                     ["esri/Map", // Map
                     "esri/views/MapView", "esri/views/SceneView", // Views
                     // tslint:disable-next-line: max-line-length
-                    "esri/layers/FeatureLayer", "esri/layers/VectorTileLayer", "esri/layers/MapImageLayer", "esri/layers/ImageryLayer", "esri/layers/SceneLayer"],  // Layers
+                    "esri/layers/FeatureLayer", "esri/layers/VectorTileLayer", "esri/layers/MapImageLayer", "esri/layers/ImageryLayer", "esri/layers/SceneLayer", "esri/layers/OGCFeatureLayer"],  // Layers
                     (Map, 
                      MapView, SceneView, 
-                     FeatureLayer, VectorTileLayer, MapImageLayer, ImageryLayer, SceneLayer) => {
+                     FeatureLayer, VectorTileLayer, MapImageLayer, ImageryLayer, SceneLayer, OGCFeatureLayer) => {
                             constructorKey = {
                                 "esri/layers/FeatureLayer": FeatureLayer, 
                                 "esri/layers/VectorTileLayer": VectorTileLayer, 
                                 "esri/layers/MapImageLayer": MapImageLayer, 
                                 "esri/layers/ImageryLayer": ImageryLayer, 
-                                "esri/layers/SceneLayer": SceneLayer
+                                "esri/layers/SceneLayer": SceneLayer,
+                                "esri/layers/OGCFeatureLayer": OGCFeatureLayer
                             };
                             return resolve([Map, MapView, SceneView]);
                         }
                 ); 
             }
         ).then(
-            ([Map, MapView, SceneView, FeatureLayer, VectorTileLayer, MapImageLayer, ImageryLayer, SceneLayer]) => {
+            ([Map, MapView, SceneView, FeatureLayer, VectorTileLayer, MapImageLayer, ImageryLayer, SceneLayer, OGCFeatureLayer]) => {
                 const viewModule = this.props.viewModule === "esri/views/MapView" ? MapView :
                                 this.props.viewModule === "esri/views/SceneView" ? SceneView :
                                 MapView; // default to MapView
@@ -122,6 +123,12 @@ export class LayerBase extends Component<LayerBaseProps, LayerBaseState> {
         });
         this.setState({ loadText: "layers" });
         this.layer = new LayerConstructor({ url: this.props.layerUrl } as __esri.LayerProperties);
+        if (this.props.layerModule === "esri/layers/OGCFeatureLayer") {
+            this.layer = new LayerConstructor({ 
+                url: this.props.layerUrl,
+                collectionId: "0"
+            } as __esri.LayerProperties);
+        }
         this.layer.load().then((layers: any) => {
             this.setState({ loadText: "widgets" });
             this.view = new ViewConstructor({

@@ -6,7 +6,6 @@ import { filter, switchMap, map, catchError } from "rxjs/operators";
 
 import Portal = require("esri/portal/Portal");
 import IdentityManager = require("esri/identity/IdentityManager");
-import cookie = require("dojo/cookie");
 import { fromDeferred, getOrgBaseUrl } from "../_utils";
 
 export const signInEpic = (action$: Subject<Action>, getState: () => FilterGalleryState) => action$.pipe(
@@ -29,20 +28,13 @@ export const signOutEpic = (action$: Subject<Action>, getState: () => FilterGall
         const state = getState();
         IdentityManager.destroyCredentials();
 
-        cookie("esri_auth", undefined, {
-            path: "/",
-            domain: ".arcgis.com",
-            expires: -1
-        });
-        cookie("esri_auth", undefined, {
-            path: "/",
-            domain: `.${document.domain}`,
-            expires: -1
-        });
-
         const portal = new Portal({ url: state.settings.config.url });
         portal.authMode = "anonymous";
-        portal["baseUrl"] = getOrgBaseUrl(portal);
+
+        localStorage.removeItem("_AGO_SESSION_");
+        const rdUrl = window.location.href;
+        window.location.href = `${portal.restUrl}/oauth2/signout?client_id=${state.settings.config.oauthappid}&redirect_uri=${rdUrl}`;
+
         return fromDeferred(portal.load() as any).pipe(
             map(() => ({ type: SIGNED_OUT, payload: portal })),
             catchError((err) => of({ type: SIGN_OUT_FAILED, payload: { err } }))

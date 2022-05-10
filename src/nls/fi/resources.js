@@ -3,6 +3,14 @@ define({
   "appFailed": "Sovelluksen lataus epäonnistui.",
   "noAuth": "Tiliäsi ei ole lisensoitu käyttämään muunneltavissa olevia sovelluksia, jotka eivät ole julkisia. Pyydä organisaatiosi pääkäyttäjää määrittämään sinulle käyttäjätyyppi, joka sisältää keskeiset sovellukset tai keskeisten sovellusten lisäosan lisenssin.",
   "notLicensed": "Ei lisenssiä",
+  "error": "Virhe",
+  "originError": {
+    "message": "Sovellus, jota yrität käyttää, ei ole peräisin määrittämästäsi URL-osoitteesta",
+    "close": "Sulje",
+    "options": "Lisäasetukset",
+    "linkMessage": "Jatka kohteeseen"
+  },
+  "analyticsOptIn": "Valitse",
   "badges": {
     "authoritative": "Virallinen",
     "deleted": "Poistettu",
@@ -46,7 +54,7 @@ define({
       "grid": "Grid",
       "list": "Luettelo",
       "table": "Taulu",
-      "view": "Näytä"
+      "view": "Tarkastele"
     },
     "sorting": {
       "sort": "Lajittele",
@@ -90,7 +98,7 @@ define({
         "featureLayers": "Kohdekarttatasot",
         "tileLayers": "Tiilitasot",
         "mapImageLayers": "Karttakuvatasot",
-        "imageryLayers": "Kuva-aineistotasot",
+        "imageryLayers": "Kuva-aineistokarttatasot",
         "sceneLayers": "Maiseman karttatasot",
         "tables": "Taulut",
         "layerFiles": "Karttatasotiedostot",
@@ -99,6 +107,8 @@ define({
         "webApps": "Web-sovellukset",
         "mobileApps": "Mobiilisovellukset",
         "desktopApps": "Työpöytäsovellukset",
+        "instantApps": "Instant Apps -sovellukset",
+        "storyMaps": "Story Maps",
         "tools": "Työkalut",
         "locators": "Paikantimet",
         "geodatabaseAccess": "Paikkatietokantaan pääsy",
@@ -147,7 +157,7 @@ define({
       "browse": "Selaa",
       "search": "Hae"
     },
-    "resultCount": "alkiot:",
+    "resultCount": "Kohteet:",
     "searchPlaceholders": {
       "generic": "Anna hakuehdot"
     },
@@ -157,7 +167,7 @@ define({
       "dateModified": "Muokattu",
       "dateCreated": "Luotu",
       "access": "Jaettu",
-      "group": "Ryhmittele",
+      "group": "Ryhmä",
       "folder": "Kansio",
       "status": "Tila",
       "clearAll": "Tyhjennä kaikki",
@@ -168,7 +178,7 @@ define({
     "itemDetails": {
       "addToMap": "Lisää karttaan",
       "removeFromMap": "Poista kartasta",
-      "by": "tekijä",
+      "by": "omistaja",
       "lastModified": "Päivitetty",
       "noSnippet": "Kohteesta ei ole saatavissa lyhyttä yhteenvetoa.",
       "details": "Kuvaus",
@@ -179,7 +189,7 @@ define({
       "noDescription": "Kohteesta ei ole saatavissa tarkkaa kuvausta.",
       "views": "Katselukertojen määrä",
       "created": "Luotu",
-      "sharedWith": "Jaettu",
+      "sharedWith": "Jaettu:",
       "shared": {
         "public": "Kaikki (julkinen)",
         "org": "Organisaatio",
@@ -195,7 +205,7 @@ define({
     "results": {
       "loadingItems": "Ladataan kohteita...",
       "requestError": "Pyynnössä tapahtui virhe.",
-      "noItemsFound": "Yhtään ehdot täyttävää kohdetta ei löytynyt. Saat lisää kohteita näkyviin poistamalla osan suodattimista.",
+      "noItemsFound": "Yhtäkään ehdot täyttävää kohdetta ei löytynyt. Saat lisää kohteita näkyviin poistamalla osan suodattimista.",
       "empty": "Aloita haku kirjoittamalla edellä joitakin ehtoja."
     },
     "search": "Hae",
@@ -205,8 +215,8 @@ define({
       "categories": "Luokat",
       "groupCategories": "Ryhmän luokat"
     },
-    "viewDetails": "Näytä kohteen yksityiskohdat",
-    "back": "Edellinen",
+    "viewDetails": "Näytä kohteen yksityiskohdat.",
+    "back": "Takaisin",
     "compact": "Taulu",
     "compactView": "Kompakti näkymä",
     "list": "Luettelo",
@@ -217,16 +227,37 @@ define({
   "itemCards": {
     "remove": "Poista",
     "add": "Lisää",
-    "by": "tekijä",
+    "by": "omistaja",
     "actions": "Toiminnot",
     "viewOrg": "Käy organisaatiossa",
     "viewProfile": "Näytä käyttäjäprofiili",
-    "viewItem": "Näytä kohteen yksityiskohdat",
+    "viewItem": "Näytä kohteen yksityiskohdat.",
     "hideItem": "Piilota kohteen tiedot",
     "created": "Luotu",
     "updated": "Päivitetty",
     "viewCount": "Katselukertojen määrä",
-    "rating": "Arviointi"
+    "rating": "Arviointi",
+    "itemType": {
+      "table": "Taulu",
+      "routeLayer": "Reittitaso",
+      "markup": "Merkintä",
+      "featureLayer": "Kohdekarttataso",
+      "elevationLayer": "Korkeuskarttataso",
+      "imageryLayer": "Kuva-aineistokarttataso",
+      "sceneLayer": "Maisemakarttataso",
+      "sceneLayerPackage": "Maisemakarttatasopaketti",
+      "locator": "Paikannin",
+      "microsoftPowerPoint": "Microsoft PowerPoint",
+      "geoJSON": "GeoJSON",
+      "globeLayer": "Globe-karttataso",
+      "tileLayer": "Tiilitaso",
+      "netCDF": "NetCDF",
+      "mapImageLayer": "Karttakuva-karttataso",
+      "addIn": "Apuohjelma",
+      "bigDataFileShare": "Big data -tiedostojako",
+      "ogcFeatureLayer": "OGC-kohdekarttataso",
+      "instantApp": "Instant App -sovellus"
+    }
   },
   "pager": {
     "previous": "Edellinen",
@@ -242,10 +273,10 @@ define({
     "view": "Tarkastele",
     "download": "Lataa",
     "openPdf": "Avaa PDF-muodossa",
-    "open": "Avattu",
+    "open": "Avaa",
     "openDoc": "Avaa tiedosto",
     "openTab": "Avaa uudessa välilehdessä",
-    "openViewer": "Å_Open in Map Viewer___________________ö",
+    "openViewer": "Avaa Map Viewerissa",
     "addFavorite": "Lisää suosikkeihin",
     "removeFavorite": "Poista suosikeista"
   },
@@ -263,8 +294,9 @@ define({
     }
   },
   "share": {
-    "shareGallery": "Å_Share gallery______________ö",
-    "shareFiltered": "Å_Share filtered gallery_______________________ö",
-    "tooltip": "Å_URL copied to you clipboard____________________________ö"
+    "share": "Jaa",
+    "shareGallery": "Jaa galleria",
+    "shareFiltered": "Jaa suodatettu galleria",
+    "tooltip": "URL-osoite on kopioitu leikepöydälle"
   }
 });
