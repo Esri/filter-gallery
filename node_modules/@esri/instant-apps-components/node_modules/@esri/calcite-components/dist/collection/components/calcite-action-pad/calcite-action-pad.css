@@ -1,0 +1,156 @@
+/* mixins & extensions */
+
+@keyframes in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes in-down {
+  0% {
+    opacity: 0;
+    transform: translate3D(0, -5px, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate3D(0, 0, 0);
+  }
+}
+
+@keyframes in-up {
+  0% {
+    opacity: 0;
+    transform: translate3D(0, 5px, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate3D(0, 0, 0);
+  }
+}
+
+@keyframes in-scale {
+  0% {
+    opacity: 0;
+    transform: scale3D(0.95, 0.95, 1);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale3D(1, 1, 1);
+  }
+}
+
+:root {
+  --calcite-animation-timing: 300ms;
+}
+
+.calcite-animate {
+  opacity: 0;
+  animation-fill-mode: both;
+  animation-duration: var(--calcite-animation-timing);
+}
+
+.calcite-animate__in {
+  animation-name: in;
+}
+
+.calcite-animate__in-down {
+  animation-name: in-down;
+}
+
+.calcite-animate__in-up {
+  animation-name: in-up;
+}
+
+.calcite-animate__in-scale {
+  animation-name: in-scale;
+}
+
+/**
+* Currently only used in Checkbox.
+*/
+
+:host {
+  /* Base ":host" styles for the component */
+  box-sizing: border-box;
+  background-color: var(--calcite-ui-foreground-1);
+  color: var(--calcite-ui-text-2);
+  font-size: var(--calcite-font-size--1);
+}
+
+:host * {
+  box-sizing: border-box;
+}
+
+:root {
+  --calcite-popper-transition: 150ms ease-in-out;
+}
+
+:host([hidden]) {
+  display: none;
+}
+
+:host {
+  display: block;
+  animation: in var(--calcite-animation-timing) ease-in-out;
+  border-radius: 0.125rem;
+}
+
+:host([expanded]) {
+  max-width: 20vw;
+}
+
+::slotted(calcite-action-group) {
+  border-width: 0;
+  border-bottom-width: 1px;
+  border-color: var(--calcite-ui-border-3);
+  border-style: solid;
+  padding-bottom: 0;
+  padding-top: 0;
+}
+
+.container {
+  flex-direction: column;
+  display: inline-flex;
+  overflow-y: auto;
+  border-radius: 0.25rem;
+  background-color: var(--calcite-ui-background);
+  box-shadow: 0 6px 20px -4px rgba(0, 0, 0, 0.1), 0 4px 12px -2px rgba(0, 0, 0, 0.08);
+  max-width: 15vw;
+}
+
+.action-group--bottom {
+  flex-grow: 1;
+  justify-content: flex-end;
+  padding-bottom: 0;
+}
+
+:host([layout=horizontal]) .container {
+  flex-direction: row;
+  max-width: unset;
+}
+
+:host([layout=horizontal]) .container .action-group--bottom {
+  padding: 0;
+}
+
+:host([layout=horizontal]) .container ::slotted(calcite-action-group) {
+  border-width: 0;
+  border-right-width: 1px;
+  padding: 0;
+}
+
+:host([layout=horizontal]) .container.calcite--rtl ::slotted(calcite-action-group) {
+  border-width: 0;
+  border-left-width: 1px;
+}
+
+::slotted(calcite-action-group:last-child) {
+  border-bottom-width: 0;
+}

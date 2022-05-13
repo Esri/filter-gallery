@@ -1,0 +1,308 @@
+/* mixins & extensions */
+
+@keyframes in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes in-down {
+  0% {
+    opacity: 0;
+    transform: translate3D(0, -5px, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate3D(0, 0, 0);
+  }
+}
+
+@keyframes in-up {
+  0% {
+    opacity: 0;
+    transform: translate3D(0, 5px, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate3D(0, 0, 0);
+  }
+}
+
+@keyframes in-scale {
+  0% {
+    opacity: 0;
+    transform: scale3D(0.95, 0.95, 1);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale3D(1, 1, 1);
+  }
+}
+
+:root {
+  --calcite-animation-timing: 300ms;
+}
+
+.calcite-animate {
+  opacity: 0;
+  animation-fill-mode: both;
+  animation-duration: var(--calcite-animation-timing);
+}
+
+.calcite-animate__in {
+  animation-name: in;
+}
+
+.calcite-animate__in-down {
+  animation-name: in-down;
+}
+
+.calcite-animate__in-up {
+  animation-name: in-up;
+}
+
+.calcite-animate__in-scale {
+  animation-name: in-scale;
+}
+
+/**
+* Currently only used in Checkbox.
+*/
+
+:root {
+  --calcite-popper-transition: 150ms ease-in-out;
+}
+
+:host([hidden]) {
+  display: none;
+}
+
+:host {
+  display: block;
+  flex: 0 1 auto;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  margin-right: 1.25rem;
+  margin-inline-start: 0;
+  margin-inline-end: 1.25rem;
+}
+
+:host([layout=center]) {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
+  flex-basis: 12rem;
+}
+
+:host([position=below]) a {
+  border-bottom-width: 0;
+  border-top-width: 2px;
+  border-top-color: transparent;
+  border-top-style: solid;
+}
+
+:host a {
+  outline-offset: 0;
+  outline-color: transparent;
+  transition: outline-offset 100ms ease-in-out, outline-color 100ms ease-in-out;
+}
+
+:host(:focus) a {
+  outline: 2px solid var(--calcite-ui-brand);
+  outline-offset: 2px;
+}
+
+:host(:active) a,
+:host(:focus) a,
+:host(:hover) a {
+  text-decoration: none;
+  color: var(--calcite-ui-text-1);
+  border-color: var(--calcite-ui-border-2);
+}
+
+:host([active]) a {
+  color: var(--calcite-ui-text-1);
+  border-color: transparent;
+}
+
+:host([disabled]) {
+  pointer-events: none;
+}
+
+:host([disabled]) span,
+:host([disabled]) a {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+:host([scale=s]) {
+  margin-inline-end: 1rem;
+}
+
+:host([scale=s]) a,
+:host([scale=s]) span {
+  font-size: var(--calcite-font-size--2);
+  line-height: 1rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+:host([scale=m]) a,
+:host([scale=m]) span {
+  font-size: var(--calcite-font-size--1);
+  line-height: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+:host([scale=l]) {
+  margin-inline-end: 1.5rem;
+}
+
+:host([scale=l]) a,
+:host([scale=l]) span {
+  font-size: var(--calcite-font-size-0);
+  line-height: 1.25rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+a,
+span {
+  box-sizing: border-box;
+  -webkit-appearance: none;
+          appearance: none;
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  border-bottom-width: 2px;
+  border-bottom-color: transparent;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  color: var(--calcite-ui-text-3);
+  font-size: var(--calcite-font-size--1);
+  line-height: 1rem;
+  transition-property: all;
+  transition-duration: 150ms;
+  transition-timing-function: ease-in-out;
+  transition-delay: 0s;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom-style: solid;
+}
+
+span {
+  cursor: default;
+}
+
+.calcite-tab-title--icon {
+  display: inline-flex;
+  position: relative;
+  margin: 0;
+  align-self: center;
+}
+
+.calcite-tab-title--icon svg {
+  transition-property: all;
+  transition-duration: 150ms;
+  transition-timing-function: ease-in-out;
+  transition-delay: 0s;
+}
+
+.container--has-text .calcite-tab-title--icon.icon-start {
+  margin-right: 0.5rem;
+}
+
+.container--has-text .calcite-tab-title--icon.icon-end {
+  margin-left: 0.5rem;
+}
+
+:host([icon-start][icon-end]) .calcite-tab-title--icon:first-child {
+  margin-right: 0.5rem;
+}
+
+.container--has-text.calcite--rtl .calcite-tab-title--icon.icon-end {
+  margin-left: 0;
+  margin-right: 0.5rem;
+}
+
+.container--has-text.calcite--rtl .calcite-tab-title--icon.icon-start {
+  margin-left: 0.5rem;
+  margin-right: 0;
+}
+
+:host([icon-start][icon-end]) .calcite--rtl .calcite-tab-title--icon:first-child {
+  margin-left: 0.5rem;
+  margin-right: 0;
+}
+
+:host([bordered]) {
+  margin-inline-end: 0;
+}
+
+:host([bordered][active]) {
+  box-shadow: inset 0px -2px var(--calcite-ui-foreground-1);
+}
+
+:host([bordered][active][position=below]) {
+  box-shadow: inset 0 2px 0 var(--calcite-ui-foreground-1);
+}
+
+:host([bordered]:hover) a,
+:host([bordered]:focus) a,
+:host([bordered]:active) a {
+  position: relative;
+}
+
+:host([bordered]:hover) a {
+  background-color: var(--calcite-button-transparent-hover);
+  transition-property: all;
+  transition-duration: 150ms;
+  transition-timing-function: ease-in-out;
+  transition-delay: 0s;
+}
+
+:host([bordered]) a {
+  border-bottom-style: unset;
+}
+
+:host([bordered][position=below]) a {
+  border-top-style: unset;
+}
+
+:host([active][bordered]) a {
+  border-left: 1px solid var(--calcite-ui-border-1);
+  border-right: 1px solid var(--calcite-ui-border-1);
+}
+
+:host([bordered]) a,
+:host([bordered]) span {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+:host([bordered][scale=s]) a,
+:host([bordered][scale=s]) span {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+:host([bordered][scale=l]) a,
+:host([bordered][scale=l]) span {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}

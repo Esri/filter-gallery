@@ -1,0 +1,239 @@
+/* mixins & extensions */
+
+@keyframes in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes in-down {
+  0% {
+    opacity: 0;
+    transform: translate3D(0, -5px, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate3D(0, 0, 0);
+  }
+}
+
+@keyframes in-up {
+  0% {
+    opacity: 0;
+    transform: translate3D(0, 5px, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate3D(0, 0, 0);
+  }
+}
+
+@keyframes in-scale {
+  0% {
+    opacity: 0;
+    transform: scale3D(0.95, 0.95, 1);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale3D(1, 1, 1);
+  }
+}
+
+:root {
+  --calcite-animation-timing: 300ms;
+}
+
+.calcite-animate {
+  opacity: 0;
+  animation-fill-mode: both;
+  animation-duration: var(--calcite-animation-timing);
+}
+
+.calcite-animate__in {
+  animation-name: in;
+}
+
+.calcite-animate__in-down {
+  animation-name: in-down;
+}
+
+.calcite-animate__in-up {
+  animation-name: in-up;
+}
+
+.calcite-animate__in-scale {
+  animation-name: in-scale;
+}
+
+/**
+* Currently only used in Checkbox.
+*/
+
+:root {
+  --calcite-popper-transition: 150ms ease-in-out;
+}
+
+:host([hidden]) {
+  display: none;
+}
+
+:host {
+  display: block;
+  position: absolute;
+  z-index: 900;
+  transform: scale(0);
+}
+
+.calcite-popper-anim {
+  position: relative;
+  z-index: 1;
+  transition: var(--calcite-popper-transition);
+  visibility: hidden;
+  transition-property: transform, visibility, opacity;
+  opacity: 0;
+  box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.16);
+  border-radius: 0.25rem;
+}
+
+:host([data-popper-placement^=bottom]) .calcite-popper-anim {
+  transform: translateY(-5px);
+}
+
+:host([data-popper-placement^=top]) .calcite-popper-anim {
+  transform: translateY(5px);
+}
+
+:host([data-popper-placement^=left]) .calcite-popper-anim {
+  transform: translateX(5px);
+}
+
+:host([data-popper-placement^=right]) .calcite-popper-anim {
+  transform: translateX(-5px);
+}
+
+:host([data-popper-placement]) .calcite-popper-anim--active {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(0);
+}
+
+.arrow,
+.arrow::before {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  z-index: -1;
+}
+
+.arrow::before {
+  content: "";
+  box-shadow: 0 4px 8px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+  transform: rotate(45deg);
+  background: var(--calcite-ui-foreground-1);
+}
+
+:host([data-popper-placement^=top]) .arrow {
+  bottom: -4px;
+}
+
+:host([data-popper-placement^=bottom]) .arrow {
+  top: -4px;
+}
+
+:host([data-popper-placement^=left]) .arrow {
+  right: -4px;
+}
+
+:host([data-popper-placement^=right]) .arrow {
+  left: -4px;
+}
+
+:host {
+  pointer-events: none;
+}
+
+:host([open]) {
+  pointer-events: initial;
+}
+
+.calcite-popper-anim {
+  background-color: var(--calcite-ui-foreground-1);
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--calcite-ui-border-3);
+  border-radius: 0.25rem;
+}
+
+.arrow::before {
+  outline: 1px solid var(--calcite-ui-border-3);
+}
+
+.header {
+  border-width: 0;
+  border-bottom-width: 1px;
+  border-bottom-color: var(--calcite-ui-border-3);
+  border-style: solid;
+  display: flex;
+  flex: 1 1 auto;
+  align-items: stretch;
+  background-color: var(--calcite-ui-foreground-1);
+  justify-content: flex-start;
+}
+
+.heading {
+  display: block;
+  flex: 1 1 auto;
+  font-weight: var(--calcite-font-weight-medium);
+  margin: 0;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  align-self: center;
+  color: var(--calcite-ui-text-1);
+  font-size: var(--calcite-font-size-0);
+  line-height: 1.375;
+  white-space: normal;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+.container {
+  background-color: var(--calcite-ui-foreground-1);
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  height: 100%;
+  color: var(--calcite-ui-text-1);
+  border-radius: 0.25rem;
+}
+
+.container.has-header {
+  flex-direction: column;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-self: center;
+  height: 100%;
+}
+
+.calcite--rtl .close-button {
+  border-radius: 0.25rem 0 0 0.25rem;
+}
+
+::slotted(calcite-panel),
+::slotted(calcite-flow) {
+  height: 100%;
+}

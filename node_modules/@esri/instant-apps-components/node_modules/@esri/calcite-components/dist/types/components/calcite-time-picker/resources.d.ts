@@ -1,0 +1,36 @@
+export declare const CSS: {
+  buttonBottomLeft: string;
+  buttonBottomRight: string;
+  button: string;
+  delimiter: string;
+  hour: string;
+  buttonHourDown: string;
+  buttonHourUp: string;
+  input: string;
+  meridiem: string;
+  buttonMeridiemDown: string;
+  buttonMeridiemUp: string;
+  minute: string;
+  buttonMinuteDown: string;
+  buttonMinuteUp: string;
+  second: string;
+  buttonSecondDown: string;
+  buttonSecondUp: string;
+  timePicker: string;
+  buttonTopLeft: string;
+  buttonTopRight: string;
+};
+export declare const TEXT: {
+  hour: string;
+  hourDown: string;
+  hourUp: string;
+  meridiem: string;
+  meridiemDown: string;
+  meridiemUp: string;
+  minute: string;
+  minuteDown: string;
+  minuteUp: string;
+  second: string;
+  secondDown: string;
+  secondUp: string;
+};

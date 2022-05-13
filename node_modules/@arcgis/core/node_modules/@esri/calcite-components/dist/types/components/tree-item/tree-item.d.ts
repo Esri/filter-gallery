@@ -1,0 +1,60 @@
+import { EventEmitter, VNode } from "../../stencil-public-runtime";
+import { TreeItemSelectDetail } from "./interfaces";
+import { TreeSelectionMode } from "../tree/interfaces";
+import { Scale } from "../interfaces";
+import { ConditionalSlotComponent } from "../../utils/conditionalSlot";
+/**
+ * @slot - A slot for adding content to the item.
+ * @slot children - A slot for adding nested `calcite-tree` elements.
+ */
+export declare class TreeItem implements ConditionalSlotComponent {
+  el: HTMLCalciteTreeItemElement;
+  /** Is the item currently selected */
+  selected: boolean;
+  /** True if the item is in an expanded state */
+  expanded: boolean;
+  expandedHandler(newValue: boolean): void;
+  /** @internal Is the parent of this item expanded? */
+  parentExpanded: boolean;
+  /** @internal What level of depth is this item at? */
+  depth: number;
+  /** @internal Does this tree item have a tree inside it? */
+  hasChildren: boolean;
+  /** @internal Draw lines (set on parent) */
+  lines: boolean;
+  /** Display checkboxes (set on parent)
+   * @internal
+   * @deprecated set "ancestors" selection-mode on parent tree for checkboxes
+   */
+  inputEnabled: boolean;
+  /** @internal Scale of the parent tree, defaults to m */
+  scale: Scale;
+  /**
+   * @internal
+   * In ancestor selection mode,
+   * show as indeterminate when only some children are selected
+   **/
+  indeterminate: boolean;
+  /** @internal Tree selection-mode (set on parent) */
+  selectionMode: TreeSelectionMode;
+  getselectionMode(): void;
+  connectedCallback(): void;
+  disconnectedCallback(): void;
+  componentWillRender(): void;
+  componentDidLoad(): void;
+  private isSelectionMultiLike;
+  render(): VNode;
+  onClick(e: Event): void;
+  iconClickHandler: (event: MouseEvent) => void;
+  childrenClickHandler: (event: MouseEvent) => void;
+  keyDownHandler(e: KeyboardEvent): void;
+  /**
+   * @internal
+   */
+  calciteTreeItemSelect: EventEmitter<TreeItemSelectDetail>;
+  childrenSlotWrapper: HTMLElement;
+  defaultSlotWrapper: HTMLElement;
+  private parentTreeItem?;
+  private updateParentIsExpanded;
+  private updateAncestorTree;
+}

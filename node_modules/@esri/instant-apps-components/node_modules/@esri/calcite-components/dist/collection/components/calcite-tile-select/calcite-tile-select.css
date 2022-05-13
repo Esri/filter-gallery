@@ -1,0 +1,222 @@
+/* mixins & extensions */
+
+@keyframes in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes in-down {
+  0% {
+    opacity: 0;
+    transform: translate3D(0, -5px, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate3D(0, 0, 0);
+  }
+}
+
+@keyframes in-up {
+  0% {
+    opacity: 0;
+    transform: translate3D(0, 5px, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate3D(0, 0, 0);
+  }
+}
+
+@keyframes in-scale {
+  0% {
+    opacity: 0;
+    transform: scale3D(0.95, 0.95, 1);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale3D(1, 1, 1);
+  }
+}
+
+:root {
+  --calcite-animation-timing: 300ms;
+}
+
+.calcite-animate {
+  opacity: 0;
+  animation-fill-mode: both;
+  animation-duration: var(--calcite-animation-timing);
+}
+
+.calcite-animate__in {
+  animation-name: in;
+}
+
+.calcite-animate__in-down {
+  animation-name: in-down;
+}
+
+.calcite-animate__in-up {
+  animation-name: in-up;
+}
+
+.calcite-animate__in-scale {
+  animation-name: in-scale;
+}
+
+/**
+* Currently only used in Checkbox.
+*/
+
+:root {
+  --calcite-popper-transition: 150ms ease-in-out;
+}
+
+:host([hidden]) {
+  display: none;
+}
+
+.root {
+  background-color: var(--calcite-ui-foreground-1);
+  box-shadow: 0 0 0 1px var(--calcite-ui-border-2);
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-block;
+  height: 100%;
+  max-width: 300px;
+  padding: 0.75rem;
+  position: relative;
+  transition: 150ms ease-in-out;
+  vertical-align: top;
+  z-index: 10;
+}
+
+:host {
+  display: block;
+}
+
+:host(:hover) .root {
+  z-index: 20;
+  box-shadow: 0 0 0 1px var(--calcite-ui-border-1);
+}
+
+:host([checked]) .root {
+  z-index: 30;
+  box-shadow: 0 0 0 1px var(--calcite-ui-brand);
+}
+
+.root.focused {
+  z-index: 30;
+}
+
+:host(:not([input-enabled]):hover) .root {
+  box-shadow: 0 0 0 1px var(--calcite-ui-brand);
+}
+
+:host(:not([input-enabled])) .root.focused {
+  box-shadow: 0 0 0 1px var(--calcite-ui-brand), inset 0 0 0 2px var(--calcite-ui-foreground-1), inset 0 0 0 5px var(--calcite-ui-brand);
+}
+
+:host([width=full]) .root {
+  max-width: none;
+  display: flex;
+}
+
+:host([width=full]) calcite-tile {
+  flex: 1 1 auto;
+}
+
+:host([input-alignment=start][width=full]) calcite-tile {
+  order: 1;
+  margin-inline-start: 0.75rem;
+}
+
+:host(:not([input-enabled])) ::slotted(calcite-checkbox),
+:host(:not([input-enabled])) ::slotted(calcite-radio-button) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+:host([heading]:not([icon]):not([description])) .root {
+  align-items: center;
+}
+
+:host([width=auto][input-enabled][input-alignment=start][icon][heading][description]) .root,
+:host([width=auto][input-enabled][input-alignment=start]:not([icon])[heading]:not([description])) .root {
+  display: inline-grid;
+  grid-gap: 0.75rem;
+  grid-template-columns: max-content 1fr;
+}
+
+:host([width=auto][input-enabled][input-alignment=start][icon][heading][description]) ::slotted(calcite-checkbox),
+:host([width=auto][input-enabled][input-alignment=start][icon][heading][description]) ::slotted(calcite-radio-button),
+:host([width=auto][input-enabled][input-alignment=start]:not([icon])[heading]:not([description])) ::slotted(calcite-checkbox),
+:host([width=auto][input-enabled][input-alignment=start]:not([icon])[heading]:not([description])) ::slotted(calcite-radio-button) {
+  order: 0;
+}
+
+:host([width=auto][input-enabled][input-alignment=start][icon][heading][description]) calcite-tile,
+:host([width=auto][input-enabled][input-alignment=start]:not([icon])[heading]:not([description])) calcite-tile {
+  order: 1;
+}
+
+:host([input-enabled][input-alignment=start][icon][heading]:not([description])) ::slotted(calcite-checkbox),
+:host([input-enabled][input-alignment=start][icon][heading]:not([description])) ::slotted(calcite-radio-button) {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+}
+
+:host([input-enabled][input-alignment=start][icon][heading]:not([description])) .calcite--rtl ::slotted(calcite-checkbox),
+:host([input-enabled][input-alignment=start][icon][heading]:not([description])) .calcite--rtl ::slotted(calcite-radio-button) {
+  right: 0.75rem;
+  left: unset;
+}
+
+:host([input-enabled][input-alignment=end][icon][heading]) ::slotted(calcite-checkbox),
+:host([input-enabled][input-alignment=end][icon][heading]) ::slotted(calcite-radio-button) {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+}
+
+:host([input-enabled][input-alignment=end][icon][heading]) .calcite--rtl ::slotted(calcite-checkbox),
+:host([input-enabled][input-alignment=end][icon][heading]) .calcite--rtl ::slotted(calcite-radio-button) {
+  right: unset;
+  left: 0.75rem;
+}
+
+:host([input-enabled][input-alignment=end][heading]:not([icon]):not([description])) .root {
+  display: inline-grid;
+  grid-gap: 0.75rem;
+  grid-template-columns: max-content 1fr;
+}
+
+:host([input-enabled][input-alignment=end][heading]:not([icon]):not([description])) ::slotted(calcite-checkbox),
+:host([input-enabled][input-alignment=end][heading]:not([icon]):not([description])) ::slotted(calcite-radio-button) {
+  justify-self: flex-end;
+}
+
+:host([hidden]) {
+  display: none;
+}
+
+:host([disabled]) {
+  opacity: var(--calcite-ui-opacity-disabled);
+  pointer-events: none;
+}
